@@ -76,9 +76,3 @@ nexus-react/
 - **Estado local con hooks**: las pestañas de ejes (`ServiceTabs`) y el
   formulario de contacto (`ContactForm`) usan `useState` en lugar de manipular
   el DOM directamente.
-
-## Conectar el formulario a un backend real
-
-En `src/components/ContactForm.jsx`, dentro de `handleSubmit`, está marcado el
-punto donde debes hacer el envío real (por ejemplo, un `fetch` a tu API o a un
-servicio como Formspree / EmailJS). Hoy solo muestra el toast de confirmación.
