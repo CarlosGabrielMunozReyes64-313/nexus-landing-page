@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { CONTACT_ORG_TYPES, CONTACT_INTEREST_AREAS } from '../data/siteData'
-import Toast from './Toast'
+import { useState } from 'react';
+import { CONTACT_ORG_TYPES, CONTACT_INTEREST_AREAS } from '../data/siteData';
+import Toast from './Toast';
 
 const INITIAL = {
   nombre: '',
@@ -9,27 +9,72 @@ const INITIAL = {
   tipo: '',
   eje: '',
   mensaje: '',
-}
+};
 
-// Formulario de contacto con estado controlado.
-// Al enviar muestra un toast durante 4 segundos y limpia los campos,
-// replicando el comportamiento de handleForm() del original.
+// Clave pública de Web3Forms. Es segura de exponer: solo permite ENVIAR
+// al correo que registraste en web3forms.com; no da acceso a leer nada.
+// Aun así la leemos desde .env para no dejarla escrita en el código.
+const WEB3FORMS_KEY = 'ae6e52e2-e971-4289-9699-25c4e8015ea3';
+
+// Formulario de contacto con envío real vía Web3Forms.
+// Estados: 'idle' (inicial) | 'sending' (enviando) | 'success' | 'error'.
 export default function ContactForm() {
-  const [form, setForm] = useState(INITIAL)
-  const [showToast, setShowToast] = useState(false)
+  const [form, setForm] = useState(INITIAL);
+  const [status, setStatus] = useState('idle');
+  const [showToast, setShowToast] = useState(false);
 
   const handleChange = (e) => {
-    const { id, value } = e.target
-    setForm((prev) => ({ ...prev, [id]: value }))
-  }
+    const { id, value } = e.target;
+    setForm((prev) => ({ ...prev, [id]: value }));
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Aquí iría el envío real (fetch a tu API o servicio de correo).
-    setShowToast(true)
-    setTimeout(() => setShowToast(false), 4000)
-    setForm(INITIAL)
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          // Asunto y remitente que verás en tu bandeja de entrada.
+          subject: `Nuevo mensaje de ${form.nombre || 'contacto'} — Sitio NEXUS`,
+          from_name: 'Sitio web NEXUS',
+          // 'replyto' permite que al responder el correo le llegue a quien escribió.
+          replyto: form.email,
+          // Campos del formulario (los nombres son los que verás en el correo).
+          Nombre: form.nombre,
+          Organizacion: form.org,
+          Correo: form.email,
+          'Tipo de organizacion': form.tipo,
+          'Area de interes': form.eje,
+          Mensaje: form.mensaje,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        setForm(INITIAL);
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 4000);
+      } else {
+        // Web3Forms respondió pero marcó un fallo (p. ej. clave inválida).
+        setStatus('error');
+      }
+    } catch (err) {
+      // Error de red u otro problema inesperado.
+      console.error('Error al enviar el formulario:', err);
+      setStatus('error');
+    }
+  };
+
+  const sending = status === 'sending';
 
   return (
     <>
@@ -99,12 +144,19 @@ export default function ContactForm() {
           />
         </div>
 
-        <button type="submit" className="form-submit">
-          Enviar mensaje →
+        {status === 'error' && (
+          <p style={{ color: '#c0392b', fontSize: '13px', margin: 0 }}>
+            Hubo un problema al enviar el mensaje. Inténtelo de nuevo o escríbanos directamente a
+            info@nexus-sostenible.co
+          </p>
+        )}
+
+        <button type="submit" className="form-submit" disabled={sending}>
+          {sending ? 'Enviando…' : 'Enviar mensaje →'}
         </button>
       </form>
 
       <Toast show={showToast} message="✓ Mensaje enviado. Le contactaremos pronto." />
     </>
-  )
+  );
 }

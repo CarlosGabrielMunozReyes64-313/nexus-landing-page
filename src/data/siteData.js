@@ -15,7 +15,7 @@ export const NAV_ITEMS = [
   { label: 'Alianzas', to: '/alianzas' },
   { label: 'Blog', to: '/blog' },
   { label: 'Contáctenos', to: '/contacto', cta: true },
-]
+];
 
 // ── Cifras de impacto (Inicio) ────────────────────────
 export const STATS = [
@@ -23,7 +23,7 @@ export const STATS = [
   { num: '+40', label: 'Proyectos ejecutados en Colombia y la región' },
   { num: '12+', label: 'Aliados estratégicos: academia, gobierno, sector privado' },
   { num: '4', label: 'Ejes estratégicos alineados con agendas globales' },
-]
+];
 
 // ── Propuesta de valor (Inicio) ───────────────────────
 export const VALOR_ITEMS = [
@@ -43,9 +43,9 @@ export const VALOR_ITEMS = [
     title: 'Innovación aplicada y resultados medibles',
     text: 'Cada intervención produce evidencia, aprendizaje y transformación concreta.',
   },
-]
+];
 
-export const SDG_BADGES = ['ODS 11', 'ODS 13', 'ODS 15', 'MGB 2030', 'SbN/UICN', 'CTI']
+export const SDG_BADGES = ['ODS 11', 'ODS 13', 'ODS 15', 'MGB 2030', 'SbN/UICN', 'CTI'];
 
 // ── Pilares estratégicos (Inicio) ─────────────────────
 // `icon` referencia el nombre del componente SVG en components/icons/PillarIcons.jsx
@@ -70,7 +70,7 @@ export const PILLARS = [
     title: 'Ciencia, Tecnología e Innovación (CTI)',
     text: 'Investigación aplicada, análisis geoespacial y SIG, bioprospección, metagenómica y transferencia de conocimiento. Convertimos el dato científico en decisión estratégica para gobiernos y organizaciones.',
   },
-]
+];
 
 // ── Equipo senior (Quiénes Somos) ─────────────────────
 export const TEAM = [
@@ -92,7 +92,7 @@ export const TEAM = [
     role: 'Gestión Pública · Innovación Social',
     bio: 'Especialista en gestión pública territorial e innovación social con experiencia en formulación y evaluación de políticas públicas ambientales, gerencia de proyectos con cooperación internacional y fortalecimiento de capacidades institucionales en gobiernos locales.',
   },
-]
+];
 
 // ── Ejes estratégicos / pestañas de servicios ─────────
 export const SERVICES = [
@@ -164,7 +164,7 @@ export const SERVICES = [
       'Formulación de proyectos BPIN y convocatorias de Minciencias',
     ],
   },
-]
+];
 
 // ── Portafolio de proyectos ───────────────────────────
 // `cat` es la clase de color (cat-urban, cat-bio, cat-agua, cat-corp)
@@ -223,7 +223,7 @@ export const PROJECTS = [
     title: 'NEXUS Ecosistemas Resilientes',
     desc: 'Estudio de línea base y metodología para el proyecto CLIMALAB de resiliencia climática en Buenaventura y Jamundí, con análisis territorial y diagnóstico socioambiental participativo.',
   },
-]
+];
 
 // ── Agendas globales (Alianzas) ───────────────────────
 export const AGENDAS = [
@@ -247,7 +247,7 @@ export const AGENDAS = [
     title: 'ICLEI y Redes de Ciudades Sostenibles',
     text: 'Articulamos gobiernos locales con redes globales como ICLEI para el intercambio de experiencias, acceso a herramientas técnicas y posicionamiento en agendas de política climática urbana.',
   },
-]
+];
 
 // ── Red de aliados (Alianzas) ─────────────────────────
 export const ALLIES = [
@@ -255,7 +255,7 @@ export const ALLIES = [
   { logo: 'UC', name: 'Universidad del Cauca', type: 'Investigación y academia' },
   { logo: 'GL', name: 'Gobiernos Locales', type: 'Alcaldías y gobernaciones' },
   { logo: 'CI', name: 'Cooperación Internacional', type: 'GEF · BID · PNUD · GIZ' },
-]
+];
 
 // ── Artículos del blog ────────────────────────────────
 export const BLOG_POSTS = [
@@ -264,44 +264,50 @@ export const BLOG_POSTS = [
     bg: '#E8F5EF',
     topic: 'Soluciones basadas en la Naturaleza',
     title: '¿Qué son las SbN y por qué están transformando la planificación territorial?',
-    preview: 'El estándar global de la UICN y el Marco Global de Biodiversidad abren una nueva era para los proyectos de infraestructura verde y restauración ecológica a escala territorial...',
+    preview:
+      'El estándar global de la UICN y el Marco Global de Biodiversidad abren una nueva era para los proyectos de infraestructura verde y restauración ecológica a escala territorial...',
   },
   {
     emoji: '🌡️',
     bg: '#E1F0F5',
     topic: 'Resiliencia Climática',
     title: 'Ciudades que respiran: infraestructura verde como estrategia de adaptación',
-    preview: 'Análisis de casos exitosos de ecobarrios y corredores ecológicos urbanos que demuestran el valor económico y social de la naturaleza integrada en el diseño de la ciudad...',
+    preview:
+      'Análisis de casos exitosos de ecobarrios y corredores ecológicos urbanos que demuestran el valor económico y social de la naturaleza integrada en el diseño de la ciudad...',
   },
   {
     emoji: '🔬',
     bg: '#E8F5E9',
     topic: 'Biodiversidad y Biotecnología',
     title: 'Metagenómica territorial: leer el suelo para entender el ecosistema',
-    preview: 'Cómo el análisis del microbioma de suelos y subproductos agroindustriales abre oportunidades para la bioeconomía regional y el desarrollo sostenible basado en la ciencia...',
+    preview:
+      'Cómo el análisis del microbioma de suelos y subproductos agroindustriales abre oportunidades para la bioeconomía regional y el desarrollo sostenible basado en la ciencia...',
   },
   {
     emoji: '🏙️',
     bg: '#F3E5F5',
     topic: 'Innovación Territorial',
     title: 'Gobernanza ambiental participativa: lecciones desde los ecobarrios del Valle',
-    preview: 'El caso de los ecobarrios en Cali y Yumbo muestra que la participación genuina es el factor diferenciador entre proyectos de impacto real y documentos que terminan archivados...',
+    preview:
+      'El caso de los ecobarrios en Cali y Yumbo muestra que la participación genuina es el factor diferenciador entre proyectos de impacto real y documentos que terminan archivados...',
   },
   {
     emoji: '💧',
     bg: '#E3F2FD',
     topic: 'Gestión del Agua',
     title: 'Coagulantes naturales: ciencia local para el tratamiento del agua',
-    preview: 'Investigación y resultados de la aplicación de coagulantes de origen vegetal como alternativa sostenible, accesible y eficiente para el tratamiento de agua en comunidades rurales...',
+    preview:
+      'Investigación y resultados de la aplicación de coagulantes de origen vegetal como alternativa sostenible, accesible y eficiente para el tratamiento de agua en comunidades rurales...',
   },
   {
     emoji: '🤝',
     bg: '#FFF8E1',
     topic: 'Cooperación Internacional',
     title: 'Cómo acceder a fondos climáticos internacionales: guía práctica para municipios',
-    preview: 'Los mecanismos del GEF, GCF y PNUD están disponibles para municipios colombianos. Lo que falta es conocer las reglas del juego y formular proyectos sólidos con enfoque territorial...',
+    preview:
+      'Los mecanismos del GEF, GCF y PNUD están disponibles para municipios colombianos. Lo que falta es conocer las reglas del juego y formular proyectos sólidos con enfoque territorial...',
   },
-]
+];
 
 // ── Formulario de contacto: opciones de los select ────
 export const CONTACT_ORG_TYPES = [
@@ -311,7 +317,7 @@ export const CONTACT_ORG_TYPES = [
   'Academia / Universidad',
   'Organización comunitaria o social',
   'Otro',
-]
+];
 
 export const CONTACT_INTEREST_AREAS = [
   'Ciudades y Territorios Sostenibles',
@@ -319,7 +325,7 @@ export const CONTACT_INTEREST_AREAS = [
   'Innovación Social y Gobernanza',
   'Ciencia, Tecnología e Innovación (CTI)',
   'Múltiples ejes / Proyecto integral',
-]
+];
 
 export const CONTACT_TARGETS = [
   'Gobiernos municipales y departamentales con retos de planificación sostenible',
@@ -327,7 +333,7 @@ export const CONTACT_TARGETS = [
   'Comunidades y organizaciones sociales en procesos de desarrollo territorial',
   'Organismos de cooperación internacional con programas en Colombia y la región',
   'Universidades y centros de investigación interesados en alianzas CTI',
-]
+];
 
 // ── Footer ────────────────────────────────────────────
 export const FOOTER_NAV = [
@@ -337,11 +343,11 @@ export const FOOTER_NAV = [
   { label: 'Portafolio', to: '/portafolio' },
   { label: 'Alianzas', to: '/alianzas' },
   { label: 'Blog', to: '/blog' },
-]
+];
 
 export const FOOTER_TOPICS = [
   { label: 'Territorios Sostenibles', to: '/ejes' },
   { label: 'Biodiversidad y SbN', to: '/ejes' },
   { label: 'Innovación Social', to: '/ejes' },
   { label: 'CTI', to: '/ejes' },
-]
+];
