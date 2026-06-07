@@ -1,6 +1,6 @@
-import Hero from '../components/Hero'
-import TeamCard from '../components/TeamCard'
-import { TEAM } from '../data/siteData'
+import Hero from '../components/Hero';
+import TeamCard from '../components/TeamCard';
+import { TEAM } from '../data/siteData';
 
 export default function Quienes() {
   return (
@@ -43,8 +43,8 @@ export default function Quienes() {
                 <div className="mv-title">Visión</div>
                 <p className="mv-text">
                   Ser el referente latinoamericano en innovación para el desarrollo territorial
-                  sostenible, contribuyendo a la construcción de territorios resilientes, biodiversos
-                  e inclusivos en los que ninguna comunidad quede atrás.
+                  sostenible, contribuyendo a la construcción de territorios resilientes,
+                  biodiversos e inclusivos en los que ninguna comunidad quede atrás.
                 </p>
               </div>
             </div>
@@ -62,5 +62,5 @@ export default function Quienes() {
         </div>
       </section>
     </>
-  )
+  );
 }
