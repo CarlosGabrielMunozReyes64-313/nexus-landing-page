@@ -1,5 +1,5 @@
-import Hero from '../components/Hero'
-import ServiceTabs from '../components/ServiceTabs'
+import Hero from '../components/Hero';
+import ServiceTabs from '../components/ServiceTabs';
 
 export default function Ejes() {
   return (
@@ -14,11 +14,7 @@ export default function Ejes() {
         }
       />
 
-      <section>
-        <div className="section-inner">
-          <ServiceTabs />
-        </div>
-      </section>
+      <ServiceTabs />
     </>
-  )
+  );
 }

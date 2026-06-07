@@ -11,6 +11,7 @@ export default function Inicio() {
   return (
     <>
       <Hero
+        carousel
         tag="Innovación · Alianzas · Desarrollo Sostenible"
         title={
           <>

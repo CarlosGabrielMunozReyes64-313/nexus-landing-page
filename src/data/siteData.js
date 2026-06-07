@@ -351,3 +351,152 @@ export const FOOTER_TOPICS = [
   { label: 'Innovación Social', to: '/ejes' },
   { label: 'CTI', to: '/ejes' },
 ];
+
+// =====================================================
+//  IDENTIDAD CORPORATIVA 2026
+//  Contenido oficial tomado del documento de identidad
+//  corporativa. Bloque añadido sin modificar lo anterior.
+// =====================================================
+
+// ── Datos de la empresa (razón social, contacto) ──────
+export const COMPANY_INFO = {
+  legalName: 'NEXUS: Innovación y Alianzas para un Futuro Sostenible S.A.S.',
+  shortName: 'NEXUS S.A.S.',
+  tagline: 'Innovación y Alianzas para un Futuro Sostenible',
+  city: 'Santiago de Cali, Valle del Cauca, Colombia',
+  email: 'nexus@innovacion.com.co',
+};
+
+// ── Quiénes Somos (descripción oficial) ───────────────
+export const ABOUT_INTRO = [
+  'NEXUS: Innovación y Alianzas para un Futuro Sostenible S.A.S. es una empresa colombiana especializada en la articulación de soluciones estratégicas para la transformación territorial, social y ambiental. Nacemos de la convicción de que los desafíos más complejos de nuestro tiempo —el cambio climático, la desigualdad territorial, la transición energética y la brecha tecnológica— solo pueden resolverse desde la cooperación intersectorial y la innovación aplicada.',
+  'Operamos en la intersección entre el sector público, el sector privado, la academia y las comunidades, formulando, ejecutando e interviniendo proyectos de alto impacto en los ámbitos ambiental, social, educativo, tecnológico, energético e industrial. Nuestra metodología combina el rigor técnico de la investigación con la agilidad de las soluciones escalables, garantizando resultados medibles y sostenibles en cada territorio donde actuamos.',
+  'Desde el departamento del Valle del Cauca, en su capital Santiago de Cali, con proyección nacional e internacional, NEXUS lidera procesos de I+D+i, interventoría, consultoría, comercio sostenible y gestión logística integral, apalancados en tecnologías avanzadas, inteligencia de datos y alianzas estratégicas de largo plazo. Somos más que una empresa: somos un ecosistema de transformación comprometido con construir el futuro que el planeta y sus comunidades necesitan.',
+];
+
+// ── Misión y Visión oficiales ─────────────────────────
+export const MISSION = {
+  heading: 'Nuestra razón de ser',
+  text: 'En NEXUS diseñamos, ejecutamos e intervenimos proyectos que transforman territorios y mercados hacia la sostenibilidad, articulando actores del sector público, privado, académico y social bajo estándares de transparencia, innovación y rigor técnico. Generamos soluciones escalables en I+D+i, energía, medio ambiente, infraestructura y desarrollo territorial que crean valor duradero para las comunidades, los ecosistemas y las instituciones, contribuyendo activamente a los desafíos globales del cambio climático, la equidad y la transición hacia economías más resilientes e inclusivas.',
+};
+
+export const VISION = {
+  heading: 'Hacia dónde vamos',
+  text: 'Al 2035, NEXUS será reconocido en Colombia y Latinoamérica como el socio estratégico de referencia para la transformación sostenible de territorios, consolidando un modelo de innovación intersectorial replicable que integra tecnologías avanzadas, políticas públicas basadas en evidencia y alianzas de largo alcance. Lideraremos en I+D+i aplicado, interventoría de impacto, energía renovable y desarrollo territorial, siendo un actor clave en la arquitectura de soluciones frente a los desafíos climáticos, sociales y económicos de nuestra región.',
+};
+
+// ── Valores corporativos ──────────────────────────────
+export const CORPORATE_VALUES = [
+  {
+    title: 'Sostenibilidad como mandato estratégico',
+    text: 'Cada decisión, proyecto y alianza que desarrollamos integra criterios de viabilidad ambiental, social y económica a largo plazo. La sostenibilidad no es un diferencial: es nuestra base de operación.',
+  },
+  {
+    title: 'Innovación orientada al impacto',
+    text: 'Aplicamos metodologías de I+D+i, tecnologías emergentes e inteligencia de datos para generar soluciones que resuelven problemas reales. Innovamos con propósito: cada desarrollo debe ser escalable, medible y replicable en los territorios donde actuamos.',
+  },
+  {
+    title: 'Transparencia y gobernanza responsable',
+    text: 'Gestionamos cada recurso, proceso y alianza con ética, trazabilidad y rendición de cuentas. La confianza de nuestros clientes, socios y comunidades se construye con hechos verificables y comunicación abierta.',
+  },
+  {
+    title: 'Colaboración intersectorial',
+    text: 'Creemos que la transformación territorial requiere la convergencia del sector público, el privado, la academia y la sociedad civil. Facilitamos esas intersecciones y construimos sinergias que ningún actor podría lograr en solitario.',
+  },
+  {
+    title: 'Inclusión y equidad territorial',
+    text: 'Diseñamos soluciones que reducen brechas y amplían oportunidades para poblaciones y territorios históricamente excluidos. La equidad no es un objetivo secundario: es un criterio de evaluación de cada proyecto que ejecutamos.',
+  },
+  {
+    title: 'Resiliencia y adaptabilidad',
+    text: 'Operamos en entornos complejos e inciertos —climáticos, regulatorios y sociales— y desarrollamos la capacidad institucional de anticipar, adaptarnos y prosperar ante los cambios del entorno global y local.',
+  },
+];
+
+// ── Desafíos estratégicos que nos definen ─────────────
+export const STRATEGIC_CHALLENGES = [
+  {
+    title: 'Transición energética justa',
+    text: 'Acompañar a territorios y empresas en el tránsito hacia energías renovables, garantizando que los beneficios lleguen a las comunidades más vulnerables.',
+  },
+  {
+    title: 'Adaptación y mitigación climática',
+    text: 'Diseñar e intervenir proyectos que fortalezcan la resiliencia territorial frente al cambio climático, la degradación ambiental y los eventos extremos.',
+  },
+  {
+    title: 'Cierre de brechas tecnológicas',
+    text: 'Facilitar la transformación digital de sectores productivos, instituciones públicas y comunidades rurales mediante soluciones accesibles y escalables.',
+  },
+  {
+    title: 'Políticas públicas basadas en evidencia',
+    text: 'Posicionar a NEXUS como actor técnico de referencia en el diseño de instrumentos de política para la sostenibilidad y el desarrollo territorial.',
+  },
+  {
+    title: 'Internacionalización sostenible',
+    text: 'Desarrollar mercados y alianzas en Latinoamérica para proyectos de alto impacto que conecten financiamiento internacional con necesidades locales.',
+  },
+  {
+    title: 'Economía circular e innovación social',
+    text: 'Impulsar modelos de negocio que regeneren recursos, reduzcan residuos y generen valor social en los territorios donde operamos.',
+  },
+  {
+    title: 'Gobernanza territorial e institucional',
+    text: 'Actuamos como puente estratégico entre la institucionalidad y el territorio: articulamos actores públicos, privados y comunitarios, y co-diseñamos esquemas de gobernanza con trazabilidad, participación ciudadana y rendición de cuentas, generando estructuras de decisión más equitativas, eficientes y resilientes.',
+  },
+];
+
+// ── Nuestra propuesta de valor (capacidades) ──────────
+export const VALUE_PROPOSITION = [
+  {
+    title: 'I+D+i Aplicado',
+    text: 'Metodologías avanzadas y tecnologías emergentes al servicio de problemas concretos en sectores estratégicos.',
+  },
+  {
+    title: 'Interventoría de Impacto',
+    text: 'Supervisión técnica, administrativa, financiera y ambiental que garantiza transparencia, calidad y resultados en la ejecución de proyectos.',
+  },
+  {
+    title: 'Alianzas Estratégicas',
+    text: 'Articulación de redes intersectoriales que amplifican el alcance y la sostenibilidad de cada iniciativa.',
+  },
+  {
+    title: 'Consultoría Territorial',
+    text: 'Asesoría especializada en sostenibilidad, RSE, políticas públicas y desarrollo territorial con enfoque de resultados medibles.',
+  },
+  {
+    title: 'Comercio Sostenible',
+    text: 'Facilitamos la exportación, importación y comercialización de bienes y servicios con certificaciones y estándares globales de sostenibilidad.',
+  },
+  {
+    title: 'Logística e Infraestructura',
+    text: 'Optimización integral de cadenas de suministro y proyectos de infraestructura con criterios de eficiencia y sostenibilidad.',
+  },
+];
+
+// ── Casos de impacto / clientes reales (Portafolio) ───
+export const CASE_STUDIES = [
+  {
+    client: 'ICLEI',
+    year: '2025',
+    type: 'Soluciones basadas en la Naturaleza',
+    title: 'Dos SbN para la gestión del riesgo y la resiliencia climática',
+    desc: 'Diseño de dos Soluciones basadas en la Naturaleza (SbN) para la gestión del riesgo de desastres y la resiliencia climática, alineadas con estándares internacionales y herramientas especializadas. El proceso aseguró un enfoque metodológico integral y participativo, incorporando principios de protección, equidad de género e inclusión.',
+    locations: ['Barranquilla, Atlántico', 'Copacabana, Antioquia'],
+    tags: ['SbN', 'Gestión del riesgo', 'Resiliencia climática', 'Equidad de género', 'Inclusión'],
+  },
+  {
+    client: 'Inversiones López',
+    year: '2025',
+    type: 'Responsabilidad Social Empresarial · ASG',
+    title: 'Política Institucional de RSE con criterios ASG',
+    desc: 'Formulación, diseño y entrega de la Política Institucional de Responsabilidad Social Empresarial, conforme a los criterios ASG (Ambientales, Sociales y de Gobernanza). La metodología comprendió diagnóstico, análisis normativo y de riesgos, matriz de materialidad, diseño del documento institucional de política y construcción de indicadores SMART, complementada con talleres de cocreación.',
+    locations: ['Yopal, Casanare', 'San José del Guaviare, Guaviare'],
+    tags: [
+      'RSE',
+      'Criterios ASG',
+      'Matriz de materialidad',
+      'Indicadores SMART',
+      'Talleres de cocreación',
+    ],
+  },
+];
