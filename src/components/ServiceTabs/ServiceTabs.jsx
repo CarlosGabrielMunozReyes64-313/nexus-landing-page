@@ -1,25 +1,26 @@
 import { useState } from 'react';
-import { SERVICES } from '../../data/siteData';
+import { SERVICES, ARS_METHODOLOGY } from '../../data/siteData';
 import './ServiceTabs.css';
 
-// Imágenes de fondo de cada eje. Arrastra los archivos a src/assets/ejes/
-// con EXACTAMENTE estos nombres. import.meta.glob los empaqueta solo.
+// Imágenes de fondo de cada eje (en src/assets/ejes/). Imports estáticos:
+// si un archivo falta o el nombre no coincide, Vite avisa con un error claro
+// en vez de dejar el banner sin imagen en silencio.
+import Eje1 from '../../assets/ejes/Eje1.jpg';
+import Eje2 from '../../assets/ejes/Eje2.jpg';
+import Eje3 from '../../assets/ejes/Eje3.jpg';
+import Eje4 from '../../assets/ejes/Eje4.jpg';
+
 const EJE_IMAGES = {
-  tab1: 'territorios.jpg',
-  tab2: 'biodiversidad.jpg',
-  tab3: 'innovacion.jpg',
-  tab4: 'cti.jpg',
+  tab1: Eje1, // Gobernanza Territorial e Innovación Pública
+  tab2: Eje2, // Sostenibilidad Ambiental y Gestión del Riesgo
+  tab3: Eje3, // Economía Circular y Metabolismo Urbano-Rural
+  tab4: Eje4, // Tecnologías de la Información Geográfica (TIG)
 };
-const modules = import.meta.glob('../../assets/ejes/*.{jpg,jpeg,png,webp,avif}', { eager: true });
-const imgMap = {};
-for (const path in modules) {
-  imgMap[path.split('/').pop()] = modules[path].default;
-}
 
 export default function ServiceTabs() {
   const [active, setActive] = useState(SERVICES[0].id);
   const current = SERVICES.find((s) => s.id === active);
-  const imgSrc = imgMap[EJE_IMAGES[current.id]];
+  const imgSrc = EJE_IMAGES[current.id];
 
   return (
     <>
@@ -52,9 +53,20 @@ export default function ServiceTabs() {
           <p className="eje-desc">{current.desc}</p>
           <ul className="eje-list">
             {current.list.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item.label}>
+                <span className="eje-list-label">{item.label}.</span> {item.text}
+              </li>
             ))}
           </ul>
+        </div>
+      </div>
+
+      {/* Metodología transversal: Análisis de Redes Sociales (ARS) */}
+      <div className="ars-band">
+        <div className="ars-inner">
+          <div className="ars-tag">{ARS_METHODOLOGY.tag}</div>
+          <h3 className="ars-title">{ARS_METHODOLOGY.title}</h3>
+          <p className="ars-text">{ARS_METHODOLOGY.text}</p>
         </div>
       </div>
     </>

@@ -73,98 +73,220 @@ export const PILLARS = [
 ];
 
 // ── Equipo senior (Quiénes Somos) ─────────────────────
+// Cada integrante: { initials, name, role, bio }. Opcionalmente puede
+// incluir `profile` con el CV ampliado (resumen, formación, experiencia y
+// competencias); cuando existe, la tarjeta muestra "Ver perfil completo".
 export const TEAM = [
   {
-    initials: 'RV',
-    name: 'Robert Vivas',
-    role: 'Diseño Participativo · Sostenibilidad Territorial',
-    bio: 'Experto en procesos de diseño participativo y planificación territorial sostenible con más de 15 años liderando proyectos de transformación urbana y comunitaria en Colombia y América Latina. Especialista en gobernanza ambiental y gestión de paisajes culturales.',
+    initials: 'GV',
+    name: 'Guillermo Alberto Vélez Tobar',
+    role: 'Ecólogo · Consultor e Investigador',
+    bio: 'Ecólogo con formación doctoral (cand.) y dos maestrías en ciencias. Especialista en planificación territorial, gestión integral de residuos —políticas de Basura Cero, valorización de RCD, NFU y compostaje— y tecnologías de precisión para el monitoreo ambiental, con un enfoque riguroso basado en el método científico y estándares internacionales.',
+    profile: {
+      title:
+        'Ecólogo | Consultor e Investigador. Especialista en Planificación Territorial, Gestión Ambiental y Políticas de Transformación de Residuos',
+      summary:
+        'Ecólogo de profesión con una sólida formación de posgrado y experiencia integral en la formulación, coordinación y evaluación de proyectos de desarrollo territorial, gestión ambiental y sostenibilidad. Investigador y consultor con capacidades demostradas en el diseño de flujos operacionales para infraestructuras de gestión integral de residuos (enfocado en políticas de Basura Cero, valorización de RCD, NFU y compostaje) y en la aplicación de tecnologías de precisión para la planificación y el monitoreo ambiental. Experiencia en la articulación comunitaria y la docencia en contextos de producción rural. Posee un fuerte enfoque analítico basado en el método científico, modelamiento técnico y rigurosidad metodológica bajo estándares internacionales.',
+      education: [
+        'Profesional en Ecología',
+        'Doctorado (Cand.) en Gestión de la Innovación Tecnológica — UTEL Universidad',
+        'Maestría en Ciencias en Ingeniería Ambiental',
+        'Maestría en Ciencias en Conservación y Manejo de Vida Silvestre',
+        'Pregrado en Administración Pública (9.º semestre) — Escuela Superior de Administración Pública (ESAP)',
+      ],
+      experience: [
+        {
+          role: 'Consultor Técnico Ambiental',
+          org: 'Actualización del PGIRS — DAFE Popayán',
+          detail:
+            'Desarrollo de informes técnicos finales, estructuración de anexos contractuales y planeación estratégica para la gestión integral de residuos sólidos en el municipio.',
+        },
+        {
+          role: 'Contratista e Investigador',
+          org: 'Servicio Nacional de Aprendizaje (SENA)',
+          detail:
+            'Líder de proyectos de investigación aplicada (SGPS), con énfasis en la evaluación del impacto de la educación no formal en unidades de producción ganadera y análisis metodológicos complejos mediante el Análisis de Redes Sociales (ARS).',
+        },
+        {
+          role: 'Consultor en Transferencia Tecnológica',
+          org: 'Maser Colombia & Stevens Water Monitoring Systems',
+          detail:
+            'Asesoría técnica y comercial para la implementación de sistemas avanzados de monitoreo de suelos (HydraGO y HydraGO FLEX) aplicados a la agricultura de precisión y la gestión del agua.',
+        },
+        {
+          role: 'Comisionado y Gestor Comunitario',
+          org: 'Zonas de Intervención (Cauca: Piamonte, Toribío, Calibío)',
+          detail:
+            'Coordinación de transferencias técnicas en campo, levantamiento de muestreos bióticos/abióticos y vinculación de comunidades locales en planes de ordenamiento territorial.',
+        },
+      ],
+      skills: [
+        {
+          area: 'Sistemas de Información Geográfica (SIG)',
+          detail:
+            'Dominio de ArcMap y QGIS para análisis espacial, mapeo de zonas de riesgo y planificación agroecológica.',
+        },
+        {
+          area: 'Modelamiento Hidráulico',
+          detail:
+            'Manejo de herramientas como HEC-RAS y EPANET para el diseño de redes y la simulación de flujos de agua.',
+        },
+        {
+          area: 'Metodología de Investigación',
+          detail:
+            'Análisis de Redes Sociales (ARS), formulación de proyectos bajo el marco lógico de la administración pública y redacción científico-técnica.',
+        },
+      ],
+    },
   },
   {
-    initials: 'GV',
-    name: 'Guillermo Vélez',
-    role: 'Ecología · SIG · Análisis Territorial',
-    bio: 'Ecólogo con maestría en ciencias ambientales y formación avanzada en administración pública. Especializado en análisis geoespacial, gestión ambiental territorial, tecnología e innovación en sostenibilidad. Experiencia en programas de gestión de residuos sólidos y proyectos de inversión pública ambiental.',
+    initials: 'JM',
+    name: 'Jaime Andrés Marín Molina',
+    role: 'Especialista Senior SbN · Ecología',
+    bio: 'Ingeniero Agrónomo con más de 20 años de experiencia en gestión ambiental, agricultura sostenible, monitoreo ecosistémico y manejo de recursos naturales. Especialista en diseño e implementación de estrategias de resiliencia climática, restauración ecológica, gestión del agua y análisis territorial para la aplicación de Soluciones Basadas en la Naturaleza.',
   },
   {
     initials: 'VS',
-    name: 'Viviana Sánchez',
-    role: 'Gestión Pública · Innovación Social',
-    bio: 'Especialista en gestión pública territorial e innovación social con experiencia en formulación y evaluación de políticas públicas ambientales, gerencia de proyectos con cooperación internacional y fortalecimiento de capacidades institucionales en gobiernos locales.',
+    name: 'Viviana María Sánchez Escobar',
+    role: 'Profesional Social y Participativo',
+    bio: 'Administradora Pública, Especialista en Gerencia Social y Magíster en Gerencia para la Innovación Social. Cuenta con más de 13 años de experiencia en coordinación interinstitucional, participación ciudadana, sostenibilidad urbana y formulación de proyectos climáticos. Experta en procesos de gobernanza territorial, concertación comunitaria y construcción participativa de soluciones ambientales y sociales.',
+  },
+  {
+    initials: 'JS',
+    name: 'Juan David Sandoval Gaviria',
+    role: 'Especialista SIG · Geomática',
+    bio: 'Geógrafo bilingüe con experiencia en análisis geoespacial, ordenamiento territorial y gestión de información ambiental. Especialista en Sistemas de Información Geográfica (SIG), modelación territorial, cartografía temática y análisis socioambiental para la planificación, priorización y monitoreo de intervenciones basadas en la naturaleza.',
+  },
+  {
+    initials: 'PS',
+    name: 'Paola Andrea Sánchez Escobar',
+    role: 'Profesional Logística',
+    bio: 'Economista y Especialista en Gerencia en Logística Integral, con amplia experiencia en planeación operativa, administración de recursos, seguimiento financiero y gestión logística. Su experiencia contribuye a garantizar la eficiencia operativa, el control de recursos y la adecuada coordinación administrativa de los proyectos.',
+  },
+  {
+    initials: 'RV',
+    name: 'Robert Armando Vivas Tovar',
+    role: 'Profesional Diseño',
+    bio: 'Diseñador Industrial con más de 10 años de experiencia en sostenibilidad, innovación social y participación comunitaria. Especialista en el diseño y facilitación de metodologías de cocreación para la formulación e implementación de Soluciones Basadas en la Naturaleza (SbN), integrando comunidades, actores institucionales y sectores productivos. Cuenta con experiencia en economía circular, cambio climático, restauración ecológica y gobernanza ambiental, incluyendo la estrategia Ecobarrios Cali.',
+  },
+  {
+    initials: 'DC',
+    name: 'Derly Andrea Cabrera Gómez',
+    role: 'Ingeniera de Implementación SbN',
+    bio: 'Gerente de Proyectos PMP® con experiencia en los sectores gubernamental, industrial y de salud. Especialista en planificación estratégica, gestión de riesgos, seguimiento de proyectos, aseguramiento de la calidad y control de cumplimiento. Aporta capacidades para la coordinación operativa, el monitoreo de indicadores, la gestión de información y la articulación técnica para la implementación efectiva de Soluciones Basadas en la Naturaleza.',
+  },
+  {
+    initials: 'CM',
+    name: 'Carlos Gabriel Muñoz',
+    role: 'Asistente Técnico y de Campo',
+    bio: 'Técnico en Desarrollo de Software en formación, con conocimientos en gestión de información, bases de datos, herramientas digitales y soporte operativo. Apoya las actividades de levantamiento, procesamiento y organización de información técnica, así como el seguimiento y la sistematización de resultados del proyecto.',
   },
 ];
 
 // ── Ejes estratégicos / pestañas de servicios ─────────
+// Cada eje: id, tab (rótulo de la pestaña), svcTitle (título), name (rótulo
+// pequeño), desc (intro) y list, donde cada ítem es { label, text }.
 export const SERVICES = [
   {
     id: 'tab1',
-    tab: 'Territorios Sostenibles',
-    icon: '🏙️',
-    svcTitle: 'Ciudades y Territorios Sostenibles',
-    svcSub: 'Planificación · Infraestructura verde · Residuos',
-    name: 'Eje 1: Ciudades y Territorios Sostenibles',
-    desc: 'Diseñamos estrategias de transformación urbana y territorial que integran la sostenibilidad como componente estructural de la planificación. Nuestro enfoque combina análisis espacial, participación ciudadana y metodologías de resiliencia climática para producir territorios que funcionen mejor para las personas y los ecosistemas.',
+    tab: 'Gobernanza',
+    icon: '🏛️',
+    svcTitle: 'Gobernanza Territorial e Innovación Pública',
+    svcSub: 'Conocimiento · Decisión · Transparencia',
+    name: 'Eje 1',
+    desc: 'Este eje se centra en el fortalecimiento institucional y la cocreación de políticas públicas basadas en datos, conectando a la academia, el sector público y las comunidades.',
     list: [
-      'Planificación urbana sostenible y ordenamiento territorial con SIG',
-      'Diseño e implementación de infraestructura verde y azul',
-      'Programas de Basura Cero y gestión sostenible de residuos sólidos',
-      'Diseño de ecobarrios participativos (metodología Cali, Yumbo)',
-      'Evaluación de riesgo climático y estrategias de adaptación municipal',
-      'Gestión de movilidad sostenible y espacio público biofílico',
+      {
+        label: 'Gestión del Conocimiento y Formación',
+        text: 'Desarrollo de capacidades a través de procesos de educación no formal e investigación-acción participativa para líderes comunitarios y funcionarios públicos.',
+      },
+      {
+        label: 'Herramientas de Soporte a la Decisión',
+        text: 'Implementación de metodologías analíticas para optimizar la planificación e inversión pública en el territorio.',
+      },
+      {
+        label: 'Democratización de la Información',
+        text: 'Espacios de transparencia y acceso a datos clave para mejorar el control social y la gestión comunitaria.',
+      },
     ],
   },
   {
     id: 'tab2',
-    tab: 'Biodiversidad y SbN',
-    icon: '🌿',
-    svcTitle: 'Biodiversidad y Soluciones basadas en la Naturaleza',
-    svcSub: 'Restauración · Bioeconomía · Estándares UICN',
-    name: 'Eje 2: Biodiversidad y Soluciones basadas en la Naturaleza',
-    desc: 'La naturaleza es la infraestructura más eficiente que existe. Diseñamos intervenciones que restauran, conservan y aprovechan de manera sostenible el capital natural como base del desarrollo territorial, alineadas con el Marco Global de Biodiversidad Kunming-Montreal 2030 y los estándares de la UICN.',
+    tab: 'Ambiente y Riesgo',
+    icon: '🌧️',
+    svcTitle: 'Sostenibilidad Ambiental y Gestión del Riesgo',
+    svcSub: 'Hidrología · Monitoreo · Paisaje',
+    name: 'Eje 2',
+    desc: 'Orientado a responder a las dinámicas ecológicas de los ecosistemas locales mediante el monitoreo de precisión y la planificación basada en la evidencia física del territorio.',
     list: [
-      'Restauración ecológica de ecosistemas degradados y áreas estratégicas',
-      'Diseño de corredores biológicos y gestión de paisajes',
-      'Valoración de servicios ecosistémicos y capital natural',
-      'Estrategias de bioeconomía y uso sostenible de la biodiversidad',
-      'Aplicación de estándares UICN y herramientas del Marco Global de Biodiversidad',
-      'Monitoreo de biodiversidad con tecnología y bioinformática',
+      {
+        label: 'Modelamiento Hidráulico e Hidrológico',
+        text: 'Integración de herramientas avanzadas para la delimitación de zonas de inundación, análisis de cuencas y gestión del riesgo de desastres.',
+      },
+      {
+        label: 'Monitoreo Ambiental de Precisión',
+        text: 'Incorporación de redes de sensores (como tecnologías de monitoreo de suelos y variables hidroclimáticas) para optimizar la toma de decisiones en sectores clave como el agua rural y la agricultura de precisión.',
+      },
+      {
+        label: 'Planificación del Paisaje y Conservación',
+        text: 'Evaluación de la conectividad ecológica y el impacto del cambio de uso del suelo, garantizando la preservación de las fuentes hídricas estratégicas.',
+      },
     ],
   },
   {
     id: 'tab3',
-    tab: 'Innovación Social',
-    icon: '🤝',
-    svcTitle: 'Innovación Social y Gobernanza',
-    svcSub: 'Participación · Políticas públicas · Capacidades',
-    name: 'Eje 3: Innovación Social y Gobernanza',
-    desc: 'La sostenibilidad es, antes que todo, un proyecto colectivo. Acompañamos a comunidades, gobiernos e instituciones en la construcción de acuerdos, capacidades y estructuras de gobernanza que hagan posible la transición hacia modelos de desarrollo más justos, resilientes e inclusivos.',
+    tab: 'Economía Circular',
+    icon: '♻️',
+    svcTitle: 'Economía Circular y Metabolismo Urbano-Rural',
+    svcSub: 'RCD · NFU y orgánicos · PGIRS',
+    name: 'Eje 3',
+    desc: 'Diseñado para transformar el enfoque tradicional de gestión de residuos en un modelo de valorización y desarrollo económico sostenible que mitigue los impactos ambientales en los municipios.',
     list: [
-      'Procesos de participación comunitaria y diseño colaborativo',
-      'Formulación y evaluación de políticas públicas ambientales y territoriales',
-      'Fortalecimiento institucional de gobiernos locales y entidades ambientales',
-      'Transformación cultural y estrategias de apropiación social del conocimiento',
-      'Metodologías de innovación social para el desarrollo rural y urbano',
-      'Diseño de mecanismos de gobernanza ambiental participativa',
+      {
+        label: 'Valorización de Residuos de Construcción y Demolición (RCD)',
+        text: 'Estrategias para la reconversión técnica y el diseño de plantas de transformación de RCD en materiales e infraestructura para el propio territorio.',
+      },
+      {
+        label: 'Gestión de Neumáticos Fuera de Uso (NFU) y Orgánicos',
+        text: 'Desarrollo de cadenas de valor para el aprovechamiento de NFU y la implementación de sistemas macro de compostaje técnico para el cierre de ciclos de nutrientes.',
+      },
+      {
+        label: 'Optimización de PGIRS',
+        text: 'Modernización operativa, flujos de procesos y esquemas de seguimiento técnico para los Planes de Gestión Integral de Residuos Sólidos con un enfoque real de Basura Cero.',
+      },
     ],
   },
   {
     id: 'tab4',
-    tab: 'CTI',
-    icon: '🔬',
-    svcTitle: 'Ciencia, Tecnología e Innovación',
-    svcSub: 'I+D · SIG · Bioprospección · Transferencia',
-    name: 'Eje 4: Proyectos Estratégicos de CTI',
-    desc: 'Articulamos la frontera del conocimiento científico con las necesidades reales de los territorios. Desde la metagenómica hasta el análisis geoespacial avanzado, convertimos la investigación aplicada en herramientas concretas para la toma de decisiones en sostenibilidad y desarrollo.',
+    tab: 'TIG y Datos',
+    icon: '🛰️',
+    svcTitle: 'Tecnologías de la Información Geográfica (TIG) e Infraestructura de Datos',
+    svcSub: 'SIG · Redes hídricas · Plataforma web',
+    name: 'Eje 4',
+    desc: 'El núcleo tecnológico que soporta toda la plataforma, permitiendo la visualización espacial, el análisis multitemporal y el despliegue de soluciones cartográficas accesibles.',
     list: [
-      'Investigación, desarrollo e innovación aplicada en sostenibilidad ambiental',
-      'Bioprospección, metagenómica y biotecnología para la bioeconomía',
-      'Análisis geoespacial avanzado y sistemas de información geográfica (SIG)',
-      'Desarrollo de bioproductos: biofertilizantes, coagulantes naturales, biocontroladores',
-      'Transferencia de conocimiento y apropiación social de la CTI',
-      'Formulación de proyectos BPIN y convocatorias de Minciencias',
+      {
+        label: 'Análisis Espacial y Georreferenciación',
+        text: 'Procesamiento de datos mediante QGIS, ArcMap y herramientas de código abierto para el ordenamiento territorial y el catastro multipropósito.',
+      },
+      {
+        label: 'Sistemas de Información Hidráulica e Infraestructura',
+        text: 'Modelación y diagnóstico de redes de acueductos rurales y sistemas de saneamiento básico.',
+      },
+      {
+        label: 'Plataforma Web Interactiva (NEXUS)',
+        text: 'Un entorno digital intuitivo que integra visores geográficos, tableros de control (dashboards) e indicadores clave de desarrollo territorial en tiempo real.',
+      },
     ],
   },
 ];
+
+// Metodología transversal a todos los ejes (se muestra bajo el banner).
+export const ARS_METHODOLOGY = {
+  tag: 'Enfoque Metodológico Transversal',
+  title: 'Análisis de Redes Sociales (ARS)',
+  text: 'Como metodología transversal a todos los ejes, NEXUS aplicará el Análisis de Redes Sociales (ARS), entendido estrictamente como la evaluación del tejido de actores, flujos de confianza e interacciones institucionales, alejado del concepto de redes sociales digitales. Esto permitirá mapear las alianzas estratégicas, identificar cuellos de botella en la gobernanza y medir el impacto real de la transferencia de conocimiento en el territorio.',
+};
 
 // ── Portafolio de proyectos ───────────────────────────
 // `cat` es la clase de color (cat-urban, cat-bio, cat-agua, cat-corp)
