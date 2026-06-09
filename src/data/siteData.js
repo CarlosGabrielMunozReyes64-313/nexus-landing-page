@@ -277,15 +277,19 @@ export const SERVICES = [
         label: 'Plataforma Web Interactiva (NEXUS)',
         text: 'Un entorno digital intuitivo que integra visores geográficos, tableros de control (dashboards) e indicadores clave de desarrollo territorial en tiempo real.',
       },
+      {
+        label: 'Enfoque Metodológico Transversal Análisis de Redes Sociales (ARS)',
+        text: 'Como metodología transversal a todos los ejes, NEXUS aplicará el Análisis de Redes Sociales (ARS), entendido estrictamente como la evaluación del tejido de actores, flujos de confianza e interacciones institucionales, alejado del concepto de redes sociales digitales. Esto permitirá mapear las alianzas estratégicas, identificar cuellos de botella en la gobernanza y medir el impacto real de la transferencia de conocimiento en el territorio.',
+      },
     ],
   },
 ];
 
 // Metodología transversal a todos los ejes (se muestra bajo el banner).
 export const ARS_METHODOLOGY = {
-  tag: 'Enfoque Metodológico Transversal',
-  title: 'Análisis de Redes Sociales (ARS)',
-  text: 'Como metodología transversal a todos los ejes, NEXUS aplicará el Análisis de Redes Sociales (ARS), entendido estrictamente como la evaluación del tejido de actores, flujos de confianza e interacciones institucionales, alejado del concepto de redes sociales digitales. Esto permitirá mapear las alianzas estratégicas, identificar cuellos de botella en la gobernanza y medir el impacto real de la transferencia de conocimiento en el territorio.',
+  tag: '',
+  title: '',
+  text: '',
 };
 
 // ── Portafolio de proyectos ───────────────────────────
