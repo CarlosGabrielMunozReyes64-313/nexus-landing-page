@@ -1,0 +1,32 @@
+/* ── TOAST ────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  background: var(--nx-mid);
+  color: var(--nx-white);
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(4, 169, 122, 0.35);
+  transform: translateY(120%);
+  opacity: 0;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    text-align: center;
+  }
+}

@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop'
+import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 
 import Inicio from './pages/Inicio'
 import Quienes from './pages/Quienes'

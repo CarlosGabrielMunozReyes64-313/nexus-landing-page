@@ -1,5 +1,5 @@
-import Hero from '../components/Hero'
-import BlogCard from '../components/BlogCard'
+import Hero from '../components/Hero/Hero'
+import BlogCard from '../components/BlogCard/BlogCard'
 import { BLOG_POSTS } from '../data/siteData'
 
 export default function Blog() {

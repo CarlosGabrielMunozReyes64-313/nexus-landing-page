@@ -1,0 +1,153 @@
+/* ── SERVICE TABS / EJES ──────────────────────────── */
+.services-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #c8e4d4;
+  margin-bottom: 3rem;
+  overflow-x: auto;
+}
+.stab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 20px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--nx-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.stab.active,
+.stab:hover {
+  color: var(--nx-dark);
+  border-bottom-color: var(--nx-mid);
+}
+
+/* ── EJES: cabecera + banner a todo el ancho ──────── */
+.ejes-head {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 2rem;
+}
+.eje-banner {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  background: var(--nx-dark);
+  animation: ejeFade 0.4s ease;
+}
+@keyframes ejeFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.eje-banner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Degradado verde SOLO en la mitad derecha (donde va el texto) */
+.eje-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 64, 41, 0) 0%,
+    rgba(2, 64, 41, 0) 42%,
+    rgba(2, 64, 41, 0.6) 60%,
+    rgba(2, 64, 41, 0.94) 100%
+  );
+}
+.eje-banner-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 5vw 2.5rem 2.5rem;
+  color: var(--nx-white);
+  z-index: 2;
+}
+.eje-name {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: #5fe0b8;
+  margin-bottom: 0.75rem;
+}
+.eje-title {
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.eje-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.25rem;
+  max-width: 560px;
+}
+.eje-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+.eje-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+.eje-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nx-mid);
+}
+@media (max-width: 768px) {
+  .eje-banner {
+    height: auto;
+    min-height: 480px;
+  }
+  .eje-banner-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(2, 64, 41, 0.2) 0%,
+      rgba(2, 64, 41, 0.75) 45%,
+      rgba(2, 64, 41, 0.95) 100%
+    );
+  }
+  .eje-banner-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    justify-content: flex-end;
+    padding: 6rem 1.5rem 2rem;
+  }
+}

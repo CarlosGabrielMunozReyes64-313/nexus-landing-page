@@ -1,0 +1,84 @@
+/* ── TEAM CARDS ───────────────────────────────────── */
+.team-card {
+  background: var(--nx-white);
+  border: 0.5px solid #c8e4d4;
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 36px rgba(2, 64, 41, 0.1);
+}
+.team-header {
+  background: linear-gradient(135deg, var(--nx-dark), var(--nx-teal));
+  height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-avatar {
+  width: 99px;
+  height: 99px;
+  border-radius: 50%;
+  background: var(--nx-mid);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 33px;
+  font-weight: 700;
+  color: var(--nx-white);
+}
+.team-body {
+  padding: 1.875rem;
+}
+.team-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--nx-dark);
+  margin-bottom: 5px;
+}
+.team-role {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--nx-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.1rem;
+}
+.team-bio {
+  font-size: 18px;
+  color: var(--nx-muted);
+  line-height: 1.65;
+}
+
+/* Variante 50% más grande: usar .team-grid-lg en el contenedor */
+.team-grid-lg .team-card {
+  border-radius: 12px;
+}
+.team-grid-lg .team-header {
+  height: 132px;
+}
+.team-grid-lg .team-avatar {
+  width: 99px;
+  height: 99px;
+  border-width: 4px;
+  font-size: 33px;
+}
+.team-grid-lg .team-body {
+  padding: 1.875rem;
+}
+.team-grid-lg .team-name {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.team-grid-lg .team-role {
+  font-size: 15px;
+  margin-bottom: 1.1rem;
+}
+.team-grid-lg .team-bio {
+  font-size: 18px;
+}

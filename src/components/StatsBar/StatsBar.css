@@ -1,0 +1,44 @@
+/* ── STATS BAR ────────────────────────────────────── */
+.stats-bar {
+  background: linear-gradient(rgb(5, 34, 25), rgb(0, 70, 47));
+  padding: 2.5rem 2rem;
+}
+.stats-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.stat-num {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--nx-mid);
+}
+.stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .stats-bar {
+    padding: 2.5rem 1.25rem;
+  }
+  .stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+}
+@media (max-width: 600px) {
+  .stats-bar {
+    padding: 2rem 1.25rem;
+  }
+  .stats-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

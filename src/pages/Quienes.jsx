@@ -1,5 +1,6 @@
-import Hero from '../components/Hero';
-import TeamCard from '../components/TeamCard';
+import './Quienes.css';
+import Hero from '../components/Hero/Hero';
+import TeamCard from '../components/TeamCard/TeamCard';
 import ImgPrincipios from '../assets/Quienes/Los-principios-que-guían-cada-decisión.jpg';
 import ImgRetos from '../assets/Quienes/Los-retos-que-nos-definen.jpg';
 import ImgCapacidades from '../assets/Quienes/Capacidades-integradas-en-una-sola-plataforma.jpg';

@@ -1,5 +1,6 @@
-import Hero from '../components/Hero'
-import ContactForm from '../components/ContactForm'
+import './Contacto.css';
+import Hero from '../components/Hero/Hero'
+import ContactForm from '../components/ContactForm/ContactForm'
 import { CONTACT_TARGETS } from '../data/siteData'
 
 export default function Contacto() {

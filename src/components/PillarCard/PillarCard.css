@@ -1,0 +1,61 @@
+/* ── PILLAR CARDS ─────────────────────────────────── */
+/* La cuadrícula .pillars-grid se usa en Inicio; las tarjetas
+   se apilan a todo el ancho con el icono al lado del texto. */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.pillar-card {
+  background: var(--nx-white);
+  border: 0.5px solid #c8e4d4;
+  border-radius: 8px;
+  padding: 2rem;
+  border-top: 3px solid var(--nx-mid);
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+.pillar-card:hover {
+  box-shadow: 0 8px 32px rgba(4, 169, 122, 0.12);
+  transform: translateY(-2px);
+}
+.pillar-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--nx-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+.pillar-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.pillar-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--nx-dark);
+  margin-bottom: 0.6rem;
+}
+.pillar-text {
+  font-size: 13px;
+  color: var(--nx-muted);
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+/* En teléfono el icono se pone arriba del texto */
+@media (max-width: 600px) {
+  .pillar-card {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

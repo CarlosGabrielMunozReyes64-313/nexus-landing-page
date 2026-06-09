@@ -1,5 +1,5 @@
-import Hero from '../components/Hero';
-import ServiceTabs from '../components/ServiceTabs';
+import Hero from '../components/Hero/Hero';
+import ServiceTabs from '../components/ServiceTabs/ServiceTabs';
 
 export default function Ejes() {
   return (

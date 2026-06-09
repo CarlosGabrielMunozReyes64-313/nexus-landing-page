@@ -1,5 +1,6 @@
-import Hero from '../components/Hero';
-import ProjectCard from '../components/ProjectCard';
+import './Portafolio.css';
+import Hero from '../components/Hero/Hero';
+import ProjectCard from '../components/ProjectCard/ProjectCard';
 import { PROJECTS, CASE_STUDIES } from '../data/siteData';
 
 // Pin de ubicación (SVG inline) para los casos de impacto.

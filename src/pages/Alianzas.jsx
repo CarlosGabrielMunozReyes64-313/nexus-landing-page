@@ -1,6 +1,6 @@
-import Hero from '../components/Hero'
-import AgendaCard from '../components/AgendaCard'
-import AllyCard from '../components/AllyCard'
+import Hero from '../components/Hero/Hero'
+import AgendaCard from '../components/AgendaCard/AgendaCard'
+import AllyCard from '../components/AllyCard/AllyCard'
 import { AGENDAS, ALLIES } from '../data/siteData'
 
 export default function Alianzas() {

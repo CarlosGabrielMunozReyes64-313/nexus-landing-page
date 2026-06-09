@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import Hero from '../components/Hero'
-import StatsBar from '../components/StatsBar'
-import ValorBox from '../components/ValorBox'
-import PillarCard from '../components/PillarCard'
+import Hero from '../components/Hero/Hero'
+import StatsBar from '../components/StatsBar/StatsBar'
+import ValorBox from '../components/ValorBox/ValorBox'
+import PillarCard from '../components/PillarCard/PillarCard'
 import { SDG_BADGES, PILLARS } from '../data/siteData'
 
 export default function Inicio() {
