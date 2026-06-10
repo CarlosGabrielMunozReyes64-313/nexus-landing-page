@@ -82,3 +82,198 @@
 .team-grid-lg .team-bio {
   font-size: 18px;
 }
+
+/* ── BOTÓN VER PERFIL PROFESIONAL ─────────────────── */
+.team-profile-btn {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--nx-light);
+  color: var(--nx-dark);
+  border: 1px solid #c8e4d4;
+  border-radius: 6px;
+  padding: 0.65rem 1.15rem;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+.team-profile-btn:hover {
+  background: var(--nx-mid);
+  color: var(--nx-white);
+  border-color: var(--nx-mid);
+}
+
+/* ── MODAL PERFIL PROFESIONAL ─────────────────────── */
+.team-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(2, 64, 41, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 1rem;
+  overflow-y: auto;
+  animation: team-modal-fade 0.18s ease;
+}
+@keyframes team-modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.team-modal {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  background: var(--nx-white);
+  border-radius: 12px;
+  box-shadow: 0 24px 70px rgba(2, 64, 41, 0.35);
+  animation: team-modal-rise 0.22s ease;
+}
+@keyframes team-modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.team-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--nx-white);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.team-modal-close:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+.team-modal-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.75rem 2rem;
+  background: linear-gradient(135deg, var(--nx-dark), var(--nx-teal));
+  border-radius: 12px 12px 0 0;
+}
+.team-modal-avatar {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--nx-mid);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--nx-white);
+}
+.team-modal-name {
+  margin: 0 0 0.35rem;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--nx-white);
+  line-height: 1.2;
+}
+.team-modal-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.45;
+}
+.team-modal-content {
+  padding: 1.75rem 2rem 2rem;
+  max-height: 65vh;
+  overflow-y: auto;
+}
+.team-modal-section {
+  margin-bottom: 1.6rem;
+}
+.team-modal-section:last-child {
+  margin-bottom: 0;
+}
+.team-modal-heading {
+  margin: 0 0 0.7rem;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--nx-dark);
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--nx-light);
+}
+.team-modal-text {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--nx-muted);
+  line-height: 1.7;
+}
+.team-modal-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  list-style: disc;
+}
+.team-modal-list li {
+  font-size: 15.5px;
+  color: var(--nx-muted);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.team-modal-list li:last-child {
+  margin-bottom: 0;
+}
+.team-modal-list-rich li {
+  margin-bottom: 1rem;
+}
+.team-modal-item-title {
+  font-weight: 700;
+  color: var(--nx-dark);
+}
+.team-modal-item-org {
+  font-weight: 600;
+  color: var(--nx-text);
+}
+.team-modal-item-detail {
+  margin: 0.25rem 0 0;
+  color: var(--nx-muted);
+  line-height: 1.6;
+}
+.team-modal-item-detail-inline {
+  color: var(--nx-muted);
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+  .team-modal-head {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+  }
+  .team-modal-content {
+    padding: 1.5rem 1.25rem 1.75rem;
+    max-height: 70vh;
+  }
+}

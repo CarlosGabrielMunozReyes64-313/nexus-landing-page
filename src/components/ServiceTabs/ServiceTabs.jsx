@@ -2,19 +2,16 @@ import { useState } from 'react';
 import { SERVICES, ARS_METHODOLOGY } from '../../data/siteData';
 import './ServiceTabs.css';
 
-// Imágenes de fondo de cada eje (en src/assets/ejes/). Imports estáticos:
-// si un archivo falta o el nombre no coincide, Vite avisa con un error claro
-// en vez de dejar el banner sin imagen en silencio.
 import Eje1 from '../../assets/ejes/Eje1.jpg';
 import Eje2 from '../../assets/ejes/Eje2.jpg';
 import Eje3 from '../../assets/ejes/Eje3.jpg';
 import Eje4 from '../../assets/ejes/Eje4.jpg';
 
 const EJE_IMAGES = {
-  tab1: Eje1, // Gobernanza Territorial e Innovación Pública
-  tab2: Eje2, // Sostenibilidad Ambiental y Gestión del Riesgo
-  tab3: Eje3, // Economía Circular y Metabolismo Urbano-Rural
-  tab4: Eje4, // Tecnologías de la Información Geográfica (TIG)
+  tab1: Eje1,
+  tab2: Eje2,
+  tab3: Eje3,
+  tab4: Eje4,
 };
 
 export default function ServiceTabs() {

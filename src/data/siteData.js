@@ -124,7 +124,7 @@ export const TEAM = [
         {
           area: 'Sistemas de Información Geográfica (SIG)',
           detail:
-            'Dominio de ArcMap y QGIS para análisis espacial, mapeo de zonas de riesgo y planificación agroecológica.',
+            'Dominio de ArcMap y QGIS para análisis espacial, mapeo de zonas de riesgo o planificación agroecológica.',
         },
         {
           area: 'Modelamiento Hidráulico',
