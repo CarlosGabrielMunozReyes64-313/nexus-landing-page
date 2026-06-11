@@ -394,12 +394,7 @@ export const AGENDAS = [
 ];
 
 // ── Red de aliados (Alianzas) ─────────────────────────
-export const ALLIES = [
-  { logo: 'SN', name: 'SENA', type: 'Formación para el trabajo y ' },
-  { logo: 'UC', name: 'Universidad del Cauca', type: 'Investigación y academia' },
-  { logo: 'GL', name: 'Gobiernos Locales', type: 'Alcaldías y gobernaciones' },
-  { logo: 'CI', name: 'Cooperación Internacional', type: 'GEF · BID · PNUD · GIZ' },
-];
+export const ALLIES = [];
 
 // ── Artículos del blog ────────────────────────────────
 export const BLOG_POSTS = [
