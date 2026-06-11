@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router-dom'
-import Hero from '../components/Hero/Hero'
-import StatsBar from '../components/StatsBar/StatsBar'
-import ValorBox from '../components/ValorBox/ValorBox'
-import PillarCard from '../components/PillarCard/PillarCard'
-import { SDG_BADGES, PILLARS } from '../data/siteData'
+import { useNavigate } from 'react-router-dom';
+import Hero from '../components/Hero/Hero';
+import StatsBar from '../components/StatsBar/StatsBar';
+import ValorBox from '../components/ValorBox/ValorBox';
+import PillarCard from '../components/PillarCard/PillarCard';
+import { SDG_BADGES, PILLARS } from '../data/siteData';
 
 export default function Inicio() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function Inicio() {
             <span>transformar territorios</span>
           </>
         }
-        subtitle="Somos una plataforma técnica y científica que articula actores, saberes y estrategias para acelerar la transición hacia territorios resilientes, biodiversos e inclusivos."
+        subtitle="Somos un aliado y que articula actores, saberes y estrategias para acelerar la transición hacia territorios resilientes, biodiversos e inclusivos."
       >
         <button className="btn-primary" onClick={() => navigate('/contacto')}>
           Conversemos sobre tu proyecto
@@ -41,7 +41,7 @@ export default function Inicio() {
             <div>
               <div className="section-tag">Propuesta de Valor</div>
               <h2 className="section-title">
-                Una plataforma de innovación para el desarrollo territorial sostenible
+                Somos tu aliado de innovación para el desarrollo territorial sostenible.
               </h2>
               <p className="section-body" style={{ marginBottom: '1.25rem' }}>
                 NEXUS no es una consultora convencional. Somos un nodo de articulación que conecta
@@ -56,8 +56,9 @@ export default function Inicio() {
               </p>
               <div className="sdg-badges">
                 {SDG_BADGES.map((badge) => (
-                  <span className="sdg" key={badge}>
-                    {badge}
+                  <span className="sdg" key={badge.label}>
+                    <img src={badge.icon} alt="" className="sdg-icon" />
+                    {badge.label}
                   </span>
                 ))}
               </div>
@@ -84,5 +85,5 @@ export default function Inicio() {
         </div>
       </section>
     </>
-  )
+  );
 }

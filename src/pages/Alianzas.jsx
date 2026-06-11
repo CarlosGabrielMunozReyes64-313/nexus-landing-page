@@ -1,7 +1,7 @@
-import Hero from '../components/Hero/Hero'
-import AgendaCard from '../components/AgendaCard/AgendaCard'
-import AllyCard from '../components/AllyCard/AllyCard'
-import { AGENDAS, ALLIES } from '../data/siteData'
+import Hero from '../components/Hero/Hero';
+import AgendaCard from '../components/AgendaCard/AgendaCard';
+import AllyCard from '../components/AllyCard/AllyCard';
+import { AGENDAS, ALLIES } from '../data/siteData';
 
 export default function Alianzas() {
   return (
@@ -35,10 +35,6 @@ export default function Alianzas() {
           </div>
 
           <div style={{ marginTop: '4.5rem' }}>
-            <div className="section-tag">Red de Aliados</div>
-            <h2 className="section-title" style={{ marginBottom: '2rem' }}>
-              Capacidad institucional para proyectos de gran escala
-            </h2>
             <div className="grid-4">
               {ALLIES.map((ally) => (
                 <AllyCard key={ally.name} ally={ally} />
@@ -48,5 +44,5 @@ export default function Alianzas() {
         </div>
       </section>
     </>
-  )
+  );
 }

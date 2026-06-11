@@ -32,7 +32,21 @@ export default function Portafolio() {
           </>
         }
       />
-
+      {/* Más del portafolio — proyectos por línea de trabajo */}
+      <section className="alt">
+        <div className="section-inner">
+          <h2 className="section-title">Servicios</h2>
+          <p className="section-body" style={{ marginBottom: '3rem' }}>
+            Soluciones especializadas por línea de trabajo, donde articulamos ciencia, gestión
+            territorial y alianzas estratégicas en resultados medibles.
+          </p>
+          <div className="grid-3">
+            {PROJECTS.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Casos de impacto — clientes reales destacados */}
       <section>
         <div className="section-inner">
@@ -50,6 +64,11 @@ export default function Portafolio() {
             {CASE_STUDIES.map((cs, i) => (
               <article className="case-card" key={cs.client + cs.title}>
                 <div className="case-aside">
+                  {cs.logo && (
+                    <div className="case-logo">
+                      <img src={cs.logo} alt={`Logo ${cs.client}`} />
+                    </div>
+                  )}
                   <div className="case-index">CASO {String(i + 1).padStart(2, '0')}</div>
                   <div>
                     <div className="case-client-label">Cliente</div>
@@ -80,23 +99,6 @@ export default function Portafolio() {
                   </div>
                 </div>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Más del portafolio — proyectos por línea de trabajo */}
-      <section className="alt">
-        <div className="section-inner">
-          <div className="section-tag">Más del Portafolio</div>
-          <h2 className="section-title">Evidencia de impacto en campo</h2>
-          <p className="section-body" style={{ marginBottom: '3rem' }}>
-            Una muestra de proyectos por línea de trabajo, donde articulamos ciencia, gestión
-            territorial y alianzas estratégicas en resultados medibles.
-          </p>
-          <div className="grid-3">
-            {PROJECTS.map((project) => (
-              <ProjectCard key={project.title} project={project} />
             ))}
           </div>
         </div>

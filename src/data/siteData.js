@@ -45,31 +45,31 @@ export const VALOR_ITEMS = [
   },
 ];
 
-export const SDG_BADGES = ['ODS 11', 'ODS 13', 'ODS 15', 'MGB 2030', 'SbN/UICN', 'CTI'];
+export const SDG_BADGES = [
+  { label: 'ODS 11', icon: new URL('../assets/iconos_inicio/ods-11.png', import.meta.url).href },
+  { label: 'ODS 13', icon: new URL('../assets/iconos_inicio/ods-13.png', import.meta.url).href },
+  { label: 'ODS 15', icon: new URL('../assets/iconos_inicio/ods-15.png', import.meta.url).href },
+  {
+    label: 'MGB 2030',
+    icon: new URL('../assets/iconos_inicio/mgb-2030.png', import.meta.url).href,
+  },
+  {
+    label: 'SbN/UICN',
+    icon: new URL('../assets/iconos_inicio/sbn-uicn.png', import.meta.url).href,
+  },
+  { label: 'C+T+I', icon: new URL('../assets/iconos_inicio/cti.png', import.meta.url).href },
+];
 
 // ── Pilares estratégicos (Inicio) ─────────────────────
-// `icon` referencia el nombre del componente SVG en components/icons/PillarIcons.jsx
+// `icon` ahora referencia una imagen en src/assets/iconos_inicio
 export const PILLARS = [
+  { icon: '/iconos_inicio/home.png', title: 'Ciudades y Territorios Sostenibles' },
   {
-    icon: 'home',
-    title: 'Ciudades y Territorios Sostenibles',
-    text: 'Planificación urbana y territorial con enfoque ecosistémico. Infraestructura verde y azul, movilidad sostenible, gestión de residuos y diseño de ecobarrios que armonizan la vida humana con la naturaleza.',
-  },
-  {
-    icon: 'globe',
+    icon: '/iconos_inicio/globe.png',
     title: 'Biodiversidad y Soluciones basadas en la Naturaleza',
-    text: 'La naturaleza como infraestructura. Restauración ecológica, bioeconomía, valoración de servicios ecosistémicos y gestión de paisajes bajo estándares UICN y el Marco Global de Biodiversidad Kunming-Montreal.',
   },
-  {
-    icon: 'people',
-    title: 'Innovación Social y Gobernanza',
-    text: 'Participación comunitaria genuina, diseño participativo de políticas, fortalecimiento institucional y transformación cultural. Construimos capacidades locales para que la sostenibilidad sea un proceso endógeno.',
-  },
-  {
-    icon: 'activity',
-    title: 'Ciencia, Tecnología e Innovación (CTI)',
-    text: 'Investigación aplicada, análisis geoespacial y SIG, bioprospección, metagenómica y transferencia de conocimiento. Convertimos el dato científico en decisión estratégica para gobiernos y organizaciones.',
-  },
+  { icon: '/iconos_inicio/people.png', title: 'Innovación Social y Gobernanza' },
+  { icon: '/iconos_inicio/activity.png', title: 'Ciencia, Tecnología e Innovación (C+T+I)' },
 ];
 
 // ── Equipo senior (Quiénes Somos) ─────────────────────
@@ -79,7 +79,7 @@ export const PILLARS = [
 export const TEAM = [
   {
     initials: 'GV',
-    name: 'Guillermo Alberto Vélez Tobar',
+    name: 'Guillermo',
     role: 'Ecólogo · Consultor e Investigador',
     bio: 'Ecólogo con formación doctoral (cand.) y dos maestrías en ciencias. Especialista en planificación territorial, gestión integral de residuos —políticas de Basura Cero, valorización de RCD, NFU y compostaje— y tecnologías de precisión para el monitoreo ambiental, con un enfoque riguroso basado en el método científico y estándares internacionales.',
     profile: {
@@ -296,58 +296,76 @@ export const ARS_METHODOLOGY = {
 // `cat` es la clase de color (cat-urban, cat-bio, cat-agua, cat-corp)
 export const PROJECTS = [
   {
-    cat: 'cat-urban',
-    catLabel: 'Urbanismo y Resiliencia',
-    title: 'Ecobarrios Cali',
-    desc: 'Diseño participativo de barrios sostenibles en el Valle del Cauca. Integración de infraestructura verde, gestión comunitaria del agua y estrategias de resiliencia climática urbana.',
+    cat: 'cat-sost',
+    catLabel: 'Sostenibilidad y Ambiente',
+    title: 'Estrategias de Sostenibilidad Corporativa',
+    desc: 'Diseño e implementación de hojas de ruta de sostenibilidad alineadas con estándares ESG y los Objetivos de Desarrollo Sostenible, integrando criterios ambientales, sociales y de gobernanza en la estrategia empresarial.',
   },
   {
-    cat: 'cat-urban',
-    catLabel: 'Urbanismo y Resiliencia',
-    title: 'Ecobarrios Yumbo',
-    desc: 'Transformación de entornos urbano-industriales con soluciones basadas en la naturaleza y modelos de gobernanza ambiental comunitaria en municipio de Yumbo, Valle del Cauca.',
-  },
-  {
-    cat: 'cat-bio',
-    catLabel: 'Bioeconomía e I+D',
-    title: 'Metagenómica del Fique',
-    desc: 'Investigación del microbioma en subproductos del fique (Furcraea sp.) para identificar cepas con potencial biotecnológico en la producción de biofertilizantes y biocontroladores.',
+    cat: 'cat-sost',
+    catLabel: 'Sostenibilidad y Ambiente',
+    title: 'Medición de Huella de Carbono',
+    desc: 'Cuantificación de emisiones de gases de efecto invernadero y diseño de planes de reducción y compensación para empresas y territorios, con base en metodologías internacionales reconocidas.',
   },
   {
     cat: 'cat-bio',
-    catLabel: 'Bioeconomía e I+D',
-    title: 'Desarrollo de Biofertilizantes',
-    desc: 'Formulación y validación de bioproductos para la agricultura sostenible, reduciendo la dependencia de agroquímicos y fortaleciendo la bioeconomía regional en el suroccidente colombiano.',
+    catLabel: 'Biodiversidad',
+    title: 'Estudios de Línea Base y Conservación',
+    desc: 'Caracterización de ecosistemas, levantamiento de línea base de biodiversidad y formulación de planes de manejo y conservación para proyectos productivos y territoriales.',
   },
   {
-    cat: 'cat-agua',
-    catLabel: 'Gestión del Agua y Suelo',
-    title: 'Coagulantes Naturales',
-    desc: 'Investigación y aplicación de coagulantes de origen vegetal para el tratamiento de aguas residuales, como alternativa sostenible y de bajo costo a productos químicos convencionales.',
+    cat: 'cat-bio',
+    catLabel: 'Biodiversidad',
+    title: 'Restauración Ecológica',
+    desc: 'Diseño e implementación de procesos de restauración de ecosistemas degradados con especies nativas, enmiendas biológicas y monitoreo de recuperación a largo plazo.',
   },
   {
-    cat: 'cat-agua',
-    catLabel: 'Gestión del Agua y Suelo',
-    title: 'Restauración Post-Minería',
-    desc: 'Estrategias de restauración ecológica de suelos degradados por actividades mineras, incluyendo selección de especies nativas, enmiendas biológicas y monitoreo de recuperación.',
+    cat: 'cat-gob',
+    catLabel: 'Gobernanza',
+    title: 'Fortalecimiento Institucional',
+    desc: 'Acompañamiento a entidades públicas y organizaciones en el diseño de políticas, mecanismos de participación y procesos de toma de decisiones para una gestión ambiental y territorial más eficaz.',
   },
   {
-    cat: 'cat-corp',
-    catLabel: 'Gestión Ambiental Corporativa',
-    title: 'Implementación ISO 14001',
-    desc: 'Acompañamiento integral a empresas en la implementación del Sistema de Gestión Ambiental ISO 14001:2015, desde diagnóstico hasta certificación y mejora continua del desempeño ambiental.',
+    cat: 'cat-gob',
+    catLabel: 'Gobernanza',
+    title: 'Gestión de Conflictos Socioambientales',
+    desc: 'Diseño de espacios de diálogo y mecanismos de concertación entre actores para prevenir y transformar conflictos asociados al uso de los recursos naturales.',
   },
   {
-    cat: 'cat-corp',
-    catLabel: 'Gestión Ambiental Corporativa',
-    title: 'Ganadería Baja en Carbono',
-    desc: 'Diseño e implementación de estrategias de ganadería sostenible y baja en emisiones, integrando sistemas silvopastoriles y medición de huella de carbono en fincas ganaderas del suroccidente.',
+    cat: 'cat-social',
+    catLabel: 'Innovación Social',
+    title: 'Proyectos con Comunidades',
+    desc: 'Diseño y gestión de iniciativas de impacto con metodologías participativas, fortaleciendo capacidades locales y promoviendo soluciones sostenibles construidas desde el territorio.',
   },
   {
-    cat: 'cat-urban',
-    catLabel: 'Urbanismo y Resiliencia',
-    title: 'NEXUS Ecosistemas Resilientes',
-    desc: 'Estudio de línea base y metodología para el proyecto CLIMALAB de resiliencia climática en Buenaventura y Jamundí, con análisis territorial y diagnóstico socioambiental participativo.',
+    cat: 'cat-social',
+    catLabel: 'Innovación Social',
+    title: 'Modelos de Negocio con Impacto',
+    desc: 'Estructuración de emprendimientos y modelos de negocio social que articulan rentabilidad con beneficio ambiental y comunitario en la región.',
+  },
+  {
+    cat: 'cat-alianzas',
+    catLabel: 'Alianzas y Articulación',
+    title: 'Articulación Multi-Actor',
+    desc: 'Conexión y coordinación entre sector privado, entidades públicas, academia y comunidades para estructurar proyectos colaborativos de desarrollo sostenible.',
+  },
+  {
+    cat: 'cat-alianzas',
+    catLabel: 'Alianzas y Articulación',
+    title: 'Cooperación y Movilización de Recursos',
+    desc: 'Identificación de fuentes de financiación (cooperación internacional, regalías, fondos públicos y privados) y acompañamiento en la formulación de propuestas para acceder a ellas.',
+  },
+  {
+    cat: 'cat-proyectos',
+    catLabel: 'Estructuración de Proyectos',
+    title: 'Formulación y Gestión de Proyectos',
+    desc: 'Diseño, formulación y gestión integral de proyectos territoriales, desde la conceptualización hasta la consecución de recursos y la implementación.',
+  },
+  {
+    cat: 'cat-proyectos',
+    catLabel: 'Estructuración de Proyectos',
+    title: 'Gestión del Conocimiento',
+    desc: 'Sistematización de experiencias, generación de conocimiento aplicado y transferencia de aprendizajes para escalar soluciones sostenibles en distintos territorios.',
   },
 ];
 
@@ -377,7 +395,7 @@ export const AGENDAS = [
 
 // ── Red de aliados (Alianzas) ─────────────────────────
 export const ALLIES = [
-  { logo: 'SN', name: 'SENA', type: 'Formación para el trabajo y CTI' },
+  { logo: 'SN', name: 'SENA', type: 'Formación para el trabajo y ' },
   { logo: 'UC', name: 'Universidad del Cauca', type: 'Investigación y academia' },
   { logo: 'GL', name: 'Gobiernos Locales', type: 'Alcaldías y gobernaciones' },
   { logo: 'CI', name: 'Cooperación Internacional', type: 'GEF · BID · PNUD · GIZ' },
@@ -603,6 +621,7 @@ export const VALUE_PROPOSITION = [
 export const CASE_STUDIES = [
   {
     client: 'ICLEI',
+    logo: new URL('../assets/logos_portafolio/iclei.jpeg', import.meta.url).href,
     year: '2025',
     type: 'Soluciones basadas en la Naturaleza',
     title: 'Dos SbN para la gestión del riesgo y la resiliencia climática',
@@ -612,6 +631,7 @@ export const CASE_STUDIES = [
   },
   {
     client: 'Inversiones López',
+    logo: new URL('../assets/logos_portafolio/inversiones-lopez.jpeg', import.meta.url).href,
     year: '2025',
     type: 'Responsabilidad Social Empresarial · ASG',
     title: 'Política Institucional de RSE con criterios ASG',

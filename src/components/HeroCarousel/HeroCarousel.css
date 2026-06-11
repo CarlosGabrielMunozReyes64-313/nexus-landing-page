@@ -25,9 +25,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(1, 22, 14, 0.85) 0%,
-    rgba(1, 22, 14, 0.68) 50%,
-    rgba(1, 22, 14, 0.85) 100%
+    rgba(0, 0, 0, 0.158) 0%,
+    rgba(134, 0, 0, 0.356) 50%,
+    rgba(0, 0, 0, 0.548) 100%
   );
 }
 @media (prefers-reduced-motion: reduce) {
