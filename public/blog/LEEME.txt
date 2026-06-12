@@ -1,0 +1,9 @@
+Imágenes del blog
+=================
+Pon aquí las imágenes de los artículos (jpg, png o webp).
+Luego, en src/data/siteData.js, dentro de BLOG_POSTS, escribe la ruta en el campo `image`:
+
+  image: '/blog/nombre-de-tu-imagen.jpg',
+
+Si dejas `image: ''` (vacío), la tarjeta muestra el emoji sobre fondo verde como respaldo.
+Recomendado: imágenes horizontales (proporción 16:9), p. ej. 800x450 px.

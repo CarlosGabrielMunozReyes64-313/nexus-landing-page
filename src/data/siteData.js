@@ -406,54 +406,111 @@ export const AGENDAS = [
 export const ALLIES = [];
 
 // ── Artículos del blog ────────────────────────────────
+// CÓMO REEMPLAZAR EL CONTENIDO (fácil):
+//  · image    → ruta de la imagen del artículo. Deja el archivo en `public/blog/`
+//               y pon aquí su ruta, p. ej. '/blog/sbn-iclei.jpg'.
+//               Si lo dejas como '' (vacío), se usa el emoji sobre fondo verde como respaldo.
+//  · emoji/bg → respaldo visual cuando NO hay imagen (emoji + color de fondo).
+//  · topic    → categoría corta (se muestra como etiqueta verde).
+//  · title    → titular del artículo.
+//  · preview  → resumen de 2-3 líneas.
+//  · date / author / readTime → metadatos (fecha, autor, tiempo de lectura).
 export const BLOG_POSTS = [
   {
+    image: '',
     emoji: '🌿',
     bg: '#E8F5EF',
     topic: 'Soluciones basadas en la Naturaleza',
-    title: '¿Qué son las SbN y por qué están transformando la planificación territorial?',
+    title: 'Dos SbN para la gestión del riesgo: la experiencia con ICLEI en Barranquilla y Copacabana',
     preview:
-      'El estándar global de la UICN y el Marco Global de Biodiversidad abren una nueva era para los proyectos de infraestructura verde y restauración ecológica a escala territorial...',
+      'Diseñamos dos Soluciones basadas en la Naturaleza alineadas con el estándar global de la UICN, integrando gestión del riesgo de desastres, resiliencia climática y un enfoque participativo con equidad de género e inclusión. Compartimos el método y los aprendizajes del proceso.',
+    date: '04 jun 2026',
+    author: 'Equipo NEXUS',
+    readTime: '7 min',
   },
   {
-    emoji: '🌡️',
-    bg: '#E1F0F5',
-    topic: 'Resiliencia Climática',
-    title: 'Ciudades que respiran: infraestructura verde como estrategia de adaptación',
+    image: '',
+    emoji: '🧭',
+    bg: '#EAF6F0',
+    topic: 'Responsabilidad Social · ASG',
+    title: 'De la teoría a la práctica: construir una Política de RSE con criterios ASG e indicadores SMART',
     preview:
-      'Análisis de casos exitosos de ecobarrios y corredores ecológicos urbanos que demuestran el valor económico y social de la naturaleza integrada en el diseño de la ciudad...',
+      'A partir del trabajo con Inversiones López, recorremos cómo se formula una política institucional de Responsabilidad Social Empresarial: diagnóstico, análisis normativo y de riesgos, matriz de materialidad, indicadores SMART y talleres de cocreación con los equipos.',
+    date: '28 may 2026',
+    author: 'Equipo NEXUS',
+    readTime: '8 min',
   },
   {
+    image: '',
+    emoji: '🏘️',
+    bg: '#E6F4EC',
+    topic: 'Urbanismo y Gobernanza',
+    title: 'Ecobarrios en Cali y Yumbo: qué cambia cuando la comunidad lidera la gobernanza ambiental',
+    preview:
+      'El diseño participativo de barrios sostenibles —infraestructura verde, gestión comunitaria del agua y soluciones basadas en la naturaleza en entornos urbano-industriales— muestra que la participación genuina es lo que separa un proyecto de impacto real de un documento archivado.',
+    date: '19 may 2026',
+    author: 'Equipo NEXUS',
+    readTime: '6 min',
+  },
+  {
+    image: '',
     emoji: '🔬',
-    bg: '#E8F5E9',
-    topic: 'Biodiversidad y Biotecnología',
-    title: 'Metagenómica territorial: leer el suelo para entender el ecosistema',
+    bg: '#E8F5EF',
+    topic: 'Bioeconomía e I+D',
+    title: 'Leer el microbioma del fique: bioeconomía a partir de un residuo agroindustrial',
     preview:
-      'Cómo el análisis del microbioma de suelos y subproductos agroindustriales abre oportunidades para la bioeconomía regional y el desarrollo sostenible basado en la ciencia...',
+      'La metagenómica aplicada a subproductos del fique (Furcraea sp.) permite identificar cepas con potencial biotecnológico para biofertilizantes y biocontroladores. Así convertimos un residuo regional en una oportunidad de bioeconomía basada en ciencia.',
+    date: '12 may 2026',
+    author: 'Equipo NEXUS',
+    readTime: '9 min',
   },
   {
-    emoji: '🏙️',
-    bg: '#F3E5F5',
-    topic: 'Innovación Territorial',
-    title: 'Gobernanza ambiental participativa: lecciones desde los ecobarrios del Valle',
+    image: '',
+    emoji: '⛏️',
+    bg: '#EAF6F0',
+    topic: 'Gestión del Suelo',
+    title: 'Devolverle vida al suelo: restauración ecológica después de la minería',
     preview:
-      'El caso de los ecobarrios en Cali y Yumbo muestra que la participación genuina es el factor diferenciador entre proyectos de impacto real y documentos que terminan archivados...',
+      'Recuperar suelos degradados por actividades mineras exige más que sembrar: selección de especies nativas, enmiendas biológicas y monitoreo riguroso de la recuperación. Explicamos la estrategia que usamos para cerrar ciclos y restaurar funciones ecosistémicas.',
+    date: '02 may 2026',
+    author: 'Equipo NEXUS',
+    readTime: '6 min',
   },
   {
+    image: '',
+    emoji: '🐄',
+    bg: '#E6F4EC',
+    topic: 'Ganadería Sostenible',
+    title: 'Ganadería que captura carbono: sistemas silvopastoriles en el suroccidente',
+    preview:
+      'Diseñar ganadería baja en emisiones es posible integrando sistemas silvopastoriles y medición de huella de carbono en finca. Mostramos cómo se combinan productividad, bienestar animal y captura de carbono en predios reales de la región.',
+    date: '23 abr 2026',
+    author: 'Equipo NEXUS',
+    readTime: '7 min',
+  },
+  {
+    image: '',
     emoji: '💧',
-    bg: '#E3F2FD',
+    bg: '#E8F5EF',
     topic: 'Gestión del Agua',
-    title: 'Coagulantes naturales: ciencia local para el tratamiento del agua',
+    title: 'Tratar agua con plantas: coagulantes naturales para comunidades rurales',
     preview:
-      'Investigación y resultados de la aplicación de coagulantes de origen vegetal como alternativa sostenible, accesible y eficiente para el tratamiento de agua en comunidades rurales...',
+      'Los coagulantes de origen vegetal son una alternativa sostenible, accesible y de bajo costo frente a los químicos convencionales para el tratamiento de aguas. Compartimos resultados de su aplicación y por qué importan en contextos rurales del suroccidente.',
+    date: '15 abr 2026',
+    author: 'Equipo NEXUS',
+    readTime: '5 min',
   },
   {
-    emoji: '🤝',
-    bg: '#FFF8E1',
-    topic: 'Cooperación Internacional',
-    title: 'Cómo acceder a fondos climáticos internacionales: guía práctica para municipios',
+    image: '',
+    emoji: '🌱',
+    bg: '#EAF6F0',
+    topic: 'Agricultura Sostenible',
+    title: 'Biofertilizantes y biocontroladores: menos agroquímicos, más bioeconomía regional',
     preview:
-      'Los mecanismos del GEF, GCF y PNUD están disponibles para municipios colombianos. Lo que falta es conocer las reglas del juego y formular proyectos sólidos con enfoque territorial...',
+      'La formulación y validación de bioproductos para la agricultura reduce la dependencia de agroquímicos y fortalece la bioeconomía del suroccidente colombiano. Explicamos el camino desde el laboratorio hasta el campo y su impacto en la sostenibilidad productiva.',
+    date: '07 abr 2026',
+    author: 'Equipo NEXUS',
+    readTime: '8 min',
   },
 ];
 
