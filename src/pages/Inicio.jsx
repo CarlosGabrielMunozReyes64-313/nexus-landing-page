@@ -54,26 +54,39 @@ export default function Inicio() {
                 biodiversidad, resiliencia climática, tecnología e innovación social desde una
                 perspectiva sistémica.
               </p>
-              <div className="sdg-badges">
-                {SDG_BADGES.map((badge) => (
-                  <span className="sdg" key={badge.label}>
-                    <img src={badge.icon} alt="" className="sdg-icon" />
-                    {badge.label}
-                  </span>
-                ))}
-              </div>
             </div>
             <ValorBox />
           </div>
         </div>
       </section>
 
-      {/* Pilares estratégicos */}
+      {/* Estándares y agendas (ODS) — estilo grilla de features */}
       <section className="alt">
         <div className="section-inner">
-          <div className="section-tag">Ejes de Trabajo</div>
-          <h2 className="section-title">Cuatro pilares estratégicos, una visión integrada</h2>
-          <p className="section-body">
+          <div className="feature-heading">
+            <h2>Estándares y Agendas</h2>
+          </div>
+          <div className="ods-grid">
+            {SDG_BADGES.map((badge) => (
+              <div className="ods-item" key={badge.label}>
+                <img src={badge.icon} alt={badge.label} />
+                <span>{badge.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pilares estratégicos — estilo grilla de features */}
+      <section>
+        <div className="section-inner">
+          <div className="feature-heading">
+            <h2>Pilares Estratégicos</h2>
+          </div>
+          <p
+            className="section-body"
+            style={{ textAlign: 'center', margin: '0 auto', maxWidth: '640px' }}
+          >
             Cada eje temático responde a una dimensión crítica de la sostenibilidad territorial. Su
             articulación es lo que nos permite ofrecer soluciones sistémicas, no parches aislados.
           </p>

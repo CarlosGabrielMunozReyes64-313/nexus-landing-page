@@ -57,19 +57,28 @@ export const SDG_BADGES = [
     label: 'SbN/UICN',
     icon: new URL('../assets/iconos_inicio/sbn-uicn.png', import.meta.url).href,
   },
-  { label: 'C+T+I', icon: new URL('../assets/iconos_inicio/cti.png', import.meta.url).href },
+  { label: 'C+T+I', icon: new URL('../assets/iconos_inicio/activity.png', import.meta.url).href },
 ];
 
 // ── Pilares estratégicos (Inicio) ─────────────────────
 // `icon` ahora referencia una imagen en src/assets/iconos_inicio
 export const PILLARS = [
-  { icon: '/iconos_inicio/home.png', title: 'Ciudades y Territorios Sostenibles' },
   {
-    icon: '/iconos_inicio/globe.png',
+    icon: new URL('../assets/iconos_inicio/home.png', import.meta.url).href,
+    title: 'Ciudades y Territorios Sostenibles',
+  },
+  {
+    icon: new URL('../assets/iconos_inicio/globe.png', import.meta.url).href,
     title: 'Biodiversidad y Soluciones basadas en la Naturaleza',
   },
-  { icon: '/iconos_inicio/people.png', title: 'Innovación Social y Gobernanza' },
-  { icon: '/iconos_inicio/activity.png', title: 'Ciencia, Tecnología e Innovación (C+T+I)' },
+  {
+    icon: new URL('../assets/iconos_inicio/people.png', import.meta.url).href,
+    title: 'Innovación Social y Gobernanza',
+  },
+  {
+    icon: new URL('../assets/iconos_inicio/activity.png', import.meta.url).href,
+    title: 'Ciencia, Tecnología e Innovación (C+T+I)',
+  },
 ];
 
 // ── Equipo senior (Quiénes Somos) ─────────────────────
