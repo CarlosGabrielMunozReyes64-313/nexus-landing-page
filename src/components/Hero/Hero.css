@@ -48,7 +48,7 @@
   border: 1px solid rgba(4, 169, 122, 0.6);
   border-radius: 20px;
   padding: 5px 18px;
-  font-size: 11px;
+  font-size: 17.6px;
   font-weight: 600;
   color: var(--nx-mid);
   letter-spacing: 1.2px;
@@ -56,7 +56,7 @@
   margin-bottom: 1.5rem;
 }
 .hero h1 {
-  font-size: clamp(26px, 4vw, 50px);
+  font-size: clamp(41.6px, 6.4vw, 80px);
   font-weight: 700;
   color: var(--nx-white);
   line-height: 1.15;
@@ -67,7 +67,7 @@
   color: var(--nx-mid);
 }
 .hero-sub {
-  font-size: 16px;
+  font-size: 25.6px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.82);
   line-height: 1.75;
@@ -95,5 +95,14 @@
   .hero-btns .btn-outline {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: clamp(31px, 9vw, 41.6px);
+  }
+  .hero-sub {
+    font-size: 19.2px;
   }
 }

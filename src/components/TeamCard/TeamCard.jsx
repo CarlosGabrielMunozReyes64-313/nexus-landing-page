@@ -41,22 +41,35 @@ export default function TeamCard({ member }) {
 
   return (
     <>
-      {/* ── Tarjeta: solo foto + primer nombre ── */}
+      {/* ── Tarjeta: gira al pasar el cursor y revela el cargo en el reverso ── */}
       <button
         type="button"
         className="team-card"
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
-        aria-label={`Ver perfil de ${member.name}`}
+        aria-label={`Ver perfil de ${member.name}${member.role ? ` — ${member.role}` : ''}`}
       >
-        <div className="team-photo">
-          {photo ? (
-            <img src={photo} alt={member.name} className="team-photo-img" />
-          ) : (
-            <span className="team-photo-fallback">{member.initials}</span>
-          )}
-          <span className="team-photo-veil" aria-hidden="true" />
-          <span className="team-photo-name">{firstName(member.name)}</span>
+        <div className="team-card-flip">
+          {/* Frente: foto + primer nombre */}
+          <div className="team-card-face team-card-front">
+            <div className="team-photo">
+              {photo ? (
+                <img src={photo} alt={member.name} className="team-photo-img" />
+              ) : (
+                <span className="team-photo-fallback">{member.initials}</span>
+              )}
+              <span className="team-photo-veil" aria-hidden="true" />
+              <span className="team-photo-name">{firstName(member.name)}</span>
+            </div>
+          </div>
+
+          {/* Reverso: cargo / rol */}
+          <div className="team-card-face team-card-back" aria-hidden="true">
+            <span className="team-back-initials">{member.initials}</span>
+            <span className="team-back-name">{firstName(member.name)}</span>
+            {member.role && <span className="team-back-role">{member.role}</span>}
+            <span className="team-back-hint">Ver perfil completo</span>
+          </div>
         </div>
       </button>
 

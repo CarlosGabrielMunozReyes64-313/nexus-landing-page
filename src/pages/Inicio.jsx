@@ -3,6 +3,7 @@ import Hero from '../components/Hero/Hero';
 import StatsBar from '../components/StatsBar/StatsBar';
 import ValorBox from '../components/ValorBox/ValorBox';
 import PillarCard from '../components/PillarCard/PillarCard';
+import SDGCake from '../components/SDGCake/SDGCake';
 import { SDG_BADGES, PILLARS } from '../data/siteData';
 
 export default function Inicio() {
@@ -73,6 +74,22 @@ export default function Inicio() {
                 <span>{badge.label}</span>
               </div>
             ))}
+          </div>
+
+          {/* ODS — gráfico "pastel de bodas" (modelo de Rockström) */}
+          <div className="ods-cake-block">
+            <div className="feature-heading">
+              <h2>ODS's</h2>
+            </div>
+            <p
+              className="section-body"
+              style={{ textAlign: 'center', margin: '0 auto 0.5rem', maxWidth: '680px' }}
+            >
+              Los Objetivos de Desarrollo Sostenible con los que NEXUS contribuye, organizados
+              según el modelo de "pastel de bodas": la economía se sustenta en la sociedad y la
+              sociedad, en la biosfera. Pasa el cursor sobre cada ODS para ver su aplicación.
+            </p>
+            <SDGCake />
           </div>
         </div>
       </section>

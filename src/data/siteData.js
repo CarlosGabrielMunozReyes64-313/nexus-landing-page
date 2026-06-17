@@ -46,9 +46,6 @@ export const VALOR_ITEMS = [
 ];
 
 export const SDG_BADGES = [
-  { label: 'ODS 11', icon: new URL('../assets/iconos_inicio/ods-11.png', import.meta.url).href },
-  { label: 'ODS 13', icon: new URL('../assets/iconos_inicio/ods-13.png', import.meta.url).href },
-  { label: 'ODS 15', icon: new URL('../assets/iconos_inicio/ods-15.png', import.meta.url).href },
   {
     label: 'MGB 2030',
     icon: new URL('../assets/iconos_inicio/mgb-2030.png', import.meta.url).href,
@@ -421,7 +418,8 @@ export const BLOG_POSTS = [
     emoji: '🌿',
     bg: '#E8F5EF',
     topic: 'Soluciones basadas en la Naturaleza',
-    title: 'Dos SbN para la gestión del riesgo: la experiencia con ICLEI en Barranquilla y Copacabana',
+    title:
+      'Dos SbN para la gestión del riesgo: la experiencia con ICLEI en Barranquilla y Copacabana',
     preview:
       'Diseñamos dos Soluciones basadas en la Naturaleza alineadas con el estándar global de la UICN, integrando gestión del riesgo de desastres, resiliencia climática y un enfoque participativo con equidad de género e inclusión. Compartimos el método y los aprendizajes del proceso.',
     date: '04 jun 2026',
@@ -433,7 +431,8 @@ export const BLOG_POSTS = [
     emoji: '🧭',
     bg: '#EAF6F0',
     topic: 'Responsabilidad Social · ASG',
-    title: 'De la teoría a la práctica: construir una Política de RSE con criterios ASG e indicadores SMART',
+    title:
+      'De la teoría a la práctica: construir una Política de RSE con criterios ASG e indicadores SMART',
     preview:
       'A partir del trabajo con Inversiones López, recorremos cómo se formula una política institucional de Responsabilidad Social Empresarial: diagnóstico, análisis normativo y de riesgos, matriz de materialidad, indicadores SMART y talleres de cocreación con los equipos.',
     date: '28 may 2026',
@@ -445,7 +444,8 @@ export const BLOG_POSTS = [
     emoji: '🏘️',
     bg: '#E6F4EC',
     topic: 'Urbanismo y Gobernanza',
-    title: 'Ecobarrios en Cali y Yumbo: qué cambia cuando la comunidad lidera la gobernanza ambiental',
+    title:
+      'Ecobarrios en Cali y Yumbo: qué cambia cuando la comunidad lidera la gobernanza ambiental',
     preview:
       'El diseño participativo de barrios sostenibles —infraestructura verde, gestión comunitaria del agua y soluciones basadas en la naturaleza en entornos urbano-industriales— muestra que la participación genuina es lo que separa un proyecto de impacto real de un documento archivado.',
     date: '19 may 2026',
@@ -705,5 +705,90 @@ export const CASE_STUDIES = [
       'Indicadores SMART',
       'Talleres de cocreación',
     ],
+  },
+];
+
+// ── ODS · Modelo "pastel de bodas" (Inicio) ───────────
+// Cada ODS relevante para NEXUS, con su título oficial, su color oficial,
+// la capa del modelo de Rockström (Stockholm Resilience Centre) a la que
+// pertenece y la aplicación concreta dentro de NEXUS (mostrada al pasar el
+// cursor). El icono se resuelve dinámicamente desde
+// src/assets/iconos_inicio/ODS/ por el número de ODS (ver SDGCake).
+export const ODS_LAYERS = {
+  economia: { label: 'ECONOMÍA', color: '#A21942' },
+  sociedad: { label: 'SOCIEDAD', color: '#FF3A21' },
+  biosfera: { label: 'BIOSFERA', color: '#3F7E44' },
+};
+
+export const ODS_DATA = [
+  {
+    num: 17,
+    layer: 'cima',
+    title: 'Alianzas para Lograr los Objetivos',
+    apply:
+      'Es probablemente el ODS más representativo de NEXUS por su enfoque en cooperación internacional, alianzas público-privadas y articulación multisectorial.',
+  },
+  {
+    num: 8,
+    layer: 'economia',
+    title: 'Trabajo Decente y Crecimiento Económico',
+    apply:
+      'Generación de empleo, fortalecimiento empresarial, desarrollo económico territorial y proyectos de innovación.',
+  },
+  {
+    num: 9,
+    layer: 'economia',
+    title: 'Industria, Innovación e Infraestructura',
+    apply:
+      'Transformación digital, innovación tecnológica, gestión de proyectos, fortalecimiento de infraestructura institucional y tecnológica.',
+  },
+  {
+    num: 10,
+    layer: 'economia',
+    title: 'Reducción de las Desigualdades',
+    apply:
+      'Proyectos orientados a poblaciones vulnerables, desarrollo regional y acceso a oportunidades.',
+  },
+  {
+    num: 12,
+    layer: 'economia',
+    title: 'Producción y Consumo Responsables',
+    apply:
+      'Implementación de estrategias ASG, RSE, economía circular y sostenibilidad empresarial.',
+  },
+  {
+    num: 4,
+    layer: 'sociedad',
+    title: 'Educación de Calidad',
+    apply:
+      'Formación, capacitaciones, fortalecimiento de capacidades institucionales, diplomados y transferencia de conocimiento.',
+  },
+  {
+    num: 5,
+    layer: 'sociedad',
+    title: 'Igualdad de Género',
+    apply:
+      'Incorporación de enfoques de inclusión y equidad en proyectos sociales y territoriales.',
+  },
+  {
+    num: 11,
+    layer: 'sociedad',
+    title: 'Ciudades y Comunidades Sostenibles',
+    apply:
+      'Proyectos de desarrollo urbano sostenible, ecobarrios, planificación territorial y fortalecimiento municipal.',
+  },
+  {
+    num: 16,
+    layer: 'sociedad',
+    title: 'Paz, Justicia e Instituciones Sólidas',
+    apply:
+      'Fortalecimiento institucional, gobernanza, transparencia, gestión pública y participación ciudadana.',
+  },
+  {
+    num: 13,
+    layer: 'biosfera',
+    title: 'Acción por el Clima',
+    apply:
+      'Soluciones Basadas en la Naturaleza (SbN), gestión ambiental, mitigación y adaptación al cambio climático.',
   },
 ];

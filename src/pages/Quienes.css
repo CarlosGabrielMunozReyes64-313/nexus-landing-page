@@ -17,13 +17,13 @@
   border-left: 3px solid var(--nx-teal);
 }
 .mv-title {
-  font-size: 13px;
+  font-size: 20.8px;
   font-weight: 700;
   color: var(--nx-dark);
   margin-bottom: 0.5rem;
 }
 .mv-text {
-  font-size: 13px;
+  font-size: 20.8px;
   color: var(--nx-muted);
   line-height: 1.7;
 }
@@ -47,13 +47,13 @@
 .identity-card-title {
   flex: 0 0 30%;
   max-width: 320px;
-  font-size: 15px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--nx-dark);
 }
 .identity-card-text {
   flex: 1;
-  font-size: 13px;
+  font-size: 20.8px;
   color: var(--nx-muted);
   line-height: 1.7;
 }

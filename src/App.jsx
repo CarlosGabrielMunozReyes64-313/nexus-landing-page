@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
+import Leaves from './components/Leaves/Leaves'
 
 import Inicio from './pages/Inicio'
 import Quienes from './pages/Quienes'
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <Leaves />
       <Navbar />
 
       <main>

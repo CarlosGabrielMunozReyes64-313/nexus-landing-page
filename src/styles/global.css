@@ -51,7 +51,7 @@ body {
   border-radius: 4px;
   padding: 14px 28px;
   font-family: var(--font);
-  font-size: 13px;
+  font-size: 20.8px;
   font-weight: 600;
   letter-spacing: 0.5px;
   cursor: pointer;
@@ -72,7 +72,7 @@ body {
   border-radius: 4px;
   padding: 14px 28px;
   font-family: var(--font);
-  font-size: 13px;
+  font-size: 20.8px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
@@ -96,7 +96,7 @@ section.alt {
   margin: 0 auto;
 }
 .section-tag {
-  font-size: 11px;
+  font-size: 17.6px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -104,14 +104,14 @@ section.alt {
   margin-bottom: 0.75rem;
 }
 .section-title {
-  font-size: clamp(22px, 3vw, 36px);
+  font-size: clamp(35.2px, 4.8vw, 57.6px);
   font-weight: 700;
   color: var(--nx-dark);
   line-height: 1.25;
   margin-bottom: 1rem;
 }
 .section-body {
-  font-size: 15px;
+  font-size: 24px;
   line-height: 1.8;
   color: var(--nx-muted);
   max-width: 700px;
@@ -152,7 +152,7 @@ section.alt {
   border: 1px solid rgba(4, 169, 122, 0.3);
   border-radius: 4px;
   padding: 3px 10px;
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--nx-mid);
 }
@@ -177,19 +177,21 @@ section.alt {
   background: linear-gradient(90deg, #c8e4d4, transparent);
 }
 .feature-heading h2 {
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(35.2px, 4.8vw, 51.2px);
   font-weight: 700;
   color: var(--nx-dark);
   white-space: nowrap;
   margin: 0;
 }
 .ods-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.25rem;
   margin-top: 2rem;
 }
 .ods-item {
+  flex: 0 1 160px; /* ancho base; el flex centra y envuelve según la cantidad */
   background: var(--nx-white);
   border: 0.5px solid #c8e4d4;
   border-radius: 14px;
@@ -214,7 +216,7 @@ section.alt {
   object-fit: contain;
 }
 .ods-item span {
-  font-size: 12px;
+  font-size: 19.2px;
   font-weight: 700;
   letter-spacing: 0.3px;
   color: var(--nx-dark);
@@ -222,13 +224,13 @@ section.alt {
 }
 
 @media (max-width: 900px) {
-  .ods-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .ods-item {
+    flex-basis: 150px;
   }
 }
 @media (max-width: 520px) {
-  .ods-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .ods-item {
+    flex-basis: 130px;
   }
 }
 
@@ -253,5 +255,39 @@ section.alt {
   .grid-4 {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+}
+
+/* ── Bloque del gráfico de ODS (pastel de bodas) ──── */
+.ods-cake-block {
+  margin-top: 4rem;
+}
+
+/* ── ADAPTABILIDAD GLOBAL (refuerzo para cualquier pantalla) ── */
+html,
+body {
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+}
+
+/* En pantallas muy pequeñas, los títulos (ya un 60% mayores) se ajustan
+   para no desbordar, manteniéndose grandes pero legibles. */
+@media (max-width: 480px) {
+  section {
+    padding: 2.6rem 1.1rem;
+  }
+  .section-title {
+    font-size: clamp(28px, 8.5vw, 35.2px);
+  }
+  .feature-heading h2 {
+    font-size: clamp(28px, 8.5vw, 35.2px);
+  }
+  .feature-heading {
+    gap: 0.8rem;
+  }
+  .ods-cake-block {
+    margin-top: 2.5rem;
   }
 }

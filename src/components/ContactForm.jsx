@@ -145,7 +145,7 @@ export default function ContactForm() {
         </div>
 
         {status === 'error' && (
-          <p style={{ color: '#c0392b', fontSize: '13px', margin: 0 }}>
+          <p style={{ color: '#c0392b', fontSize: '20.8px', margin: 0 }}>
             Hubo un problema al enviar el mensaje. Inténtelo de nuevo o escríbanos directamente a
             info@nexus-sostenible.co
           </p>
