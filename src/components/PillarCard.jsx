@@ -22,7 +22,7 @@ export default function Inicio() {
             <span>transformar territorios</span>
           </>
         }
-        subtitle="Somos un aliado y que articula actores, saberes y estrategias para acelerar la transición hacia territorios resilientes, biodiversos e inclusivos."
+        subtitle="Somos un aliado que articula actores, saberes y estrategias para acelerar la transición hacia territorios resilientes, biodiversos e inclusivos."
       >
         <button className="btn-primary" onClick={() => navigate('/contacto')}>
           Conversemos sobre tu proyecto

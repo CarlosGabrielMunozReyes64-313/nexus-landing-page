@@ -1,5 +1,7 @@
 import Hero from '../components/Hero/Hero'
 import BlogCard from '../components/BlogCard/BlogCard'
+import EnviroCalendar from '../components/EnviroCalendar/EnviroCalendar'
+import Reveal from '../components/Reveal/Reveal'
 import { BLOG_POSTS } from '../data/siteData'
 
 export default function Blog() {
@@ -17,6 +19,9 @@ export default function Blog() {
 
       <section>
         <div className="section-inner">
+          {/* Carrusel del calendario ambiental al inicio del apartado de blog */}
+          <EnviroCalendar />
+
           <div className="section-tag">Blog de Innovación</div>
           <h2 className="section-title">Análisis técnico con perspectiva territorial</h2>
           <p className="section-body" style={{ marginBottom: '3rem' }}>
@@ -25,8 +30,10 @@ export default function Blog() {
             gobernanza ambiental y biotecnología territorial.
           </p>
           <div className="grid-3">
-            {BLOG_POSTS.map((post) => (
-              <BlogCard key={post.title} post={post} />
+            {BLOG_POSTS.map((post, i) => (
+              <Reveal key={post.title} variant="up" delay={i * 90}>
+                <BlogCard post={post} />
+              </Reveal>
             ))}
           </div>
         </div>

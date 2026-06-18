@@ -1,5 +1,5 @@
 import Hero from '../components/Hero/Hero';
-import ServiceTabs from '../components/ServiceTabs/ServiceTabs';
+import EjesList from '../components/EjesList/EjesList';
 
 export default function Ejes() {
   return (
@@ -14,7 +14,7 @@ export default function Ejes() {
         }
       />
 
-      <ServiceTabs />
+      <EjesList />
     </>
   );
 }

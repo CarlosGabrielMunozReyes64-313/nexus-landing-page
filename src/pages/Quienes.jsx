@@ -1,6 +1,7 @@
 import './Quienes.css';
 import Hero from '../components/Hero/Hero';
 import TeamCard from '../components/TeamCard/TeamCard';
+import Reveal from '../components/Reveal/Reveal';
 import ImgPrincipios from '../assets/Quienes/Los-principios-que-guían-cada-decisión.jpg';
 import ImgRetos from '../assets/Quienes/Los-retos-que-nos-definen.jpg';
 import ImgCapacidades from '../assets/Quienes/Capacidades-integradas-en-una-sola-plataforma.jpg';
@@ -15,6 +16,44 @@ import {
   VALUE_PROPOSITION,
   COMPANY_INFO,
 } from '../data/siteData';
+
+// Bloque reutilizable: imagen amplia (≈500px) + contenido con tarjetas.
+// `reverse` alterna el lado de la imagen. Las imágenes y el texto aparecen
+// con una animación sutil al entrar en pantalla.
+function IdentityBlock({ image, alt, tag, title, intro, items, reverse = false }) {
+  return (
+    <div className={`identity-block${reverse ? ' reverse' : ''}`}>
+      <div className="identity-top">
+        <Reveal as="div" variant={reverse ? 'right' : 'left'} className="identity-media">
+          <img src={image} alt={alt} loading="lazy" />
+        </Reveal>
+
+        <Reveal as="div" variant={reverse ? 'left' : 'right'} className="identity-intro">
+          <div className="section-tag">{tag}</div>
+          <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>
+            {title}
+          </h2>
+          <p className="section-body">{intro}</p>
+        </Reveal>
+      </div>
+
+      <div className="identity-stack">
+        {items.map((item, i) => (
+          <Reveal
+            as="div"
+            variant="up"
+            delay={(i % 4) * 80}
+            className="identity-card"
+            key={item.title}
+          >
+            <div className="identity-card-title">{item.title}</div>
+            <p className="identity-card-text">{item.text}</p>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Quienes() {
   return (
@@ -78,88 +117,41 @@ export default function Quienes() {
 
       <section>
         <div className="section-inner">
-          <div className="identity-block">
-            <div className="identity-media">
-              <img src={ImgPrincipios} alt="Equipo de NEXUS colaborando con la comunidad" />
-            </div>
-            <div className="identity-content">
-              <div className="section-tag">Valores Corporativos</div>
-              <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>
-                Los principios que guían cada decisión
-              </h2>
-              <p className="section-body" style={{ marginBottom: '2.5rem' }}>
-                Seis valores definen nuestra forma de operar y son el criterio con el que evaluamos
-                cada proyecto, alianza y resultado.
-              </p>
-              <div className="identity-stack">
-                {CORPORATE_VALUES.map((value) => (
-                  <div className="identity-card" key={value.title}>
-                    <div className="identity-card-title">{value.title}</div>
-                    <p className="identity-card-text">{value.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <IdentityBlock
+            image={ImgPrincipios}
+            alt="Equipo de NEXUS colaborando con la comunidad"
+            tag="Valores Corporativos"
+            title="Los principios que guían cada decisión"
+            intro="Seis valores definen nuestra forma de operar y son el criterio con el que evaluamos cada proyecto, alianza y resultado."
+            items={CORPORATE_VALUES}
+          />
         </div>
       </section>
 
       <section className="alt">
         <div className="section-inner">
-          <div className="identity-block reverse">
-            <div className="identity-media">
-              <img src={ImgRetos} alt="Paisaje con energía renovable y territorio sostenible" />
-            </div>
-            <div className="identity-content">
-              <div className="section-tag">Desafíos Estratégicos</div>
-              <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>
-                Los retos que nos definen
-              </h2>
-              <p className="section-body" style={{ marginBottom: '2.5rem' }}>
-                NEXUS orienta su crecimiento y propuesta de valor en torno a los grandes desafíos
-                que marcarán las próximas décadas en Colombia y la región.
-              </p>
-              <div className="identity-stack">
-                {STRATEGIC_CHALLENGES.map((challenge) => (
-                  <div className="identity-card" key={challenge.title}>
-                    <div className="identity-card-title">{challenge.title}</div>
-                    <p className="identity-card-text">{challenge.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <IdentityBlock
+            reverse
+            image={ImgRetos}
+            alt="Paisaje con energía renovable y territorio sostenible"
+            tag="Desafíos Estratégicos"
+            title="Los retos que nos definen"
+            intro="NEXUS orienta su crecimiento y propuesta de valor en torno a los grandes desafíos que marcarán las próximas décadas en Colombia y la región."
+            items={STRATEGIC_CHALLENGES}
+          />
         </div>
       </section>
 
       <section>
         <div className="section-inner">
-          <div className="identity-block">
-            <div className="identity-media">
-              <img
-                src={ImgCapacidades}
-                alt="Profesionales de NEXUS analizando datos y mapas técnicos"
-              />
-            </div>
-            <div className="identity-content">
-              <div className="section-tag">Nuestra Propuesta de Valor</div>
-              <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>
-                Capacidades integradas en una sola plataforma
-              </h2>
-              <p className="section-body" style={{ marginBottom: '2.5rem' }}>
-                NEXUS reúne las capacidades que los actores del territorio necesitan para
-                transformar sus proyectos en realidades sostenibles.
-              </p>
-              <div className="identity-stack">
-                {VALUE_PROPOSITION.map((item) => (
-                  <div className="identity-card" key={item.title}>
-                    <div className="identity-card-title">{item.title}</div>
-                    <p className="identity-card-text">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <IdentityBlock
+            image={ImgCapacidades}
+            alt="Profesionales de NEXUS analizando datos y mapas técnicos"
+            tag="Nuestra Propuesta de Valor"
+            title="Capacidades integradas en una sola plataforma"
+            intro="NEXUS reúne las capacidades que los actores del territorio necesitan para transformar sus proyectos en realidades sostenibles."
+            items={VALUE_PROPOSITION}
+          />
         </div>
       </section>
 

@@ -1,18 +1,34 @@
-import { STATS } from '../../data/siteData'
+import { STATS } from '../../data/siteData';
+import CountUp, { parseStatNum } from '../CountUp/CountUp';
 import './StatsBar.css';
 
 // Barra de cifras de impacto (página de inicio).
+// Cada número arranca en 0 y se anima hasta su valor al hacerse visible.
 export default function StatsBar() {
   return (
     <div className="stats-bar">
       <div className="stats-inner">
-        {STATS.map((stat) => (
-          <div key={stat.label}>
-            <div className="stat-num">{stat.num}</div>
-            <div className="stat-label">{stat.label}</div>
-          </div>
-        ))}
+        {STATS.map((stat, i) => {
+          const { prefix, value, suffix } = parseStatNum(stat.num);
+          return (
+            <div key={stat.label} className="stat-item">
+              <div className="stat-num">
+                {value === null ? (
+                  stat.num
+                ) : (
+                  <CountUp
+                    value={value}
+                    prefix={prefix}
+                    suffix={suffix}
+                    duration={1700 + i * 120}
+                  />
+                )}
+              </div>
+              <div className="stat-label">{stat.label}</div>
+            </div>
+          );
+        })}
       </div>
     </div>
-  )
+  );
 }

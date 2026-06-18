@@ -565,7 +565,7 @@ export const FOOTER_TOPICS = [
 
 // ── Datos de la empresa (razón social, contacto) ──────
 export const COMPANY_INFO = {
-  legalName: 'NEXUS: Innovación y Alianzas para un Futuro Sostenible S.A.S.',
+  legalName: 'NEXUS: Alianzas e Innovación   para un Futuro Sostenible S.A.S.',
   shortName: 'NEXUS S.A.S.',
   tagline: 'Innovación y Alianzas para un Futuro Sostenible',
   city: 'Santiago de Cali, Valle del Cauca, Colombia',
@@ -791,4 +791,45 @@ export const ODS_DATA = [
     apply:
       'Soluciones Basadas en la Naturaleza (SbN), gestión ambiental, mitigación y adaptación al cambio climático.',
   },
+];
+
+// ── Calendario ambiental (conmemoraciones del año) ────
+// month: 1-12 · day: día del mes · usado por el carrusel del Blog.
+export const ENVIRO_DATES = [
+  { month: 2, day: 2, title: 'Día Mundial de los Humedales' },
+  { month: 3, day: 3, title: 'Día Mundial de la Vida Silvestre' },
+  { month: 3, day: 21, title: 'Día Internacional de los Bosques' },
+  { month: 3, day: 22, title: 'Día Mundial del Agua' },
+  { month: 3, day: 23, title: 'Día Meteorológico Mundial' },
+  { month: 4, day: 22, title: 'Día Internacional de la Madre Tierra' },
+  { month: 5, day: 22, title: 'Día Internacional de la Diversidad Biológica' },
+  { month: 6, day: 5, title: 'Día Mundial del Medio Ambiente' },
+  { month: 6, day: 8, title: 'Día Mundial de los Océanos' },
+  { month: 6, day: 17, title: 'Día Mundial de Lucha contra la Desertificación y la Sequía' },
+  { month: 6, day: 28, title: 'Día Mundial del Árbol (Colombia)' },
+  { month: 7, day: 7, title: 'Día Internacional de la Conservación del Suelo' },
+  {
+    month: 7,
+    day: 26,
+    title: 'Día Internacional para la Conservación del Ecosistema de Manglares',
+  },
+  { month: 8, day: 9, title: 'Día Internacional de los Pueblos Indígenas' },
+  { month: 9, day: 7, title: 'Día Internacional del Aire Limpio por un Cielo Azul' },
+  { month: 9, day: 16, title: 'Día Internacional de la Preservación de la Capa de Ozono' },
+  { month: 9, day: 22, title: 'Día Mundial Sin Automóvil' },
+  { month: 10, day: 1, title: 'Día Internacional del Café (sostenibilidad agrícola)' },
+  { month: 10, day: 13, title: 'Día Internacional para la Reducción del Riesgo de Desastres' },
+  { month: 10, day: 16, title: 'Día Mundial de la Alimentación' },
+  { month: 10, day: 24, title: 'Día Internacional contra el Cambio Climático' },
+  { month: 10, day: 31, title: 'Día Mundial de las Ciudades' },
+  { month: 11, day: 5, title: 'Día Mundial de Concienciación sobre los Tsunamis' },
+  {
+    month: 11,
+    day: 6,
+    title:
+      'Día Internacional para la Prevención de la Explotación del Medio Ambiente en la Guerra y los Conflictos Armados',
+  },
+  { month: 11, day: 21, title: 'Día Mundial de la Pesca' },
+  { month: 12, day: 5, title: 'Día Mundial del Suelo' },
+  { month: 12, day: 11, title: 'Día Internacional de las Montañas' },
 ];

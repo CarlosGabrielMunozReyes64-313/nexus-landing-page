@@ -28,81 +28,123 @@
   line-height: 1.7;
 }
 
-/* Tarjetas de identidad (apiladas, sin hover) */
-.identity-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.identity-card {
-  background: var(--nx-white);
-  border: 0.5px solid #c8e4d4;
-  border-radius: 8px;
-  border-top: 3px solid var(--nx-mid);
-  padding: 1.75rem 2rem;
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-}
-.identity-card-title {
-  flex: 0 0 30%;
-  max-width: 320px;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--nx-dark);
-}
-.identity-card-text {
-  flex: 1;
-  font-size: 20.8px;
-  color: var(--nx-muted);
-  line-height: 1.7;
-}
-@media (max-width: 600px) {
-  .identity-card {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .identity-card-title {
-    flex-basis: auto;
-    max-width: none;
-  }
+/* ── Bloque de identidad ───────────────────────────────
+   Estructura:
+     .identity-block
+        .identity-top   → imagen (~500px) + encabezado, lado a lado
+        .identity-stack → MOSAICO de tarjetas a TODO el ancho (debajo)
+   Así las tarjetas llenan también el espacio bajo la imagen. */
+.identity-block {
+  display: block;
 }
 
-/* Bloque con imagen (imagen + contenido, alterna con .reverse) */
-.identity-block {
+.identity-top {
   display: flex;
-  gap: 2.5rem;
-  align-items: stretch;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 2.25rem;
 }
-.identity-block.reverse {
+.identity-block.reverse .identity-top {
   flex-direction: row-reverse;
 }
+
 .identity-media {
-  flex: 0 0 38%;
+  flex: 0 0 500px;
+  max-width: 500px;
 }
 .identity-media img {
   width: 100%;
-  height: 100%;
-  min-height: 320px;
+  aspect-ratio: 4 / 3;
+  height: auto;
   object-fit: cover;
-  border-radius: 12px;
+  object-position: center;
+  border-radius: 14px;
   display: block;
+  box-shadow: 0 16px 42px rgba(2, 64, 41, 0.16);
 }
-.identity-content {
-  flex: 1 1 auto;
+.identity-intro {
+  flex: 1 1 0;
   min-width: 0;
 }
-@media (max-width: 900px) {
-  .identity-block,
-  .identity-block.reverse {
+.identity-intro .section-body {
+  margin-bottom: 0;
+}
+
+/* ── Mosaico (masonry con columnas CSS) a todo el ancho ──
+   El nº de columnas se calcula solo: ~4 en escritorio, menos al
+   estrecharse y 1 en móvil. Cada tarjeta no se parte entre columnas. */
+.identity-stack {
+  column-width: 250px;
+  column-gap: 1.25rem;
+}
+.identity-card {
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 0 0 1.25rem;
+  background: var(--nx-white);
+  border: 0.5px solid #c8e4d4;
+  border-radius: 10px;
+  border-top: 3px solid var(--nx-mid);
+  padding: 1.5rem 1.6rem;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+.identity-card:hover {
+  box-shadow: 0 12px 30px rgba(4, 169, 122, 0.12);
+  transform: translateY(-3px);
+}
+.identity-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--nx-dark);
+  margin-bottom: 0.55rem;
+}
+.identity-card-text {
+  font-size: 17px;
+  color: var(--nx-muted);
+  line-height: 1.65;
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .identity-top,
+  .identity-block.reverse .identity-top {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
+    align-items: stretch;
   }
   .identity-media {
     flex-basis: auto;
+    max-width: none;
+    width: 100%;
   }
   .identity-media img {
-    height: 260px;
-    min-height: 0;
+    aspect-ratio: 16 / 9;
+    max-height: 440px;
+  }
+}
+
+@media (max-width: 600px) {
+  .identity-stack {
+    column-width: auto;
+    column-count: 1;
+  }
+  .identity-media img {
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+  }
+  .identity-card {
+    padding: 1.4rem 1.5rem;
+  }
+  .identity-card-title {
+    font-size: 18.5px;
+  }
+  .identity-card-text {
+    font-size: 16.5px;
   }
 }

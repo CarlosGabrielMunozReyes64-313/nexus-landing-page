@@ -18,12 +18,12 @@ export default function Inicio() {
           <>
             Conectamos conocimiento,
             <br />
-            innovación y alianzas para
+            alianzas e innovación para
             <br />
             <span>transformar territorios</span>
           </>
         }
-        subtitle="Somos un aliado y que articula actores, saberes y estrategias para acelerar la transición hacia territorios resilientes, biodiversos e inclusivos."
+        subtitle="Somos un aliado que articula actores, saberes y estrategias para acelerar la transición hacia territorios resilientes, biodiversos e inclusivos."
       >
         <button className="btn-primary" onClick={() => navigate('/contacto')}>
           Conversemos sobre tu proyecto
@@ -85,9 +85,9 @@ export default function Inicio() {
               className="section-body"
               style={{ textAlign: 'center', margin: '0 auto 0.5rem', maxWidth: '680px' }}
             >
-              Los Objetivos de Desarrollo Sostenible con los que NEXUS contribuye, organizados
-              según el modelo de "pastel de bodas": la economía se sustenta en la sociedad y la
-              sociedad, en la biosfera. Pasa el cursor sobre cada ODS para ver su aplicación.
+              Los Objetivos de Desarrollo Sostenible con los que NEXUS contribuye, organizados según
+              el modelo de "pastel de bodas": la economía se sustenta en la sociedad y la sociedad,
+              en la biosfera. Pasa el cursor sobre cada ODS para ver su aplicación.
             </p>
             <SDGCake />
           </div>
