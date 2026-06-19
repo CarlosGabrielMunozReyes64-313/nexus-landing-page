@@ -78,14 +78,10 @@ export const PILLARS = [
   },
 ];
 
-// ── Equipo senior (Quiénes Somos) ─────────────────────
-// Cada integrante: { initials, name, role, bio }. Opcionalmente puede
-// incluir `profile` con el CV ampliado (resumen, formación, experiencia y
-// competencias); cuando existe, la tarjeta muestra "Ver perfil completo".
 export const TEAM = [
   {
     initials: 'GV',
-    name: 'Guillermo',
+    name: 'Guillermo Alberto Vélez Tobar',
     role: 'Ecólogo · Consultor e Investigador',
     bio: 'Ecólogo con formación doctoral (cand.) y dos maestrías en ciencias. Especialista en planificación territorial, gestión integral de residuos —políticas de Basura Cero, valorización de RCD, NFU y compostaje— y tecnologías de precisión para el monitoreo ambiental, con un enfoque riguroso basado en el método científico y estándares internacionales.',
     profile: {
@@ -159,9 +155,9 @@ export const TEAM = [
   },
   {
     initials: 'JS',
-    name: 'Juan David Sandoval Gaviria',
-    role: 'Especialista SIG · Geomática',
-    bio: 'Geógrafo bilingüe con experiencia en análisis geoespacial, ordenamiento territorial y gestión de información ambiental. Especialista en Sistemas de Información Geográfica (SIG), modelación territorial, cartografía temática y análisis socioambiental para la planificación, priorización y monitoreo de intervenciones basadas en la naturaleza.',
+    name: 'Juan David Sabogal Gaviria',
+    role: 'Profesional SIG / Especialista en Educación en Derechos Humanos',
+    bio: 'Geógrafo bilingüe con experiencia en análisis geoespacial, ordenamiento territorial y gestión de información socioambiental. Especialista en Educación en Derechos Humanos, amplia experiencia en Sistemas de Información Geográfica (SIG), modelación territorial, cartografía temática y análisis socioambiental para la planificación, priorización y monitoreo de intervenciones basadas en la naturaleza.',
   },
   {
     initials: 'PS',
