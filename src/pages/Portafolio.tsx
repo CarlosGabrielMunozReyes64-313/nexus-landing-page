@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Portafolio.css';
 import Hero from '../components/Hero/Hero';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
@@ -100,6 +101,32 @@ export default function Portafolio() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proyecto demo · Calculadora de Huella Ecológica */}
+      <section className="demo-cta">
+        <div className="section-inner">
+          <div className="demo-cta-card">
+            <div className="demo-cta-badge">Proyecto demo</div>
+            <h2 className="demo-cta-title">
+              Calculadora de <span>Huella Ecológica</span>
+            </h2>
+            <p className="demo-cta-desc">
+              Una aplicación interactiva para estimar la huella de carbono e hídrica, con
+              calculadoras dinámicas, recomendaciones personalizadas y un dashboard analítico.
+              Desarrollada como prueba técnica e integrada dentro de NEXUS.
+            </p>
+            <div className="demo-cta-tags">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Chart.js</span>
+              <span>Vite</span>
+            </div>
+            <Link to="/proyecto-demo" className="btn-primary demo-cta-btn">
+              Ver demo del proyecto →
+            </Link>
           </div>
         </div>
       </section>

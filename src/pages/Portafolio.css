@@ -165,3 +165,80 @@
     padding: 1.75rem;
   }
 }
+
+/* ── Proyecto demo · CTA ──────────────────────────── */
+.demo-cta {
+  background: var(--nx-gray);
+}
+.demo-cta-card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: linear-gradient(135deg, var(--nx-dark) 0%, var(--nx-teal) 100%);
+  border-radius: 20px;
+  padding: 3.5rem 2rem;
+  color: var(--nx-white);
+  box-shadow: 0 20px 50px rgba(2, 64, 41, 0.25);
+}
+.demo-cta-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(4, 169, 122, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(53, 166, 68, 0.3), transparent 45%);
+  pointer-events: none;
+}
+.demo-cta-card > * {
+  position: relative;
+}
+.demo-cta-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--nx-white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+.demo-cta-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--nx-white);
+}
+.demo-cta-title span {
+  color: var(--nx-mid);
+}
+.demo-cta-desc {
+  max-width: 640px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+}
+.demo-cta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+.demo-cta-tags span {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.demo-cta-btn {
+  font-size: 1.15rem;
+}
+.demo-cta-btn:hover {
+  background: var(--nx-bright);
+}
