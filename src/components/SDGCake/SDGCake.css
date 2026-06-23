@@ -3,7 +3,7 @@
 ===================================================== */
 .sdg-cake {
   position: relative;
-  max-width: 920px;
+  max-width: 1180px;
   margin: 2.5rem auto 0;
   padding: 1rem 0 0.5rem;
   display: flex;
@@ -143,16 +143,16 @@
 }
 
 .disk-economia {
-  width: clamp(120px, 30vw, 230px);
+  width: clamp(150px, 30vw, 300px);
   background: linear-gradient(100deg, #A21942, #DD1367 45%, #FD6925 78%, #BF8B2E);
 }
 .disk-sociedad {
-  width: clamp(190px, 44vw, 340px);
+  width: clamp(220px, 44vw, 440px);
   background: linear-gradient(100deg, #C5192D, #FF3A21 38%, #FD9D24 70%, #FCC30B);
   animation-delay: 1.2s;
 }
 .disk-biosfera {
-  width: clamp(260px, 60vw, 460px);
+  width: clamp(300px, 60vw, 600px);
   background: linear-gradient(100deg, #3F7E44, #4C9F38 34%, #56C02B 58%, #26BDE2 86%, #0A97D9);
   animation-delay: 2.4s;
 }
@@ -162,10 +162,12 @@
 }
 
 /* ── Íconos ODS ───────────────────────────────────── */
+/* Más grandes para que el texto dentro de cada ícono oficial del ODS
+   sea perfectamente legible, sin abandonar la estructura por capas. */
 .ods-chip {
   position: relative;
-  width: clamp(40px, 6.5vw, 60px);
-  height: clamp(40px, 6.5vw, 60px);
+  width: clamp(76px, 11vw, 120px);
+  height: clamp(76px, 11vw, 120px);
   cursor: pointer;
   outline: none;
   animation: ods-float 4.5s ease-in-out infinite;
@@ -175,10 +177,10 @@
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: 9px;
+  border-radius: 11px;
   overflow: hidden;
   box-shadow: 0 6px 14px -6px rgba(2, 40, 32, 0.5);
-  background: var(--nx-light);
+  background: var(--nx-white);
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -186,7 +188,7 @@
 .ods-chip-inner img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 .ods-chip-fallback {
@@ -211,8 +213,8 @@
 }
 
 .ods-chip--axis {
-  width: clamp(52px, 8vw, 74px);
-  height: clamp(52px, 8vw, 74px);
+  width: clamp(96px, 14vw, 150px);
+  height: clamp(96px, 14vw, 150px);
   animation: ods-float 5.5s ease-in-out infinite;
 }
 .ods-chip--axis .ods-chip-inner {

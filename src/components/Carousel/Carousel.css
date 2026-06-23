@@ -1,0 +1,83 @@
+/* ── CARRUSEL REUTILIZABLE ─────────────────────────── */
+.nx-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nx-carousel-viewport {
+  flex: 1 1 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 0.5rem 0.25rem 1rem;
+}
+.nx-carousel-viewport::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.nx-carousel-track {
+  display: flex;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.nx-carousel-slide {
+  flex: 0 0 clamp(var(--nx-slide-min, 260px), 30%, 360px);
+  scroll-snap-align: start;
+  min-width: 0;
+  display: flex;
+}
+.nx-carousel-slide > * {
+  width: 100%;
+}
+
+/* Flechas de navegación */
+.nx-carousel-arrow {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid #c8e4d4;
+  background: var(--nx-white);
+  color: var(--nx-dark);
+  font-size: 30px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(2, 64, 41, 0.12);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease,
+    opacity 0.2s ease;
+}
+.nx-carousel-arrow span {
+  margin-top: -4px;
+}
+.nx-carousel-arrow:hover:not(:disabled) {
+  background: var(--nx-mid);
+  color: var(--nx-white);
+  border-color: var(--nx-mid);
+  transform: scale(1.06);
+}
+.nx-carousel-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .nx-carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+  .nx-carousel-track {
+    gap: 1rem;
+  }
+}

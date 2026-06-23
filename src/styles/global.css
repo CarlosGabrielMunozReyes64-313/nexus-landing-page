@@ -35,6 +35,48 @@ body {
   background: var(--nx-white);
 }
 
+/* ── SELECCIÓN DE TEXTO ────────────────────────────────
+   Por defecto, el texto NO es seleccionable en toda la página
+   (sensación de aplicación, evita el "resaltado" accidental).
+   Solo se permite seleccionar/escribir donde tiene sentido:
+   campos de formulario y contenido editable. Los elementos que
+   ejecutan una acción al hacer clic (botones, enlaces, etc.)
+   conservan el cursor de "mano". */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+}
+input,
+textarea,
+select,
+[contenteditable='true'],
+[contenteditable=''] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+button,
+a,
+label,
+summary,
+[role='button'],
+[role='tab'],
+[role='link'],
+[onclick],
+[tabindex]:not([tabindex='-1']) {
+  cursor: pointer;
+}
+button:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
 /* ── PAGES ────────────────────────────────────────── */
 .page {
   display: none;

@@ -1,6 +1,7 @@
 import './Quienes.css';
 import Hero from '../components/Hero/Hero';
 import TeamCard from '../components/TeamCard/TeamCard';
+import Carousel from '../components/Carousel/Carousel';
 import Reveal from '../components/Reveal/Reveal';
 import ImgPrincipios from '../assets/Quienes/Los-principios-que-guían-cada-decisión.jpg';
 import ImgRetos from '../assets/Quienes/Los-retos-que-nos-definen.jpg';
@@ -159,14 +160,27 @@ export default function Quienes() {
       <section className="alt">
         <div className="section-inner">
           <div className="section-tag">Equipo Senior</div>
-          <h2 className="section-title" style={{ marginBottom: '2rem' }}>
-            El talento detrás de cada solución
-          </h2>
-          <div className="grid-3">
-            {TEAM.map((member) => (
+
+          {/* Miembros fundadores (Guillermo, Jaime, Viviana) */}
+          <h3 className="team-group-title">Miembros Fundadores</h3>
+          <Carousel minSlide={240} ariaLabel="Miembros fundadores">
+            {TEAM.slice(0, 3).map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}
-          </div>
+          </Carousel>
+
+          {/* Separación con el resto del equipo */}
+          <div className="team-divider" aria-hidden="true" />
+
+          <h3 className="team-group-title team-group-title--sub">Equipo de Especialistas</h3>
+          <Carousel minSlide={240} ariaLabel="Equipo de especialistas">
+            {TEAM.slice(3).map((member) => (
+              <TeamCard key={member.name} member={member} />
+            ))}
+          </Carousel>
+
+          {/* Título trasladado al final, debajo del resto de las tarjetas */}
+          <h2 className="section-title team-closing-title">El talento detrás de cada solución</h2>
         </div>
       </section>
     </>

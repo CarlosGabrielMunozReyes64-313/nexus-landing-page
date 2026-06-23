@@ -1,114 +1,38 @@
-/* ── TARJETA DE EQUIPO: gira al pasar el cursor (frente/reverso) ─── */
+/* ── TARJETA DE EQUIPO: foto + nombre debajo (abre perfil al clic) ─── */
 .team-card {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 0;
   border: none;
   background: none;
   cursor: pointer;
   border-radius: 14px;
-  perspective: 1400px;
   -webkit-tap-highlight-color: transparent;
+  text-align: center;
 }
 .team-card:focus-visible {
   outline: 3px solid var(--nx-mid);
-  outline-offset: 3px;
-}
-
-/* Contenedor que rota en 3D */
-.team-card-flip {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0.1, 0.2, 1);
-  border-radius: 14px;
-  box-shadow: 0 8px 26px rgba(2, 64, 41, 0.1);
-}
-.team-card:hover .team-card-flip,
-.team-card:focus-visible .team-card-flip {
-  transform: rotateY(180deg);
-  box-shadow: 0 18px 44px rgba(2, 64, 41, 0.24);
-}
-
-/* Caras comunes */
-.team-card-face {
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  overflow: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-.team-card-front {
-  transform: rotateY(0deg);
-}
-.team-card-back {
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 1.6rem 1.3rem;
-  text-align: center;
-  background: linear-gradient(150deg, var(--nx-dark), var(--nx-teal) 70%, var(--nx-mid));
-}
-.team-card-back::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.14), transparent 60%);
-  pointer-events: none;
-}
-.team-back-initials {
-  font-size: clamp(54.4px, 8vw, 83.2px);
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.28);
-  line-height: 1;
-}
-.team-back-name {
-  font-size: clamp(28.8px, 3.52vw, 38.4px);
-  font-weight: 800;
-  color: var(--nx-white);
-  line-height: 1.2;
-}
-.team-back-role {
-  position: relative;
-  font-size: clamp(20.8px, 2.4vw, 25.6px);
-  font-weight: 600;
-  color: #aef0d3;
-  line-height: 1.45;
-  max-width: 90%;
-}
-.team-back-role::before {
-  content: '';
-  display: block;
-  width: 38px;
-  height: 3px;
-  border-radius: 3px;
-  background: var(--nx-mid);
-  margin: 0 auto 0.7rem;
-}
-.team-back-hint {
-  margin-top: 0.5rem;
-  font-size: 17.6px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
-  padding: 5px 14px;
+  outline-offset: 4px;
 }
 
 .team-photo {
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 14px;
   background: linear-gradient(135deg, var(--nx-dark), var(--nx-teal));
+  box-shadow: 0 8px 26px rgba(2, 64, 41, 0.12);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.team-card:hover .team-photo,
+.team-card:focus-visible .team-photo {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(2, 64, 41, 0.24);
 }
 .team-photo-img {
   width: 100%;
@@ -124,35 +48,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(76.8px, 14.4vw, 140.8px);
+  font-size: clamp(64px, 12vw, 120px);
   font-weight: 800;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* Velo inferior para que el nombre blanco se lea sobre la foto. */
-.team-photo-veil {
+/* Pista "Ver perfil" que aparece al pasar el cursor sobre la foto. */
+.team-photo-hint {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    to top,
-    rgba(2, 28, 22, 0.88) 0%,
-    rgba(2, 28, 22, 0.3) 42%,
-    transparent 68%
-  );
-}
-.team-photo-name {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1.15rem 1.25rem 1.35rem;
-  font-size: clamp(32px, 3.84vw, 41.6px);
-  font-weight: 800;
-  letter-spacing: 0.4px;
+  left: 50%;
+  bottom: 14px;
+  transform: translate(-50%, 8px);
+  background: rgba(2, 28, 22, 0.72);
   color: var(--nx-white);
-  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  pointer-events: none;
+}
+.team-card:hover .team-photo-hint,
+.team-card:focus-visible .team-photo-hint {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Bloque del nombre, debajo de la imagen. */
+.team-name-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 0.4rem 0.2rem;
+}
+.team-name {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--nx-dark);
+}
+.team-role {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--nx-mid);
 }
 
 /* ── MODAL (80% de la pantalla) ──────────────────────────── */

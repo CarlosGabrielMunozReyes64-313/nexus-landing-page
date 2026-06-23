@@ -23,7 +23,6 @@ export default function Navbar() {
         <Logo />
         <span className="nav-logo-text">
           <LetrasLogo />
-          <span className="nav-tagline">Alianzas e innovación</span>
         </span>
       </Link>
 

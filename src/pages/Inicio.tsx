@@ -13,6 +13,7 @@ export default function Inicio() {
     <>
       <Hero
         carousel
+        brand
         tag="Innovación · Alianzas · Desarrollo Sostenible"
         title={
           <>
@@ -44,12 +45,15 @@ export default function Inicio() {
               <h2 className="section-title">
                 Somos tu aliado de innovación para el desarrollo territorial sostenible.
               </h2>
-              <p className="section-body" style={{ marginBottom: '1.25rem' }}>
+              <p
+                className="section-body"
+                style={{ marginBottom: '1.25rem', textAlign: 'justify' }}
+              >
                 NEXUS no es una consultora convencional. Somos un nodo de articulación que conecta
                 la ciencia, la gestión pública, la innovación social y el conocimiento del
                 territorio para diseñar e implementar soluciones de alto impacto.
               </p>
-              <p className="section-body">
+              <p className="section-body" style={{ textAlign: 'justify' }}>
                 Trabajamos con gobiernos, organizaciones de cooperación internacional, sector
                 privado y comunidades en la formulación y ejecución de proyectos que integran
                 biodiversidad, resiliencia climática, tecnología e innovación social desde una
@@ -83,7 +87,7 @@ export default function Inicio() {
             </div>
             <p
               className="section-body"
-              style={{ textAlign: 'center', margin: '0 auto 0.5rem', maxWidth: '680px' }}
+              style={{ textAlign: 'justify', margin: '0 auto 0.5rem', maxWidth: '680px' }}
             >
               Los Objetivos de Desarrollo Sostenible con los que NEXUS contribuye, organizados según
               el modelo de "pastel de bodas": la economía se sustenta en la sociedad y la sociedad,
@@ -102,7 +106,7 @@ export default function Inicio() {
           </div>
           <p
             className="section-body"
-            style={{ textAlign: 'center', margin: '0 auto', maxWidth: '640px' }}
+            style={{ textAlign: 'justify', margin: '0 auto', maxWidth: '640px' }}
           >
             Cada eje temático responde a una dimensión crítica de la sostenibilidad territorial. Su
             articulación es lo que nos permite ofrecer soluciones sistémicas, no parches aislados.

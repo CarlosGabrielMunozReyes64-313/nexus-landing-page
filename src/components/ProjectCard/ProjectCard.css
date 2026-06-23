@@ -1,51 +1,108 @@
-/* ── PORTFOLIO / PROJECT CARDS ────────────────────── */
+/* ── PORTFOLIO / PROJECT (SERVICIOS) CARDS ───────────── */
 .proj-card {
+  display: flex;
+  flex-direction: column;
   background: var(--nx-white);
   border: 0.5px solid #c8e4d4;
-  border-radius: 8px;
-  padding: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
   transition:
     transform 0.2s,
     box-shadow 0.2s;
 }
 .proj-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(4, 169, 122, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(4, 169, 122, 0.14);
 }
+
+/* Imagen representativa del servicio */
+.proj-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--nx-light);
+}
+.proj-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.proj-body {
+  padding: 1.4rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .proj-cat {
   display: inline-block;
-  font-size: 16px;
+  align-self: flex-start;
+  font-size: 13.5px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
   margin-bottom: 0.75rem;
 }
-.cat-urban {
-  background: #e3f2e8;
-  color: #024029;
+
+/* Colores por categoría (coinciden con el degradado de cada ilustración) */
+.cat-sost {
+  background: #e3f5e6;
+  color: #2e7d32;
 }
 .cat-bio {
   background: #e1f0f5;
   color: #025873;
 }
-.cat-agua {
-  background: #e8f5e9;
-  color: #1b5e20;
+.cat-gob {
+  background: #e0efe9;
+  color: #024029;
 }
-.cat-corp {
-  background: #f3e5f5;
-  color: #4a148c;
+.cat-social {
+  background: #fbeede;
+  color: #b5651d;
 }
+.cat-alianzas {
+  background: #ece6f7;
+  color: #5b3fa6;
+}
+.cat-proyectos {
+  background: #e0eef0;
+  color: #21566a;
+}
+
+/* Variante usada como fondo del bloque de imagen (degradado suave) */
+.proj-media.cat-sost {
+  background: #eef8ef;
+}
+.proj-media.cat-bio {
+  background: #eaf5f9;
+}
+.proj-media.cat-gob {
+  background: #e9f3ee;
+}
+.proj-media.cat-social {
+  background: #fdf3e7;
+}
+.proj-media.cat-alianzas {
+  background: #f1ecfa;
+}
+.proj-media.cat-proyectos {
+  background: #e9f3f4;
+}
+
 .proj-title {
-  font-size: 22.4px;
+  font-size: 21px;
   font-weight: 700;
   color: var(--nx-dark);
+  line-height: 1.3;
   margin-bottom: 0.5rem;
 }
 .proj-desc {
-  font-size: 19.2px;
+  font-size: 17px;
   color: var(--nx-muted);
   line-height: 1.6;
 }

@@ -42,6 +42,28 @@
   position: relative;
   z-index: 1;
 }
+
+/* ── Logo grande de NEXUS dentro del hero (símbolo + letras + lema) ──
+   En blanco para máxima legibilidad sobre el fondo oscuro. Lo más grande
+   posible, manteniéndose proporcionado y responsivo. */
+.hero-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.6rem, 1.6vw, 1.2rem);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.hero-brand-symbol {
+  width: auto;
+  height: clamp(120px, 19vw, 230px);
+  filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.35));
+}
+.hero-brand-letters {
+  width: clamp(260px, 56vw, 620px);
+  height: auto;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.3));
+}
 .hero-tag {
   display: inline-block;
   background: rgba(4, 169, 122, 0.18);

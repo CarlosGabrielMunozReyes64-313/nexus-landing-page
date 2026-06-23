@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './Portafolio.css';
 import Hero from '../components/Hero/Hero';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
+import Carousel from '../components/Carousel/Carousel';
 import { PROJECTS, CASE_STUDIES } from '../data/siteData';
 
 // Pin de ubicación (SVG inline) para los casos de impacto.
@@ -37,15 +38,15 @@ export default function Portafolio() {
       <section className="alt">
         <div className="section-inner">
           <h2 className="section-title">Servicios</h2>
-          <p className="section-body" style={{ marginBottom: '3rem' }}>
+          <p className="section-body" style={{ marginBottom: '2rem' }}>
             Soluciones especializadas por línea de trabajo, donde articulamos ciencia, gestión
             territorial y alianzas estratégicas en resultados medibles.
           </p>
-          <div className="grid-3">
+          <Carousel minSlide={280} ariaLabel="Servicios de NEXUS">
             {PROJECTS.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
       {/* Casos de impacto — clientes reales destacados */}

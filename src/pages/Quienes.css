@@ -148,3 +148,37 @@
     font-size: 16.5px;
   }
 }
+
+/* ── Sección de equipo (carruseles de fundadores / especialistas) ── */
+.team-group-title {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 800;
+  color: var(--nx-dark);
+  letter-spacing: 0.3px;
+  margin: 0.25rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.team-group-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--nx-mid), transparent);
+}
+.team-group-title--sub {
+  margin-top: 0.5rem;
+}
+
+.team-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c8e4d4 20%, #c8e4d4 80%, transparent);
+  margin: 2.5rem 0;
+}
+
+.team-closing-title {
+  text-align: center;
+  margin: 2.5rem auto 0;
+  max-width: 760px;
+}
