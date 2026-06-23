@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import './TeamCard.css';
 
+// Devuelve solo el primer nombre ("Jaime Andrés Marín" -> "Jaime").
+function firstName(fullName = '') {
+  return fullName.trim().split(/\s+/)[0] || fullName;
+}
+
 // Tarjeta de un integrante del equipo. Recibe un objeto `member`.
 // En el frente solo se muestran la foto y el primer nombre.
 // Al hacer clic se abre un modal (80% de la pantalla) con la información
@@ -36,7 +41,7 @@ export default function TeamCard({ member }) {
 
   return (
     <>
-      {/* ── Tarjeta: foto y, debajo, el nombre. Al hacer clic abre el perfil ── */}
+      {/* ── Tarjeta: gira al pasar el cursor y revela el cargo en el reverso ── */}
       <button
         type="button"
         className="team-card"
@@ -44,21 +49,27 @@ export default function TeamCard({ member }) {
         aria-haspopup="dialog"
         aria-label={`Ver perfil de ${member.name}${member.role ? ` — ${member.role}` : ''}`}
       >
-        <div className="team-photo">
-          {photo ? (
-            <img src={photo} alt={member.name} className="team-photo-img" />
-          ) : (
-            <span className="team-photo-fallback">{member.initials}</span>
-          )}
-          <span className="team-photo-hint" aria-hidden="true">
-            Ver perfil
-          </span>
-        </div>
+        <div className="team-card-flip">
+          {/* Frente: foto + primer nombre */}
+          <div className="team-card-face team-card-front">
+            <div className="team-photo">
+              {photo ? (
+                <img src={photo} alt={member.name} className="team-photo-img" />
+              ) : (
+                <span className="team-photo-fallback">{member.initials}</span>
+              )}
+              <span className="team-photo-veil" aria-hidden="true" />
+              <span className="team-photo-name">{firstName(member.name)}</span>
+            </div>
+          </div>
 
-        {/* Nombre debajo de la imagen */}
-        <div className="team-name-block">
-          <span className="team-name">{member.name}</span>
-          {member.role && <span className="team-role">{member.role}</span>}
+          {/* Reverso: cargo / rol */}
+          <div className="team-card-face team-card-back" aria-hidden="true">
+            <span className="team-back-initials">{member.initials}</span>
+            <span className="team-back-name">{firstName(member.name)}</span>
+            {member.role && <span className="team-back-role">{member.role}</span>}
+            <span className="team-back-hint">Ver perfil completo</span>
+          </div>
         </div>
       </button>
 

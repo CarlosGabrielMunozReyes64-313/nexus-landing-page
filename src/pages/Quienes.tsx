@@ -39,18 +39,14 @@ function IdentityBlock({ image, alt, tag, title, intro, items, reverse = false }
       </div>
 
       <div className="identity-stack">
-        {items.map((item, i) => (
-          <Reveal
-            as="div"
-            variant="up"
-            delay={(i % 4) * 80}
-            className="identity-card"
-            key={item.title}
-          >
-            <div className="identity-card-title">{item.title}</div>
-            <p className="identity-card-text">{item.text}</p>
-          </Reveal>
-        ))}
+        <Carousel minSlide={250} ariaLabel={`${title} — tarjetas`}>
+          {items.map((item) => (
+            <div className="identity-card" key={item.title}>
+              <div className="identity-card-title">{item.title}</div>
+              <p className="identity-card-text">{item.text}</p>
+            </div>
+          ))}
+        </Carousel>
       </div>
     </div>
   );
@@ -163,21 +159,21 @@ export default function Quienes() {
 
           {/* Miembros fundadores (Guillermo, Jaime, Viviana) */}
           <h3 className="team-group-title">Miembros Fundadores</h3>
-          <Carousel minSlide={240} ariaLabel="Miembros fundadores">
+          <div className="grid-3">
             {TEAM.slice(0, 3).map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}
-          </Carousel>
+          </div>
 
           {/* Separación con el resto del equipo */}
           <div className="team-divider" aria-hidden="true" />
 
           <h3 className="team-group-title team-group-title--sub">Equipo de Especialistas</h3>
-          <Carousel minSlide={240} ariaLabel="Equipo de especialistas">
+          <div className="grid-3">
             {TEAM.slice(3).map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}
-          </Carousel>
+          </div>
 
           {/* Título trasladado al final, debajo del resto de las tarjetas */}
           <h2 className="section-title team-closing-title">El talento detrás de cada solución</h2>

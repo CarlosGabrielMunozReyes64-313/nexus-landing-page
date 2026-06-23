@@ -333,3 +333,31 @@ img {
     margin-top: 2.5rem;
   }
 }
+
+/* ── PROPUESTA DE VALOR · una sola columna centrada ──────
+   El texto va centrado como bloque y justificado, y la caja
+   "Nuestro enfoque diferencial" se ubica debajo del texto. */
+.propuesta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+.propuesta-text {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center; /* centra la etiqueta y el título */
+}
+.propuesta-text .section-title {
+  margin-bottom: 1.25rem;
+}
+.propuesta-text .section-body {
+  max-width: none; /* usa todo el ancho de la columna */
+  margin-left: 0;
+  margin-right: 0;
+  text-align: justify; /* justificado, como el resto del texto */
+}
+.propuesta .valor-box {
+  width: 100%;
+  max-width: 880px;
+}

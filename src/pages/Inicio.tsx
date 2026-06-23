@@ -39,21 +39,18 @@ export default function Inicio() {
       {/* Propuesta de valor */}
       <section>
         <div className="section-inner">
-          <div className="grid-2">
-            <div>
+          <div className="propuesta">
+            <div className="propuesta-text">
               <div className="section-tag">Propuesta de Valor</div>
               <h2 className="section-title">
                 Somos tu aliado de innovación para el desarrollo territorial sostenible.
               </h2>
-              <p
-                className="section-body"
-                style={{ marginBottom: '1.25rem', textAlign: 'justify' }}
-              >
+              <p className="section-body" style={{ marginBottom: '1.25rem' }}>
                 NEXUS no es una consultora convencional. Somos un nodo de articulación que conecta
                 la ciencia, la gestión pública, la innovación social y el conocimiento del
                 territorio para diseñar e implementar soluciones de alto impacto.
               </p>
-              <p className="section-body" style={{ textAlign: 'justify' }}>
+              <p className="section-body">
                 Trabajamos con gobiernos, organizaciones de cooperación internacional, sector
                 privado y comunidades en la formulación y ejecución de proyectos que integran
                 biodiversidad, resiliencia climática, tecnología e innovación social desde una
