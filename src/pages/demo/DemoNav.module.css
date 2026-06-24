@@ -6,10 +6,10 @@
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
-  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px -10px rgba(15, 23, 42, 0.25);
 }
 
 .back {
@@ -18,19 +18,19 @@
   gap: 6px;
   padding: 8px 14px;
   margin-right: auto;
-  color: #fff;
+  color: #1e293b;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.18);
+  background: #f1f5f9;
   transition:
     background 0.2s ease,
     transform 0.2s ease;
 }
 
 .back:hover {
-  background: rgba(255, 255, 255, 0.32);
+  background: #e2e8f0;
   transform: translateX(-2px);
 }
 
@@ -39,25 +39,26 @@
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  color: #fff;
+  color: #1e293b;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.12);
+  background: #f1f5f9;
   border: 1px solid transparent;
   transition: all 0.2s ease;
 }
 
 .link:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: #e2e8f0;
 }
 
 .active {
-  background: #fff;
-  color: #5a3a8e;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
 }
 
 .active:hover {
-  background: #fff;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
 }

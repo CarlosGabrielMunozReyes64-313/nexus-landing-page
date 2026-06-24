@@ -18,7 +18,7 @@ function firstName(fullName = '') {
 //   - role, bio (opcionales)   información relevante
 //   - photo     (opcional)     imagen importada o URL para la foto
 //   - profile   (opcional)     CV ampliado (title, summary, education, experience, skills)
-export default function TeamCard({ member }) {
+export default function TeamCard({ member, showRoleOnFront = false }) {
   const [open, setOpen] = useState(false);
   const profile = member.profile;
   const photo = member.photo; // opcional
@@ -59,7 +59,16 @@ export default function TeamCard({ member }) {
                 <span className="team-photo-fallback">{member.initials}</span>
               )}
               <span className="team-photo-veil" aria-hidden="true" />
-              <span className="team-photo-name">{firstName(member.name)}</span>
+              {showRoleOnFront && member.role ? (
+                <span className="team-photo-caption">
+                  <span className="team-caption-name">{firstName(member.name)}</span>
+                  <span className="team-photo-role" title={member.role}>
+                    {member.role}
+                  </span>
+                </span>
+              ) : (
+                <span className="team-photo-name">{firstName(member.name)}</span>
+              )}
             </div>
           </div>
 

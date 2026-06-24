@@ -150,7 +150,7 @@ export const TEAM = [
   {
     initials: 'VS',
     name: 'Viviana María Sánchez Escobar',
-    role: 'Líder de Alianzas y Proyectos Estratégicos',
+    role: 'Gestor y Líder de proyectos | Relaciones Institucionales | Innovación Social | RSE | Cambio Climático | Resiliencia Urbana | Sostenibilidad',
     bio: 'Administradora Pública, Especialista en Gerencia Social y Magíster en Gerencia para la Innovación Social. Cuenta con más de 13 años de experiencia en coordinación interinstitucional, participación ciudadana, sostenibilidad urbana y formulación de proyectos climáticos. Experta en procesos de gobernanza territorial, concertación comunitaria y construcción participativa de soluciones ambientales y sociales.',
   },
   {

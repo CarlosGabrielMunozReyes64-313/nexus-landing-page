@@ -161,7 +161,7 @@ export default function Quienes() {
           <h3 className="team-group-title">Miembros Fundadores</h3>
           <div className="grid-3">
             {TEAM.slice(0, 3).map((member) => (
-              <TeamCard key={member.name} member={member} />
+              <TeamCard key={member.name} member={member} showRoleOnFront />
             ))}
           </div>
 

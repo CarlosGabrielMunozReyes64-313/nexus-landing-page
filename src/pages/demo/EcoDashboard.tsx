@@ -84,7 +84,7 @@ export default function EcoDashboard() {
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { position: 'bottom', labels: { color: '#e2e8f0', font: { size: 12 } } } },
+        plugins: { legend: { position: 'bottom', labels: { color: '#334155', font: { size: 12 } } } },
       },
     }),
     [result],
@@ -109,8 +109,8 @@ export default function EcoDashboard() {
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { color: '#94a3b8' }, grid: { color: '#334155' } },
-          x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+          y: { beginAtZero: true, ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } },
+          x: { ticks: { color: '#64748b' }, grid: { display: false } },
         },
       },
     }),
@@ -141,8 +141,8 @@ export default function EcoDashboard() {
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { color: '#94a3b8' }, grid: { color: '#334155' } },
-          x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+          y: { beginAtZero: true, ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } },
+          x: { ticks: { color: '#64748b' }, grid: { display: false } },
         },
       },
     };
