@@ -371,3 +371,75 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ===== Reportes ===== */
+.reportes {
+  max-width: 560px;
+}
+.reporteResumen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.1rem;
+  color: #334155;
+}
+.reporteResumen strong {
+  font-size: 1.15rem;
+  color: #059669;
+}
+.geoFuente {
+  margin: 0.75rem 0 0;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.btnPrimary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== Tema oscuro (dashboard completo) ===== */
+.wrap[data-eco-tema='oscuro'] {
+  background: linear-gradient(135deg, #0b1220 0%, #0f172a 100%);
+  color: #e2e8f0;
+}
+.wrap[data-eco-tema='oscuro'] .dashboard {
+  background: #1e293b;
+  border-color: #334155;
+}
+.wrap[data-eco-tema='oscuro'] .sidebar,
+.wrap[data-eco-tema='oscuro'] .header,
+.wrap[data-eco-tema='oscuro'] .statItem,
+.wrap[data-eco-tema='oscuro'] .card,
+.wrap[data-eco-tema='oscuro'] .geovisor,
+.wrap[data-eco-tema='oscuro'] .formSection {
+  background: #1e293b;
+  border-color: #334155;
+}
+.wrap[data-eco-tema='oscuro'] .headerTitle,
+.wrap[data-eco-tema='oscuro'] .statValue,
+.wrap[data-eco-tema='oscuro'] .cardTitle,
+.wrap[data-eco-tema='oscuro'] .formSection h3 {
+  color: #f1f5f9;
+}
+.wrap[data-eco-tema='oscuro'] .navItem {
+  color: #cbd5e1;
+}
+.wrap[data-eco-tema='oscuro'] .navItem:hover {
+  background: #334155;
+  color: #fff;
+}
+.wrap[data-eco-tema='oscuro'] .formInput,
+.wrap[data-eco-tema='oscuro'] .formSelect {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+.wrap[data-eco-tema='oscuro'] .reporteResumen {
+  background: #0f172a;
+  border-color: #334155;
+  color: #cbd5e1;
+}

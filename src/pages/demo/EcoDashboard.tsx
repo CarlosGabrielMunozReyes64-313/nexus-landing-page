@@ -2,6 +2,12 @@ import { useMemo, useState } from 'react';
 import { type ChartConfiguration } from 'chart.js/auto';
 import DemoNav from './DemoNav';
 import ChartCanvas from './ChartCanvas';
+import Configuracion from './Configuracion';
+import { useSettings } from './SettingsContext';
+import { generarReportePDF } from './report';
+import { regionPorKey } from './data/regiones';
+import aguaRegional from './data/aguaRegional.json';
+import co2Pais from './data/co2Pais.json';
 import {
   vehicleOptions,
   calcularCarbono,
@@ -11,12 +17,16 @@ import {
 } from './ecoData';
 import styles from './EcoDashboard.module.css';
 
-type Section = 'dashboard' | 'calculator';
+type Section = 'dashboard' | 'calculator' | 'reportes' | 'geovisor' | 'configuracion';
 
-const META_2030 = 2300; // kg CO₂/año
-const PROMEDIO_NACIONAL = 3200; // kg CO₂/año
 const RING_RADIUS = 54;
 const RING_CIRC = 2 * Math.PI * RING_RADIUS;
+
+type AguaData = {
+  nacional: { precipitacionAnual: number; temperaturaMedia: number };
+  regiones: Record<string, { precipitacionAnual: number; temperaturaMedia: number }>;
+};
+const agua = aguaRegional as unknown as AguaData;
 
 const ZERO: CarbonResult = {
   transporte: 0,
@@ -29,16 +39,20 @@ const ZERO: CarbonResult = {
 };
 
 export default function EcoDashboard() {
+  const { settings } = useSettings();
+  const META_2030 = settings.metas.meta2030;
+  const PROMEDIO_NACIONAL = settings.metas.promedioNacional;
+
   const [section, setSection] = useState<Section>('dashboard');
 
   const [tipoCombustible, setTipoCombustible] = useState<FuelType | ''>('');
   const [tipoVehiculo, setTipoVehiculo] = useState('');
   const [distanciaRecorrida, setDistanciaRecorrida] = useState('');
-  const [ocupantes, setOcupantes] = useState('1');
+  const [ocupantes, setOcupantes] = useState(String(settings.defaults.ocupantes));
   const [electricidadConsumo, setElectricidadConsumo] = useState('');
   const [gasNaturalConsumo, setGasNaturalConsumo] = useState('');
   const [glpConsumo, setGlpConsumo] = useState('');
-  const [personasHogar, setPersonasHogar] = useState('4');
+  const [personasHogar, setPersonasHogar] = useState(String(settings.defaults.personasHogar));
 
   const [result, setResult] = useState<CarbonResult>(ZERO);
 
@@ -48,25 +62,82 @@ export default function EcoDashboard() {
   const num = (v: string) => parseFloat(v) || 0;
   const int = (v: string) => parseInt(v, 10) || 0;
 
+  const region = regionPorKey(settings.region);
+  const aguaRegion = agua.regiones[settings.region] ?? agua.nacional;
+
   function actualizar() {
-    const r = calcularCarbono({
-      tipoCombustible,
-      efficiency,
-      distanciaRecorrida: num(distanciaRecorrida),
-      ocupantes: int(ocupantes),
-      electricidadConsumo: num(electricidadConsumo),
-      gasNaturalConsumo: num(gasNaturalConsumo),
-      glpConsumo: num(glpConsumo),
-      personasHogar: int(personasHogar),
-    });
+    const r = calcularCarbono(
+      {
+        tipoCombustible,
+        efficiency,
+        distanciaRecorrida: num(distanciaRecorrida),
+        ocupantes: int(ocupantes),
+        electricidadConsumo: num(electricidadConsumo),
+        gasNaturalConsumo: num(gasNaturalConsumo),
+        glpConsumo: num(glpConsumo),
+        personasHogar: int(personasHogar),
+      },
+      settings.factores,
+    );
     setResult(r);
     setSection('dashboard');
   }
 
-  const rating = result.totalAnual > 0 ? clasificarCarbono(result.totalAnual).nivel : '-';
+  const rating = result.totalAnual > 0 ? clasificarCarbono(result.totalAnual, settings.umbrales).nivel : '-';
 
   const impactPct = Math.min((result.totalAnual / META_2030) * 100, 100);
   const ringDash = `${(impactPct / 100) * RING_CIRC} ${RING_CIRC}`;
+
+  const co2 = co2Pais as {
+    anio: number;
+    colombia: { co2PerCapita: number; co2Total: number };
+    mundo: { co2PerCapita: number };
+  };
+
+  function descargarReporte() {
+    generarReportePDF({
+      resultado: result,
+      settings,
+      precipitacionRegional: aguaRegion.precipitacionAnual,
+    });
+  }
+
+  const geovisorView = (
+    <div className={styles.geovisor}>
+      <div className={styles.cardTitle}>🗺️ Geovisor - Impacto Regional</div>
+      <div className={styles.mapPlaceholder}>
+        <svg viewBox="0 0 400 400" className={styles.colombiaMap}>
+          <path d="M50,200 Q100,50 200,80 Q300,60 350,120 Q380,180 350,250 Q300,320 200,340 Q100,350 50,300 Q20,250 50,200 Z" />
+        </svg>
+        <div className={styles.region} style={{ top: '40%', left: '45%' }} />
+        <div className={styles.region} style={{ top: '60%', left: '30%' }} />
+        <div className={styles.region} style={{ top: '50%', left: '60%' }} />
+        <div className={styles.mapOverlay}>
+          <div style={{ fontWeight: 600, marginBottom: '0.5rem' }}>📍 Tu Ubicación</div>
+          <div style={{ fontSize: '0.875rem', color: '#94a3b8' }}>{region.nombre}, Colombia</div>
+          <div style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>
+            💧 Precipitación regional:{' '}
+            <span style={{ color: '#3b82f6', fontWeight: 600 }}>
+              {aguaRegion.precipitacionAnual.toLocaleString('es-CO')} mm/año
+            </span>
+          </div>
+          <div style={{ fontSize: '0.8rem', marginTop: '0.35rem' }}>
+            🌡️ Temp. media:{' '}
+            <span style={{ fontWeight: 600 }}>{aguaRegion.temperaturaMedia} °C</span>
+          </div>
+          <div style={{ fontSize: '0.8rem', marginTop: '0.35rem' }}>
+            🏭 CO₂ nacional ({co2.anio}):{' '}
+            <span style={{ color: '#10b981', fontWeight: 600 }}>
+              {co2.colombia.co2PerCapita} t/persona
+            </span>
+          </div>
+        </div>
+      </div>
+      <p className={styles.geoFuente}>
+        Fuentes: NASA POWER (agua, por departamento) · Our World in Data (CO₂ nacional).
+      </p>
+    </div>
+  );
 
   const pieConfig: ChartConfiguration = useMemo(
     () => ({
@@ -149,7 +220,7 @@ export default function EcoDashboard() {
   }, [result]);
 
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrap} data-eco-tema={settings.apariencia.tema}>
       <div className={styles.shell}>
         <DemoNav />
 
@@ -171,13 +242,28 @@ export default function EcoDashboard() {
               >
                 🧮 Calculadora
               </div>
-              <div className={styles.navItem}>📈 Reportes</div>
+              <div
+                className={`${styles.navItem} ${section === 'reportes' ? styles.navItemActive : ''}`}
+                onClick={() => setSection('reportes')}
+              >
+                📈 Reportes
+              </div>
             </div>
 
             <div className={styles.navSection}>
               <div className={styles.navTitle}>Herramientas</div>
-              <div className={styles.navItem}>🗺️ Geovisor</div>
-              <div className={styles.navItem}>⚙️ Configuración</div>
+              <div
+                className={`${styles.navItem} ${section === 'geovisor' ? styles.navItemActive : ''}`}
+                onClick={() => setSection('geovisor')}
+              >
+                🗺️ Geovisor
+              </div>
+              <div
+                className={`${styles.navItem} ${section === 'configuracion' ? styles.navItemActive : ''}`}
+                onClick={() => setSection('configuracion')}
+              >
+                ⚙️ Configuración
+              </div>
             </div>
           </aside>
 
@@ -189,7 +275,7 @@ export default function EcoDashboard() {
           </header>
 
           <main className={styles.main}>
-            {section === 'dashboard' ? (
+            {section === 'dashboard' && (
               <>
                 <div className={styles.statsGrid}>
                   <Stat icon="🚗" value={result.transporte.toFixed(0)} label="KG CO₂ Transporte" />
@@ -243,29 +329,11 @@ export default function EcoDashboard() {
                   </div>
                 </div>
 
-                <div className={styles.geovisor}>
-                  <div className={styles.cardTitle}>🗺️ Geovisor - Impacto Regional</div>
-                  <div className={styles.mapPlaceholder}>
-                    <svg viewBox="0 0 400 400" className={styles.colombiaMap}>
-                      <path d="M50,200 Q100,50 200,80 Q300,60 350,120 Q380,180 350,250 Q300,320 200,340 Q100,350 50,300 Q20,250 50,200 Z" />
-                    </svg>
-                    <div className={styles.region} style={{ top: '40%', left: '45%' }} />
-                    <div className={styles.region} style={{ top: '60%', left: '30%' }} />
-                    <div className={styles.region} style={{ top: '50%', left: '60%' }} />
-                    <div className={styles.mapOverlay}>
-                      <div style={{ fontWeight: 600, marginBottom: '0.5rem' }}>📍 Tu Ubicación</div>
-                      <div style={{ fontSize: '0.875rem', color: '#94a3b8' }}>Colombia</div>
-                      <div style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>
-                        Emisiones promedio regional:{' '}
-                        <span style={{ color: '#10b981', fontWeight: 600 }}>
-                          3,200 kg CO₂/año
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {geovisorView}
               </>
-            ) : (
+            )}
+
+            {section === 'calculator' && (
               <div className={styles.formContainer}>
                 <div className={styles.formSection}>
                   <h3>🚗 Datos de Transporte</h3>
@@ -373,6 +441,38 @@ export default function EcoDashboard() {
                 </div>
               </div>
             )}
+
+            {section === 'reportes' && (
+              <div className={styles.reportes}>
+                <div className={styles.card}>
+                  <div className={styles.cardTitle}>📈 Reporte de tu Huella</div>
+                  <p style={{ color: '#64748b', marginBottom: '1rem' }}>
+                    Genera un PDF con el desglose de tu última estimación, la clasificación y las
+                    comparativas configuradas. Primero calcula tu huella en la Calculadora.
+                  </p>
+                  <div className={styles.reporteResumen}>
+                    <span>Total anual estimado</span>
+                    <strong>{result.totalAnual.toFixed(0)} kg CO₂</strong>
+                  </div>
+                  <button
+                    className={styles.btnPrimary}
+                    onClick={descargarReporte}
+                    disabled={result.totalAnual <= 0}
+                  >
+                    ⬇️ Descargar PDF
+                  </button>
+                  {result.totalAnual <= 0 && (
+                    <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.75rem' }}>
+                      Aún no hay datos. Ve a 🧮 Calculadora y pulsa «Actualizar Análisis».
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {section === 'geovisor' && geovisorView}
+
+            {section === 'configuracion' && <Configuracion />}
           </main>
         </div>
       </div>

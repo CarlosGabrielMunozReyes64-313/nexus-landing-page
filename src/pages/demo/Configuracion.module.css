@@ -1,0 +1,151 @@
+.config {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.head h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+
+.reset {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.reset:hover {
+  background: #e2e8f0;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 6px 18px -14px rgba(15, 23, 42, 0.25);
+}
+
+.cardTitle {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.hint {
+  margin: 0 0 1rem;
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.note {
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fieldLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1e293b;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.toggle {
+  display: inline-flex;
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.toggleBtn {
+  border: none;
+  background: transparent;
+  color: #64748b;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toggleActive {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  box-shadow: 0 2px 6px -2px rgba(5, 150, 105, 0.6);
+}
+
+/* ---------- Tema oscuro ---------- */
+.config[data-eco-tema='oscuro'] .head h2,
+.config[data-eco-tema='oscuro'] .cardTitle {
+  color: #f1f5f9;
+}
+.config[data-eco-tema='oscuro'] .card {
+  background: #1e293b;
+  border-color: #334155;
+}
+.config[data-eco-tema='oscuro'] .fieldLabel {
+  color: #cbd5e1;
+}
+.config[data-eco-tema='oscuro'] .input,
+.config[data-eco-tema='oscuro'] .select {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+.config[data-eco-tema='oscuro'] .reset {
+  background: #334155;
+  border-color: #475569;
+  color: #cbd5e1;
+}
+.config[data-eco-tema='oscuro'] .toggle {
+  background: #0f172a;
+}
+.config[data-eco-tema='oscuro'] .hint,
+.config[data-eco-tema='oscuro'] .note {
+  color: #64748b;
+}

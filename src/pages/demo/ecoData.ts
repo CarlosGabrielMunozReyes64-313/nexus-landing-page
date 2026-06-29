@@ -4,6 +4,8 @@
 //  Factores de emisión de referencia para Colombia.
 // =====================================================
 
+import type { FactoresEmision, Umbrales } from './settings';
+
 export type FuelType = 'gasolina' | 'diesel' | 'gnv' | 'electrico' | 'hibrido';
 
 export interface VehicleOption {
@@ -76,8 +78,12 @@ export interface CarbonResult {
   totalAnual: number;
 }
 
-/** Calcula las emisiones mensuales y anuales de CO₂. */
-export function calcularCarbono(input: CarbonInput): CarbonResult {
+/** Calcula las emisiones mensuales y anuales de CO₂.
+ *  `factores` permite sobreescribir los valores por defecto desde Configuración. */
+export function calcularCarbono(
+  input: CarbonInput,
+  factores: FactoresEmision = emissionFactors,
+): CarbonResult {
   const {
     tipoCombustible,
     efficiency,
@@ -95,18 +101,20 @@ export function calcularCarbono(input: CarbonInput): CarbonResult {
   let transporte = 0;
   if (tipoCombustible && efficiency > 0 && distanciaRecorrida > 0) {
     if (tipoCombustible === 'electrico') {
-      transporte = (distanciaRecorrida * efficiency * emissionFactors.electricidad) / ocup;
+      transporte = (distanciaRecorrida * efficiency * factores.electricidad) / ocup;
     } else if (tipoCombustible === 'gnv') {
-      transporte = (distanciaRecorrida * efficiency * emissionFactors.gnv) / ocup;
+      transporte = (distanciaRecorrida * efficiency * factores.gnv) / ocup;
+    } else if (tipoCombustible === 'diesel') {
+      transporte = (distanciaRecorrida * efficiency * factores.diesel) / ocup;
     } else {
-      const factor = emissionFactors[tipoCombustible] ?? emissionFactors.gasolina;
-      transporte = (distanciaRecorrida * efficiency * factor) / ocup;
+      // gasolina e híbrido usan el factor de gasolina
+      transporte = (distanciaRecorrida * efficiency * factores.gasolina) / ocup;
     }
   }
 
-  const electricidad = (electricidadConsumo * emissionFactors.electricidad) / personas;
-  const gasNatural = (gasNaturalConsumo * emissionFactors.gasNatural) / personas;
-  const glp = (glpConsumo * emissionFactors.glp) / personas;
+  const electricidad = (electricidadConsumo * factores.electricidad) / personas;
+  const gasNatural = (gasNaturalConsumo * factores.gasNatural) / personas;
+  const glp = (glpConsumo * factores.glp) / personas;
 
   const energia = electricidad + gasNatural + glp;
   const totalMensual = transporte + energia;
@@ -121,23 +129,29 @@ export interface Clasificacion {
   mensaje: string;
 }
 
-/** Clasifica la huella de carbono anual (kg CO₂/año). */
-export function clasificarCarbono(anual: number): Clasificacion {
-  if (anual < 2000) {
+export const DEFAULT_UMBRALES: Umbrales = { excelente: 2000, buena: 4000, regular: 8000 };
+
+/** Clasifica la huella de carbono anual (kg CO₂/año).
+ *  `umbrales` permite ajustar los cortes desde Configuración. */
+export function clasificarCarbono(
+  anual: number,
+  umbrales: Umbrales = DEFAULT_UMBRALES,
+): Clasificacion {
+  if (anual < umbrales.excelente) {
     return {
       nivel: 'Excelente',
       color: '#27AE60',
       mensaje: '¡Felicitaciones! Tu huella de carbono está muy por debajo del promedio.',
     };
   }
-  if (anual < 4000) {
+  if (anual < umbrales.buena) {
     return {
       nivel: 'Buena',
       color: '#F39C12',
       mensaje: 'Tu huella está en un rango aceptable, pero hay oportunidades de mejora.',
     };
   }
-  if (anual < 8000) {
+  if (anual < umbrales.regular) {
     return {
       nivel: 'Regular',
       color: '#E67E22',

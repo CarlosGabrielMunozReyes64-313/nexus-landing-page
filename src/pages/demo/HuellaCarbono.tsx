@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import DemoNav from './DemoNav';
+import { useSettings } from './SettingsContext';
 import {
   vehicleOptions,
   calcularCarbono,
@@ -7,26 +8,26 @@ import {
   type FuelType,
   type CarbonResult,
 } from './ecoData';
+import type { EcoSettings } from './settings';
 import styles from './HuellaCarbono.module.css';
 
 type Tab = 'transporte' | 'energia' | 'resultados';
 
-const PROMEDIO_MUNDIAL = 4800; // kg CO₂/año per cápita
-
 export default function HuellaCarbono() {
+  const { settings } = useSettings();
   const [tab, setTab] = useState<Tab>('transporte');
 
   // Transporte
   const [tipoCombustible, setTipoCombustible] = useState<FuelType | ''>('');
   const [tipoVehiculo, setTipoVehiculo] = useState('');
   const [distanciaRecorrida, setDistanciaRecorrida] = useState('');
-  const [ocupantes, setOcupantes] = useState('1');
+  const [ocupantes, setOcupantes] = useState(String(settings.defaults.ocupantes));
 
   // Energía
   const [electricidadConsumo, setElectricidadConsumo] = useState('');
   const [gasNaturalConsumo, setGasNaturalConsumo] = useState('');
   const [glpConsumo, setGlpConsumo] = useState('');
-  const [personasHogar, setPersonasHogar] = useState('4');
+  const [personasHogar, setPersonasHogar] = useState(String(settings.defaults.personasHogar));
 
   const [resultado, setResultado] = useState<CarbonResult | null>(null);
 
@@ -41,16 +42,19 @@ export default function HuellaCarbono() {
   const int = (v: string) => parseInt(v, 10) || 0;
 
   function calcular() {
-    const r = calcularCarbono({
-      tipoCombustible,
-      efficiency,
-      distanciaRecorrida: num(distanciaRecorrida),
-      ocupantes: int(ocupantes),
-      electricidadConsumo: num(electricidadConsumo),
-      gasNaturalConsumo: num(gasNaturalConsumo),
-      glpConsumo: num(glpConsumo),
-      personasHogar: int(personasHogar),
-    });
+    const r = calcularCarbono(
+      {
+        tipoCombustible,
+        efficiency,
+        distanciaRecorrida: num(distanciaRecorrida),
+        ocupantes: int(ocupantes),
+        electricidadConsumo: num(electricidadConsumo),
+        gasNaturalConsumo: num(gasNaturalConsumo),
+        glpConsumo: num(glpConsumo),
+        personasHogar: int(personasHogar),
+      },
+      settings.factores,
+    );
     setResultado(r);
     setTab('resultados');
   }
@@ -220,7 +224,7 @@ export default function HuellaCarbono() {
                   <h2>Resultados y Recomendaciones</h2>
                 </div>
                 {resultado ? (
-                  <Resultados r={resultado} />
+                  <Resultados r={resultado} settings={settings} />
                 ) : (
                   <p className={styles.empty}>
                     Completa los datos de transporte y energía, luego presiona{' '}
@@ -251,11 +255,12 @@ export default function HuellaCarbono() {
   );
 }
 
-function Resultados({ r }: { r: CarbonResult }) {
-  const cls = clasificarCarbono(r.totalAnual);
+function Resultados({ r, settings }: { r: CarbonResult; settings: EcoSettings }) {
+  const cls = clasificarCarbono(r.totalAnual, settings.umbrales);
+  const { promedioMundial, meta2030 } = settings.metas;
   const pctTransporte = r.totalMensual ? (r.transporte / r.totalMensual) * 100 : 0;
   const pctEnergia = r.totalMensual ? (r.energia / r.totalMensual) * 100 : 0;
-  const pctMundial = ((r.totalAnual / PROMEDIO_MUNDIAL) * 100).toFixed(0);
+  const pctMundial = ((r.totalAnual / promedioMundial) * 100).toFixed(0);
 
   return (
     <div className={styles.results}>
@@ -299,8 +304,8 @@ function Resultados({ r }: { r: CarbonResult }) {
       <div className={styles.context}>
         <h4>🌍 Contexto</h4>
         <p>
-          • Promedio mundial per cápita: ~4,800 kg CO₂/año
-          <br />• Meta climática recomendada: &lt;2,300 kg CO₂/año
+          • Promedio mundial per cápita: ~{promedioMundial.toLocaleString('es-CO')} kg CO₂/año
+          <br />• Meta climática recomendada: &lt;{meta2030.toLocaleString('es-CO')} kg CO₂/año
           <br />• Tu huella representa: {pctMundial}% del promedio mundial
         </p>
       </div>

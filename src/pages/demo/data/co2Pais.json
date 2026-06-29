@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "fuente": "Our World in Data — CO2 and Greenhouse Gas Emissions (github.com/owid/co2-data)",
+    "indicador": "co2_per_capita (toneladas CO₂ por persona / año)",
+    "actualizado": "semilla-inicial",
+    "nota": "Valores de ejemplo. Ejecuta `node scripts/update-data.mjs` para reemplazarlos con el último dato de OWID."
+  },
+  "anio": 2023,
+  "colombia": { "co2PerCapita": 1.74, "co2Total": 91.5 },
+  "mundo": { "co2PerCapita": 4.66 }
+}

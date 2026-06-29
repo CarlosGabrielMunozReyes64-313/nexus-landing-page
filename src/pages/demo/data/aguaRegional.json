@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "fuente": "NASA POWER (power.larc.nasa.gov) — precipitación y temperatura por región",
+    "parametros": ["PRECTOTCORR (mm/año)", "T2M (°C promedio)"],
+    "actualizado": "semilla-inicial",
+    "nota": "Valores de ejemplo. Ejecuta `node scripts/update-data.mjs` para reemplazarlos con datos reales por departamento."
+  },
+  "nacional": { "precipitacionAnual": 2800, "temperaturaMedia": 24.5 },
+  "regiones": {
+    "narino": { "precipitacionAnual": 3100, "temperaturaMedia": 16.8 },
+    "antioquia": { "precipitacionAnual": 2600, "temperaturaMedia": 21.5 },
+    "valle": { "precipitacionAnual": 1500, "temperaturaMedia": 23.8 },
+    "cundinamarca": { "precipitacionAnual": 1100, "temperaturaMedia": 14.2 },
+    "guajira": { "precipitacionAnual": 600, "temperaturaMedia": 28.3 },
+    "amazonas": { "precipitacionAnual": 3200, "temperaturaMedia": 26.1 },
+    "choco": { "precipitacionAnual": 8000, "temperaturaMedia": 26.5 }
+  }
+}

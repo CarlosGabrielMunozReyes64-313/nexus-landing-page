@@ -13,6 +13,7 @@ import Blog from './pages/Blog'
 import Contacto from './pages/Contacto'
 
 // Proyecto demo: Calculadora de Huella Ecológica (migrado a React TS)
+import DemoLayout from './pages/demo/DemoLayout'
 import EcoHome from './pages/demo/EcoHome'
 import HuellaCarbono from './pages/demo/HuellaCarbono'
 import HuellaHidrica from './pages/demo/HuellaHidrica'
@@ -41,11 +42,12 @@ export default function App() {
           <Route path="/contacto" element={<Contacto />} />
 
           {/* Proyecto demo · Calculadora de Huella Ecológica */}
-          <Route path="/proyecto-demo" element={<EcoHome />} />
-          <Route path="/proyecto-demo/carbono" element={<HuellaCarbono />} />
-          <Route path="/proyecto-demo/hidrica" element={<HuellaHidrica />} />
-          <Route path="/proyecto-demo/dashboard" element={<EcoDashboard />} />
-
+          <Route path="/proyecto-demo" element={<DemoLayout />}>
+            <Route index element={<EcoHome />} />
+            <Route path="carbono" element={<HuellaCarbono />} />
+            <Route path="hidrica" element={<HuellaHidrica />} />
+            <Route path="dashboard" element={<EcoDashboard />} />
+          </Route>
           {/* Cualquier ruta desconocida vuelve al inicio */}
           <Route path="*" element={<Inicio />} />
         </Routes>
