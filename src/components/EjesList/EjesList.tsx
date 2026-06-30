@@ -16,7 +16,7 @@ const EJE_IMAGES = {
 
 // Una fila por eje. Alterna el lado de la imagen y revela su contenido al
 // hacer scroll. La altura es automática: el texto nunca se recorta.
-function EjeRow({ service, index }) {
+export function EjeRow({ service, index }) {
   const { ref, shown } = useReveal();
   const imgSrc = EJE_IMAGES[service.id];
   const flipped = index % 2 === 1; // alterna imagen izquierda/derecha

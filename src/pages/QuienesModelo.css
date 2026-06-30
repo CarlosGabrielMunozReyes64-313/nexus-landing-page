@@ -1,0 +1,53 @@
+/* ── Vista "Nuestro Modelo": texto centrado y justificado ──────────
+   Solo afecta a las secciones con la clase `.modelo-centered`
+   (Quiénes Somos + Nuestro Modelo). El bloque "Nuestra Propuesta de
+   Valor" NO lleva esta clase, por lo que conserva su estilo original. */
+
+.modelo-centered .section-tag,
+.modelo-centered .section-title {
+  text-align: center;
+}
+
+/* Párrafos: justificados, pero con la última línea centrada para lograr
+   el aspecto "centrado y justificado". El bloque queda centrado en la
+   página gracias a max-width + márgenes automáticos. */
+.modelo-centered .section-body {
+  text-align: justify;
+  text-align-last: center;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Misión / Visión: una al lado de la otra y centradas en la página. */
+.modelo-mv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 2.5rem auto 0;
+}
+
+/* El acento pasa del borde izquierdo al superior para que combine con el
+   contenido centrado. */
+.modelo-mv .mv-card {
+  margin-bottom: 0;
+  border-left: none;
+  border-top: 3px solid var(--nx-mid);
+}
+.modelo-mv .mv-card-border-teal {
+  border-top-color: var(--nx-teal);
+}
+.modelo-mv .mv-title {
+  text-align: center;
+}
+.modelo-mv .mv-text {
+  text-align: justify;
+  text-align-last: center;
+}
+
+@media (max-width: 760px) {
+  .modelo-mv {
+    grid-template-columns: 1fr;
+  }
+}

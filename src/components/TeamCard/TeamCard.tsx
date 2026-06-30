@@ -8,21 +8,30 @@ function firstName(fullName = '') {
 }
 
 // Tarjeta de un integrante del equipo. Recibe un objeto `member`.
-// En el frente solo se muestran la foto y el primer nombre.
-// Al hacer clic se abre un modal (80% de la pantalla) con la información
-// relevante (nombre, rol y perfil) y el perfil profesional ampliado si existe.
+//
+// `variant`:
+//   - 'directivo'  → tarjeta con foto circular (o iniciales), nombre y cargo
+//                    al frente. Pensada para el Equipo Directivo.
+//   - 'consultor'  → tarjeta con iniciales grandes y nombre. Equipo de
+//                    Consultores.
+// En ambas, al pasar el cursor la tarjeta gira (efecto) y al hacer clic se
+// abre un modal con el perfil completo. Las fotos se añaden con `member.photo`.
 //
 // Campos del objeto `member`:
 //   - name      (obligatorio)  nombre completo
 //   - initials  (obligatorio)  iniciales para el respaldo sin foto
 //   - role, bio (opcionales)   información relevante
+//   - position  (opcional)     cargo corto (p. ej. "Directora General")
 //   - photo     (opcional)     imagen importada o URL para la foto
 //   - profile   (opcional)     CV ampliado (title, summary, education, experience, skills)
-export default function TeamCard({ member, showRoleOnFront = false }) {
+export default function TeamCard({ member, variant = 'consultor', showRoleOnFront = false }) {
   const [open, setOpen] = useState(false);
   const profile = member.profile;
   const photo = member.photo; // opcional
   const intro = profile?.summary || member.bio; // evita duplicar bio + resumen
+  // Cargo corto para mostrar en la tarjeta (p. ej. "Directora General").
+  const frontRole = member.position || member.role;
+  const isDir = variant === 'directivo';
 
   // Cerrar con Escape y bloquear el scroll del fondo mientras el modal está abierto.
   useEffect(() => {
@@ -44,39 +53,51 @@ export default function TeamCard({ member, showRoleOnFront = false }) {
       {/* ── Tarjeta: gira al pasar el cursor y revela el cargo en el reverso ── */}
       <button
         type="button"
-        className="team-card"
+        className={`team-card team-card--${variant}`}
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
         aria-label={`Ver perfil de ${member.name}${member.role ? ` — ${member.role}` : ''}`}
       >
         <div className="team-card-flip">
-          {/* Frente: foto + primer nombre */}
+          {/* Frente */}
           <div className="team-card-face team-card-front">
-            <div className="team-photo">
-              {photo ? (
-                <img src={photo} alt={member.name} className="team-photo-img" />
-              ) : (
-                <span className="team-photo-fallback">{member.initials}</span>
-              )}
-              <span className="team-photo-veil" aria-hidden="true" />
-              {showRoleOnFront && member.role ? (
-                <span className="team-photo-caption">
-                  <span className="team-caption-name">{firstName(member.name)}</span>
-                  <span className="team-photo-role" title={member.role}>
-                    {member.role}
+            {isDir ? (
+              <div className="team-front team-front--dir">
+                <div className="team-avatar">
+                  {photo ? (
+                    <img src={photo} alt={member.name} className="team-avatar-img" />
+                  ) : (
+                    <span className="team-avatar-initials">{member.initials}</span>
+                  )}
+                </div>
+                <div className="team-front-name">{firstName(member.name)}</div>
+                <span className="team-front-sep" aria-hidden="true" />
+                {showRoleOnFront && frontRole && (
+                  <div className="team-front-role" title={frontRole}>
+                    {frontRole}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="team-front team-front--con">
+                {photo ? (
+                  <span className="team-avatar team-avatar--con">
+                    <img src={photo} alt={member.name} className="team-avatar-img" />
                   </span>
-                </span>
-              ) : (
-                <span className="team-photo-name">{firstName(member.name)}</span>
-              )}
-            </div>
+                ) : (
+                  <span className="team-con-initials">{member.initials}</span>
+                )}
+                <span className="team-front-sep team-front-sep--con" aria-hidden="true" />
+                <div className="team-front-name team-front-name--con">{firstName(member.name)}</div>
+              </div>
+            )}
           </div>
 
           {/* Reverso: cargo / rol */}
           <div className="team-card-face team-card-back" aria-hidden="true">
             <span className="team-back-initials">{member.initials}</span>
             <span className="team-back-name">{firstName(member.name)}</span>
-            {member.role && <span className="team-back-role">{member.role}</span>}
+            {frontRole && <span className="team-back-role">{frontRole}</span>}
             <span className="team-back-hint">Ver perfil completo</span>
           </div>
         </div>

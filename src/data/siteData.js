@@ -9,10 +9,29 @@
 // `to` es la ruta de react-router. `cta` marca el botón destacado.
 export const NAV_ITEMS = [
   { label: 'Inicio', to: '/' },
-  { label: 'Quiénes Somos', to: '/quienes' },
-  { label: 'Ejes Estratégicos', to: '/ejes' },
-  { label: 'Portafolio', to: '/portafolio' },
-  { label: 'Alianzas', to: '/alianzas' },
+  {
+    label: 'Quiénes Somos',
+    to: '/quienes',
+    children: [
+      { label: 'Nuestro Modelo', to: '/quienes/modelo' },
+      { label: 'Nuestros Principios', to: '/quienes/principios' },
+      { label: 'Desafíos Estratégicos', to: '/quienes/desafios' },
+      { label: 'Nuestro equipo de Trabajo', to: '/quienes/equipo' },
+    ],
+  },
+  {
+    label: 'Servicios',
+    to: '/servicios',
+    children: [
+      { label: 'Todos los Servicios', to: '/servicios', end: true },
+      { label: 'Gobernanza Territorial e Innovación Pública', to: '/servicios/eje-1' },
+      { label: 'Sostenibilidad Ambiental y Gestión del Riesgo', to: '/servicios/eje-2' },
+      { label: 'Economía Circular y Metabolismo Urbano-Rural', to: '/servicios/eje-3' },
+      { label: 'Tecnologías de la Información Geográfica (TIG)', to: '/servicios/eje-4' },
+    ],
+  },
+  { label: 'Proyectos', to: '/portafolio' },
+  { label: 'Red de Aliados', to: '/alianzas' },
   { label: 'Blog', to: '/blog' },
   { label: 'Contáctenos', to: '/contacto', cta: true },
 ];
@@ -82,6 +101,7 @@ export const TEAM = [
   {
     initials: 'GV',
     name: 'Guillermo Alberto Vélez Tobar',
+    position: 'Director de Proyectos',
     role: 'Ecólogo · Consultor e Investigador',
     bio: 'Ecólogo con formación doctoral (cand.) y dos maestrías en ciencias. Especialista en planificación territorial, gestión integral de residuos —políticas de Basura Cero, valorización de RCD, NFU y compostaje— y tecnologías de precisión para el monitoreo ambiental, con un enfoque riguroso basado en el método científico y estándares internacionales.',
     profile: {
@@ -144,12 +164,14 @@ export const TEAM = [
   {
     initials: 'JM',
     name: 'Jaime Andrés Marín Molina',
+    position: 'Director Comercial',
     role: 'Especialista Senior SbN · Ecología',
     bio: 'Ingeniero Agrónomo con más de 20 años de experiencia en gestión ambiental, agricultura sostenible, monitoreo ecosistémico y manejo de recursos naturales. Especialista en diseño e implementación de estrategias de resiliencia climática, restauración ecológica, gestión del agua y análisis territorial para la aplicación de Soluciones Basadas en la Naturaleza.',
   },
   {
     initials: 'VS',
     name: 'Viviana María Sánchez Escobar',
+    position: 'Directora General',
     role: 'Gestor y Líder de proyectos | Relaciones Institucionales | Innovación Social | RSE | Cambio Climático | Resiliencia Urbana | Sostenibilidad',
     bio: 'Administradora Pública, Especialista en Gerencia Social y Magíster en Gerencia para la Innovación Social. Cuenta con más de 13 años de experiencia en coordinación interinstitucional, participación ciudadana, sostenibilidad urbana y formulación de proyectos climáticos. Experta en procesos de gobernanza territorial, concertación comunitaria y construcción participativa de soluciones ambientales y sociales.',
   },
@@ -552,17 +574,17 @@ export const CONTACT_TARGETS = [
 export const FOOTER_NAV = [
   { label: 'Inicio', to: '/' },
   { label: 'Quiénes Somos', to: '/quienes' },
-  { label: 'Ejes Estratégicos', to: '/ejes' },
-  { label: 'Portafolio', to: '/portafolio' },
-  { label: 'Alianzas', to: '/alianzas' },
+  { label: 'Servicios', to: '/servicios' },
+  { label: 'Proyectos', to: '/portafolio' },
+  { label: 'Red de Aliados', to: '/alianzas' },
   { label: 'Blog', to: '/blog' },
 ];
 
 export const FOOTER_TOPICS = [
-  { label: 'Territorios Sostenibles', to: '/ejes' },
-  { label: 'Biodiversidad y SbN', to: '/ejes' },
-  { label: 'Innovación Social', to: '/ejes' },
-  { label: 'CTI', to: '/ejes' },
+  { label: 'Territorios Sostenibles', to: '/servicios' },
+  { label: 'Biodiversidad y SbN', to: '/servicios' },
+  { label: 'Innovación Social', to: '/servicios' },
+  { label: 'CTI', to: '/servicios' },
 ];
 
 // =====================================================
@@ -798,6 +820,20 @@ export const ODS_DATA = [
     title: 'Acción por el Clima',
     apply:
       'Soluciones Basadas en la Naturaleza (SbN), gestión ambiental, mitigación y adaptación al cambio climático.',
+  },
+  {
+    num: 6,
+    layer: 'biosfera',
+    title: 'Agua Limpia y Saneamiento',
+    apply:
+      'Gestión integral del recurso hídrico, saneamiento básico, modelación de redes de acueducto rural y protección de fuentes hídricas estratégicas.',
+  },
+  {
+    num: 15,
+    layer: 'biosfera',
+    title: 'Vida de Ecosistemas Terrestres',
+    apply:
+      'Restauración ecológica, conservación de la biodiversidad, conectividad de ecosistemas y planificación del paisaje en los territorios.',
   },
 ];
 

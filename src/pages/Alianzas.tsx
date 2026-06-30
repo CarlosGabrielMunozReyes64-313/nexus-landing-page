@@ -11,7 +11,7 @@ export default function Alianzas() {
         tag="Cooperación Internacional"
         title={
           <>
-            Construimos puentes entre <span>actores y agendas globales</span>
+            Construimos puentes entre <span>actores locales y agendas globales</span>
           </>
         }
       />

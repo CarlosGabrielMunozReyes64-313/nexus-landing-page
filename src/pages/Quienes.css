@@ -150,36 +150,142 @@
   }
 }
 
-/* ── Sección de equipo (carruseles de fundadores / especialistas) ── */
-.team-group-title {
-  font-size: clamp(22px, 2.6vw, 30px);
-  font-weight: 800;
-  color: var(--nx-dark);
-  letter-spacing: 0.3px;
-  margin: 0.25rem 0 0.5rem;
+/* ── Sección de equipo ──────────────────────────────── */
+.team-section-title {
+  margin-bottom: 0.5rem;
+}
+.team-section-intro {
+  max-width: 620px;
+  margin-bottom: 2.5rem;
+}
+
+/* Encabezado de grupo: ícono en círculo + rótulo + línea con punto al final */
+.team-head {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.9rem;
+  margin: 2.4rem 0 1.4rem;
 }
-.team-group-title::after {
-  content: '';
+.team-head:first-of-type {
+  margin-top: 0.5rem;
+}
+.team-head-icon {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 169, 122, 0.12);
+  color: var(--nx-mid);
+}
+.team-head-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.team-head-label {
+  flex: none;
+  margin: 0;
+  font-size: clamp(18px, 2.1vw, 23px);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--nx-mid);
+}
+.team-head-line {
   flex: 1;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--nx-mid), transparent);
+  background: linear-gradient(90deg, rgba(4, 169, 122, 0.45), rgba(4, 169, 122, 0.12));
+  position: relative;
 }
-.team-group-title--sub {
-  margin-top: 0.5rem;
+.team-head-line::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--nx-mid);
 }
 
-.team-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #c8e4d4 20%, #c8e4d4 80%, transparent);
-  margin: 2.5rem 0;
+/* Rejillas del equipo: el directivo se centra; el grid permite que la última
+   fila (p. ej. 2 consultores) quede alineada a la izquierda como en la
+   referencia. */
+.team-grid {
+  margin-bottom: 0.5rem;
+}
+/* Consultores: flex para que la última fila (p. ej. 2 tarjetas) quede
+   centrada bajo la fila superior, como en la referencia. */
+.team-grid--con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: start;
+}
+.team-grid--con > * {
+  flex: 0 1 calc((100% - 3rem) / 3);
+  min-width: 190px;
 }
 
-.team-closing-title {
-  text-align: center;
-  margin: 2.5rem auto 0;
-  max-width: 760px;
+/* Mensaje de cierre del equipo */
+.team-closing {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-top: 2.8rem;
+  padding: 1.5rem 1.8rem;
+  background: var(--nx-light, #eef6f1);
+  border: 1px solid rgba(2, 64, 41, 0.1);
+  border-radius: 16px;
+}
+.team-closing-icon {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 169, 122, 0.14);
+  color: var(--nx-mid);
+}
+.team-closing-icon svg {
+  width: 32px;
+  height: 32px;
+}
+.team-closing-body {
+  border-left: 2px solid rgba(2, 64, 41, 0.14);
+  padding-left: 1.4rem;
+}
+.team-closing-heading {
+  margin: 0 0 0.4rem;
+  font-size: clamp(20px, 2.3vw, 26px);
+  font-weight: 800;
+  color: var(--nx-dark);
+  line-height: 1.2;
+}
+.team-closing-desc {
+  margin: 0;
+  font-size: clamp(15px, 1.7vw, 17px);
+  color: var(--nx-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .team-closing {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .team-closing-body {
+    border-left: none;
+    border-top: 2px solid rgba(2, 64, 41, 0.14);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
 }

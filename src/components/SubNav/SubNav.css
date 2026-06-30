@@ -1,0 +1,65 @@
+/* ── SUBNAV: subpestañas en página (Quiénes Somos / Servicios) ── */
+.subnav {
+  position: sticky;
+  top: 70px; /* justo debajo del navbar */
+  z-index: 60;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(2, 64, 41, 0.1);
+}
+.subnav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.7rem 2rem;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.subnav-link {
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--nx-dark);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 64, 41, 0.16);
+  background: transparent;
+  white-space: nowrap;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+.subnav-link:hover {
+  background: rgba(4, 169, 122, 0.1);
+  color: var(--nx-mid);
+  border-color: rgba(4, 169, 122, 0.4);
+  transform: translateY(-1px);
+}
+.subnav-link.active {
+  background: var(--nx-mid);
+  color: var(--nx-white);
+  border-color: var(--nx-mid);
+}
+
+@media (max-width: 720px) {
+  .subnav-inner {
+    padding: 0.6rem 1rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+  .subnav-inner::-webkit-scrollbar {
+    display: none;
+  }
+  .subnav-link {
+    font-size: 14px;
+    padding: 7px 13px;
+  }
+}
