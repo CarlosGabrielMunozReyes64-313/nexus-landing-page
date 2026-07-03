@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Portafolio.css';
 import Hero from '../components/Hero/Hero';
-import { CASE_STUDIES } from '../data/siteData';
+import { CASE_STUDIES, REFERENCE_PROJECTS } from '../data/siteData';
 
 // Pin de ubicación (SVG inline) para los casos de impacto.
 function PinIcon() {
@@ -82,6 +82,39 @@ export default function Portafolio() {
                       </span>
                     ))}
                   </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proyectos de referencia — ejecutados por NEXUS */}
+      <section className="alt">
+        <div className="section-inner">
+          <div className="section-tag">Proyectos de Referencia</div>
+          <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>
+            Experiencia que evidencia nuestra capacidad
+          </h2>
+          <p className="section-body" style={{ marginBottom: '3rem' }}>
+            Una selección de proyectos ejecutados que muestran el alcance técnico, la diversidad
+            sectorial y la escala financiera del trabajo de NEXUS en el territorio.
+          </p>
+
+          <div className="ref-grid">
+            {REFERENCE_PROJECTS.map((proj) => (
+              <article className="ref-card" key={proj.n}>
+                <div className="ref-card-top">
+                  <span className={`ref-eje ${proj.cat}`}>{proj.eje}</span>
+                  <span className="ref-num">
+                    N.º {String(proj.n).padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 className="ref-title">{proj.title}</h3>
+                <p className="ref-desc">{proj.desc}</p>
+                <div className="ref-foot">
+                  <span className="ref-monto">{proj.monto}</span>
+                  <span className="ref-estado">{proj.estado}</span>
                 </div>
               </article>
             ))}

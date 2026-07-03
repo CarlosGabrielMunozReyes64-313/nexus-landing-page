@@ -36,8 +36,10 @@ export default function Contacto() {
                 ))}
               </div>
               <div className="contact-data">
-                <div className="contact-data-label">Colombia · América Latina</div>
-                <div className="contact-data-val">info@nexus-sostenible.co</div>
+                <div className="contact-data-label">
+                  Popayán, Cauca · Suroccidente colombiano
+                </div>
+                <div className="contact-data-val">nexussostenible.co</div>
               </div>
             </div>
 

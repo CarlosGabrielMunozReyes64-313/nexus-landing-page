@@ -49,6 +49,31 @@ export function EjeRow({ service, index }) {
             </li>
           ))}
         </ul>
+
+        {(service.tools?.length || service.deliverables?.length) && (
+          <div className="eje-row-meta">
+            {service.tools?.length ? (
+              <div className="eje-meta-col">
+                <div className="eje-meta-title">Herramientas y metodologías</div>
+                <ul className="eje-meta-list">
+                  {service.tools.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {service.deliverables?.length ? (
+              <div className="eje-meta-col">
+                <div className="eje-meta-title">Principales entregables</div>
+                <ul className="eje-meta-list eje-meta-list--check">
+                  {service.deliverables.map((d) => (
+                    <li key={d}>{d}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        )}
       </div>
     </article>
   );

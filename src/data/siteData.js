@@ -24,10 +24,10 @@ export const NAV_ITEMS = [
     to: '/servicios',
     children: [
       { label: 'Todos los Servicios', to: '/servicios', end: true },
-      { label: 'Gobernanza Territorial e Innovación Pública', to: '/servicios/eje-1' },
-      { label: 'Sostenibilidad Ambiental y Gestión del Riesgo', to: '/servicios/eje-2' },
-      { label: 'Economía Circular y Metabolismo Urbano-Rural', to: '/servicios/eje-3' },
-      { label: 'Tecnologías de la Información Geográfica (TIG)', to: '/servicios/eje-4' },
+      { label: 'Ciudades y Territorios Sostenibles', to: '/servicios/eje-1' },
+      { label: 'Biodiversidad, SbN y Agroecología', to: '/servicios/eje-2' },
+      { label: 'Innovación Social y Responsabilidad Territorial', to: '/servicios/eje-3' },
+      { label: 'Proyectos CTI · Ciencia, Tecnología e Innovación', to: '/servicios/eje-4' },
     ],
   },
   { label: 'Proyectos', to: '/portafolio' },
@@ -38,10 +38,11 @@ export const NAV_ITEMS = [
 
 // ── Cifras de impacto (Inicio) ────────────────────────
 export const STATS = [
-  { num: '+20', label: 'Años de experiencia acumulada en perfiles clave' },
-  { num: '+40', label: 'Proyectos ejecutados en Colombia y la región' },
-  { num: '12+', label: 'Aliados estratégicos: academia, gobierno, sector privado' },
-  { num: '4', label: 'Ejes estratégicos alineados con agendas globales' },
+  { num: '+20', label: 'Proyectos ejecutados' },
+  { num: '+$39B', label: 'COP gestionados' },
+  { num: '4', label: 'Ejes estratégicos' },
+  { num: '40', label: 'Servicios especializados' },
+  { num: '6+', label: 'Sectores atendidos' },
 ];
 
 // ── Propuesta de valor (Inicio) ───────────────────────
@@ -85,15 +86,15 @@ export const PILLARS = [
   },
   {
     icon: new URL('../assets/iconos_inicio/globe.png', import.meta.url).href,
-    title: 'Biodiversidad y Soluciones basadas en la Naturaleza',
+    title: 'Biodiversidad, SbN y Agroecología',
   },
   {
     icon: new URL('../assets/iconos_inicio/people.png', import.meta.url).href,
-    title: 'Innovación Social y Gobernanza',
+    title: 'Innovación Social y Responsabilidad Territorial',
   },
   {
     icon: new URL('../assets/iconos_inicio/activity.png', import.meta.url).href,
-    title: 'Ciencia, Tecnología e Innovación (C+T+I)',
+    title: 'Proyectos CTI · Ciencia, Tecnología e Innovación',
   },
 ];
 
@@ -101,20 +102,19 @@ export const TEAM = [
   {
     initials: 'GV',
     name: 'Guillermo Alberto Vélez Tobar',
-    position: 'Director de Proyectos',
-    role: 'Ecólogo · Consultor e Investigador',
-    bio: 'Ecólogo con formación doctoral (cand.) y dos maestrías en ciencias. Especialista en planificación territorial, gestión integral de residuos —políticas de Basura Cero, valorización de RCD, NFU y compostaje— y tecnologías de precisión para el monitoreo ambiental, con un enfoque riguroso basado en el método científico y estándares internacionales.',
+    position: 'Co-fundador · Director Científico y Técnico',
+    role: 'Ecólogo M.Sc. · Consultor e Investigador',
+    bio: 'Ecólogo M.Sc. (Universidad Nacional, Heredia, Costa Rica) y candidato doctoral en Ciencias Ambientales (Universidad del Cauca). Especialista en planificación territorial, gestión integral de residuos —políticas de Basura Cero, valorización de RCD, NFU y compostaje— y tecnologías de precisión para el monitoreo ambiental, con un enfoque riguroso basado en el método científico y estándares internacionales.',
     profile: {
       title:
         'Ecólogo | Consultor e Investigador. Especialista en Planificación Territorial, Gestión Ambiental y Políticas de Transformación de Residuos',
       summary:
         'Ecólogo de profesión con una sólida formación de posgrado y experiencia integral en la formulación, coordinación y evaluación de proyectos de desarrollo territorial, gestión ambiental y sostenibilidad. Investigador y consultor con capacidades demostradas en el diseño de flujos operacionales para infraestructuras de gestión integral de residuos (enfocado en políticas de Basura Cero, valorización de RCD, NFU y compostaje) y en la aplicación de tecnologías de precisión para la planificación y el monitoreo ambiental. Experiencia en la articulación comunitaria y la docencia en contextos de producción rural. Posee un fuerte enfoque analítico basado en el método científico, modelamiento técnico y rigurosidad metodológica bajo estándares internacionales.',
       education: [
-        'Profesional en Ecología',
-        'Doctorado (Cand.) en Gestión de la Innovación Tecnológica — UTEL Universidad',
-        'Maestría en Ciencias en Ingeniería Ambiental',
-        'Maestría en Ciencias en Conservación y Manejo de Vida Silvestre',
-        'Pregrado en Administración Pública (9.º semestre) — Escuela Superior de Administración Pública (ESAP)',
+        'Ecólogo M.Sc. — Universidad Nacional, Heredia, Costa Rica (2003)',
+        'Candidato doctoral en Ciencias Ambientales — Universidad del Cauca',
+        'Maestrando en IoT — UNAD',
+        'Estudiante de Administración Pública Territorial (8.º-9.º semestre) — ESAP',
       ],
       experience: [
         {
@@ -171,8 +171,8 @@ export const TEAM = [
   {
     initials: 'VS',
     name: 'Viviana María Sánchez Escobar',
-    position: 'Directora General',
-    role: 'Gestor y Líder de proyectos | Relaciones Institucionales | Innovación Social | RSE | Cambio Climático | Resiliencia Urbana | Sostenibilidad',
+    position: 'Socia · Representante Legal',
+    role: 'Liderazgo Institucional · Gestión Empresarial · Innovación Social · RSE · Sostenibilidad',
     bio: 'Administradora Pública, Especialista en Gerencia Social y Magíster en Gerencia para la Innovación Social. Cuenta con más de 13 años de experiencia en coordinación interinstitucional, participación ciudadana, sostenibilidad urbana y formulación de proyectos climáticos. Experta en procesos de gobernanza territorial, concertación comunitaria y construcción participativa de soluciones ambientales y sociales.',
   },
   {
@@ -213,98 +213,285 @@ export const TEAM = [
 export const SERVICES = [
   {
     id: 'tab1',
-    tab: 'Gobernanza',
-    icon: '🏛️',
-    svcTitle: 'Gobernanza Territorial e Innovación Pública',
-    svcSub: 'Conocimiento · Decisión · Transparencia',
+    tab: 'Ciudades y Territorios',
+    icon: '🏙️',
+    svcTitle: 'Ciudades y Territorios Sostenibles',
+    svcSub: 'Planificación · Saneamiento · Inversión pública · Economía circular',
     name: 'Eje 1',
-    desc: 'Este eje se centra en el fortalecimiento institucional y la cocreación de políticas públicas basadas en datos, conectando a la academia, el sector público y las comunidades.',
+    desc: 'Consultoría especializada en planificación urbana y rural, saneamiento, inversión pública y estructuración de proyectos de economía circular ante entes territoriales y ministerios.',
     list: [
       {
-        label: 'Gestión del Conocimiento y Formación',
-        text: 'Desarrollo de capacidades a través de procesos de educación no formal e investigación-acción participativa para líderes comunitarios y funcionarios públicos.',
+        label: 'Formulación de Proyectos de Inversión Pública (MGA-DNP)',
+        text: 'Estructuración completa de documentos técnicos, matrices de marco lógico y fichas EBI/BPIN para la viabilización de recursos estatales.',
       },
       {
-        label: 'Herramientas de Soporte a la Decisión',
-        text: 'Implementación de metodologías analíticas para optimizar la planificación e inversión pública en el territorio.',
+        label: 'Formulación y Actualización de PGIRS',
+        text: 'Diseño de Planes de Gestión Integral de Residuos Sólidos municipales alineados con la normatividad de aprovechamiento y metas de ordenamiento territorial.',
       },
       {
-        label: 'Democratización de la Información',
-        text: 'Espacios de transparencia y acceso a datos clave para mejorar el control social y la gestión comunitaria.',
+        label: 'Estructuración de Estrategias «Basura Cero»',
+        text: 'Modelado técnico, operativo y financiero para la transición municipal hacia la minimización de residuos, optimización de rutas de recolección y estaciones de clasificación.',
       },
+      {
+        label: 'Diseño de Infraestructura Ambiental para Economía Circular',
+        text: 'Estudios de prefactibilidad y diseños conceptuales para plantas de compostaje municipal, valorización de RCD y plantas de pellets o biogás.',
+      },
+      {
+        label: 'Estructuración de Zonas Francas de Economía Popular',
+        text: 'Desarrollo del expediente técnico y financiero (14 documentos requeridos) para la postulación de polígonos bajo el régimen fiscal de incentivos territoriales.',
+      },
+      {
+        label: 'Formulación de Proyectos de Acueducto y Saneamiento Rural',
+        text: 'Diagnóstico, subsanación y viabilización de infraestructura hídrica veredal ante el Ministerio de Vivienda, Ciudad y Territorio (MVCT).',
+      },
+      {
+        label: 'Estudios de Localización Multicriterio (AHP/TOPSIS)',
+        text: 'Análisis geoespacial y estadístico avanzado para la ubicación óptima de infraestructura crítica, rellenos sanitarios o plantas de transferencia.',
+      },
+      {
+        label: 'Elaboración de Tratados Territoriales',
+        text: 'Instrumentos de concertación y caracterización socioeconómica regional para la viabilización de macroproyectos de infraestructura.',
+      },
+      {
+        label: 'Trámites de Licenciamiento y Permisos Ambientales',
+        text: 'Gestión técnica y jurídica ante corporaciones autónomas (CRC) y la ANLA para concesiones de agua, vertimientos y ocupación de cauces.',
+      },
+      {
+        label: 'Asesoría en Planificación Presupuestal y Gestión Fiscal Municipal',
+        text: 'Apoyo a secretarías de planeación y hacienda en la alineación de metas del Plan de Desarrollo con los presupuestos ambientales vigentes.',
+      },
+    ],
+    tools: [
+      'Sistema MGA-DNP — Metodología General Ajustada',
+      'Decreto 670/2025 y Resolución 1257/2021 (RCD)',
+      'Decreto 1317/2025 — Zonas Francas de Economía Popular',
+      'Marco normativo MVCT para acueductos rurales',
+      'Análisis multicriterio AHP/TOPSIS (Excel + QGIS)',
+      'QGIS 3.44, ArcGIS, Global Mapper',
+      'Normativa CRC, ANLA y MADS vigente',
+      'Ley 388/1997, Decreto 1076/2015, Decreto 2981/2013',
+    ],
+    deliverables: [
+      'Documentos MGA completos: BPIN, EBI, MML, anexos técnicos',
+      'PGIRS / Plan de Acción Basura Cero con cronograma e indicadores',
+      'Estudios de prefactibilidad con diseños conceptuales',
+      'Expediente Zona Franca — 14 documentos completos',
+      'Tratado Territorial con caracterización socioeconómica y KMZ',
+      'Informes de diagnóstico ambiental con cartografía temática',
+      'Documentos de permisos listos para radicación CRC/ANLA',
     ],
   },
   {
     id: 'tab2',
-    tab: 'Ambiente y Riesgo',
-    icon: '🌧️',
-    svcTitle: 'Sostenibilidad Ambiental y Gestión del Riesgo',
-    svcSub: 'Hidrología · Monitoreo · Paisaje',
+    tab: 'Biodiversidad y SbN',
+    icon: '🌿',
+    svcTitle: 'Biodiversidad, SbN y Agroecología',
+    svcSub: 'Ecología · Agroecosistemas · Conservación · Soluciones climáticas',
     name: 'Eje 2',
-    desc: 'Orientado a responder a las dinámicas ecológicas de los ecosistemas locales mediante el monitoreo de precisión y la planificación basada en la evidencia física del territorio.',
+    desc: 'Integramos el rigor de las ciencias ecológicas y biológicas con la gestión sostenible de agroecosistemas, la conservación biótica y el diseño de soluciones climáticas basadas en procesos naturales.',
     list: [
       {
-        label: 'Modelamiento Hidráulico e Hidrológico',
-        text: 'Integración de herramientas avanzadas para la delimitación de zonas de inundación, análisis de cuencas y gestión del riesgo de desastres.',
+        label: 'Diseño de Sistemas Agroecológicos y Agroforestales',
+        text: 'Planificación de policultivos y arreglos agroforestales con especies nativas para optimizar la salud del suelo, regular microclimas y diversificar la producción sin agroquímicos.',
       },
       {
-        label: 'Monitoreo Ambiental de Precisión',
-        text: 'Incorporación de redes de sensores (como tecnologías de monitoreo de suelos y variables hidroclimáticas) para optimizar la toma de decisiones en sectores clave como el agua rural y la agricultura de precisión.',
+        label: 'Bioprospección y Valoración de Especies Nativas',
+        text: 'Investigación aplicada y caracterización fitoquímica de flora silvestre con potencial agroindustrial, cosmético o biotecnológico (ej. Sapindus saponaria).',
       },
       {
-        label: 'Planificación del Paisaje y Conservación',
-        text: 'Evaluación de la conectividad ecológica y el impacto del cambio de uso del suelo, garantizando la preservación de las fuentes hídricas estratégicas.',
+        label: 'Transición y Reconversión Agroecológica de Cultivos',
+        text: 'Consultoría técnica para fincas y asociaciones productoras orientada a sustituir insumos de síntesis química por biofertilizantes y control biológico de plagas.',
       },
+      {
+        label: 'Diagnósticos Ecosistémicos y Caracterización de Biodiversidad',
+        text: 'Inventarios detallados de flora y fauna (terrestre y acuática) en áreas de influencia de proyectos agropecuarios o energéticos.',
+      },
+      {
+        label: 'Monitoreo Limnológico y Bioindicación de Calidad de Agua',
+        text: 'Evaluación de la salud de fuentes hídricas superficiales mediante la identificación taxonómica de comunidades de macroinvertebrados (Índice BMWP/Col).',
+      },
+      {
+        label: 'Elaboración de Planes de Manejo Ambiental (PMA) de Cuencas',
+        text: 'Formulación de directrices de conservación y zonificación para microcuencas abastecedoras de acueductos rurales o distritos de riego.',
+      },
+      {
+        label: 'Soluciones Basadas en la Naturaleza (SbN) para Gestión del Riesgo',
+        text: 'Diseño de barreras vivas forestales, humedales artificiales y zonas de amortiguación para mitigar inundaciones, movimientos en masa e incendios.',
+      },
+      {
+        label: 'Formulación de Proyectos de Restauración Ecológica',
+        text: 'Estructuración de planes de recuperación para ecosistemas degradados de alta montaña, bosque andino y bosque seco tropical, definiendo núcleos de dispersión y especies clave.',
+      },
+      {
+        label: 'Valoración y Cartografía de Servicios Ecosistémicos',
+        text: 'Cuantificación espacial y económica de la regulación hídrica, captura de carbono y polinización para estructurar esquemas de Pago por Servicios Ambientales (PSA).',
+      },
+      {
+        label: 'Diseño de Huertos Circulares Urbanos y Comunitarios',
+        text: 'Proyectos de agricultura urbana enfocados en la seguridad alimentaria, el manejo local de residuos orgánicos y el fortalecimiento del tejido social.',
+      },
+    ],
+    tools: [
+      'Índices bióticos BMWP/Col, EPT e IBF — calidad de agua',
+      'Claves taxonómicas Roldán (1988), Merritt & Cummins (1984)',
+      'Metodologías IUCN para SbN y restauración ecológica',
+      'MapBiomas Colombia Colección 3.0 (1985-2024)',
+      'NEXUS FireEngine — simulación SOC Drossel-Schwabl',
+      'Google Earth Engine — análisis de cobertura vegetal',
+      'Clasificación de zonas de vida Holdridge',
+      'R / STATISTICA — análisis multivariado',
+    ],
+    deliverables: [
+      'Diseño de sistema agroforestal con cronograma e insumos por especie',
+      'Informe de bioprospección con análisis fitoquímico y hoja de ruta',
+      'PMA de cuenca con programas de monitoreo y cartografía de zonificación',
+      'EIA completo — biótico, abiótico y socioeconómico',
+      'Inventario taxonómico con índices de diversidad e interpretación ecológica',
+      'Informe limnológico BMWP/Col con fisicoquímica integrada',
+      'Mapa de servicios ecosistémicos con valoración económica por unidad',
+      'Proyecto de restauración ecológica: núcleos, especies y presupuesto',
     ],
   },
   {
     id: 'tab3',
-    tab: 'Economía Circular',
-    icon: '♻️',
-    svcTitle: 'Economía Circular y Metabolismo Urbano-Rural',
-    svcSub: 'RCD · NFU y orgánicos · PGIRS',
+    tab: 'Innovación Social',
+    icon: '🤝',
+    svcTitle: 'Innovación Social y Responsabilidad Territorial',
+    svcSub: 'Articulación de actores · Gobernanza · RSE · Prospectiva',
     name: 'Eje 3',
-    desc: 'Diseñado para transformar el enfoque tradicional de gestión de residuos en un modelo de valorización y desarrollo económico sostenible que mitigue los impactos ambientales en los municipios.',
+    desc: 'Servicios enfocados en la articulación de actores, la gobernanza participativa, la gestión de conflictos socioambientales y la estructuración de estrategias corporativas de sostenibilidad.',
     list: [
       {
-        label: 'Valorización de Residuos de Construcción y Demolición (RCD)',
-        text: 'Estrategias para la reconversión técnica y el diseño de plantas de transformación de RCD en materiales e infraestructura para el propio territorio.',
+        label: 'Diseño de Planes Estratégicos de RSE y Sostenibilidad (2026-2030)',
+        text: 'Estructuración de políticas corporativas bajo los estándares internacionales ISO 26000 y metodologías de reporte GRI.',
       },
       {
-        label: 'Gestión de Neumáticos Fuera de Uso (NFU) y Orgánicos',
-        text: 'Desarrollo de cadenas de valor para el aprovechamiento de NFU y la implementación de sistemas macro de compostaje técnico para el cierre de ciclos de nutrientes.',
+        label: 'Auditoría y Dashboards de Indicadores ESG',
+        text: 'Configuración de sistemas de métricas ambientales, sociales y de gobernanza para el monitoreo de riesgos y el cumplimiento de estándares de inversión.',
       },
       {
-        label: 'Optimización de PGIRS',
-        text: 'Modernización operativa, flujos de procesos y esquemas de seguimiento técnico para los Planes de Gestión Integral de Residuos Sólidos con un enfoque real de Basura Cero.',
+        label: 'Análisis de Conflictos Socioambientales con Prospectiva',
+        text: 'Aplicación de metodologías estructuradas (MICMAC, MACTOR, SMIC) para identificar el juego de actores, variables clave y escenarios de resolución en el territorio.',
       },
+      {
+        label: 'Elaboración de Planes de Relacionamiento y Gestión Social (PRGS)',
+        text: 'Diseño de estrategias de coexistencia pacífica y valor compartido entre empresas (minero-energéticas o de infraestructura) y comunidades locales.',
+      },
+      {
+        label: 'Facilitación de Procesos de Consulta Previa y Participación Ciudadana',
+        text: 'Coordinación metodológica y logística para garantizar el diálogo transparente y el cumplimiento legal de acuerdos con comunidades étnicas y rurales.',
+      },
+      {
+        label: 'Fortalecimiento Organizacional para Recicladores de Oficio',
+        text: 'Diseño de planes de acción, inclusión en la cadena de valor municipal y formalización operativa de asociaciones de reciclaje.',
+      },
+      {
+        label: 'Diagnósticos de Gobernanza Territorial y Agua',
+        text: 'Evaluación de las capacidades comunitarias e institucionales para la gestión colectiva y equitativa de los bienes comunes hídricos.',
+      },
+      {
+        label: 'Modelos de Negocios en Bioeconomía y Economía Circular',
+        text: 'Asesoría a emprendimientos rurales y colectivos para el aprovechamiento de subproductos agrícolas transformados en bioinsumos o empaques ecológicos.',
+      },
+      {
+        label: 'Diseño de Programas de Educación Ambiental Territorial',
+        text: 'Estructuración de guías didácticas, escuelas del agua y módulos formativos adaptados a contextos escolares y comunitarios específicos.',
+      },
+      {
+        label: 'Caracterización Socioeconómica y Líneas Base Comunitarias',
+        text: 'Estudios de demografía, dinámicas de medios de vida y cartografía social para áreas de influencia directa de proyectos.',
+      },
+    ],
+    tools: [
+      'ISO 26000:2010 / GRI Standards / Principios del Ecuador',
+      'Análisis prospectivo MICMAC y MACTOR (Lipsor)',
+      'SMIC — construcción de escenarios de futuro',
+      'Marco de Medios de Vida Sostenibles MMVS/DFID',
+      'Decreto 1320/1998 — Consulta Previa (Colombia)',
+      'Convenio OIT 169 — Derechos de Pueblos Indígenas',
+      'ODS / Agenda 2030 — marco de reporte corporativo',
+      'Análisis de Redes Sociales (SNA) para mapeo de actores',
+    ],
+    deliverables: [
+      'Política RSE y plan estratégico 2026-2030 con KPI por dimensión',
+      'Dashboard ESG interactivo con indicadores trazables',
+      'Matriz de stakeholders con estrategias de comunicación diferenciadas',
+      'PRGS completo para presentación ante CRC, ANLA o financiadores',
+      'Informe prospectivo MICMAC/MACTOR con escenarios y recomendaciones',
+      'Diagnóstico de gobernanza con indicadores de seguimiento institucional',
+      'Programa de educación ambiental: módulos y guías didácticas',
+      'Caracterización socioeconómica con cartografía e indicadores de línea base',
     ],
   },
   {
     id: 'tab4',
-    tab: 'TIG y Datos',
+    tab: 'Proyectos CTI',
     icon: '🛰️',
-    svcTitle: 'Tecnologías de la Información Geográfica (TIG) e Infraestructura de Datos',
-    svcSub: 'SIG · Redes hídricas · Plataforma web',
+    svcTitle: 'Proyectos CTI · Ciencia, Tecnología e Innovación',
+    svcSub: 'Geoespacial · Teledetección · Analítica ambiental · Soluciones digitales',
     name: 'Eje 4',
-    desc: 'El núcleo tecnológico que soporta toda la plataforma, permitiendo la visualización espacial, el análisis multitemporal y el despliegue de soluciones cartográficas accesibles.',
+    desc: 'Herramientas avanzadas de procesamiento geoespacial, sensoramiento remoto, analítica de datos ambientales y desarrollo de soluciones digitales a medida.',
     list: [
       {
-        label: 'Análisis Espacial y Georreferenciación',
-        text: 'Procesamiento de datos mediante QGIS, ArcMap y herramientas de código abierto para el ordenamiento territorial y el catastro multipropósito.',
+        label: 'Análisis Multitemporal de Coberturas del Suelo',
+        text: 'Procesamiento de imágenes satelitales y datos geoespaciales (1985-2024) con metodologías de MapBiomas para documentar la dinámica territorial.',
       },
       {
-        label: 'Sistemas de Información Hidráulica e Infraestructura',
-        text: 'Modelación y diagnóstico de redes de acueductos rurales y sistemas de saneamiento básico.',
+        label: 'Modelado y Simulación Digital de Riesgos Ambientales',
+        text: 'Configuración de herramientas algorítmicas avanzadas para simular la propagación de incendios forestales, inundaciones o dinámicas de expansión urbana.',
       },
       {
-        label: 'Plataforma Web Interactiva (NEXUS)',
-        text: 'Un entorno digital intuitivo que integra visores geográficos, tableros de control (dashboards) e indicadores clave de desarrollo territorial en tiempo real.',
+        label: 'Desarrollo de GeoVisores Web Personalizados',
+        text: 'Programación de plataformas geográficas interactivas (vía FastAPI/Leaflet) para centralizar, visualizar y exportar capas en formatos SHP, GeoJSON y KML.',
       },
       {
-        label: 'Enfoque Metodológico Transversal Análisis de Redes Sociales (ARS)',
-        text: 'Como metodología transversal a todos los ejes, NEXUS aplicará el Análisis de Redes Sociales (ARS), entendido estrictamente como la evaluación del tejido de actores, flujos de confianza e interacciones institucionales, alejado del concepto de redes sociales digitales. Esto permitirá mapear las alianzas estratégicas, identificar cuellos de botella en la gobernanza y medir el impacto real de la transferencia de conocimiento en el territorio.',
+        label: 'Automatización de Procesamiento Geoespacial (Scripts R/Python)',
+        text: 'Creación de flujos de trabajo reproducibles en Jupyter Notebooks para análisis estadístico espacial y minería de datos ambientales.',
       },
+      {
+        label: 'Diseño e Implementación de Redes de Monitoreo IoT Ambiental',
+        text: 'Arquitectura de sensores en tiempo real para medir humedad del suelo, calidad del aire o caudales hídricos con transmisión remota.',
+      },
+      {
+        label: 'Programación de Dashboards Analíticos Estratégicos',
+        text: 'Tableros de control interactivos desarrollados en React y TailwindCSS para visualizar KPI ambientales y geográficos de proyectos complejos.',
+      },
+      {
+        label: 'Formulación de Proyectos de Investigación para Convocatorias CTI',
+        text: 'Estructuración metodológica, presupuestal y de estado del arte para postulaciones ante el Ministerio de Ciencias o fondos de cooperación internacional.',
+      },
+      {
+        label: 'Construcción de Bases de Datos Espaciales Estandarizadas',
+        text: 'Estructuración geográfica de activos territoriales y metadatos con especificaciones listas para entrega institucional ante entes de control.',
+      },
+      {
+        label: 'Desarrollo de Aplicaciones de IA Aplicada a SIG',
+        text: 'Integración de asistentes inteligentes especializados para la consulta, el filtrado rápido y el reporte automático de variables geográficas del territorio.',
+      },
+      {
+        label: 'Cartografía Participativa Digitalizada',
+        text: 'Fusión de metodologías de mapeo social comunitario con herramientas de georreferenciación móvil para levantar información predial o de recursos locales.',
+      },
+    ],
+    tools: [
+      'QGIS 3.44, ArcGIS, Global Mapper — análisis geoespacial',
+      'Google Earth Engine (JavaScript API) — teledetección',
+      'MapBiomas Colombia Colección 3.0 (series 1985-2024)',
+      'Python: GeoPandas, Rasterio, Shapely, Jupyter Notebooks',
+      'R / RStudio — geoestadística y análisis espacial',
+      'React + TailwindCSS + Chart.js — dashboards interactivos',
+      'FastAPI + Anthropic API — asistentes IA territoriales',
+      'NEXUS FireEngine — simulación SOC Drossel-Schwabl',
+    ],
+    deliverables: [
+      'Serie cartográfica multitemporal (20+ mapas PDF + KMZ)',
+      'GeoVisor web con capas dinámicas y exportación institucional',
+      'Dashboard analítico con KPI en tiempo real y exportación',
+      'Scripts R/Python documentados en Jupyter Notebooks',
+      'Sistema IoT: arquitectura, sensores y visualización de datos',
+      'Propuesta CTI con estado del arte y presupuesto desglosado',
+      'Base de datos espacial ISO 19115 lista para radicación',
+      'Aplicación IA-SIG con asistente y reporte georreferenciado',
     ],
   },
 ];
@@ -595,56 +782,56 @@ export const FOOTER_TOPICS = [
 
 // ── Datos de la empresa (razón social, contacto) ──────
 export const COMPANY_INFO = {
-  legalName: 'NEXUS: Alianzas e Innovación   para un Futuro Sostenible S.A.S.',
-  shortName: 'NEXUS S.A.S.',
-  tagline: 'Innovación y Alianzas para un Futuro Sostenible',
-  city: 'Santiago de Cali, Valle del Cauca, Colombia',
-  email: 'nexus@innovacion.com.co',
+  legalName: 'NEXUS — Innovación y Alianzas para el Desarrollo Sostenible',
+  shortName: 'NEXUS',
+  tagline: 'Innovación y Alianzas para el Desarrollo Sostenible',
+  city: 'Popayán, Cauca, Colombia',
+  coverage: 'Suroccidente colombiano y proyectos nacionales',
+  web: 'nexussostenible.co',
+  email: 'contacto@nexussostenible.co',
+  legalRep: 'Viviana María Sánchez Escobar',
+  scientificDirector: 'Guillermo A. Vélez Tobar, Ecólogo M.Sc.',
 };
 
 // ── Quiénes Somos (descripción oficial) ───────────────
 export const ABOUT_INTRO = [
-  'NEXUS: Innovación y Alianzas para un Futuro Sostenible S.A.S. es una empresa colombiana especializada en la articulación de soluciones estratégicas para la transformación territorial, social y ambiental. Nacemos de la convicción de que los desafíos más complejos de nuestro tiempo —el cambio climático, la desigualdad territorial, la transición energética y la brecha tecnológica— solo pueden resolverse desde la cooperación intersectorial y la innovación aplicada.',
-  'Operamos en la intersección entre el sector público, el sector privado, la academia y las comunidades, formulando, ejecutando e interviniendo proyectos de alto impacto en los ámbitos ambiental, social, educativo, tecnológico, energético e industrial. Nuestra metodología combina el rigor técnico de la investigación con la agilidad de las soluciones escalables, garantizando resultados medibles y sostenibles en cada territorio donde actuamos.',
-  'Desde el departamento del Valle del Cauca, en su capital Santiago de Cali, con proyección nacional e internacional, NEXUS lidera procesos de I+D+i, interventoría, consultoría, comercio sostenible y gestión logística integral, apalancados en tecnologías avanzadas, inteligencia de datos y alianzas estratégicas de largo plazo. Somos más que una empresa: somos un ecosistema de transformación comprometido con construir el futuro que el planeta y sus comunidades necesitan.',
+  'NEXUS — Innovación y Alianzas para el Desarrollo Sostenible es una firma consultora colombiana especializada en la articulación de conocimiento científico, herramientas tecnológicas avanzadas y gestión territorial para impulsar procesos de transformación sostenible en municipios, empresas, comunidades e instituciones. Fundada en Popayán, Cauca, NEXUS opera en la intersección entre la academia, el sector público y la empresa privada, ofreciendo soluciones integrales que combinan rigor técnico con sensibilidad social y visión estratégica de largo plazo.',
+  'La naturaleza multidisciplinaria de NEXUS le permite abordar desafíos complejos donde convergen la planificación urbana, la gestión ambiental, la agroecología, la responsabilidad social corporativa y la innovación tecnológica aplicada. Esta capacidad diferencial es resultado de un equipo con formación de posgrado, experiencia institucional en entidades del orden municipal, departamental y nacional, y un historial comprobado en proyectos de alta complejidad técnica y financiera.',
+  'NEXUS se posiciona como el aliado estratégico que transforma la información en conocimiento accionable, los diagnósticos en planes ejecutables y las alianzas en resultados medibles. Nuestra propuesta descansa en la integración de metodologías científicas de vanguardia con herramientas digitales, la capacidad de articular actores heterogéneos —Estado, empresa, comunidad y academia— en torno a objetivos comunes, y la producción de entregables de calidad institucional, listos para radicación ante organismos financiadores, autoridades ambientales y entes de control.',
 ];
 
 // ── Misión y Visión oficiales ─────────────────────────
 export const MISSION = {
   heading: 'Nuestra razón de ser',
-  text: 'En NEXUS diseñamos, ejecutamos e intervenimos proyectos que transforman territorios y mercados hacia la sostenibilidad, articulando actores del sector público, privado, académico y social bajo estándares de transparencia, innovación y rigor técnico. Generamos soluciones escalables en I+D+i, energía, medio ambiente, infraestructura y desarrollo territorial que crean valor duradero para las comunidades, los ecosistemas y las instituciones, contribuyendo activamente a los desafíos globales del cambio climático, la equidad y la transición hacia economías más resilientes e inclusivas.',
+  text: 'Generar soluciones técnicas y científicas de alto impacto que contribuyan al desarrollo territorial sostenible, articulando actores estratégicos, conocimiento aplicado y tecnología innovadora para transformar los territorios colombianos en espacios de equidad, resiliencia y prosperidad ambiental.',
 };
 
 export const VISION = {
   heading: 'Hacia dónde vamos',
-  text: 'Al 2035, NEXUS será reconocido en Colombia y Latinoamérica como el socio estratégico de referencia para la transformación sostenible de territorios, consolidando un modelo de innovación intersectorial replicable que integra tecnologías avanzadas, políticas públicas basadas en evidencia y alianzas de largo alcance. Lideraremos en I+D+i aplicado, interventoría de impacto, energía renovable y desarrollo territorial, siendo un actor clave en la arquitectura de soluciones frente a los desafíos climáticos, sociales y económicos de nuestra región.',
+  text: 'Para 2030, consolidarnos como la principal firma consultora en desarrollo sostenible del suroccidente colombiano, reconocida por la excelencia técnica de sus servicios, la solidez de sus alianzas y su contribución efectiva a los Objetivos de Desarrollo Sostenible.',
 };
 
 // ── Valores corporativos ──────────────────────────────
 export const CORPORATE_VALUES = [
   {
-    title: 'Sostenibilidad como mandato estratégico',
-    text: 'Cada decisión, proyecto y alianza que desarrollamos integra criterios de viabilidad ambiental, social y económica a largo plazo. La sostenibilidad no es un diferencial: es nuestra base de operación.',
+    title: 'Rigor Científico',
+    text: 'Cada intervención se sustenta en el método científico, el modelamiento técnico y estándares metodológicos internacionales. La evidencia, no la intuición, guía nuestras decisiones y entregables.',
   },
   {
-    title: 'Innovación orientada al impacto',
-    text: 'Aplicamos metodologías de I+D+i, tecnologías emergentes e inteligencia de datos para generar soluciones que resuelven problemas reales. Innovamos con propósito: cada desarrollo debe ser escalable, medible y replicable en los territorios donde actuamos.',
+    title: 'Integridad Institucional',
+    text: 'Actuamos con ética, trazabilidad y rendición de cuentas en cada recurso, proceso y alianza. La confianza de clientes, socios y comunidades se construye con hechos verificables.',
   },
   {
-    title: 'Transparencia y gobernanza responsable',
-    text: 'Gestionamos cada recurso, proceso y alianza con ética, trazabilidad y rendición de cuentas. La confianza de nuestros clientes, socios y comunidades se construye con hechos verificables y comunicación abierta.',
+    title: 'Innovación Aplicada',
+    text: 'Integramos herramientas digitales de última generación —analítica geoespacial, IoT e inteligencia artificial— para convertir la información en conocimiento accionable y soluciones escalables.',
   },
   {
-    title: 'Colaboración intersectorial',
-    text: 'Creemos que la transformación territorial requiere la convergencia del sector público, el privado, la academia y la sociedad civil. Facilitamos esas intersecciones y construimos sinergias que ningún actor podría lograr en solitario.',
+    title: 'Responsabilidad Social',
+    text: 'Combinamos el rigor técnico con la sensibilidad social, diseñando soluciones que reducen brechas y amplían oportunidades para las comunidades de los territorios donde trabajamos.',
   },
   {
-    title: 'Inclusión y equidad territorial',
-    text: 'Diseñamos soluciones que reducen brechas y amplían oportunidades para poblaciones y territorios históricamente excluidos. La equidad no es un objetivo secundario: es un criterio de evaluación de cada proyecto que ejecutamos.',
-  },
-  {
-    title: 'Resiliencia y adaptabilidad',
-    text: 'Operamos en entornos complejos e inciertos —climáticos, regulatorios y sociales— y desarrollamos la capacidad institucional de anticipar, adaptarnos y prosperar ante los cambios del entorno global y local.',
+    title: 'Enfoque Territorial',
+    text: 'Partimos de la comprensión profunda de cada contexto para producir intervenciones técnicamente sólidas y, a la vez, social y políticamente viables en el territorio.',
   },
 ];
 
@@ -683,28 +870,16 @@ export const STRATEGIC_CHALLENGES = [
 // ── Nuestra propuesta de valor (capacidades) ──────────
 export const VALUE_PROPOSITION = [
   {
-    title: 'I+D+i Aplicado',
-    text: 'Metodologías avanzadas y tecnologías emergentes al servicio de problemas concretos en sectores estratégicos.',
+    title: 'Ciencia y tecnología integradas',
+    text: 'Integramos metodologías científicas de vanguardia con herramientas digitales de última generación: analítica geoespacial, teledetección, IoT e inteligencia artificial aplicada al territorio.',
   },
   {
-    title: 'Interventoría de Impacto',
-    text: 'Supervisión técnica, administrativa, financiera y ambiental que garantiza transparencia, calidad y resultados en la ejecución de proyectos.',
+    title: 'Articulación multiactor',
+    text: 'Conectamos actores heterogéneos —Estado, empresa, comunidad y academia— en torno a objetivos comunes, construyendo alianzas que ningún actor podría lograr en solitario.',
   },
   {
-    title: 'Alianzas Estratégicas',
-    text: 'Articulación de redes intersectoriales que amplifican el alcance y la sostenibilidad de cada iniciativa.',
-  },
-  {
-    title: 'Consultoría Territorial',
-    text: 'Asesoría especializada en sostenibilidad, RSE, políticas públicas y desarrollo territorial con enfoque de resultados medibles.',
-  },
-  {
-    title: 'Comercio Sostenible',
-    text: 'Facilitamos la exportación, importación y comercialización de bienes y servicios con certificaciones y estándares globales de sostenibilidad.',
-  },
-  {
-    title: 'Logística e Infraestructura',
-    text: 'Optimización integral de cadenas de suministro y proyectos de infraestructura con criterios de eficiencia y sostenibilidad.',
+    title: 'Entregables de calidad institucional',
+    text: 'Producimos documentos técnicos listos para radicación ante organismos financiadores, autoridades ambientales y entes de control, con rigor metodológico y trazabilidad.',
   },
 ];
 
@@ -735,6 +910,73 @@ export const CASE_STUDIES = [
       'Indicadores SMART',
       'Talleres de cocreación',
     ],
+  },
+];
+
+
+// ── Proyectos de referencia (Portafolio) ──────────────
+// Proyectos ejecutados reales de NEXUS con monto, estado y eje asociado.
+// `cat` mapea a la clase de color de la etiqueta de eje.
+export const REFERENCE_PROJECTS = [
+  {
+    n: 1, cat: 'eje-1', eje: 'Eje 1', monto: '~$39.000 M COP', estado: 'En ejecución',
+    title: 'Programa Basura Cero — Popayán',
+    desc: '~8 proyectos MGA articulados: ECA, Planta RCD, NFU, Pellets, Biogás, 15 camiones compactadores, PIGRSU y compostera La Patojita. Enmarcado en el Decreto 670/2025.',
+  },
+  {
+    n: 2, cat: 'eje-1', eje: 'Eje 1', monto: 'MVCT', estado: 'Subsanación',
+    title: 'Acueducto Interveredal El Hogar',
+    desc: 'Veredas Altamira, El Hogar, San Juan, El Cabuyo y Quintana. Subsanación ante el MVCT (radicado 2025ER0034547).',
+  },
+  {
+    n: 3, cat: 'eje-12', eje: 'Eje 1+2', monto: '3.2 MW', estado: 'Formulación',
+    title: 'PCH Sajandí (VATIA S.A. E.S.P.)',
+    desc: 'Pequeña central hidroeléctrica a filo de agua en El Juncal, Patía (Cauca). Tratado Territorial, PRGS, KMZ y Gantt de obra.',
+  },
+  {
+    n: 4, cat: 'eje-12', eje: 'Eje 1+2', monto: '9.9 MW', estado: 'Formulado',
+    title: 'PCH Florida II',
+    desc: 'Las Piedras y Quintana, Popayán. EIA + PMA completo y caracterización socioeconómica de 8 veredas.',
+  },
+  {
+    n: 5, cat: 'eje-3', eje: 'Eje 3', monto: 'ESG 2026-30', estado: 'Entregado',
+    title: 'RSE ILC — Inversiones López Cadavid (BIOMAX / MAXIMOTOS)',
+    desc: 'Plan de RSE 2026-2030 bajo ISO 26000 / ESG. Cobertura en Guaviare, Guainía, Casanare y Bogotá D.C.',
+  },
+  {
+    n: 6, cat: 'eje-1', eje: 'Eje 1', monto: 'MinCIT', estado: 'Formulado',
+    title: 'Zona Franca de Economía Popular — Popayán',
+    desc: 'Decreto 1317/2025. 14 documentos: plan de acción, modelo financiero, MinCIT, Acuerdo de Concejo y 3 polígonos KML.',
+  },
+  {
+    n: 7, cat: 'eje-12', eje: 'Eje 1+2', monto: '~$5.250 M COP', estado: 'Aprobado CRC',
+    title: 'Tratado Territorial Rincón Payanés (FONTUR FCOI-01)',
+    desc: 'PMA e infraestructura turística. CRC Oficio SGA-5649/2025, Resolución ST-0422/2025.',
+  },
+  {
+    n: 8, cat: 'eje-4', eje: 'Eje 4', monto: 'Académico', estado: 'Presentado',
+    title: 'MapBiomas Colombia — Premio 2.ª Edición Académica',
+    desc: 'Expansión urbana de Popayán 1985-2024 con la Colección 3.0. 20 mapas y 4 Jupyter Notebooks.',
+  },
+  {
+    n: 9, cat: 'eje-2', eje: 'Eje 2', monto: 'Consultoría', estado: 'Entregado',
+    title: 'Diagnóstico Ambiental Microcuenca La Chuscala',
+    desc: 'Copacabana. Caracterización hidrológica, problemática ambiental y análisis institucional.',
+  },
+  {
+    n: 10, cat: 'eje-4', eje: 'Eje 4', monto: 'Tech / SbN', estado: 'Operativo',
+    title: 'NEXUS FireEngine — Simulador SOC',
+    desc: 'Modelo Drossel-Schwabl con barreras SbN, transporte de brasas y propagación sobre imágenes satelitales.',
+  },
+  {
+    n: 11, cat: 'eje-4', eje: 'Eje 4', monto: 'Tech / SIG', estado: 'Operativo',
+    title: 'PRISM GeoVisor v4 / GuilleIA',
+    desc: 'Asistente IA territorial (FastAPI + Anthropic) integrado con un visor SIG multiformato.',
+  },
+  {
+    n: 12, cat: 'eje-2', eje: 'Eje 2', monto: 'Investigación', estado: 'En desarrollo',
+    title: 'Bioprospección de Sapindus saponaria',
+    desc: 'Investigación aplicada: análisis bioquímico, estrategia agroforestal y comparativa de jabones.',
   },
 ];
 

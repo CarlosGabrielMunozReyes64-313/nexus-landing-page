@@ -250,3 +250,63 @@
     transition: none !important;
   }
 }
+
+/* ── Herramientas y entregables por eje ─────────────── */
+.eje-row-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+.eje-meta-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5fe0b8;
+  margin-bottom: 0.75rem;
+}
+.eje-meta-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.eje-meta-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+.eje-meta-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--nx-mid);
+}
+.eje-meta-list--check li::before {
+  content: '✓';
+  background: none;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  color: var(--nx-mid);
+  font-weight: 700;
+  font-size: 13px;
+}
+@media (max-width: 860px) {
+  .eje-row-meta {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

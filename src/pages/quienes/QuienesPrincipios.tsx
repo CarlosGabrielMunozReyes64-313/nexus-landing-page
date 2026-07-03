@@ -12,7 +12,7 @@ export default function QuienesPrincipios() {
           alt="Equipo de NEXUS colaborando con la comunidad"
           tag="Valores Corporativos"
           title="Los principios que guían cada decisión"
-          intro="Seis valores definen nuestra forma de operar y son el criterio con el que evaluamos cada proyecto, alianza y resultado."
+          intro="Cinco valores definen nuestra forma de operar y son el criterio con el que evaluamos cada proyecto, alianza y resultado."
           items={CORPORATE_VALUES}
         />
       </div>
