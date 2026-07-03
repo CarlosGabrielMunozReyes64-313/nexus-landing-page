@@ -35,7 +35,15 @@ export default function Alianzas() {
           </div>
 
           <div style={{ marginTop: '4.5rem' }}>
-            <div className="grid-4">
+            <div className="section-tag">Aliados Estratégicos</div>
+            <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>
+              Organizaciones que fortalecen nuestra red
+            </h2>
+            <p className="section-body" style={{ marginBottom: '3rem' }}>
+              Trabajamos de la mano con empresas especializadas que complementan nuestras
+              capacidades técnicas, de instrumentación y de laboratorio.
+            </p>
+            <div className="ally-grid">
               {ALLIES.map((ally) => (
                 <AllyCard key={ally.name} ally={ally} />
               ))}

@@ -617,7 +617,28 @@ export const AGENDAS = [
 ];
 
 // ── Red de aliados (Alianzas) ─────────────────────────
-export const ALLIES = [];
+// CÓMO AÑADIR UN ALIADO:
+//  · logo → deja el archivo en `src/assets/aliados/` y referencia su ruta.
+//  · name → nombre del aliado.
+//  · type → etiqueta corta (sector/actividad).
+//  · desc → descripción de la organización.
+//  · url  → sitio web (se abre en pestaña nueva desde el botón con ícono de enlace).
+export const ALLIES = [
+  {
+    logo: new URL('../assets/aliados/maser.png', import.meta.url).href,
+    name: 'Maser',
+    type: 'Equipos e instrumentación ambiental',
+    desc: 'Compañía colombiana dedicada a la distribución, representación y asesoría de equipos e instrumentos que contribuyen a mejorar la calidad del medio ambiente.',
+    url: 'https://www.maser.com.co/nosotros',
+  },
+  {
+    logo: new URL('../assets/aliados/analisis-ambiental.png', import.meta.url).href,
+    name: 'Análisis Ambiental',
+    type: 'Ingeniería y laboratorio',
+    desc: 'Asesoría en todos los procesos de ingeniería y laboratorio que requieran las empresas.',
+    url: 'https://aambiental.co/home/',
+  },
+];
 
 // ── Artículos del blog ────────────────────────────────
 // CÓMO REEMPLAZAR EL CONTENIDO (fácil):
