@@ -39,7 +39,6 @@ function MosaicCard({ svc, n }: { svc: FlatService; n: number }) {
       <div className="svc-mosaic-content">
         <span className="svc-mosaic-num">{String(n).padStart(2, '0')}</span>
         <h3 className="svc-mosaic-title">{svc.label}</h3>
-        <p className="svc-mosaic-desc">{svc.text}</p>
       </div>
       <span className="svc-mosaic-arrow" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
