@@ -1,0 +1,141 @@
+/* ── Mosaico de servicios ──────────────────────────────
+   Rejilla responsiva de tarjetas numeradas. Cada eje tiene su propia
+   familia de color (verde, azul, morado, ámbar), como en la referencia. */
+
+.svc-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.svc-mosaic-card {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 2.6rem;
+  background: var(--nx-white);
+  border: 1px solid #eef2ef;
+  border-radius: 18px;
+  box-shadow: 0 1px 2px rgba(2, 64, 41, 0.04);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.svc-mosaic-card.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.svc-mosaic-card:hover {
+  box-shadow: 0 12px 28px rgba(2, 64, 41, 0.1);
+  border-color: transparent;
+}
+
+/* Círculo del icono */
+.svc-mosaic-icon {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.25s ease;
+}
+
+.svc-mosaic-card:hover .svc-mosaic-icon {
+  transform: scale(1.06);
+}
+
+.svc-mosaic-content {
+  min-width: 0;
+}
+
+/* Píldora con el número */
+.svc-mosaic-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--nx-white);
+  padding: 0.12rem 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 0.55rem;
+}
+
+.svc-mosaic-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--nx-dark);
+  margin: 0 0 0.5rem;
+}
+
+.svc-mosaic-desc {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--nx-muted);
+  margin: 0;
+}
+
+/* Flecha inferior derecha */
+.svc-mosaic-arrow {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.15rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.svc-mosaic-card:hover .svc-mosaic-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Familias de color por eje ─────────────────────────
+   1 · verde   2 · azul   3 · morado   4 · ámbar */
+.svc-mosaic-card.eje-1 .svc-mosaic-icon { background: #e6f4ec; color: #2f9e44; }
+.svc-mosaic-card.eje-1 .svc-mosaic-num  { background: #2f9e44; }
+.svc-mosaic-card.eje-1 .svc-mosaic-arrow { background: #e6f4ec; color: #2f9e44; }
+
+.svc-mosaic-card.eje-2 .svc-mosaic-icon { background: #e6eefb; color: #2166cf; }
+.svc-mosaic-card.eje-2 .svc-mosaic-num  { background: #2166cf; }
+.svc-mosaic-card.eje-2 .svc-mosaic-arrow { background: #e6eefb; color: #2166cf; }
+
+.svc-mosaic-card.eje-3 .svc-mosaic-icon { background: #eee9fb; color: #6d47c9; }
+.svc-mosaic-card.eje-3 .svc-mosaic-num  { background: #6d47c9; }
+.svc-mosaic-card.eje-3 .svc-mosaic-arrow { background: #eee9fb; color: #6d47c9; }
+
+.svc-mosaic-card.eje-4 .svc-mosaic-icon { background: #fbf1df; color: #cf8b26; }
+.svc-mosaic-card.eje-4 .svc-mosaic-num  { background: #d99521; }
+.svc-mosaic-card.eje-4 .svc-mosaic-arrow { background: #fbf1df; color: #cf8b26; }
+
+/* ── Responsivo ────────────────────────────────────────*/
+@media (max-width: 960px) {
+  .svc-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .svc-mosaic {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .svc-mosaic-card {
+    padding: 1.25rem 1.25rem 2.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-mosaic-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

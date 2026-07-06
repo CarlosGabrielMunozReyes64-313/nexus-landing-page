@@ -20,6 +20,7 @@ import QuienesEquipo from './pages/quienes/QuienesEquipo'
 // Servicios · vista general + una vista por cada eje
 import ServiciosLayout from './pages/servicios/ServiciosLayout'
 import ServiciosTodos from './pages/servicios/ServiciosTodos'
+import ServiciosCatalogo from './pages/servicios/ServiciosCatalogo'
 import ServicioEje from './pages/servicios/ServicioEje'
 
 // Proyecto demo: Calculadora de Huella Ecológica (migrado a React TS)
@@ -57,6 +58,7 @@ export default function App() {
           {/* Servicios · vista general + una vista por eje */}
           <Route path="/servicios" element={<ServiciosLayout />}>
             <Route index element={<ServiciosTodos />} />
+            <Route path="catalogo" element={<ServiciosCatalogo />} />
             <Route path="eje-1" element={<ServicioEje id="tab1" />} />
             <Route path="eje-2" element={<ServicioEje id="tab2" />} />
             <Route path="eje-3" element={<ServicioEje id="tab3" />} />

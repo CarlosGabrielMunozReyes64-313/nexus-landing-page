@@ -16,7 +16,7 @@ const EJE_IMAGES = {
 
 // Una fila por eje. Alterna el lado de la imagen y revela su contenido al
 // hacer scroll. La altura es automática: el texto nunca se recorta.
-export function EjeRow({ service, index }) {
+export function EjeRow({ service, index, titlesOnly = false }) {
   const { ref, shown } = useReveal();
   const imgSrc = EJE_IMAGES[service.id];
   const flipped = index % 2 === 1; // alterna imagen izquierda/derecha
@@ -39,12 +39,13 @@ export function EjeRow({ service, index }) {
         {service.svcSub && <div className="eje-row-sub">{service.svcSub}</div>}
         <p className="eje-row-desc">{service.desc}</p>
 
-        <ul className="eje-row-list">
+        <ul className={`eje-row-list${titlesOnly ? ' is-titles-only' : ''}`}>
           {service.list.map((item, i) => (
             <li key={item.label} style={{ transitionDelay: `${0.08 * i}s` }}>
               <span className="eje-row-bullet" aria-hidden="true" />
               <span>
-                <span className="eje-row-label">{item.label}.</span> {item.text}
+                <span className="eje-row-label">{item.label}</span>
+                {!titlesOnly && <>. {item.text}</>}
               </span>
             </li>
           ))}
@@ -79,7 +80,7 @@ export function EjeRow({ service, index }) {
   );
 }
 
-export default function EjesList() {
+export default function EjesList({ titlesOnly = false }) {
   return (
     <section className="ejes-list-section">
       <div className="ejes-list-head">
@@ -87,13 +88,13 @@ export default function EjesList() {
         <h2 className="section-title">Explora cada eje de trabajo</h2>
         <p className="ejes-list-intro">
           Cuatro líneas de acción complementarias que articulan el trabajo de NEXUS en el
-          territorio. Recórrelas de principio a fin.
+          territorio.
         </p>
       </div>
 
       <div className="ejes-list">
         {SERVICES.map((service, index) => (
-          <EjeRow key={service.id} service={service} index={index} />
+          <EjeRow key={service.id} service={service} index={index} titlesOnly={titlesOnly} />
         ))}
       </div>
     </section>

@@ -218,47 +218,47 @@ export const SERVICES = [
     svcTitle: 'Ciudades y Territorios Sostenibles',
     svcSub: 'Planificación · Saneamiento · Inversión pública · Economía circular',
     name: 'Eje 1',
-    desc: 'Consultoría especializada en planificación urbana y rural, saneamiento, inversión pública y estructuración de proyectos de economía circular ante entes territoriales y ministerios.',
+    desc: 'Planificación urbana y rural, saneamiento, inversión pública y economía circular ante entes territoriales y ministerios.',
     list: [
       {
         label: 'Formulación de Proyectos de Inversión Pública (MGA-DNP)',
-        text: 'Estructuración completa de documentos técnicos, matrices de marco lógico y fichas EBI/BPIN para la viabilización de recursos estatales.',
+        text: 'Documentos técnicos, marco lógico y fichas EBI/BPIN para viabilizar recursos estatales.',
       },
       {
         label: 'Formulación y Actualización de PGIRS',
-        text: 'Diseño de Planes de Gestión Integral de Residuos Sólidos municipales alineados con la normatividad de aprovechamiento y metas de ordenamiento territorial.',
+        text: 'Planes municipales de residuos sólidos alineados con la normatividad de aprovechamiento y el ordenamiento territorial.',
       },
       {
         label: 'Estructuración de Estrategias «Basura Cero»',
-        text: 'Modelado técnico, operativo y financiero para la transición municipal hacia la minimización de residuos, optimización de rutas de recolección y estaciones de clasificación.',
+        text: 'Modelo técnico, operativo y financiero para minimizar residuos y optimizar rutas y estaciones de clasificación.',
       },
       {
         label: 'Diseño de Infraestructura Ambiental para Economía Circular',
-        text: 'Estudios de prefactibilidad y diseños conceptuales para plantas de compostaje municipal, valorización de RCD y plantas de pellets o biogás.',
+        text: 'Prefactibilidad y diseño conceptual de plantas de compostaje, valorización de RCD y pellets o biogás.',
       },
       {
         label: 'Estructuración de Zonas Francas de Economía Popular',
-        text: 'Desarrollo del expediente técnico y financiero (14 documentos requeridos) para la postulación de polígonos bajo el régimen fiscal de incentivos territoriales.',
+        text: 'Expediente técnico y financiero (14 documentos) para postular polígonos bajo el régimen fiscal de incentivos.',
       },
       {
         label: 'Formulación de Proyectos de Acueducto y Saneamiento Rural',
-        text: 'Diagnóstico, subsanación y viabilización de infraestructura hídrica veredal ante el Ministerio de Vivienda, Ciudad y Territorio (MVCT).',
+        text: 'Diagnóstico y viabilización de infraestructura hídrica veredal ante el MVCT.',
       },
       {
         label: 'Estudios de Localización Multicriterio (AHP/TOPSIS)',
-        text: 'Análisis geoespacial y estadístico avanzado para la ubicación óptima de infraestructura crítica, rellenos sanitarios o plantas de transferencia.',
+        text: 'Análisis geoespacial y estadístico para ubicar infraestructura crítica, rellenos sanitarios o plantas de transferencia.',
       },
       {
         label: 'Elaboración de Tratados Territoriales',
-        text: 'Instrumentos de concertación y caracterización socioeconómica regional para la viabilización de macroproyectos de infraestructura.',
+        text: 'Concertación y caracterización socioeconómica regional para viabilizar macroproyectos de infraestructura.',
       },
       {
         label: 'Trámites de Licenciamiento y Permisos Ambientales',
-        text: 'Gestión técnica y jurídica ante corporaciones autónomas (CRC) y la ANLA para concesiones de agua, vertimientos y ocupación de cauces.',
+        text: 'Gestión técnica y jurídica ante CRC y ANLA para concesiones de agua, vertimientos y ocupación de cauces.',
       },
       {
         label: 'Asesoría en Planificación Presupuestal y Gestión Fiscal Municipal',
-        text: 'Apoyo a secretarías de planeación y hacienda en la alineación de metas del Plan de Desarrollo con los presupuestos ambientales vigentes.',
+        text: 'Apoyo a secretarías de planeación y hacienda para alinear el Plan de Desarrollo con los presupuestos ambientales.',
       },
     ],
     tools: [
@@ -288,47 +288,47 @@ export const SERVICES = [
     svcTitle: 'Biodiversidad, SbN y Agroecología',
     svcSub: 'Ecología · Agroecosistemas · Conservación · Soluciones climáticas',
     name: 'Eje 2',
-    desc: 'Integramos el rigor de las ciencias ecológicas y biológicas con la gestión sostenible de agroecosistemas, la conservación biótica y el diseño de soluciones climáticas basadas en procesos naturales.',
+    desc: 'Rigor de las ciencias ecológicas aplicado a agroecosistemas sostenibles, conservación biótica y soluciones climáticas basadas en la naturaleza.',
     list: [
       {
         label: 'Diseño de Sistemas Agroecológicos y Agroforestales',
-        text: 'Planificación de policultivos y arreglos agroforestales con especies nativas para optimizar la salud del suelo, regular microclimas y diversificar la producción sin agroquímicos.',
+        text: 'Policultivos y arreglos agroforestales con especies nativas para mejorar el suelo, regular microclimas y producir sin agroquímicos.',
       },
       {
         label: 'Bioprospección y Valoración de Especies Nativas',
-        text: 'Investigación aplicada y caracterización fitoquímica de flora silvestre con potencial agroindustrial, cosmético o biotecnológico (ej. Sapindus saponaria).',
+        text: 'Caracterización fitoquímica de flora silvestre con potencial agroindustrial, cosmético o biotecnológico (ej. Sapindus saponaria).',
       },
       {
         label: 'Transición y Reconversión Agroecológica de Cultivos',
-        text: 'Consultoría técnica para fincas y asociaciones productoras orientada a sustituir insumos de síntesis química por biofertilizantes y control biológico de plagas.',
+        text: 'Acompañamiento a fincas y asociaciones para sustituir agroquímicos por biofertilizantes y control biológico.',
       },
       {
         label: 'Diagnósticos Ecosistémicos y Caracterización de Biodiversidad',
-        text: 'Inventarios detallados de flora y fauna (terrestre y acuática) en áreas de influencia de proyectos agropecuarios o energéticos.',
+        text: 'Inventarios de flora y fauna terrestre y acuática en áreas de influencia de proyectos agropecuarios o energéticos.',
       },
       {
         label: 'Monitoreo Limnológico y Bioindicación de Calidad de Agua',
-        text: 'Evaluación de la salud de fuentes hídricas superficiales mediante la identificación taxonómica de comunidades de macroinvertebrados (Índice BMWP/Col).',
+        text: 'Evaluación de fuentes hídricas mediante taxonomía de macroinvertebrados (Índice BMWP/Col).',
       },
       {
         label: 'Elaboración de Planes de Manejo Ambiental (PMA) de Cuencas',
-        text: 'Formulación de directrices de conservación y zonificación para microcuencas abastecedoras de acueductos rurales o distritos de riego.',
+        text: 'Directrices de conservación y zonificación para microcuencas de acueductos rurales o distritos de riego.',
       },
       {
         label: 'Soluciones Basadas en la Naturaleza (SbN) para Gestión del Riesgo',
-        text: 'Diseño de barreras vivas forestales, humedales artificiales y zonas de amortiguación para mitigar inundaciones, movimientos en masa e incendios.',
+        text: 'Barreras vivas, humedales artificiales y zonas de amortiguación contra inundaciones, remoción en masa e incendios.',
       },
       {
         label: 'Formulación de Proyectos de Restauración Ecológica',
-        text: 'Estructuración de planes de recuperación para ecosistemas degradados de alta montaña, bosque andino y bosque seco tropical, definiendo núcleos de dispersión y especies clave.',
+        text: 'Planes de recuperación para alta montaña, bosque andino y bosque seco tropical, con núcleos de dispersión y especies clave.',
       },
       {
         label: 'Valoración y Cartografía de Servicios Ecosistémicos',
-        text: 'Cuantificación espacial y económica de la regulación hídrica, captura de carbono y polinización para estructurar esquemas de Pago por Servicios Ambientales (PSA).',
+        text: 'Valoración espacial y económica de regulación hídrica, carbono y polinización para esquemas de Pago por Servicios Ambientales (PSA).',
       },
       {
         label: 'Diseño de Huertos Circulares Urbanos y Comunitarios',
-        text: 'Proyectos de agricultura urbana enfocados en la seguridad alimentaria, el manejo local de residuos orgánicos y el fortalecimiento del tejido social.',
+        text: 'Agricultura urbana para la seguridad alimentaria, el manejo de residuos orgánicos y el tejido social.',
       },
     ],
     tools: [
@@ -359,47 +359,47 @@ export const SERVICES = [
     svcTitle: 'Innovación Social y Responsabilidad Territorial',
     svcSub: 'Articulación de actores · Gobernanza · RSE · Prospectiva',
     name: 'Eje 3',
-    desc: 'Servicios enfocados en la articulación de actores, la gobernanza participativa, la gestión de conflictos socioambientales y la estructuración de estrategias corporativas de sostenibilidad.',
+    desc: 'Articulación de actores, gobernanza participativa, gestión de conflictos socioambientales y estrategias corporativas de sostenibilidad.',
     list: [
       {
         label: 'Diseño de Planes Estratégicos de RSE y Sostenibilidad (2026-2030)',
-        text: 'Estructuración de políticas corporativas bajo los estándares internacionales ISO 26000 y metodologías de reporte GRI.',
+        text: 'Políticas corporativas bajo estándares ISO 26000 y reporte GRI.',
       },
       {
         label: 'Auditoría y Dashboards de Indicadores ESG',
-        text: 'Configuración de sistemas de métricas ambientales, sociales y de gobernanza para el monitoreo de riesgos y el cumplimiento de estándares de inversión.',
+        text: 'Métricas ambientales, sociales y de gobernanza para monitorear riesgos y cumplir estándares de inversión.',
       },
       {
         label: 'Análisis de Conflictos Socioambientales con Prospectiva',
-        text: 'Aplicación de metodologías estructuradas (MICMAC, MACTOR, SMIC) para identificar el juego de actores, variables clave y escenarios de resolución en el territorio.',
+        text: 'Metodologías MICMAC, MACTOR y SMIC para mapear actores, variables clave y escenarios de resolución.',
       },
       {
         label: 'Elaboración de Planes de Relacionamiento y Gestión Social (PRGS)',
-        text: 'Diseño de estrategias de coexistencia pacífica y valor compartido entre empresas (minero-energéticas o de infraestructura) y comunidades locales.',
+        text: 'Estrategias de coexistencia y valor compartido entre empresas minero-energéticas o de infraestructura y comunidades.',
       },
       {
         label: 'Facilitación de Procesos de Consulta Previa y Participación Ciudadana',
-        text: 'Coordinación metodológica y logística para garantizar el diálogo transparente y el cumplimiento legal de acuerdos con comunidades étnicas y rurales.',
+        text: 'Coordinación metodológica y logística para un diálogo transparente y acuerdos legales con comunidades étnicas y rurales.',
       },
       {
         label: 'Fortalecimiento Organizacional para Recicladores de Oficio',
-        text: 'Diseño de planes de acción, inclusión en la cadena de valor municipal y formalización operativa de asociaciones de reciclaje.',
+        text: 'Planes de acción, inclusión en la cadena de valor municipal y formalización de asociaciones de reciclaje.',
       },
       {
         label: 'Diagnósticos de Gobernanza Territorial y Agua',
-        text: 'Evaluación de las capacidades comunitarias e institucionales para la gestión colectiva y equitativa de los bienes comunes hídricos.',
+        text: 'Evaluación de capacidades comunitarias e institucionales para la gestión colectiva del agua.',
       },
       {
         label: 'Modelos de Negocios en Bioeconomía y Economía Circular',
-        text: 'Asesoría a emprendimientos rurales y colectivos para el aprovechamiento de subproductos agrícolas transformados en bioinsumos o empaques ecológicos.',
+        text: 'Asesoría a emprendimientos rurales para transformar subproductos agrícolas en bioinsumos o empaques ecológicos.',
       },
       {
         label: 'Diseño de Programas de Educación Ambiental Territorial',
-        text: 'Estructuración de guías didácticas, escuelas del agua y módulos formativos adaptados a contextos escolares y comunitarios específicos.',
+        text: 'Guías didácticas, escuelas del agua y módulos formativos para contextos escolares y comunitarios.',
       },
       {
         label: 'Caracterización Socioeconómica y Líneas Base Comunitarias',
-        text: 'Estudios de demografía, dinámicas de medios de vida y cartografía social para áreas de influencia directa de proyectos.',
+        text: 'Demografía, medios de vida y cartografía social en áreas de influencia directa de proyectos.',
       },
     ],
     tools: [
@@ -430,47 +430,47 @@ export const SERVICES = [
     svcTitle: 'Proyectos CTI · Ciencia, Tecnología e Innovación',
     svcSub: 'Geoespacial · Teledetección · Analítica ambiental · Soluciones digitales',
     name: 'Eje 4',
-    desc: 'Herramientas avanzadas de procesamiento geoespacial, sensoramiento remoto, analítica de datos ambientales y desarrollo de soluciones digitales a medida.',
+    desc: 'Procesamiento geoespacial, teledetección, analítica ambiental y soluciones digitales a medida.',
     list: [
       {
         label: 'Análisis Multitemporal de Coberturas del Suelo',
-        text: 'Procesamiento de imágenes satelitales y datos geoespaciales (1985-2024) con metodologías de MapBiomas para documentar la dinámica territorial.',
+        text: 'Imágenes satelitales y datos geoespaciales (1985-2024) con MapBiomas para documentar la dinámica territorial.',
       },
       {
         label: 'Modelado y Simulación Digital de Riesgos Ambientales',
-        text: 'Configuración de herramientas algorítmicas avanzadas para simular la propagación de incendios forestales, inundaciones o dinámicas de expansión urbana.',
+        text: 'Modelos algorítmicos para simular incendios forestales, inundaciones y expansión urbana.',
       },
       {
         label: 'Desarrollo de GeoVisores Web Personalizados',
-        text: 'Programación de plataformas geográficas interactivas (vía FastAPI/Leaflet) para centralizar, visualizar y exportar capas en formatos SHP, GeoJSON y KML.',
+        text: 'Plataformas interactivas (FastAPI/Leaflet) para visualizar y exportar capas en SHP, GeoJSON y KML.',
       },
       {
         label: 'Automatización de Procesamiento Geoespacial (Scripts R/Python)',
-        text: 'Creación de flujos de trabajo reproducibles en Jupyter Notebooks para análisis estadístico espacial y minería de datos ambientales.',
+        text: 'Flujos reproducibles en Jupyter para análisis espacial y minería de datos ambientales.',
       },
       {
         label: 'Diseño e Implementación de Redes de Monitoreo IoT Ambiental',
-        text: 'Arquitectura de sensores en tiempo real para medir humedad del suelo, calidad del aire o caudales hídricos con transmisión remota.',
+        text: 'Redes de sensores en tiempo real para humedad del suelo, calidad del aire y caudales, con transmisión remota.',
       },
       {
         label: 'Programación de Dashboards Analíticos Estratégicos',
-        text: 'Tableros de control interactivos desarrollados en React y TailwindCSS para visualizar KPI ambientales y geográficos de proyectos complejos.',
+        text: 'Tableros interactivos en React y TailwindCSS para KPI ambientales y geográficos.',
       },
       {
         label: 'Formulación de Proyectos de Investigación para Convocatorias CTI',
-        text: 'Estructuración metodológica, presupuestal y de estado del arte para postulaciones ante el Ministerio de Ciencias o fondos de cooperación internacional.',
+        text: 'Metodología, presupuesto y estado del arte para postular ante el Ministerio de Ciencias o cooperación internacional.',
       },
       {
         label: 'Construcción de Bases de Datos Espaciales Estandarizadas',
-        text: 'Estructuración geográfica de activos territoriales y metadatos con especificaciones listas para entrega institucional ante entes de control.',
+        text: 'Bases geográficas de activos territoriales y metadatos listas para entrega institucional.',
       },
       {
         label: 'Desarrollo de Aplicaciones de IA Aplicada a SIG',
-        text: 'Integración de asistentes inteligentes especializados para la consulta, el filtrado rápido y el reporte automático de variables geográficas del territorio.',
+        text: 'Asistentes de IA para consultar, filtrar y reportar variables geográficas del territorio.',
       },
       {
         label: 'Cartografía Participativa Digitalizada',
-        text: 'Fusión de metodologías de mapeo social comunitario con herramientas de georreferenciación móvil para levantar información predial o de recursos locales.',
+        text: 'Mapeo social comunitario con georreferenciación móvil para levantar información predial o de recursos locales.',
       },
     ],
     tools: [
@@ -503,6 +503,30 @@ export const ARS_METHODOLOGY = {
   text: '',
 };
 
+// ── Valores diferenciales (franja bajo el mosaico de servicios) ──
+export const SERVICE_VALUES = [
+  {
+    icon: 'target',
+    title: 'Enfoque integral',
+    text: 'Abordamos los desafíos desde una perspectiva técnica, social, ambiental y financiera.',
+  },
+  {
+    icon: 'shield',
+    title: 'Rigor y calidad',
+    text: 'Aplicamos metodologías reconocidas y cumplimos con los más altos estándares.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Impacto real',
+    text: 'Generamos soluciones que producen resultados medibles y sostenibles en el tiempo.',
+  },
+  {
+    icon: 'leaf',
+    title: 'Innovación y sostenibilidad',
+    text: 'Promovemos prácticas innovadoras para construir territorios resilientes y regenerativos.',
+  },
+];
+
 // ── Portafolio de proyectos ───────────────────────────
 // `cat` es la clase de color (cat-urban, cat-bio, cat-agua, cat-corp)
 export const PROJECTS = [
@@ -511,84 +535,84 @@ export const PROJECTS = [
     catLabel: 'Sostenibilidad y Ambiente',
     image: new URL('../assets/servicios/sost-estrategia.svg', import.meta.url).href,
     title: 'Estrategias de Sostenibilidad Corporativa',
-    desc: 'Diseño e implementación de hojas de ruta de sostenibilidad alineadas con estándares ESG y los Objetivos de Desarrollo Sostenible, integrando criterios ambientales, sociales y de gobernanza en la estrategia empresarial.',
+    desc: 'Hojas de ruta de sostenibilidad alineadas con estándares ESG y los ODS, integradas en la estrategia empresarial.',
   },
   {
     cat: 'cat-sost',
     catLabel: 'Sostenibilidad y Ambiente',
     image: new URL('../assets/servicios/sost-carbono.svg', import.meta.url).href,
     title: 'Medición de Huella de Carbono',
-    desc: 'Cuantificación de emisiones de gases de efecto invernadero y diseño de planes de reducción y compensación para empresas y territorios, con base en metodologías internacionales reconocidas.',
+    desc: 'Cuantificación de emisiones GEI y planes de reducción y compensación para empresas y territorios, con metodologías reconocidas.',
   },
   {
     cat: 'cat-bio',
     catLabel: 'Biodiversidad',
     image: new URL('../assets/servicios/bio-linea-base.svg', import.meta.url).href,
     title: 'Estudios de Línea Base y Conservación',
-    desc: 'Caracterización de ecosistemas, levantamiento de línea base de biodiversidad y formulación de planes de manejo y conservación para proyectos productivos y territoriales.',
+    desc: 'Línea base de biodiversidad y planes de manejo y conservación para proyectos productivos y territoriales.',
   },
   {
     cat: 'cat-bio',
     catLabel: 'Biodiversidad',
     image: new URL('../assets/servicios/bio-restauracion.svg', import.meta.url).href,
     title: 'Restauración Ecológica',
-    desc: 'Diseño e implementación de procesos de restauración de ecosistemas degradados con especies nativas, enmiendas biológicas y monitoreo de recuperación a largo plazo.',
+    desc: 'Restauración de ecosistemas degradados con especies nativas, enmiendas biológicas y monitoreo a largo plazo.',
   },
   {
     cat: 'cat-gob',
     catLabel: 'Gobernanza',
     image: new URL('../assets/servicios/gob-institucional.svg', import.meta.url).href,
     title: 'Fortalecimiento Institucional',
-    desc: 'Acompañamiento a entidades públicas y organizaciones en el diseño de políticas, mecanismos de participación y procesos de toma de decisiones para una gestión ambiental y territorial más eficaz.',
+    desc: 'Acompañamiento a entidades públicas en políticas, participación y toma de decisiones para una gestión territorial más eficaz.',
   },
   {
     cat: 'cat-gob',
     catLabel: 'Gobernanza',
     image: new URL('../assets/servicios/gob-conflictos.svg', import.meta.url).href,
     title: 'Gestión de Conflictos Socioambientales',
-    desc: 'Diseño de espacios de diálogo y mecanismos de concertación entre actores para prevenir y transformar conflictos asociados al uso de los recursos naturales.',
+    desc: 'Espacios de diálogo y concertación para prevenir y transformar conflictos por el uso de recursos naturales.',
   },
   {
     cat: 'cat-social',
     catLabel: 'Innovación Social',
     image: new URL('../assets/servicios/social-comunidades.svg', import.meta.url).href,
     title: 'Proyectos con Comunidades',
-    desc: 'Diseño y gestión de iniciativas de impacto con metodologías participativas, fortaleciendo capacidades locales y promoviendo soluciones sostenibles construidas desde el territorio.',
+    desc: 'Iniciativas de impacto con metodologías participativas que fortalecen capacidades locales y soluciones desde el territorio.',
   },
   {
     cat: 'cat-social',
     catLabel: 'Innovación Social',
     image: new URL('../assets/servicios/social-negocios.svg', import.meta.url).href,
     title: 'Modelos de Negocio con Impacto',
-    desc: 'Estructuración de emprendimientos y modelos de negocio social que articulan rentabilidad con beneficio ambiental y comunitario en la región.',
+    desc: 'Emprendimientos y modelos de negocio social que unen rentabilidad con beneficio ambiental y comunitario.',
   },
   {
     cat: 'cat-alianzas',
     catLabel: 'Alianzas y Articulación',
     image: new URL('../assets/servicios/alianzas-multiactor.svg', import.meta.url).href,
     title: 'Articulación Multi-Actor',
-    desc: 'Conexión y coordinación entre sector privado, entidades públicas, academia y comunidades para estructurar proyectos colaborativos de desarrollo sostenible.',
+    desc: 'Coordinación entre sector privado, Estado, academia y comunidades para proyectos colaborativos de desarrollo sostenible.',
   },
   {
     cat: 'cat-alianzas',
     catLabel: 'Alianzas y Articulación',
     image: new URL('../assets/servicios/alianzas-recursos.svg', import.meta.url).href,
     title: 'Cooperación y Movilización de Recursos',
-    desc: 'Identificación de fuentes de financiación (cooperación internacional, regalías, fondos públicos y privados) y acompañamiento en la formulación de propuestas para acceder a ellas.',
+    desc: 'Identificación de fuentes de financiación (cooperación, regalías, fondos públicos y privados) y formulación de propuestas para acceder a ellas.',
   },
   {
     cat: 'cat-proyectos',
     catLabel: 'Estructuración de Proyectos',
     image: new URL('../assets/servicios/proyectos-formulacion.svg', import.meta.url).href,
     title: 'Formulación y Gestión de Proyectos',
-    desc: 'Diseño, formulación y gestión integral de proyectos territoriales, desde la conceptualización hasta la consecución de recursos y la implementación.',
+    desc: 'Formulación y gestión integral de proyectos territoriales, de la idea a los recursos y la implementación.',
   },
   {
     cat: 'cat-proyectos',
     catLabel: 'Estructuración de Proyectos',
     image: new URL('../assets/servicios/proyectos-conocimiento.svg', import.meta.url).href,
     title: 'Gestión del Conocimiento',
-    desc: 'Sistematización de experiencias, generación de conocimiento aplicado y transferencia de aprendizajes para escalar soluciones sostenibles en distintos territorios.',
+    desc: 'Sistematización de experiencias y transferencia de aprendizajes para escalar soluciones en distintos territorios.',
   },
 ];
 

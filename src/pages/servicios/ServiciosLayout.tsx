@@ -4,6 +4,7 @@ import SubNav from '../../components/SubNav/SubNav';
 
 const SERVICIOS_SUBNAV = [
   { to: '/servicios', label: 'Todos los Servicios', end: true },
+  { to: '/servicios/catalogo', label: 'Catálogo de Servicios' },
   { to: '/servicios/eje-1', label: 'Gobernanza' },
   { to: '/servicios/eje-2', label: 'Ambiente y Riesgo' },
   { to: '/servicios/eje-3', label: 'Economía Circular' },

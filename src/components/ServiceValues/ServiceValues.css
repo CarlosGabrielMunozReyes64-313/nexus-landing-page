@@ -1,0 +1,52 @@
+/* ── Franja de valores diferenciales ───────────────────*/
+.svc-values {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem 2.25rem;
+  margin-top: 3rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid #e4ebe6;
+}
+
+.svc-value {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.svc-value-icon {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--nx-bright);
+  color: var(--nx-white);
+}
+
+.svc-value-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--nx-dark);
+  margin: 0.1rem 0 0.35rem;
+}
+
+.svc-value-text {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--nx-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .svc-values {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .svc-values {
+    grid-template-columns: 1fr;
+  }
+}

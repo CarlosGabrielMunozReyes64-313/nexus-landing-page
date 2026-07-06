@@ -188,6 +188,25 @@
   color: #5fe0b8;
 }
 
+/* Modo "solo títulos": lista compacta a dos columnas en pantallas amplias */
+.eje-row-list.is-titles-only {
+  gap: 0.6rem 2rem;
+}
+@media (min-width: 720px) {
+  .eje-row-list.is-titles-only {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.eje-row-list.is-titles-only li {
+  font-size: 15px;
+  line-height: 1.4;
+}
+.eje-row-list.is-titles-only .eje-row-label {
+  color: #eafff7;
+  font-weight: 600;
+}
+
 /* ── Responsive ────────────────────────────────────── */
 @media (max-width: 860px) {
   .eje-row,
