@@ -1,0 +1,208 @@
+/* ── Tarjetas-resumen por eje (vista general de Servicios) ──────────
+   Diseño inspirado en la referencia: tarjeta amplia, borde superior de
+   color por eje, icono grande con distintivo, título, descripción,
+   checklist y botón. Cuatro columnas en escritorio. */
+
+.svc-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.svc-pillar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--nx-white);
+  border: 1px solid #eef2ef;
+  border-radius: 20px;
+  padding: 2.25rem 1.75rem 2rem;
+  box-shadow: 0 1px 2px rgba(2, 64, 41, 0.04);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.svc-pillar.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Borde superior de color por eje */
+.svc-pillar::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  border-radius: 20px 20px 0 0;
+}
+
+.svc-pillar:hover {
+  box-shadow: 0 20px 44px rgba(2, 64, 41, 0.12);
+  border-color: transparent;
+  transform: translateY(-6px);
+}
+
+/* Icono grande con distintivo */
+.svc-pillar-iconwrap {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  margin-bottom: 1.5rem;
+}
+
+.svc-pillar-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.25s ease;
+}
+
+.svc-pillar-icon svg {
+  width: 38px;
+  height: 38px;
+}
+
+.svc-pillar:hover .svc-pillar-icon {
+  transform: scale(1.05);
+}
+
+.svc-pillar-badge {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--nx-white);
+  border: 3px solid var(--nx-white);
+}
+
+.svc-pillar-title {
+  font-size: 1.28rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+.svc-pillar-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--nx-muted);
+  margin: 0 0 1.4rem;
+}
+
+/* Checklist */
+.svc-pillar-list {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  flex: 1 1 auto;
+}
+
+.svc-pillar-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--nx-text);
+}
+
+.svc-pillar-tick {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-top: 1px;
+}
+
+.svc-pillar-tick svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* Botón "Conocer soluciones" (contorno del color del eje) */
+.svc-pillar-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.7rem 1.25rem;
+  border-radius: 12px;
+  background: transparent;
+  border: 1.5px solid currentColor;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.svc-pillar-btn span {
+  transition: transform 0.2s ease;
+}
+
+.svc-pillar-btn:hover span {
+  transform: translateX(4px);
+}
+
+/* ── Familias de color por eje ─────────────────────────
+   1 · verde   2 · azul   3 · morado   4 · ámbar */
+.svc-pillar.eje-1::before { background: #2f9e44; }
+.svc-pillar.eje-1 .svc-pillar-icon  { background: #e6f4ec; color: #2f9e44; }
+.svc-pillar.eje-1 .svc-pillar-badge { background: #2f9e44; }
+.svc-pillar.eje-1 .svc-pillar-title { color: #22823a; }
+.svc-pillar.eje-1 .svc-pillar-tick  { background: #e6f4ec; color: #2f9e44; }
+.svc-pillar.eje-1 .svc-pillar-btn   { color: #2f9e44; }
+.svc-pillar.eje-1 .svc-pillar-btn:hover { background: #2f9e44; color: var(--nx-white); }
+
+.svc-pillar.eje-2::before { background: #2166cf; }
+.svc-pillar.eje-2 .svc-pillar-icon  { background: #e6eefb; color: #2166cf; }
+.svc-pillar.eje-2 .svc-pillar-badge { background: #2166cf; }
+.svc-pillar.eje-2 .svc-pillar-title { color: #1d5ab5; }
+.svc-pillar.eje-2 .svc-pillar-tick  { background: #e6eefb; color: #2166cf; }
+.svc-pillar.eje-2 .svc-pillar-btn   { color: #2166cf; }
+.svc-pillar.eje-2 .svc-pillar-btn:hover { background: #2166cf; color: var(--nx-white); }
+
+.svc-pillar.eje-3::before { background: #6d47c9; }
+.svc-pillar.eje-3 .svc-pillar-icon  { background: #eee9fb; color: #6d47c9; }
+.svc-pillar.eje-3 .svc-pillar-badge { background: #6d47c9; }
+.svc-pillar.eje-3 .svc-pillar-title { color: #5d39b3; }
+.svc-pillar.eje-3 .svc-pillar-tick  { background: #eee9fb; color: #6d47c9; }
+.svc-pillar.eje-3 .svc-pillar-btn   { color: #6d47c9; }
+.svc-pillar.eje-3 .svc-pillar-btn:hover { background: #6d47c9; color: var(--nx-white); }
+
+.svc-pillar.eje-4::before { background: #d99521; }
+.svc-pillar.eje-4 .svc-pillar-icon  { background: #fbf1df; color: #cf8b26; }
+.svc-pillar.eje-4 .svc-pillar-badge { background: #d99521; }
+.svc-pillar.eje-4 .svc-pillar-title { color: #b67c1e; }
+.svc-pillar.eje-4 .svc-pillar-tick  { background: #fbf1df; color: #cf8b26; }
+.svc-pillar.eje-4 .svc-pillar-btn   { color: #cf8b26; }
+.svc-pillar.eje-4 .svc-pillar-btn:hover { background: #d99521; color: var(--nx-white); }
+
+/* ── Responsivo ────────────────────────────────────────*/
+@media (max-width: 1080px) {
+  .svc-pillars-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .svc-pillars-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-pillar { opacity: 1; transform: none; transition: none; }
+}

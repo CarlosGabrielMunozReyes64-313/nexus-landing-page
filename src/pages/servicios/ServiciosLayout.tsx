@@ -2,18 +2,16 @@ import { Outlet } from 'react-router-dom';
 import Hero from '../../components/Hero/Hero';
 import SubNav from '../../components/SubNav/SubNav';
 
+// Subpestañas de Servicios: una vista general + una vista por cada eje.
+// Mismo patrón que "Quiénes Somos": cada subpestaña es una ruta real.
 const SERVICIOS_SUBNAV = [
   { to: '/servicios', label: 'Todos los Servicios', end: true },
-  { to: '/servicios/catalogo', label: 'Catálogo de Servicios' },
-  { to: '/servicios/eje-1', label: 'Gobernanza' },
-  { to: '/servicios/eje-2', label: 'Ambiente y Riesgo' },
-  { to: '/servicios/eje-3', label: 'Economía Circular' },
-  { to: '/servicios/eje-4', label: 'TIG y Datos' },
+  { to: '/servicios/eje-1', label: 'Ciudades y Territorios' },
+  { to: '/servicios/eje-2', label: 'Biodiversidad y SbN' },
+  { to: '/servicios/eje-3', label: 'Innovación Social' },
+  { to: '/servicios/eje-4', label: 'Proyectos CTI' },
 ];
 
-// Estructura común de "Servicios": hero + subpestañas. Cada subpestaña es una
-// vista independiente: "Todos los Servicios" (visión general) y una vista por
-// cada eje de trabajo.
 export default function ServiciosLayout() {
   return (
     <>
@@ -22,7 +20,7 @@ export default function ServiciosLayout() {
         tag="Soluciones de Vanguardia"
         title={
           <>
-            Cuatro ejes que definen <span>nuestro alcance</span>
+            Nuestro portafolio de <span>servicios</span>
           </>
         }
       />

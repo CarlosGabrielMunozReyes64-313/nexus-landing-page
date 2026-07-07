@@ -3,45 +3,41 @@ import ServiceIcon, { ICON_MAP } from '../icons/ServiceIcons';
 import { useReveal } from '../../hooks/useReveal';
 import './ServiceMosaic.css';
 
-// Aplana los cuatro ejes en un único catálogo de servicios y lo pinta como un
-// mosaico numerado. La información de cada servicio (título y descripción) se
-// toma tal cual de los datos: no se modifica.
-type FlatService = {
-  ejeId: string;
-  ejeIndex: number;
-  itemIndex: number;
-  label: string;
-  text: string;
-};
+// Catálogo de servicios en tarjetas grandes. Puede mostrar:
+//  · todos los ejes agrupados (sin prop), o
+//  · un único eje (prop `ejeId`), para las subpestañas por eje.
+// La información de cada servicio (título y descripción) se toma tal cual de
+// los datos: no se modifica.
 
-const FLAT: FlatService[] = SERVICES.flatMap((eje, ejeIndex) =>
-  eje.list.map((item, itemIndex) => ({
-    ejeId: eje.id,
-    ejeIndex,
-    itemIndex,
-    label: item.label,
-    text: item.text,
-  })),
+const CheckBadge = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 6L9 17l-5-5" />
+  </svg>
 );
 
-function MosaicCard({ svc, n }: { svc: FlatService; n: number }) {
+function ServiceCard({ ejeId, ejeIndex, itemIndex, label, text }) {
   const { ref, shown } = useReveal();
-  const iconName = ICON_MAP[svc.ejeId]?.[svc.itemIndex] ?? 'document';
+  const iconName = ICON_MAP[ejeId]?.[itemIndex] ?? 'document';
 
   return (
     <article
       ref={ref}
-      className={`svc-mosaic-card eje-${svc.ejeIndex + 1}${shown ? ' is-visible' : ''}`}
+      className={`svc-card eje-${ejeIndex + 1}${shown ? ' is-visible' : ''}`}
     >
-      <div className="svc-mosaic-icon" aria-hidden="true">
-        <ServiceIcon name={iconName} />
+      <div className="svc-card-iconwrap">
+        <div className="svc-card-icon" aria-hidden="true">
+          <ServiceIcon name={iconName} />
+        </div>
+        <span className="svc-card-badge" aria-hidden="true">
+          <CheckBadge />
+        </span>
       </div>
-      <div className="svc-mosaic-content">
-        <span className="svc-mosaic-num">{String(n).padStart(2, '0')}</span>
-        <h3 className="svc-mosaic-title">{svc.label}</h3>
-      </div>
-      <span className="svc-mosaic-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+
+      <h4 className="svc-card-title">{label}</h4>
+      {text && <p className="svc-card-text">{text}</p>}
+
+      <span className="svc-card-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M5 12h14M13 6l6 6-6 6" />
         </svg>
       </span>
@@ -49,11 +45,43 @@ function MosaicCard({ svc, n }: { svc: FlatService; n: number }) {
   );
 }
 
-export default function ServiceMosaic() {
+function EjeCards({ eje, ejeIndex }) {
   return (
-    <div className="svc-mosaic">
-      {FLAT.map((svc, i) => (
-        <MosaicCard key={`${svc.ejeId}-${svc.itemIndex}`} svc={svc} n={i + 1} />
+    <div className="svc-cards">
+      {eje.list.map((item, itemIndex) => (
+        <ServiceCard
+          key={item.label}
+          ejeId={eje.id}
+          ejeIndex={ejeIndex}
+          itemIndex={itemIndex}
+          label={item.label}
+          text={item.text}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default function ServiceMosaic({ ejeId }: { ejeId?: string }) {
+  // Vista de un solo eje (subpestaña): solo sus tarjetas, sin cabecera de grupo.
+  if (ejeId) {
+    const ejeIndex = SERVICES.findIndex((e) => e.id === ejeId);
+    const eje = SERVICES[ejeIndex];
+    if (!eje) return null;
+    return <EjeCards eje={eje} ejeIndex={ejeIndex} />;
+  }
+
+  // Vista general: todos los ejes agrupados con su cabecera.
+  return (
+    <div className="svc-mosaic-groups">
+      {SERVICES.map((eje, ejeIndex) => (
+        <section className={`svc-group eje-${ejeIndex + 1}`} key={eje.id}>
+          <header className="svc-group-head">
+            <span className="svc-group-badge">EJE {ejeIndex + 1}</span>
+            <h3 className="svc-group-title">{eje.svcTitle}</h3>
+          </header>
+          <EjeCards eje={eje} ejeIndex={ejeIndex} />
+        </section>
       ))}
     </div>
   );

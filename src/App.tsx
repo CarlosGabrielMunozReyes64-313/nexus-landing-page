@@ -17,10 +17,9 @@ import QuienesPrincipios from './pages/quienes/QuienesPrincipios'
 import QuienesDesafios from './pages/quienes/QuienesDesafios'
 import QuienesEquipo from './pages/quienes/QuienesEquipo'
 
-// Servicios · vista general + una vista por cada eje
+// Servicios · vista general + una vista por cada eje (subpestañas)
 import ServiciosLayout from './pages/servicios/ServiciosLayout'
 import ServiciosTodos from './pages/servicios/ServiciosTodos'
-import ServiciosCatalogo from './pages/servicios/ServiciosCatalogo'
 import ServicioEje from './pages/servicios/ServicioEje'
 
 // Proyecto demo: Calculadora de Huella Ecológica (migrado a React TS)
@@ -55,10 +54,9 @@ export default function App() {
             <Route path="equipo" element={<QuienesEquipo />} />
           </Route>
 
-          {/* Servicios · vista general + una vista por eje */}
+          {/* Servicios · vista general + una vista por eje (subpestañas) */}
           <Route path="/servicios" element={<ServiciosLayout />}>
             <Route index element={<ServiciosTodos />} />
-            <Route path="catalogo" element={<ServiciosCatalogo />} />
             <Route path="eje-1" element={<ServicioEje id="tab1" />} />
             <Route path="eje-2" element={<ServicioEje id="tab2" />} />
             <Route path="eje-3" element={<ServicioEje id="tab3" />} />
@@ -67,6 +65,7 @@ export default function App() {
 
           {/* Redirecciones de compatibilidad con rutas anteriores */}
           <Route path="/ejes" element={<Navigate to="/servicios" replace />} />
+          <Route path="/servicios/catalogo" element={<Navigate to="/servicios" replace />} />
 
           <Route path="/portafolio" element={<Portafolio />} />
           <Route path="/alianzas" element={<Alianzas />} />

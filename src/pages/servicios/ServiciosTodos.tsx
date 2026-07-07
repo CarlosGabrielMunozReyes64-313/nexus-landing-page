@@ -1,26 +1,23 @@
-import EjesList from '../../components/EjesList/EjesList';
-import ServiceMosaic from '../../components/ServiceMosaic/ServiceMosaic';
+import ServicePillars from '../../components/ServicePillars/ServicePillars';
+import ServiceValues from '../../components/ServiceValues/ServiceValues';
 
-// Vista "Todos los Servicios": el catálogo completo como mosaico numerado y,
-// a continuación, el detalle de los cuatro ejes (solo títulos).
+// Vista general de Servicios: una tarjeta-resumen por eje (diseño de la
+// referencia) y, debajo, la franja de valores diferenciales. Cada tarjeta
+// enlaza a su subpestaña para ver todos sus servicios en detalle.
 export default function ServiciosTodos() {
   return (
-    <>
-      {/* Servicios en mosaico (antes carrusel) */}
-      <section className="alt">
-        <div className="section-inner">
-          <div className="section-tag">Nuestros Servicios</div>
-          <h2 className="section-title">Soluciones técnicas que transforman territorios</h2>
-          <p className="section-body">
-            Ciencia, gestión territorial y alianzas convertidas en resultados medibles para
-            cada desafío.
-          </p>
-          <ServiceMosaic />
-        </div>
-      </section>
+    <section className="alt">
+      <div className="section-inner" style={{ textAlign: 'center' }}>
+        <div className="section-tag">Nuestros Servicios</div>
+        <h2 className="section-title">Soluciones integrales para un desarrollo sostenible</h2>
+        <p className="section-body" style={{ maxWidth: '680px', margin: '0 auto' }}>
+          Acompañamos a entidades públicas, privadas y comunidades en la planificación,
+          gestión e implementación de soluciones sostenibles con impacto real.
+        </p>
 
-      {/* Detalle de los ejes de trabajo — solo títulos */}
-      <EjesList titlesOnly />
-    </>
+        <ServicePillars />
+        <ServiceValues />
+      </div>
+    </section>
   );
 }

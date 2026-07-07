@@ -1,136 +1,201 @@
-/* ── Mosaico de servicios ──────────────────────────────
-   Rejilla responsiva de tarjetas numeradas. Cada eje tiene su propia
-   familia de color (verde, azul, morado, ámbar), como en la referencia. */
+/* ── Tarjetas de servicio (grandes) ────────────────────
+   Rejilla de tarjetas amplias, verticales, con icono grande + distintivo,
+   título y descripción. Cada eje tiene su familia de color (verde, azul,
+   morado, ámbar). Se usan tanto en la vista por eje (subpestaña) como en la
+   vista general agrupada. */
 
-.svc-mosaic {
+.svc-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: left;
 }
 
-.svc-mosaic-card {
+.svc-card {
   position: relative;
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.25rem 3.2rem 1.25rem 1.5rem;
+  flex-direction: column;
+  padding: 2rem 3.4rem 2rem 2rem;
   background: var(--nx-white);
   border: 1px solid #eef2ef;
-  border-radius: 18px;
+  border-radius: 20px;
   box-shadow: 0 1px 2px rgba(2, 64, 41, 0.04);
+  overflow: hidden;
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.28s ease,
+    border-color 0.28s ease;
 }
 
-.svc-mosaic-card.is-visible {
+.svc-card.is-visible {
   opacity: 1;
   transform: none;
 }
 
-.svc-mosaic-card:hover {
-  box-shadow: 0 12px 28px rgba(2, 64, 41, 0.1);
-  border-color: transparent;
+/* Borde superior de color por eje */
+.svc-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
 }
 
-/* Círculo del icono */
-.svc-mosaic-icon {
-  flex: 0 0 auto;
-  width: 56px;
-  height: 56px;
+.svc-card:hover {
+  box-shadow: 0 18px 40px rgba(2, 64, 41, 0.11);
+  border-color: transparent;
+  transform: translateY(-5px);
+}
+
+/* Icono grande con distintivo */
+.svc-card-iconwrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 1.35rem;
+}
+
+.svc-card-icon {
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   transition: transform 0.25s ease;
 }
 
-.svc-mosaic-card:hover .svc-mosaic-icon {
+.svc-card-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.svc-card:hover .svc-card-icon {
   transform: scale(1.06);
 }
 
-.svc-mosaic-content {
-  min-width: 0;
-}
-
-/* Píldora con el número */
-.svc-mosaic-num {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--nx-white);
-  padding: 0.12rem 0.5rem;
-  border-radius: 6px;
-  margin-bottom: 0.55rem;
-}
-
-.svc-mosaic-title {
-  font-size: 1.02rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--nx-dark);
-  margin: 0;
-}
-
-/* Flecha a la derecha, centrada verticalmente */
-.svc-mosaic-arrow {
+.svc-card-badge {
   position: absolute;
-  right: 1.15rem;
-  top: 50%;
-  transform: translateY(-50%);
+  right: -3px;
+  bottom: -3px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  transition: transform 0.25s ease, background 0.25s ease;
+  color: var(--nx-white);
+  border: 3px solid var(--nx-white);
 }
 
-.svc-mosaic-card:hover .svc-mosaic-arrow {
-  transform: translateY(-50%) translateX(3px);
+.svc-card-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--nx-dark);
+  margin: 0 0 0.7rem;
 }
 
-/* ── Familias de color por eje ─────────────────────────
-   1 · verde   2 · azul   3 · morado   4 · ámbar */
-.svc-mosaic-card.eje-1 .svc-mosaic-icon { background: #e6f4ec; color: #2f9e44; }
-.svc-mosaic-card.eje-1 .svc-mosaic-num  { background: #2f9e44; }
-.svc-mosaic-card.eje-1 .svc-mosaic-arrow { background: #e6f4ec; color: #2f9e44; }
+.svc-card-text {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--nx-muted);
+  margin: 0;
+}
 
-.svc-mosaic-card.eje-2 .svc-mosaic-icon { background: #e6eefb; color: #2166cf; }
-.svc-mosaic-card.eje-2 .svc-mosaic-num  { background: #2166cf; }
-.svc-mosaic-card.eje-2 .svc-mosaic-arrow { background: #e6eefb; color: #2166cf; }
+/* Flecha inferior-derecha */
+.svc-card-arrow {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.25s ease;
+}
 
-.svc-mosaic-card.eje-3 .svc-mosaic-icon { background: #eee9fb; color: #6d47c9; }
-.svc-mosaic-card.eje-3 .svc-mosaic-num  { background: #6d47c9; }
-.svc-mosaic-card.eje-3 .svc-mosaic-arrow { background: #eee9fb; color: #6d47c9; }
+.svc-card:hover .svc-card-arrow {
+  transform: translateX(4px);
+}
 
-.svc-mosaic-card.eje-4 .svc-mosaic-icon { background: #fbf1df; color: #cf8b26; }
-.svc-mosaic-card.eje-4 .svc-mosaic-num  { background: #d99521; }
-.svc-mosaic-card.eje-4 .svc-mosaic-arrow { background: #fbf1df; color: #cf8b26; }
+/* ── Familias de color por eje ─────────────────────────*/
+.svc-card.eje-1::before { background: #2f9e44; }
+.svc-card.eje-1 .svc-card-icon  { background: #e6f4ec; color: #2f9e44; }
+.svc-card.eje-1 .svc-card-badge { background: #2f9e44; }
+.svc-card.eje-1 .svc-card-arrow { background: #e6f4ec; color: #2f9e44; }
+
+.svc-card.eje-2::before { background: #2166cf; }
+.svc-card.eje-2 .svc-card-icon  { background: #e6eefb; color: #2166cf; }
+.svc-card.eje-2 .svc-card-badge { background: #2166cf; }
+.svc-card.eje-2 .svc-card-arrow { background: #e6eefb; color: #2166cf; }
+
+.svc-card.eje-3::before { background: #6d47c9; }
+.svc-card.eje-3 .svc-card-icon  { background: #eee9fb; color: #6d47c9; }
+.svc-card.eje-3 .svc-card-badge { background: #6d47c9; }
+.svc-card.eje-3 .svc-card-arrow { background: #eee9fb; color: #6d47c9; }
+
+.svc-card.eje-4::before { background: #d99521; }
+.svc-card.eje-4 .svc-card-icon  { background: #fbf1df; color: #cf8b26; }
+.svc-card.eje-4 .svc-card-badge { background: #d99521; }
+.svc-card.eje-4 .svc-card-arrow { background: #fbf1df; color: #cf8b26; }
+
+/* ── Agrupación por eje (vista general) ────────────────*/
+.svc-mosaic-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 3.25rem;
+  margin-top: 2.25rem;
+  text-align: left;
+}
+
+.svc-group-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.9rem;
+  border-bottom: 2px solid #eef2ef;
+}
+
+.svc-group-badge {
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--nx-white);
+  padding: 0.32rem 0.7rem;
+  border-radius: 8px;
+}
+
+.svc-group-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--nx-dark);
+}
+
+.svc-group.eje-1 .svc-group-badge { background: #2f9e44; }
+.svc-group.eje-1 .svc-group-head  { border-bottom-color: #cdead7; }
+.svc-group.eje-2 .svc-group-badge { background: #2166cf; }
+.svc-group.eje-2 .svc-group-head  { border-bottom-color: #cfdef7; }
+.svc-group.eje-3 .svc-group-badge { background: #6d47c9; }
+.svc-group.eje-3 .svc-group-head  { border-bottom-color: #ddd3f5; }
+.svc-group.eje-4 .svc-group-badge { background: #d99521; }
+.svc-group.eje-4 .svc-group-head  { border-bottom-color: #f5e4c4; }
 
 /* ── Responsivo ────────────────────────────────────────*/
-@media (max-width: 960px) {
-  .svc-mosaic {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (max-width: 860px) {
+  .svc-cards { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 620px) {
-  .svc-mosaic {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .svc-mosaic-card {
-    padding: 1.1rem 3rem 1.1rem 1.25rem;
-  }
+  .svc-mosaic-groups { gap: 2.5rem; }
+  .svc-group-title { font-size: 1.15rem; }
+  .svc-card { padding: 1.6rem 1.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .svc-mosaic-card {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  .svc-card { opacity: 1; transform: none; transition: none; }
 }
