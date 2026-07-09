@@ -128,3 +128,23 @@
     font-size: 19.2px;
   }
 }
+
+/* ── Hero centrado (solo Inicio: variante `brand`) ──────
+   Centra título, subtítulo y botones para acompañar el logo,
+   que ya va centrado. No afecta a los hero compactos de otras páginas. */
+.hero-centered .hero-inner {
+  text-align: center;
+}
+.hero-centered h1 {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-centered .hero-sub {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-centered .hero-btns {
+  justify-content: center;
+}

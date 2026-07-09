@@ -56,3 +56,10 @@
 .form-submit:hover {
   background: var(--nx-mid);
 }
+
+/* ── CAPTCHA (Cloudflare Turnstile) ─────────────────── */
+.captcha-wrap {
+  display: flex;
+  justify-content: center;
+  min-height: 65px;
+}

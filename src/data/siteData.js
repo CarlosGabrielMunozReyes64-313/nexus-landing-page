@@ -38,8 +38,8 @@ export const NAV_ITEMS = [
 
 // ── Cifras de impacto (Inicio) ────────────────────────
 export const STATS = [
+  { num: ' ', label: ' ' },
   { num: '+20', label: 'Proyectos ejecutados' },
-  { num: '+$39B', label: 'COP gestionados' },
   { num: '4', label: 'Ejes estratégicos' },
   { num: '40', label: 'Servicios especializados' },
   { num: '6+', label: 'Sectores atendidos' },
@@ -661,6 +661,13 @@ export const ALLIES = [
     type: 'Ingeniería y laboratorio',
     desc: 'Asesoría en todos los procesos de ingeniería y laboratorio que requieran las empresas.',
     url: 'https://aambiental.co/home/',
+  },
+  {
+    logo: new URL('../assets/aliados/camara-comercio-palmira.png', import.meta.url).href,
+    name: 'Programa Tu Ciudad Innova y se Reinventa a la Acción',
+    type: 'Cámara de Comercio de Palmira',
+    desc: 'Iniciativa de la Cámara de Comercio de Palmira que impulsa la innovación y la reinvención del territorio, articulando actores locales para llevar las ideas a la acción.',
+    url: 'https://www.ccpalmira.org.co/',
   },
 ];
 

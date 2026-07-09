@@ -21,8 +21,18 @@ export default function Hero({
 }) {
   const bgStyle = small ? { backgroundImage: `url(${cienagaBg})` } : undefined;
 
+  // Clases del contenedor. `hero-centered` (solo cuando hay `brand`, es decir
+  // el hero de Inicio) centra título, subtítulo y botones.
+  const heroClass = [
+    'hero',
+    small ? 'hero-sm hero-bg' : '',
+    brand ? 'hero-centered' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <div className={small ? 'hero hero-sm hero-bg' : 'hero'} style={bgStyle}>
+    <div className={heroClass} style={bgStyle}>
       {carousel && <HeroCarousel />}
       <div className="hero-inner">
         {brand && (
