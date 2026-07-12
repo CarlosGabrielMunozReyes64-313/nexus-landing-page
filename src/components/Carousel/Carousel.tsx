@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { useRef, useState, useEffect, Children } from 'react';
 import './Carousel.css';
 
@@ -65,7 +66,7 @@ export default function Carousel({ children, minSlide = 260, ariaLabel = 'Carrus
       <div
         className="nx-carousel-viewport"
         ref={viewportRef}
-        style={{ '--nx-slide-min': `${minSlide}px` }}
+        style={{ '--nx-slide-min': `${minSlide}px` } as CSSProperties}
       >
         <div className="nx-carousel-track">
           {slides.map((child, i) => (

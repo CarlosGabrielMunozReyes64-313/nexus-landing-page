@@ -13,10 +13,17 @@ const INITIAL = {
 };
 
 // ── Configuración leída desde variables de entorno (Vite) ──────────────
-// La SITE KEY de reCAPTCHA es PÚBLICA (se muestra en el navegador). La
-// clave SECRETA vive SOLO en el backend FastAPI y nunca llega aquí.
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string;
-const API_URL = (import.meta.env.VITE_API_URL as string) || 'http://localhost:8000';
+// La SITE KEY de reCAPTCHA es PÚBLICA (se muestra en el navegador). La clave
+// SECRETA vive SOLO en el backend FastAPI y nunca llega aquí.
+//
+// Si no defines VITE_RECAPTCHA_SITE_KEY en un archivo .env, usamos la SITE KEY
+// de PRUEBA oficial de Google (válida en localhost, siempre pasa). Así el
+// formulario funciona "out of the box" sin configurar nada.
+const GOOGLE_TEST_SITE_KEY = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_Mcus5A9M';
+const RECAPTCHA_SITE_KEY =
+  (import.meta.env.VITE_RECAPTCHA_SITE_KEY as string) || GOOGLE_TEST_SITE_KEY;
+const API_URL =
+  (import.meta.env.VITE_API_URL as string) || 'http://localhost:8000';
 const RECAPTCHA_SRC =
   'https://www.google.com/recaptcha/api.js?render=explicit&hl=es';
 
@@ -28,15 +35,21 @@ function loadRecaptchaScript(): Promise<void> {
   if (recaptchaScriptPromise) return recaptchaScriptPromise;
 
   recaptchaScriptPromise = new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = RECAPTCHA_SRC;
-    script.async = true;
-    script.defer = true;
-    script.onerror = () => reject(new Error('No se pudo cargar reCAPTCHA'));
-    document.head.appendChild(script);
+    const existing = document.querySelector<HTMLScriptElement>(
+      'script[data-recaptcha="1"]'
+    );
+    if (!existing) {
+      const script = document.createElement('script');
+      script.src = RECAPTCHA_SRC;
+      script.async = true;
+      script.defer = true;
+      script.dataset.recaptcha = '1';
+      script.onerror = () => reject(new Error('No se pudo cargar reCAPTCHA'));
+      document.head.appendChild(script);
+    }
 
-    // grecaptcha puede tardar un poco tras cargar el script: esperamos a
-    // que la función render esté disponible.
+    // grecaptcha puede tardar un poco tras cargar el script: esperamos a que
+    // la función render esté disponible.
     const start = Date.now();
     const check = () => {
       if ((window as any).grecaptcha?.render) return resolve();
@@ -51,8 +64,8 @@ function loadRecaptchaScript(): Promise<void> {
 
 // Formulario de contacto con CAPTCHA (Google reCAPTCHA v2 "no soy un robot",
 // que puede escalar a la selección de imágenes) + envío real.
-// El token del captcha se verifica en el backend FastAPI, que también
-// reenvía el mensaje. Ninguna clave secreta se expone en el navegador.
+// El token del captcha se verifica en el backend FastAPI, que también reenvía
+// el mensaje. Ninguna clave secreta se expone en el navegador.
 // Estados: 'idle' | 'sending' | 'success' | 'error'.
 export default function ContactForm() {
   const [form, setForm] = useState(INITIAL);
@@ -65,22 +78,35 @@ export default function ContactForm() {
   const widgetIdRef = useRef<number | null>(null);
 
   // Monta el widget de reCAPTCHA una vez que el script está disponible.
+  // Es idempotente y resistente al doble montaje de React.StrictMode (que en
+  // desarrollo ejecuta los efectos dos veces): solo renderiza si el contenedor
+  // está vacío y aún no hay widget, y captura cualquier error de render.
   useEffect(() => {
     let cancelled = false;
 
     loadRecaptchaScript()
       .then(() => {
-        if (cancelled || !widgetRef.current) return;
+        if (cancelled) return;
         const grecaptcha = (window as any).grecaptcha;
-        if (!grecaptcha || widgetIdRef.current !== null) return;
+        const el = widgetRef.current;
+        if (!grecaptcha?.render || !el) return;
+        // Guardas contra doble render (StrictMode / re-montajes).
+        if (widgetIdRef.current !== null) return;
+        if (el.childElementCount > 0) return;
 
-        widgetIdRef.current = grecaptcha.render(widgetRef.current, {
-          sitekey: RECAPTCHA_SITE_KEY,
-          theme: 'light',
-          callback: (token: string) => setCaptchaToken(token),
-          'expired-callback': () => setCaptchaToken(''),
-          'error-callback': () => setCaptchaToken(''),
-        });
+        try {
+          widgetIdRef.current = grecaptcha.render(el, {
+            sitekey: RECAPTCHA_SITE_KEY,
+            theme: 'light',
+            callback: (token: string) => setCaptchaToken(token),
+            'expired-callback': () => setCaptchaToken(''),
+            'error-callback': () => setCaptchaToken(''),
+          });
+        } catch {
+          setErrorMsg(
+            'No se pudo iniciar el captcha. Revisa la SITE KEY o recarga la página.'
+          );
+        }
       })
       .catch(() => {
         setErrorMsg('No se pudo cargar el captcha. Recarga la página.');
@@ -119,8 +145,8 @@ export default function ContactForm() {
 
     try {
       // Enviamos los datos del formulario + el token del captcha al backend.
-      // El backend verifica el token con Google (usando la clave SECRETA)
-      // y solo entonces procesa/reenvía el mensaje.
+      // El backend verifica el token con Google (usando la clave SECRETA) y
+      // solo entonces procesa/reenvía el mensaje.
       const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

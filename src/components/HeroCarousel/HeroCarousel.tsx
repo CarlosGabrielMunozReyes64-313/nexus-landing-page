@@ -3,9 +3,10 @@ import './HeroCarousel.css';
 
 // Toma automáticamente TODAS las imágenes de src/assets/carrusel.
 // Solo arrastra archivos a esa carpeta; se ordenan por nombre (usa 01, 02, 03…).
-const modules = import.meta.glob('../../assets/carrusel/*.{jpg,jpeg,png,webp,avif,gif}', {
-  eager: true,
-})
+const modules = import.meta.glob<{ default: string }>(
+  '../../assets/carrusel/*.{jpg,jpeg,png,webp,avif,gif}',
+  { eager: true }
+)
 const images = Object.keys(modules)
   .sort()
   .map((key) => modules[key].default)

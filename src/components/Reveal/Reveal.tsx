@@ -18,17 +18,18 @@ export default function Reveal({
   className = '',
   children,
   ...rest
-}) {
+}: any) {
   const { ref, shown } = useReveal();
+  const Component: any = Tag;
 
   return (
-    <Tag
+    <Component
       ref={ref}
       className={`reveal reveal-${variant}${shown ? ' is-visible' : ''} ${className}`.trim()}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       {...rest}
     >
       {children}
-    </Tag>
+    </Component>
   );
 }

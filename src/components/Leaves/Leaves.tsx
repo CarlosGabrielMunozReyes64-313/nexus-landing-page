@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { useMemo } from 'react';
 import './Leaves.css';
 import ojaImg from '../../assets/particles/oja.png';
@@ -53,7 +54,7 @@ export default function Leaves() {
             '--sway': `${l.sway}s`,
             '--spin': `${l.spin}deg`,
             '--tilt': `${l.tilt}deg`,
-          }}
+          } as CSSProperties}
         >
           <img src={ojaImg} alt="" className="leaf-img" draggable="false" />
         </span>

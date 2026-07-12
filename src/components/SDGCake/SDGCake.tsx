@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import type { CSSProperties } from 'react';
 import { ODS_DATA, ODS_LAYERS } from '../../data/siteData';
 import './SDGCake.css';
 
@@ -17,7 +18,7 @@ import './SDGCake.css';
 */
 
 // Carga ansiosa de todos los íconos de la carpeta ODS (cualquier extensión).
-const ODS_FILES = import.meta.glob(
+const ODS_FILES = import.meta.glob<string>(
   '../../assets/iconos_inicio/ODS/*.{png,jpg,jpeg,svg,webp,PNG,JPG,JPEG,SVG,WEBP}',
   { eager: true, query: '?url', import: 'default' }
 );
@@ -31,7 +32,7 @@ function isFallbackName(file) {
 
 // Construye el mapa  número-de-ODS → url-de-imagen  a partir de los nombres.
 function buildIconMap() {
-  const map = {}; // num -> { url, file }
+  const map: Record<string, { url: string; file: string }> = {}; // num -> { url, file }
   for (const [path, url] of Object.entries(ODS_FILES)) {
     const file = path.split('/').pop() || '';
     const digits = (file.match(/\d+/) || [])[0];
@@ -46,7 +47,7 @@ function buildIconMap() {
     }
   }
   // Devuelve solo num -> url
-  const out = {};
+  const out: Record<string, string> = {};
   for (const [num, v] of Object.entries(map)) out[num] = v.url;
   return out;
 }
@@ -70,7 +71,7 @@ export default function SDGCake() {
         className="ods-chip"
         key={o.num}
         tabIndex={0}
-        style={{ '--delay': `${(i % 4) * 0.6}s` }}
+        style={{ '--delay': `${(i % 4) * 0.6}s` } as CSSProperties}
         aria-label={`ODS ${o.num}: ${o.title}. ${o.apply}`}
       >
         <span className="ods-chip-inner">

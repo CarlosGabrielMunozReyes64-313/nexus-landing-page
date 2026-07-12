@@ -4,7 +4,18 @@ import cienagaBg from '../../assets/hero-pages/WhatsApp Image 2026-06-16 at 3.25
 // Versiones en blanco del logo para que se lean nítidas sobre el hero oscuro.
 import simboloBlanco from '../../assets/Logo_Nexus/soloLogoNEXUS_white.png';
 import letrasBlanco from '../../assets/Logo_Nexus/LogoNexusLETRAS_white.png';
+import type { ReactNode } from 'react';
 import './Hero.css';
+
+type HeroProps = {
+  tag?: ReactNode;
+  title?: ReactNode;
+  subtitle?: ReactNode;
+  small?: boolean;
+  carousel?: boolean;
+  brand?: boolean;
+  children?: ReactNode;
+};
 
 // Encabezado (hero) reutilizable.
 // - `small`: variante compacta. Lleva la imagen de Ciénaga como fondo.
@@ -18,7 +29,7 @@ export default function Hero({
   carousel = false,
   brand = false,
   children,
-}) {
+}: HeroProps) {
   const bgStyle = small ? { backgroundImage: `url(${cienagaBg})` } : undefined;
 
   // Clases del contenedor. `hero-centered` (solo cuando hay `brand`, es decir
