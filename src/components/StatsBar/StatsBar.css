@@ -3,13 +3,24 @@
   background: linear-gradient(rgb(5, 34, 25), rgb(0, 70, 47));
   padding: 2.5rem 2rem;
 }
+
+/* Flex centrado en lugar de grid de 5 columnas fijas:
+   funciona con cualquier cantidad de estadísticas (3, 4, 5, 7…)
+   y también centra la última fila cuando queda incompleta. */
 .stats-inner {
   max-width: 1080px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem 3rem;
   text-align: center;
+}
+.stat-item {
+  flex: 0 1 175px;   /* ancho base; se encoge, nunca crece de más */
+  max-width: 220px;
+  min-width: 0;
 }
 .stat-num {
   font-size: 52px;
@@ -32,8 +43,11 @@
     padding: 2.5rem 1.25rem;
   }
   .stats-inner {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem;
+    gap: 1.75rem 2rem;
+  }
+  .stat-item {
+    flex: 0 1 40%;   /* 2 por fila, centradas */
+    max-width: 260px;
   }
 }
 @media (max-width: 600px) {
@@ -41,7 +55,10 @@
     padding: 2rem 1.25rem;
   }
   .stats-inner {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  .stat-item {
+    flex: 1 1 100%;  /* 1 por fila */
+    max-width: none;
   }
 }

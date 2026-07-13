@@ -38,7 +38,6 @@ export const NAV_ITEMS = [
 
 // ── Cifras de impacto (Inicio) ────────────────────────
 export const STATS = [
-  { num: ' ', label: ' ' },
   { num: '+20', label: 'Proyectos ejecutados' },
   { num: '4', label: 'Ejes estratégicos' },
   { num: '40', label: 'Servicios especializados' },

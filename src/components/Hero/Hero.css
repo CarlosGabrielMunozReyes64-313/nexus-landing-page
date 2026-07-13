@@ -1,4 +1,6 @@
 /* ── HERO ─────────────────────────────────────────── */
+/* El navbar es `position: fixed`, así que ya no ocupa espacio en el flujo:
+   compensamos con padding superior para que el contenido no quede debajo. */
 .hero {
   background: black;
   min-height: 560px;
@@ -6,7 +8,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 5rem 2rem;
+  padding: calc(5rem + var(--nav-h, 70px)) 2rem 5rem;
 }
 .hero-sm {
   min-height: 280px;
@@ -27,12 +29,28 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-/* Velo oscuro para mantener legible el texto blanco sobre la foto. */
+/* Velo oscuro para mantener legible el texto blanco sobre la foto.
+   El degradado arranca más oscuro arriba para dar contraste al navbar
+   transparente que ahora flota sobre el hero. */
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(2, 28, 22, 0.78), rgba(2, 40, 32, 0.58));
+  background: linear-gradient(to bottom, rgba(2, 28, 22, 0.82), rgba(2, 40, 32, 0.58));
+  z-index: 0;
+}
+
+/* Velo superior para los hero sin imagen de fondo (carrusel de Inicio):
+   garantiza contraste del logo/enlaces blancos del navbar sobre cualquier foto. */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--nav-h, 70px) + 60px);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+  pointer-events: none;
   z-index: 0;
 }
 
@@ -104,7 +122,7 @@
 
 @media (max-width: 600px) {
   .hero {
-    padding: 3.5rem 1.25rem;
+    padding: calc(3.5rem + var(--nav-h, 70px)) 1.25rem 3.5rem;
     min-height: 440px;
   }
   .hero-sm {
@@ -141,7 +159,7 @@
   margin-right: auto;
 }
 .hero-centered .hero-sub {
-  max-width: 720px;
+  max-width: 820px;
   margin-left: auto;
   margin-right: auto;
 }

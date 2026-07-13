@@ -1,26 +1,44 @@
 /* ── NAVBAR ───────────────────────────────────────── */
+:root {
+  --nav-h: 70px;
+}
+
+/* Fija y flotante sobre el hero. Fondo transparente en ambos estados;
+   lo que cambia es el color del contenido (logo + enlaces). */
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: linear-gradient(rgba(0, 0, 0, 0.164), rgb(255, 255, 255));
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  height: 70px;
-  border-bottom: 2px solid var(--nx-mid);
+  height: var(--nav-h);
+  background: transparent;
+  border-bottom: 1px solid transparent;
   transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    backdrop-filter 0.3s ease;
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    backdrop-filter 0.35s ease;
 }
-nav.scrolled {
-  background: rgba(2, 64, 41, 0.65);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom-color: transparent;
+
+/* Al bajar: sigue siendo transparente, pero con un “cristal” mínimo
+   (blur + tinte casi imperceptible) que garantiza legibilidad sobre
+   secciones claras u oscuras. Si la quieres 100% transparente,
+   pon --nav-glass: transparent y quita el backdrop-filter. */
+nav.is-scrolled {
+  --nav-glass: rgba(255, 255, 255, 0.38);
+  background: var(--nav-glass);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border-bottom-color: rgba(2, 64, 41, 0.08);
+  box-shadow: 0 8px 24px rgba(2, 64, 41, 0.06);
 }
+
+/* ── Logo con cross-fade (blanco arriba / color al bajar) ── */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -30,43 +48,58 @@ nav.scrolled {
 }
 .nav-logo-text {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
-.nav-tagline {
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: var(--nx-mid);
-  margin-top: 2px;
-  max-height: 34px;
-  overflow: hidden;
-  transition:
-    opacity 0.3s ease,
-    max-height 0.3s ease,
-    margin 0.3s ease;
+.logo-swap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
 }
-/* Al bajar: el tagline se oculta */
-nav.scrolled .nav-tagline {
+.logo-swap--symbol {
+  height: 32px;
+}
+.logo-swap--letters {
+  height: 21px;
+}
+.logo-swap-img {
+  display: block;
+  height: 100%;
+  width: auto;
+  transition: opacity 0.35s ease;
+}
+.logo-swap-img--white {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+}
+nav.is-top .logo-swap-img--color,
+nav.is-scrolled .logo-swap-img--white {
   opacity: 0;
-  max-height: 0;
-  margin-top: 0;
 }
-.nav-brand span {
-  color: var(--nx-mid);
+nav.is-top .logo-swap-img--white,
+nav.is-scrolled .logo-swap-img--color {
+  opacity: 1;
 }
+/* Sombra sutil para que el logo blanco no se pierda en zonas claras del hero */
+nav.is-top .logo-swap-img--white {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+/* ── Enlaces ──────────────────────────────────────── */
 .nav-links {
   display: flex;
   gap: 0;
   align-items: center;
 }
 .nav-links button,
-.nav-links a {
+.nav-links a,
+.nav-dropdown-head > a {
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
-  color: rgba(0, 0, 0, 0.72);
+  color: var(--nav-fg, rgba(0, 0, 0, 0.72));
   font-family: var(--font);
   font-size: 18.4px;
   font-weight: 500;
@@ -79,18 +112,50 @@ nav.scrolled .nav-tagline {
   align-items: center;
   text-decoration: none;
   transition:
-    color 0.2s,
+    color 0.25s,
     background 0.2s,
-    border-color 0.2s;
+    border-color 0.2s,
+    text-shadow 0.25s;
 }
+.nav-dropdown-head > a {
+  padding: 0 4px 0 13px;
+}
+
+/* Tema sobre el hero (oscuro) → texto blanco */
+nav.is-top {
+  --nav-fg: rgba(255, 255, 255, 0.92);
+}
+nav.is-top .nav-links a,
+nav.is-top .nav-links button,
+nav.is-top .nav-dropdown-head > a,
+nav.is-top .nav-dropdown-caret {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+}
+/* Tema al bajar (fondos claros) → texto oscuro */
+nav.is-scrolled {
+  --nav-fg: rgba(2, 40, 32, 0.86);
+}
+
 .nav-links button:hover,
 .nav-links button.active,
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active,
+.nav-dropdown-head > a:hover,
+.nav-dropdown-head > a.active {
   color: var(--nx-mid);
   border-bottom-color: var(--nx-mid);
   background: rgba(4, 169, 122, 0.08);
 }
+nav.is-top .nav-links a:hover,
+nav.is-top .nav-links a.active,
+nav.is-top .nav-dropdown-head > a:hover,
+nav.is-top .nav-dropdown-head > a.active {
+  color: var(--nx-white);
+  border-bottom-color: var(--nx-mid);
+  background: rgba(4, 169, 122, 0.18);
+}
+
+/* El CTA se mantiene sólido: siempre visible en cualquier fondo */
 .nav-cta {
   background: var(--nx-mid) !important;
   color: var(--nx-white) !important;
@@ -99,12 +164,14 @@ nav.scrolled .nav-tagline {
   padding: 0 18px !important;
   border-bottom: none !important;
   margin-left: 8px;
+  text-shadow: none !important;
+  box-shadow: 0 4px 14px rgba(4, 169, 122, 0.28);
 }
 .nav-cta:hover {
   background: linear-gradient(rgb(5, 34, 25), rgb(0, 70, 47)) !important;
 }
 
-/* ── Dropdown (Quiénes Somos) ─────────────────────── */
+/* ── Dropdown (Quiénes Somos / Servicios) ─────────── */
 .nav-dropdown {
   position: relative;
   display: inline-flex;
@@ -114,46 +181,18 @@ nav.scrolled .nav-tagline {
   display: inline-flex;
   align-items: center;
 }
-/* El enlace principal conserva el mismo estilo que el resto de pestañas */
-.nav-dropdown-head > a {
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: rgba(0, 0, 0, 0.72);
-  font-family: var(--font);
-  font-size: 18.4px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  padding: 0 4px 0 13px;
-  height: 60px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  transition:
-    color 0.2s,
-    background 0.2s,
-    border-color 0.2s;
-}
-.nav-dropdown-head > a:hover,
-.nav-dropdown-head > a.active {
-  color: var(--nx-mid);
-  border-bottom-color: var(--nx-mid);
-  background: rgba(4, 169, 122, 0.08);
-}
 .nav-dropdown-caret {
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
-  color: rgba(0, 0, 0, 0.62);
+  color: var(--nav-fg, rgba(0, 0, 0, 0.62));
   height: 60px;
   padding: 0 11px 0 4px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   transition:
-    color 0.2s,
+    color 0.25s,
     transform 0.25s ease;
 }
 .nav-dropdown:hover .nav-dropdown-caret,
@@ -189,8 +228,6 @@ nav.scrolled .nav-tagline {
   visibility: visible;
   transform: translateY(0);
 }
-/* Selector scoped (.nav-submenu .nav-submenu-item) para ganar especificidad a
-   `.nav-links a` y permitir ítems multilínea sin altura fija. */
 .nav-submenu .nav-submenu-item {
   background: none;
   border: none;
@@ -202,6 +239,7 @@ nav.scrolled .nav-tagline {
   line-height: 1.3;
   color: var(--nx-dark);
   text-transform: none;
+  text-shadow: none;
   padding: 10px 13px;
   border-radius: 7px;
   cursor: pointer;
@@ -225,7 +263,7 @@ nav.scrolled .nav-tagline {
   font-weight: 700;
 }
 
-/* Botón hamburguesa (oculto en escritorio) */
+/* ── Hamburguesa ──────────────────────────────────── */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -250,8 +288,13 @@ nav.scrolled .nav-tagline {
     opacity 0.3s,
     background 0.3s;
 }
-nav.scrolled .nav-toggle span {
+nav.is-top .nav-toggle span {
   background: var(--nx-white);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+nav.is-open .nav-toggle span {
+  background: var(--nx-white);
+  box-shadow: none;
 }
 .nav-toggle.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
@@ -267,12 +310,25 @@ nav.scrolled .nav-toggle span {
   nav {
     padding: 0 1.25rem;
   }
+  /* Con el menú abierto damos fondo sólido para que el panel se lea bien */
+  nav.is-open {
+    background: var(--nx-dark);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+  }
+  nav.is-open .logo-swap-img--color {
+    opacity: 0;
+  }
+  nav.is-open .logo-swap-img--white {
+    opacity: 1;
+  }
   .nav-toggle {
     display: flex;
   }
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: var(--nav-h);
     left: 0;
     right: 0;
     flex-direction: column;
@@ -284,13 +340,17 @@ nav.scrolled .nav-toggle span {
     transition: max-height 0.35s ease;
   }
   .nav-links.open {
-    max-height: 480px;
+    max-height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
   }
   .nav-links a,
-  .nav-links button {
+  .nav-links button,
+  .nav-dropdown-head > a {
     width: 100%;
     height: 50px;
     padding: 0 1.25rem;
+    color: var(--nx-white);
+    text-shadow: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     border-left: 3px solid transparent;
   }
@@ -304,7 +364,6 @@ nav.scrolled .nav-toggle span {
     justify-content: center;
   }
 
-  /* Dropdown en móvil: el encabezado y el submenú se apilan verticalmente */
   .nav-dropdown {
     display: flex;
     flex-direction: column;
@@ -319,11 +378,7 @@ nav.scrolled .nav-toggle span {
   .nav-dropdown-head > a {
     flex: 1;
     width: auto;
-    height: 50px;
-    padding: 0 1.25rem;
     border-bottom: none;
-    border-left: 3px solid transparent;
-    color: var(--nx-white);
   }
   .nav-dropdown-head > a.active {
     border-left-color: var(--nx-mid);
@@ -333,6 +388,7 @@ nav.scrolled .nav-toggle span {
     width: 56px;
     justify-content: center;
     color: rgba(255, 255, 255, 0.75);
+    text-shadow: none;
     border-bottom: none;
   }
   .nav-submenu {
@@ -366,5 +422,15 @@ nav.scrolled .nav-toggle span {
     background: rgba(4, 169, 122, 0.22);
     color: var(--nx-white);
     padding-left: 2.5rem;
+  }
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  nav,
+  .logo-swap-img,
+  .nav-links a,
+  .nav-dropdown-caret {
+    transition: none;
   }
 }

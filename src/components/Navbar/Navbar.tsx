@@ -17,10 +17,25 @@ export default function Navbar() {
     setOpenMenu(null);
   };
 
-  // Detecta el scroll para volver la barra translúcida y ocultar el tagline
+  // Cambia el tema del navbar (claro sobre el hero / oscuro al bajar).
+  // rAF + listener pasivo para no bloquear el scroll en móvil.
+  // Histéresis (60px al activar, 30px al desactivar) para evitar parpadeos
+  // cuando el usuario se queda justo en el umbral.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll);
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      setScrolled((prev) => (prev ? y > 30 : y > 60));
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    onScroll(); // estado correcto si se recarga a mitad de página
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -35,8 +50,22 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
+  // Cierra el menú móvil con Escape (accesibilidad).
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
+
   return (
-    <nav ref={navRef} className={scrolled ? 'scrolled' : ''}>
+    <nav
+      ref={navRef}
+      className={[scrolled ? 'is-scrolled' : 'is-top', open ? 'is-open' : '']
+        .filter(Boolean)
+        .join(' ')}
+    >
       <Link className="nav-logo" to="/" onClick={close}>
         <Logo />
         <span className="nav-logo-text">
@@ -82,7 +111,14 @@ export default function Navbar() {
                   }
                 >
                   <svg viewBox="0 0 12 8" width="11" height="8" aria-hidden="true">
-                    <path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M1 1l5 5 5-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </div>
@@ -111,7 +147,9 @@ export default function Navbar() {
               end={item.to === '/'}
               onClick={close}
               className={({ isActive }) =>
-                [item.cta ? 'nav-cta' : '', isActive ? 'active' : ''].filter(Boolean).join(' ')
+                [item.cta ? 'nav-cta' : '', isActive ? 'active' : '']
+                  .filter(Boolean)
+                  .join(' ')
               }
             >
               {item.label}
