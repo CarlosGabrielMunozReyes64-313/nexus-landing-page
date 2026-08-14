@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Hero from '../components/Hero/Hero';
 import StatsBar from '../components/StatsBar/StatsBar';
 import ValorBox from '../components/ValorBox/ValorBox';
 import PillarCard from '../components/PillarCard/PillarCard';
 import SDGCake from '../components/SDGCake/SDGCake';
-import { SDG_BADGES, PILLARS } from '../data/siteData';
+import { SDG_BADGES, PILLARS, PGAU_FRAMEWORK, PGAU_ALIGNMENT } from '../data/siteData';
+import './Inicio.css';
 
 export default function Inicio() {
   const navigate = useNavigate();
@@ -113,6 +114,37 @@ export default function Inicio() {
               <PillarCard key={pillar.title} pillar={pillar} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Marco de política nacional — PGAU 2025-2035 */}
+      <section className="alt home-pgau">
+        <div className="section-inner">
+          <div className="section-tag">{PGAU_FRAMEWORK.tag}</div>
+          <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>
+            Alineados con la <span>PGAU 2025-2035</span>
+          </h2>
+          <p className="section-body home-pgau-intro">
+            La Política de Gestión Ambiental Urbana del Ministerio de Ambiente define la hoja de
+            ruta ambiental de las ciudades colombianas hasta 2035. Sus cuatro componentes coinciden
+            con nuestros cuatro ejes de trabajo.
+          </p>
+
+          <div className="home-pgau-grid">
+            {PGAU_ALIGNMENT.map((row) => (
+              <div className="home-pgau-item" key={row.code}>
+                <span className={`home-pgau-code ${row.cat}`}>{row.code}</span>
+                <div className="home-pgau-body">
+                  <h3 className="home-pgau-component">{row.component}</h3>
+                  <p className="home-pgau-eje">{row.eje}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <Link to="/portafolio" className="btn-outline home-pgau-btn">
+            Ver el cruce completo con nuestros proyectos →
+          </Link>
         </div>
       </section>
     </>

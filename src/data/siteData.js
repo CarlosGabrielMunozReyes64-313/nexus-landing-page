@@ -40,7 +40,7 @@ export const NAV_ITEMS = [
 export const STATS = [
   { num: '+20', label: 'Proyectos ejecutados' },
   { num: '4', label: 'Ejes estratégicos' },
-  { num: '40', label: 'Servicios especializados' },
+  { num: '43', label: 'Servicios especializados' },
   { num: '6+', label: 'Sectores atendidos' },
 ];
 
@@ -224,6 +224,14 @@ export const SERVICES = [
         text: 'Documentos técnicos, marco lógico y fichas EBI/BPIN para viabilizar recursos estatales.',
       },
       {
+        label: 'Diagnóstico y Plan de Ciudades Verdes (Ley 2476/2025)',
+        text: 'Línea base de biodiversidad urbana, inventario de espacios verdes y azules y hoja de ruta de cumplimiento para municipios y áreas metropolitanas.',
+      },
+      {
+        label: 'Determinantes Ambientales y Ordenamiento alrededor del Agua para POT/PBOT/EOT',
+        text: 'Incorporación de la estructura ecológica, el ciclo hídrico y la gestión del riesgo en procesos de revisión y ajuste de los instrumentos de ordenamiento territorial.',
+      },
+      {
         label: 'Formulación y Actualización de PGIRS',
         text: 'Planes municipales de residuos sólidos alineados con la normatividad de aprovechamiento y el ordenamiento territorial.',
       },
@@ -262,6 +270,9 @@ export const SERVICES = [
     ],
     tools: [
       'Sistema MGA-DNP — Metodología General Ajustada',
+      'Ley 2476/2025 — Ley de Ciudades Verdes',
+      'PGAU 2025-2035 — Política de Gestión Ambiental Urbana',
+      'ICAU — Indicadores de Calidad Ambiental Urbana (MinAmbiente)',
       'Decreto 670/2025 y Resolución 1257/2021 (RCD)',
       'Decreto 1317/2025 — Zonas Francas de Economía Popular',
       'Marco normativo MVCT para acueductos rurales',
@@ -273,6 +284,8 @@ export const SERVICES = [
     deliverables: [
       'Documentos MGA completos: BPIN, EBI, MML, anexos técnicos',
       'PGIRS / Plan de Acción Basura Cero con cronograma e indicadores',
+      'Diagnóstico de biodiversidad urbana y plan de cumplimiento Ley 2476/2025',
+      'Documento técnico de determinantes ambientales para revisión de POT',
       'Estudios de prefactibilidad con diseños conceptuales',
       'Expediente Zona Franca — 14 documentos completos',
       'Tratado Territorial con caracterización socioeconómica y KMZ',
@@ -452,6 +465,10 @@ export const SERVICES = [
         text: 'Redes de sensores en tiempo real para humedad del suelo, calidad del aire y caudales, con transmisión remota.',
       },
       {
+        label: 'Implementación y Reporte de Indicadores de Calidad Ambiental Urbana (ICAU)',
+        text: 'Levantamiento, cálculo y automatización de los indicadores del ICAU para autoridades ambientales urbanas y CAR, con tableros de seguimiento y reporte al SIAC.',
+      },
+      {
         label: 'Programación de Dashboards Analíticos Estratégicos',
         text: 'Tableros interactivos en React y TailwindCSS para KPI ambientales y geográficos.',
       },
@@ -486,6 +503,7 @@ export const SERVICES = [
       'Serie cartográfica multitemporal (20+ mapas PDF + KMZ)',
       'GeoVisor web con capas dinámicas y exportación institucional',
       'Dashboard analítico con KPI en tiempo real y exportación',
+      'Batería ICAU calculada, documentada y lista para reporte institucional',
       'Scripts R/Python documentados en Jupyter Notebooks',
       'Sistema IoT: arquitectura, sensores y visualización de datos',
       'Propuesta CTI con estado del arte y presupuesto desglosado',
@@ -617,6 +635,11 @@ export const PROJECTS = [
 
 // ── Agendas globales (Alianzas) ───────────────────────
 export const AGENDAS = [
+  {
+    icon: '🇨🇴',
+    title: 'PGAU 2025-2035 y Ley de Ciudades Verdes',
+    text: 'Alineamos nuestros cuatro ejes con los componentes de la Política de Gestión Ambiental Urbana 2025-2035 del MinAmbiente y acompañamos el cumplimiento de la Ley 2476 de 2025, el marco nacional que rige la agenda ambiental de las ciudades colombianas.',
+  },
   {
     icon: '🌐',
     title: 'Objetivos de Desarrollo Sostenible (ODS)',
@@ -859,7 +882,7 @@ export const MISSION = {
 
 export const VISION = {
   heading: 'Hacia dónde vamos',
-  text: 'Para 2030, consolidarnos como la principal firma consultora en desarrollo sostenible del suroccidente colombiano, reconocida por la excelencia técnica de sus servicios, la solidez de sus alianzas y su contribución efectiva a los Objetivos de Desarrollo Sostenible.',
+  text: 'Para 2035, consolidarnos como la principal firma consultora en desarrollo sostenible del suroccidente colombiano, reconocida por la excelencia técnica de sus servicios, la solidez de sus alianzas y su contribución efectiva a los Objetivos de Desarrollo Sostenible y a la Política de Gestión Ambiental Urbana 2025-2035.',
 };
 
 // ── Valores corporativos ──────────────────────────────
@@ -934,6 +957,80 @@ export const VALUE_PROPOSITION = [
   },
 ];
 
+// ── Alineación con la PGAU 2025-2035 (Portafolio) ─────
+// Marco de política nacional: Política de Gestión Ambiental Urbana
+// 2025-2035, aprobada por el Comité de Gerencia del MinAmbiente el
+// 10 de noviembre de 2025 y publicada el 19 de noviembre de 2025.
+// Cada componente de la política se cruza con el eje de NEXUS que lo
+// atiende y con los proyectos de referencia que ya lo evidencian.
+export const PGAU_FRAMEWORK = {
+  tag: 'Marco de Política Nacional',
+  title: 'Alineación con la PGAU 2025-2035',
+  intro:
+    'La Política de Gestión Ambiental Urbana 2025-2035 del Ministerio de Ambiente y Desarrollo Sostenible define la hoja de ruta ambiental de las ciudades colombianas hasta 2035, con visión al 2050. Sus cuatro componentes coinciden con los cuatro ejes de trabajo de NEXUS. Este es el cruce entre la política y lo que ya ejecutamos.',
+  source: 'MinAmbiente · Aprobada el 10 de noviembre de 2025',
+  sourceUrl:
+    'https://www.minambiente.gov.co/asuntos-ambientales-sectorial-y-urbana/politica-de-gestion-ambiental-urbana/',
+};
+
+export const PGAU_ALIGNMENT = [
+  {
+    code: 'C1',
+    cat: 'eje-4',
+    component: 'Información y conocimiento',
+    policy:
+      'Consolidar instrumentos de gestión del conocimiento que articulen experiencias locales, regionales y nacionales como insumo para la toma de decisiones.',
+    eje: 'Eje 4 · Proyectos CTI',
+    response:
+      'Analítica geoespacial, teledetección multitemporal, redes IoT, geovisores y bases de datos espaciales estandarizadas para producir la evidencia que la política exige.',
+    projects: ['MapBiomas Colombia — expansión urbana 1985-2024', 'PRISM GeoVisor v4 / GuilleIA'],
+  },
+  {
+    code: 'C2',
+    cat: 'eje-1',
+    component: 'Planificación y ordenamiento territorial',
+    policy:
+      'Mejorar la incorporación efectiva de variables ambientales y de sostenibilidad en la planificación urbana, con enfoque urbano-regional y multiescalar.',
+    eje: 'Eje 1 · Ciudades y Territorios Sostenibles',
+    response:
+      'Formulación de proyectos de inversión pública (MGA-DNP), PGIRS, estudios de localización multicriterio y tratados territoriales que llevan la variable ambiental al instrumento de planificación.',
+    projects: ['Tratado Territorial Rincón Payanés', 'Zona Franca de Economía Popular — Popayán'],
+  },
+  {
+    code: 'C3',
+    cat: 'eje-12',
+    component: 'Transformación',
+    policy:
+      'Generar cambios reales en la calidad ambiental urbana en temas estratégicos: economía circular, biodiversidad urbana, SbN y resiliencia climática.',
+    eje: 'Ejes 1 + 2 · Economía circular y SbN',
+    response:
+      'Estrategias Basura Cero, infraestructura de valorización, Soluciones basadas en la Naturaleza para gestión del riesgo, restauración ecológica y huertos circulares urbanos.',
+    projects: ['Programa Basura Cero — Popayán', 'Dos SbN con ICLEI — Barranquilla y Copacabana'],
+  },
+  {
+    code: 'C4',
+    cat: 'eje-3',
+    component: 'Gobernanza y participación',
+    policy:
+      'Fortalecer la gobernanza ambiental, la coordinación institucional y la participación efectiva de actores públicos, privados y de la sociedad civil.',
+    eje: 'Eje 3 · Innovación Social y Responsabilidad Territorial',
+    response:
+      'Análisis prospectivo de conflictos socioambientales, planes de relacionamiento, diagnósticos de gobernanza del agua y fortalecimiento de organizaciones de recicladores.',
+    projects: ['RSE ILC — Inversiones López Cadavid', 'Diagnóstico Microcuenca La Chuscala'],
+  },
+];
+
+// Principios de la PGAU que operan como criterios transversales de NEXUS.
+export const PGAU_PRINCIPLES = [
+  'Territorialidad integrada y multiescalar',
+  'Biodiversidad como eje estratégico del desarrollo',
+  'Equidad socioecológica y participación',
+  'Gobernanza multinivel y colaborativa',
+  'Resiliencia climática y transición energética justa',
+  'Innovación y gestión del conocimiento',
+  'Circularidad y metabolismo urbano',
+];
+
 // ── Casos de impacto / clientes reales (Portafolio) ───
 export const CASE_STUDIES = [
   {
@@ -944,6 +1041,7 @@ export const CASE_STUDIES = [
     title: 'Dos SbN para la gestión del riesgo y la resiliencia climática',
     desc: 'Diseño de dos Soluciones basadas en la Naturaleza (SbN) para la gestión del riesgo de desastres y la resiliencia climática, alineadas con estándares internacionales y herramientas especializadas. El proceso aseguró un enfoque metodológico integral y participativo, incorporando principios de protección, equidad de género e inclusión.',
     locations: ['Barranquilla, Atlántico', 'Copacabana, Antioquia'],
+    pgau: 'PGAU C3 · Transformación',
     tags: ['SbN', 'Gestión del riesgo', 'Resiliencia climática', 'Equidad de género', 'Inclusión'],
   },
   {
@@ -954,6 +1052,7 @@ export const CASE_STUDIES = [
     title: 'Política Institucional de RSE con criterios ASG',
     desc: 'Formulación, diseño y entrega de la Política Institucional de Responsabilidad Social Empresarial, conforme a los criterios ASG (Ambientales, Sociales y de Gobernanza). La metodología comprendió diagnóstico, análisis normativo y de riesgos, matriz de materialidad, diseño del documento institucional de política y construcción de indicadores SMART, complementada con talleres de cocreación.',
     locations: ['Yopal, Casanare', 'San José del Guaviare, Guaviare'],
+    pgau: 'PGAU C4 · Gobernanza y participación',
     tags: [
       'RSE',
       'Criterios ASG',
@@ -970,62 +1069,62 @@ export const CASE_STUDIES = [
 // `cat` mapea a la clase de color de la etiqueta de eje.
 export const REFERENCE_PROJECTS = [
   {
-    n: 1, cat: 'eje-1', eje: 'Eje 1', monto: '~$39.000 M COP', estado: 'En ejecución',
+    n: 1, cat: 'eje-1', eje: 'Eje 1', monto: '~$39.000 M COP', estado: 'En ejecución', pgau: 'C3 · Transformación',
     title: 'Programa Basura Cero — Popayán',
     desc: '~8 proyectos MGA articulados: ECA, Planta RCD, NFU, Pellets, Biogás, 15 camiones compactadores, PIGRSU y compostera La Patojita. Enmarcado en el Decreto 670/2025.',
   },
   {
-    n: 2, cat: 'eje-1', eje: 'Eje 1', monto: 'MVCT', estado: 'Subsanación',
+    n: 2, cat: 'eje-1', eje: 'Eje 1', monto: 'MVCT', estado: 'Subsanación', pgau: 'C2 · Planificación y OT',
     title: 'Acueducto Interveredal El Hogar',
     desc: 'Veredas Altamira, El Hogar, San Juan, El Cabuyo y Quintana. Subsanación ante el MVCT (radicado 2025ER0034547).',
   },
   {
-    n: 3, cat: 'eje-12', eje: 'Eje 1+2', monto: '3.2 MW', estado: 'Formulación',
+    n: 3, cat: 'eje-12', eje: 'Eje 1+2', monto: '3.2 MW', estado: 'Formulación', pgau: 'C2 · Planificación y OT',
     title: 'PCH Sajandí (VATIA S.A. E.S.P.)',
     desc: 'Pequeña central hidroeléctrica a filo de agua en El Juncal, Patía (Cauca). Tratado Territorial, PRGS, KMZ y Gantt de obra.',
   },
   {
-    n: 4, cat: 'eje-12', eje: 'Eje 1+2', monto: '9.9 MW', estado: 'Formulado',
+    n: 4, cat: 'eje-12', eje: 'Eje 1+2', monto: '9.9 MW', estado: 'Formulado', pgau: 'C2 · Planificación y OT',
     title: 'PCH Florida II',
     desc: 'Las Piedras y Quintana, Popayán. EIA + PMA completo y caracterización socioeconómica de 8 veredas.',
   },
   {
-    n: 5, cat: 'eje-3', eje: 'Eje 3', monto: 'ESG 2026-30', estado: 'Entregado',
+    n: 5, cat: 'eje-3', eje: 'Eje 3', monto: 'ESG 2026-30', estado: 'Entregado', pgau: 'C4 · Gobernanza y participación',
     title: 'RSE ILC — Inversiones López Cadavid (BIOMAX / MAXIMOTOS)',
     desc: 'Plan de RSE 2026-2030 bajo ISO 26000 / ESG. Cobertura en Guaviare, Guainía, Casanare y Bogotá D.C.',
   },
   {
-    n: 6, cat: 'eje-1', eje: 'Eje 1', monto: 'MinCIT', estado: 'Formulado',
+    n: 6, cat: 'eje-1', eje: 'Eje 1', monto: 'MinCIT', estado: 'Formulado', pgau: 'C2 · Planificación y OT',
     title: 'Zona Franca de Economía Popular — Popayán',
     desc: 'Decreto 1317/2025. 14 documentos: plan de acción, modelo financiero, MinCIT, Acuerdo de Concejo y 3 polígonos KML.',
   },
   {
-    n: 7, cat: 'eje-12', eje: 'Eje 1+2', monto: '~$5.250 M COP', estado: 'Aprobado CRC',
+    n: 7, cat: 'eje-12', eje: 'Eje 1+2', monto: '~$5.250 M COP', estado: 'Aprobado CRC', pgau: 'C2 · Planificación y OT',
     title: 'Tratado Territorial Rincón Payanés (FONTUR FCOI-01)',
     desc: 'PMA e infraestructura turística. CRC Oficio SGA-5649/2025, Resolución ST-0422/2025.',
   },
   {
-    n: 8, cat: 'eje-4', eje: 'Eje 4', monto: 'Académico', estado: 'Presentado',
+    n: 8, cat: 'eje-4', eje: 'Eje 4', monto: 'Académico', estado: 'Presentado', pgau: 'C1 · Información y conocimiento',
     title: 'MapBiomas Colombia — Premio 2.ª Edición Académica',
     desc: 'Expansión urbana de Popayán 1985-2024 con la Colección 3.0. 20 mapas y 4 Jupyter Notebooks.',
   },
   {
-    n: 9, cat: 'eje-2', eje: 'Eje 2', monto: 'Consultoría', estado: 'Entregado',
+    n: 9, cat: 'eje-2', eje: 'Eje 2', monto: 'Consultoría', estado: 'Entregado', pgau: 'C1 · Información y conocimiento',
     title: 'Diagnóstico Ambiental Microcuenca La Chuscala',
     desc: 'Copacabana. Caracterización hidrológica, problemática ambiental y análisis institucional.',
   },
   {
-    n: 10, cat: 'eje-4', eje: 'Eje 4', monto: 'Tech / SbN', estado: 'Operativo',
+    n: 10, cat: 'eje-4', eje: 'Eje 4', monto: 'Tech / SbN', estado: 'Operativo', pgau: 'C1 · Información y conocimiento',
     title: 'NEXUS FireEngine — Simulador SOC',
     desc: 'Modelo Drossel-Schwabl con barreras SbN, transporte de brasas y propagación sobre imágenes satelitales.',
   },
   {
-    n: 11, cat: 'eje-4', eje: 'Eje 4', monto: 'Tech / SIG', estado: 'Operativo',
+    n: 11, cat: 'eje-4', eje: 'Eje 4', monto: 'Tech / SIG', estado: 'Operativo', pgau: 'C1 · Información y conocimiento',
     title: 'PRISM GeoVisor v4 / GuilleIA',
     desc: 'Asistente IA territorial (FastAPI + Anthropic) integrado con un visor SIG multiformato.',
   },
   {
-    n: 12, cat: 'eje-2', eje: 'Eje 2', monto: 'Investigación', estado: 'En desarrollo',
+    n: 12, cat: 'eje-2', eje: 'Eje 2', monto: 'Investigación', estado: 'En desarrollo', pgau: 'C3 · Transformación',
     title: 'Bioprospección de Sapindus saponaria',
     desc: 'Investigación aplicada: análisis bioquímico, estrategia agroforestal y comparativa de jabones.',
   },
@@ -1080,6 +1179,13 @@ export const ODS_DATA = [
       'Implementación de estrategias ASG, RSE, economía circular y sostenibilidad empresarial.',
   },
   {
+    num: 7,
+    layer: 'sociedad',
+    title: 'Energía Asequible y No Contaminante',
+    apply:
+      'Formulación de pequeñas centrales hidroeléctricas y acompañamiento a territorios en la transición energética justa, garantizando que los beneficios lleguen a las comunidades.',
+  },
+  {
     num: 4,
     layer: 'sociedad',
     title: 'Educación de Calidad',
@@ -1113,6 +1219,13 @@ export const ODS_DATA = [
     title: 'Acción por el Clima',
     apply:
       'Soluciones Basadas en la Naturaleza (SbN), gestión ambiental, mitigación y adaptación al cambio climático.',
+  },
+  {
+    num: 14,
+    layer: 'biosfera',
+    title: 'Vida Submarina',
+    apply:
+      'Gestión ambiental de áreas urbano-costeras: erosión costera, calidad de aguas y protección de ecosistemas marino-costeros en el enfoque urbano-regional.',
   },
   {
     num: 6,

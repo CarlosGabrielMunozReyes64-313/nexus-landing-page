@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import './Portafolio.css';
 import Hero from '../components/Hero/Hero';
-import { CASE_STUDIES, REFERENCE_PROJECTS } from '../data/siteData';
+import {
+  CASE_STUDIES,
+  REFERENCE_PROJECTS,
+  PGAU_FRAMEWORK,
+  PGAU_ALIGNMENT,
+  PGAU_PRINCIPLES,
+} from '../data/siteData';
 
 // Pin de ubicación (SVG inline) para los casos de impacto.
 function PinIcon() {
@@ -72,7 +78,10 @@ export default function Portafolio() {
                 </div>
 
                 <div className="case-body">
-                  <span className="case-type">{cs.type}</span>
+                  <div className="case-badges">
+                    <span className="case-type">{cs.type}</span>
+                    {cs.pgau && <span className="case-pgau">{cs.pgau}</span>}
+                  </div>
                   <h3 className="case-title">{cs.title}</h3>
                   <p className="case-desc">{cs.desc}</p>
                   <div className="case-tags">
@@ -116,9 +125,74 @@ export default function Portafolio() {
                   <span className="ref-monto">{proj.monto}</span>
                   <span className="ref-estado">{proj.estado}</span>
                 </div>
+                {proj.pgau && <div className="ref-pgau">PGAU {proj.pgau}</div>}
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Alineación con la Política de Gestión Ambiental Urbana 2025-2035 */}
+      <section className="pgau">
+        <div className="section-inner">
+          <div className="section-tag">{PGAU_FRAMEWORK.tag}</div>
+          <h2 className="section-title" style={{ marginBottom: '0.75rem' }}>
+            {PGAU_FRAMEWORK.title}
+          </h2>
+          <p className="section-body" style={{ marginBottom: '2.5rem' }}>
+            {PGAU_FRAMEWORK.intro}
+          </p>
+
+          <div className="pgau-grid">
+            {PGAU_ALIGNMENT.map((row) => (
+              <article className="pgau-card" key={row.code}>
+                <div className="pgau-card-top">
+                  <span className={`pgau-code ${row.cat}`}>{row.code}</span>
+                  <h3 className="pgau-component">{row.component}</h3>
+                </div>
+
+                <div className="pgau-block">
+                  <div className="pgau-label">Lo que pide la política</div>
+                  <p className="pgau-text">{row.policy}</p>
+                </div>
+
+                <div className="pgau-block">
+                  <div className="pgau-label">Cómo responde NEXUS · {row.eje}</div>
+                  <p className="pgau-text">{row.response}</p>
+                </div>
+
+                <div className="pgau-projects">
+                  {row.projects.map((p) => (
+                    <span className="pgau-project" key={p}>
+                      {p}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="pgau-principles">
+            <div className="pgau-principles-title">
+              Los 7 principios de la PGAU como criterios transversales
+            </div>
+            <div className="pgau-principles-list">
+              {PGAU_PRINCIPLES.map((pr, i) => (
+                <span className="pgau-principle" key={pr}>
+                  <b>{String(i + 1).padStart(2, '0')}</b> {pr}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <a
+            className="pgau-source"
+            href={PGAU_FRAMEWORK.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {PGAU_FRAMEWORK.source} →
+          </a>
         </div>
       </section>
 
