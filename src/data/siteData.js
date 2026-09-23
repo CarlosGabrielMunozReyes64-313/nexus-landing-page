@@ -179,7 +179,7 @@ export const TEAM = [
   {
     initials: "VS",
     name: "Viviana María Sánchez Escobar",
-    position: "Socia · Representante Legal",
+    position: "Socia · Gerente General",
     role: "Liderazgo Institucional · Gestión Empresarial · Innovación Social · RSE · Sostenibilidad",
     bio: "Administradora Pública, Especialista en Gerencia Social y Magíster en Gerencia para la Innovación Social. Cuenta con más de 13 años de experiencia en coordinación interinstitucional, participación ciudadana, sostenibilidad urbana y formulación de proyectos climáticos. Experta en procesos de gobernanza territorial, concertación comunitaria y construcción participativa de soluciones ambientales y sociales.",
   },
