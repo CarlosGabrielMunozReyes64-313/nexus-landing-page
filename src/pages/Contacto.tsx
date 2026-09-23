@@ -1,7 +1,7 @@
-import './Contacto.css';
-import Hero from '../components/Hero/Hero'
-import ContactForm from '../components/ContactForm/ContactForm'
-import { CONTACT_TARGETS } from '../data/siteData'
+import "./Contacto.css";
+import Hero from "../components/Hero/Hero";
+import ContactForm from "../components/ContactForm/ContactForm";
+import { CONTACT_TARGETS } from "../data/siteData";
 
 export default function Contacto() {
   return (
@@ -20,12 +20,15 @@ export default function Contacto() {
         <div className="section-inner">
           <div className="contact-layout">
             <div className="contact-info">
-              <h2>Cada territorio tiene su propia oportunidad de transformación</h2>
+              <h2>
+                Cada territorio tiene su propia oportunidad de transformación
+              </h2>
               <p>
-                Trabajamos con gobiernos locales, empresas comprometidas con la sostenibilidad,
-                organizaciones de cooperación internacional y comunidades que quieren ser
-                protagonistas de su propio desarrollo. Si tienes un desafío territorial, ambiental o
-                de innovación, queremos conocerlo.
+                Trabajamos con gobiernos locales, empresas comprometidas con la
+                sostenibilidad, organizaciones de cooperación internacional y
+                comunidades que quieren ser protagonistas de su propio
+                desarrollo. Si tienes un desafío territorial, ambiental o de
+                innovación, queremos conocerlo.
               </p>
               <div className="contact-targets">
                 {CONTACT_TARGETS.map((target) => (
@@ -37,9 +40,9 @@ export default function Contacto() {
               </div>
               <div className="contact-data">
                 <div className="contact-data-label">
-                  Popayán, Cauca · Suroccidente colombiano
+                  Candelaria, Valle del Cauca
                 </div>
-                <div className="contact-data-val">nexussostenible.co</div>
+                <div className="contact-data-val">nexusinnovacion.com</div>
               </div>
             </div>
 
@@ -50,5 +53,5 @@ export default function Contacto() {
         </div>
       </section>
     </>
-  )
+  );
 }
