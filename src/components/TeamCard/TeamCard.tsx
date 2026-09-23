@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import './TeamCard.css';
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
+import "./TeamCard.css";
 
 // Devuelve solo el primer nombre ("Jaime Andrés Marín" -> "Jaime").
-function firstName(fullName = '') {
+function firstName(fullName = "") {
   return fullName.trim().split(/\s+/)[0] || fullName;
 }
 
@@ -24,26 +24,30 @@ function firstName(fullName = '') {
 //   - position  (opcional)     cargo corto (p. ej. "Directora General")
 //   - photo     (opcional)     imagen importada o URL para la foto
 //   - profile   (opcional)     CV ampliado (title, summary, education, experience, skills)
-export default function TeamCard({ member, variant = 'consultor', showRoleOnFront = false }) {
+export default function TeamCard({
+  member,
+  variant = "consultor",
+  showRoleOnFront = false,
+}) {
   const [open, setOpen] = useState(false);
   const profile = member.profile;
   const photo = member.photo; // opcional
   const intro = profile?.summary || member.bio; // evita duplicar bio + resumen
   // Cargo corto para mostrar en la tarjeta (p. ej. "Directora General").
   const frontRole = member.position || member.role;
-  const isDir = variant === 'directivo';
+  const isDir = variant === "directivo";
 
   // Cerrar con Escape y bloquear el scroll del fondo mientras el modal está abierto.
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === "Escape") setOpen(false);
     };
-    document.addEventListener('keydown', onKey);
+    document.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener('keydown', onKey);
+      document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
     };
   }, [open]);
@@ -56,7 +60,7 @@ export default function TeamCard({ member, variant = 'consultor', showRoleOnFron
         className={`team-card team-card--${variant}`}
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
-        aria-label={`Ver perfil de ${member.name}${member.role ? ` — ${member.role}` : ''}`}
+        aria-label={`Ver perfil de ${member.name}${member.role ? ` — ${member.role}` : ""}`}
       >
         <div className="team-card-flip">
           {/* Frente */}
@@ -65,9 +69,15 @@ export default function TeamCard({ member, variant = 'consultor', showRoleOnFron
               <div className="team-front team-front--dir">
                 <div className="team-avatar">
                   {photo ? (
-                    <img src={photo} alt={member.name} className="team-avatar-img" />
+                    <img
+                      src={photo}
+                      alt={member.name}
+                      className="team-avatar-img"
+                    />
                   ) : (
-                    <span className="team-avatar-initials">{member.initials}</span>
+                    <span className="team-avatar-initials">
+                      {member.initials}
+                    </span>
                   )}
                 </div>
                 <div className="team-front-name">{firstName(member.name)}</div>
@@ -82,13 +92,22 @@ export default function TeamCard({ member, variant = 'consultor', showRoleOnFron
               <div className="team-front team-front--con">
                 {photo ? (
                   <span className="team-avatar team-avatar--con">
-                    <img src={photo} alt={member.name} className="team-avatar-img" />
+                    <img
+                      src={photo}
+                      alt={member.name}
+                      className="team-avatar-img"
+                    />
                   </span>
                 ) : (
                   <span className="team-con-initials">{member.initials}</span>
                 )}
-                <span className="team-front-sep team-front-sep--con" aria-hidden="true" />
-                <div className="team-front-name team-front-name--con">{firstName(member.name)}</div>
+                <span
+                  className="team-front-sep team-front-sep--con"
+                  aria-hidden="true"
+                />
+                <div className="team-front-name team-front-name--con">
+                  {firstName(member.name)}
+                </div>
               </div>
             )}
           </div>
@@ -126,7 +145,11 @@ export default function TeamCard({ member, variant = 'consultor', showRoleOnFron
               {/* Columna visual: foto + identificación */}
               <aside className="team-modal-media">
                 {photo ? (
-                  <img src={photo} alt={member.name} className="team-modal-photo" />
+                  <img
+                    src={photo}
+                    alt={member.name}
+                    className="team-modal-photo"
+                  />
                 ) : (
                   <div className="team-modal-photo team-modal-photo--fallback">
                     {member.initials}
@@ -134,13 +157,17 @@ export default function TeamCard({ member, variant = 'consultor', showRoleOnFron
                 )}
                 <div className="team-modal-id">
                   <h3 className="team-modal-name">{member.name}</h3>
-                  {member.role && <p className="team-modal-role">{member.role}</p>}
+                  {member.role && (
+                    <p className="team-modal-role">{member.role}</p>
+                  )}
                 </div>
               </aside>
 
               {/* Columna de contenido: información relevante + perfil */}
               <div className="team-modal-content">
-                {profile?.title && <p className="team-modal-title">{profile.title}</p>}
+                {profile?.title && (
+                  <p className="team-modal-title">{profile.title}</p>
+                )}
 
                 {intro && (
                   <section className="team-modal-section">
@@ -149,26 +176,28 @@ export default function TeamCard({ member, variant = 'consultor', showRoleOnFron
                   </section>
                 )}
 
-                {profile?.education?.length > 0 && (
-                  <section className="team-modal-section">
-                    <h4 className="team-modal-heading">Formación Académica</h4>
-                    <ul className="team-modal-list">
-                      {profile.education.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </section>
-                )}
-
                 {profile?.experience?.length > 0 && (
                   <section className="team-modal-section">
-                    <h4 className="team-modal-heading">Experiencia Profesional Destacada</h4>
+                    <h4 className="team-modal-heading">
+                      Experiencia Profesional Destacada
+                    </h4>
                     <ul className="team-modal-list team-modal-list-rich">
                       {profile.experience.map((exp) => (
                         <li key={`${exp.role}-${exp.org}`}>
-                          <span className="team-modal-item-title">{exp.role}</span>
-                          {exp.org && <span className="team-modal-item-org"> | {exp.org}</span>}
-                          {exp.detail && <p className="team-modal-item-detail">{exp.detail}</p>}
+                          <span className="team-modal-item-title">
+                            {exp.role}
+                          </span>
+                          {exp.org && (
+                            <span className="team-modal-item-org">
+                              {" "}
+                              | {exp.org}
+                            </span>
+                          )}
+                          {exp.detail && (
+                            <p className="team-modal-item-detail">
+                              {exp.detail}
+                            </p>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -177,13 +206,20 @@ export default function TeamCard({ member, variant = 'consultor', showRoleOnFron
 
                 {profile?.skills?.length > 0 && (
                   <section className="team-modal-section">
-                    <h4 className="team-modal-heading">Competencias Técnicas y Tecnológicas</h4>
+                    <h4 className="team-modal-heading">
+                      Competencias Técnicas y Tecnológicas
+                    </h4>
                     <ul className="team-modal-list team-modal-list-rich">
                       {profile.skills.map((skill) => (
                         <li key={skill.area}>
-                          <span className="team-modal-item-title">{skill.area}:</span>
+                          <span className="team-modal-item-title">
+                            {skill.area}:
+                          </span>
                           {skill.detail && (
-                            <span className="team-modal-item-detail-inline"> {skill.detail}</span>
+                            <span className="team-modal-item-detail-inline">
+                              {" "}
+                              {skill.detail}
+                            </span>
                           )}
                         </li>
                       ))}
@@ -193,7 +229,7 @@ export default function TeamCard({ member, variant = 'consultor', showRoleOnFron
               </div>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );
