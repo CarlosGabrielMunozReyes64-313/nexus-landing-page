@@ -37,16 +37,23 @@ export default function EnviroCalendar() {
     []
   );
 
-  // Empezar en la próxima conmemoración a partir de hoy.
-  const initialIndex = useMemo(() => {
-    const now = new Date();
-    const m = now.getMonth() + 1;
-    const d = now.getDate();
-    const idx = dates.findIndex((x) => x.month > m || (x.month === m && x.day >= d));
-    return idx === -1 ? 0 : idx;
-  }, [dates]);
+  // Empezar en la próxima conmemoración. En el HTML prerenderizado se usa la
+  // fecha del build (así coincide al hidratar); luego se ajusta a la de hoy.
+  const indexFor = useCallback(
+    (m: number, d: number) => {
+      const idx = dates.findIndex((x) => x.month > m || (x.month === m && x.day >= d));
+      return idx === -1 ? 0 : idx;
+    },
+    [dates]
+  );
+  const buildDate = typeof __BUILD_DATE__ === 'string' ? __BUILD_DATE__ : '';
+  const [bm, bd] = buildDate ? buildDate.split('-').slice(1).map(Number) : [1, 1];
+  const [index, setIndex] = useState(() => indexFor(bm, bd));
 
-  const [index, setIndex] = useState(initialIndex);
+  useEffect(() => {
+    const now = new Date();
+    setIndex(indexFor(now.getMonth() + 1, now.getDate()));
+  }, [indexFor]);
   const [paused, setPaused] = useState(false);
   const count = dates.length;
 

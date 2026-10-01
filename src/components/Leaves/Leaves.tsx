@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import './Leaves.css';
 import ojaImg from '../../assets/particles/oja.png';
 
@@ -36,7 +36,13 @@ function makeLeaves(n) {
 }
 
 export default function Leaves() {
-  const leaves = useMemo(() => makeLeaves(LEAF_COUNT), []);
+  // Las posiciones son aleatorias, así que se generan solo en el navegador
+  // (después de la hidratación) para que el HTML prerenderizado coincida.
+  const [leaves, setLeaves] = useState([]);
+  useEffect(() => {
+    setLeaves(makeLeaves(LEAF_COUNT));
+  }, []);
+  if (!leaves.length) return null;
 
   return (
     <div className="leaves-layer" aria-hidden="true">

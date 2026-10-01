@@ -137,7 +137,7 @@ export default function EcoHome() {
         </section>
 
         <footer className={styles.footer}>
-          <p>
+          <p suppressHydrationWarning>
             © {new Date().getFullYear()} Calculadora de Huella Ecológica · Proyecto demo integrado en
             NEXUS 🌍
           </p>

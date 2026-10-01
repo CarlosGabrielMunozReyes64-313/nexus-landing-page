@@ -1,5 +1,10 @@
 # NEXUS – Sitio web (React + Vite)
 
+> **Octubre 2026:** el sitio ahora se **prerenderiza** (cada página sale como
+> HTML completo para Google y la IA), mide con GA4/Meta y tiene la página
+> `/rse-mipymes` del piloto. Detalles, pasos manuales y qué revisar en
+> **[MEJORAS-SEO-Y-CONVERSION.md](./MEJORAS-SEO-Y-CONVERSION.md)**.
+
 Refactorización del sitio corporativo de NEXUS desde un único archivo HTML a un
 proyecto React modular, con rutas reales (`react-router-dom`), componentes
 reutilizables y todo el contenido separado en un archivo de datos.
@@ -14,7 +19,8 @@ reutilizables y todo el contenido separado en un archivo de datos.
 ```bash
 npm install      # instala dependencias
 npm run dev      # servidor de desarrollo (http://localhost:5173)
-npm run build    # compila a producción en /dist
+npm run build    # compila y prerenderiza a producción en /dist
+                 # (incluye sitemap.xml, robots.txt y 404.html)
 npm run preview  # sirve la build de producción
 ```
 
@@ -24,10 +30,16 @@ npm run preview  # sirve la build de producción
 nexus-react/
 ├── index.html                 # HTML raíz de Vite (carga la fuente Montserrat)
 ├── package.json
-├── vite.config.js
+├── vite.config.ts
+├── scripts/prerender.mjs      # Genera el HTML de cada página, sitemap y robots
 └── src/
-    ├── main.jsx               # Punto de entrada: BrowserRouter + global.css
-    ├── App.jsx                # Layout (Navbar + rutas + Footer) y enrutado
+    ├── main.tsx               # Entrada del navegador (hidrata el HTML)
+    ├── entry-server.tsx       # Entrada del prerenderizado (Node, en el build)
+    ├── routes.tsx             # Páginas cargadas por partes (code splitting)
+    ├── App.tsx                # Layout (Navbar + rutas + Footer) y enrutado
+    ├── config/site.ts         # Datos de contacto, descripción oficial, piloto
+    ├── seo/seo.ts             # Títulos, descripciones y datos estructurados
+    ├── lib/analytics.ts       # GA4, GTM, Píxel de Meta y eventos
     ├── styles/
     │   └── global.css         # Estilos originales, intactos
     ├── data/

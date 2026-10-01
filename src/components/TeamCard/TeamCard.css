@@ -444,3 +444,34 @@
     padding: 1.75rem 1.4rem 2rem;
   }
 }
+
+/* ── Nombre completo (con apellidos) en la tarjeta ── */
+.team-front-name--full {
+  font-size: clamp(17px, 1.9vw, 22px);
+  line-height: 1.2;
+  max-width: 94%;
+  text-wrap: balance;
+}
+.team-front-name--con.team-front-name--full {
+  font-size: clamp(14px, 1.5vw, 17px);
+}
+.team-back-name {
+  text-wrap: balance;
+}
+
+/* ── Enlace a LinkedIn en el perfil ── */
+.team-modal-linkedin {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  background: #0a66c2;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.team-modal-linkedin:hover,
+.team-modal-linkedin:focus-visible {
+  background: #004182;
+}

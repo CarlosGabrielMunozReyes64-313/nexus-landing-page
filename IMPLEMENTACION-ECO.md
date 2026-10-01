@@ -51,8 +51,6 @@ Modificados:
   src/pages/demo/HuellaCarbono.tsx  (usa configuración)
   package.json                      (+ jspdf)
 
-## 5. Pendiente que NO es de este cambio
-`src/pages/Quienes.tsx` importa imágenes con tildes cuyos nombres en
-src/assets/Quienes/ quedaron con codificación rota (p. ej.
-"Los-principios-que-gu#U00edan-cada-decisi#U00f3n.jpg"). Eso rompe `npm run build`.
-Renombra el archivo en disco para que coincida con el import, o ajusta el import.
+## 5. Nota sobre las imágenes de «Quiénes Somos»
+Resuelto: los nombres de archivo en `src/assets/Quienes/` ya coinciden con los
+imports (sin tildes) y `npm run build` funciona.

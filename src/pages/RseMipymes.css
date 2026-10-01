@@ -1,0 +1,336 @@
+/* ── RSE PARA MIPYMES ─────────────────────────────── */
+
+/* Banda del piloto: la cifra de cupos es el elemento protagonista. */
+.rse-pilot {
+  background: var(--nx-dark);
+  padding: 3rem 2rem;
+}
+.rse-pilot-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2.5rem;
+}
+.rse-pilot-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  color: var(--nx-mid);
+}
+.rse-pilot-num {
+  font-size: clamp(88px, 11vw, 132px);
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+.rse-pilot-unit {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+.rse-pilot-text h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--nx-white);
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+.rse-pilot-text p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 620px;
+}
+.rse-pilot-funder {
+  background: var(--nx-white);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rse-pilot-funder img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+/* Razones */
+.rse-reasons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 3rem;
+  margin-top: 2.5rem;
+}
+.rse-reason {
+  border-left: 3px solid var(--nx-mid);
+  padding-left: 1.25rem;
+}
+.rse-reason h3 {
+  font-size: 24px;
+  color: var(--nx-dark);
+  margin-bottom: 0.4rem;
+}
+.rse-reason p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--nx-muted);
+}
+
+/* Oferta */
+.rse-offer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.rse-offer-card {
+  background: var(--nx-white);
+  border: 0.5px solid #c8e4d4;
+  border-radius: 14px;
+  padding: 2rem;
+}
+.rse-offer-card h3 {
+  font-size: 32px;
+  color: var(--nx-dark);
+  margin-bottom: 0.35rem;
+}
+.rse-offer-summary {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--nx-mid);
+  margin-bottom: 1.1rem;
+}
+.rse-offer-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.rse-offer-card li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--nx-text);
+}
+.rse-offer-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nx-mid);
+}
+
+/* Pasos (secuencia real) */
+.rse-steps-title {
+  font-size: 30px;
+  color: var(--nx-dark);
+  margin: 3.5rem 0 1.5rem;
+}
+.rse-steps {
+  list-style: none;
+  counter-reset: paso;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.rse-steps li {
+  counter-increment: paso;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--nx-dark);
+}
+.rse-steps li::before {
+  content: counter(paso);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--nx-mid);
+  line-height: 1;
+}
+.rse-steps strong {
+  font-size: 21px;
+  color: var(--nx-dark);
+}
+.rse-steps span {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--nx-muted);
+}
+
+/* Postulación */
+.rse-apply {
+  scroll-margin-top: calc(var(--nav-h, 70px) + 12px);
+}
+.rse-apply-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 3.5rem;
+  align-items: start;
+}
+.rse-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  user-select: text;
+}
+.rse-channel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.9rem 1.2rem;
+  background: var(--nx-light);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+.rse-channel--wa {
+  background: var(--nx-dark);
+}
+.rse-channel--wa .rse-channel-label {
+  color: var(--nx-mid);
+}
+.rse-channel--wa .rse-channel-val {
+  color: var(--nx-white);
+}
+.rse-channel-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--nx-dark);
+}
+.rse-channel-val {
+  font-size: 20px;
+  color: var(--nx-text);
+  word-break: break-word;
+}
+a.rse-channel:hover .rse-channel-val {
+  text-decoration: underline;
+}
+
+/* Preguntas frecuentes (details nativo: accesible y legible por buscadores) */
+.rse-faq {
+  max-width: 860px;
+  margin-top: 1.5rem;
+  border-top: 1px solid #c8e4d4;
+}
+.rse-faq details {
+  border-bottom: 1px solid #c8e4d4;
+}
+.rse-faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.25rem 2.5rem 1.25rem 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--nx-dark);
+  position: relative;
+}
+.rse-faq summary::-webkit-details-marker {
+  display: none;
+}
+.rse-faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--nx-mid);
+}
+.rse-faq details[open] summary::after {
+  content: '−';
+}
+.rse-faq summary:focus-visible {
+  outline: 3px solid rgba(4, 169, 122, 0.35);
+  outline-offset: 2px;
+}
+.rse-faq details p {
+  font-size: 20px;
+  line-height: 1.75;
+  color: var(--nx-muted);
+  padding: 0 0 1.4rem;
+  max-width: 720px;
+  user-select: text;
+}
+
+/* Lecturas */
+.rse-reading {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.rse-reading a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+  padding: 1.25rem 1.4rem;
+  border: 0.5px solid #c8e4d4;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.rse-reading a:hover,
+.rse-reading a:focus-visible {
+  border-color: var(--nx-mid);
+}
+.rse-reading-topic {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--nx-mid);
+}
+.rse-reading-title {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--nx-dark);
+}
+
+@media (max-width: 900px) {
+  .rse-pilot-inner {
+    grid-template-columns: auto 1fr;
+  }
+  .rse-pilot-funder {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+  .rse-apply-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .rse-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .rse-pilot {
+    padding: 2.5rem 1.25rem;
+  }
+  .rse-pilot-inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .rse-pilot-funder img {
+    width: 110px;
+  }
+  .rse-pilot-count {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .rse-reasons,
+  .rse-offer,
+  .rse-reading,
+  .rse-steps {
+    grid-template-columns: 1fr;
+  }
+}

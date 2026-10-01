@@ -6,7 +6,8 @@
   "description": "Sitio web corporativo de NEXUS – Innovación y Alianzas para el Desarrollo Sostenible",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "build:spa": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

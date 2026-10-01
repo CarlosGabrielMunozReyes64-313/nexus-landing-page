@@ -80,7 +80,7 @@ export default function TeamCard({
                     </span>
                   )}
                 </div>
-                <div className="team-front-name">{firstName(member.name)}</div>
+                <div className="team-front-name team-front-name--full">{member.name}</div>
                 <span className="team-front-sep" aria-hidden="true" />
                 {showRoleOnFront && frontRole && (
                   <div className="team-front-role" title={frontRole}>
@@ -105,8 +105,8 @@ export default function TeamCard({
                   className="team-front-sep team-front-sep--con"
                   aria-hidden="true"
                 />
-                <div className="team-front-name team-front-name--con">
-                  {firstName(member.name)}
+                <div className="team-front-name team-front-name--con team-front-name--full">
+                  {member.name}
                 </div>
               </div>
             )}
@@ -115,7 +115,7 @@ export default function TeamCard({
           {/* Reverso: cargo / rol */}
           <div className="team-card-face team-card-back" aria-hidden="true">
             <span className="team-back-initials">{member.initials}</span>
-            <span className="team-back-name">{firstName(member.name)}</span>
+            <span className="team-back-name">{member.name}</span>
             {frontRole && <span className="team-back-role">{frontRole}</span>}
             <span className="team-back-hint">Ver perfil completo</span>
           </div>
@@ -159,6 +159,16 @@ export default function TeamCard({
                   <h3 className="team-modal-name">{member.name}</h3>
                   {member.role && (
                     <p className="team-modal-role">{member.role}</p>
+                  )}
+                  {member.linkedin && (
+                    <a
+                      className="team-modal-linkedin"
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver perfil en LinkedIn
+                    </a>
                   )}
                 </div>
               </aside>

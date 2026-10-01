@@ -27,12 +27,20 @@ interface SettingsCtx {
 const Ctx = createContext<SettingsCtx | null>(null);
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
-  const [settings, setSettings] = useState<EcoSettings>(() => loadSettings());
+  // Se arranca con los valores por defecto (igual que el HTML prerenderizado)
+  // y la configuración guardada se carga al montar, para no romper la hidratación.
+  const [settings, setSettings] = useState<EcoSettings>(DEFAULT_SETTINGS);
+  const [ready, setReady] = useState(false);
 
-  // Persistir en cada cambio.
   useEffect(() => {
-    saveSettings(settings);
-  }, [settings]);
+    setSettings(loadSettings());
+    setReady(true);
+  }, []);
+
+  // Persistir en cada cambio (solo después de haber leído lo guardado).
+  useEffect(() => {
+    if (ready) saveSettings(settings);
+  }, [settings, ready]);
 
   // Aplicar tema e idioma al contenedor del demo (atributos en <html>).
   useEffect(() => {

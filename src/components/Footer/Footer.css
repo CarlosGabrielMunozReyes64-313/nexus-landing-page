@@ -90,3 +90,44 @@ footer {
 .footer-phone:hover {
   color: var(--nx-mid);
 }
+
+/* ── Canales de contacto y redes ─────────────────── */
+.footer-contact {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  user-select: text;
+}
+.footer-contact .footer-phone {
+  margin-top: 0;
+  word-break: break-word;
+}
+.footer-phone--static {
+  cursor: default;
+}
+.footer-phone--static:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+.footer-social a {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.footer-social a:hover {
+  color: var(--nx-mid);
+  border-color: var(--nx-mid);
+}
+footer a:focus-visible {
+  outline: 2px solid var(--nx-mid);
+  outline-offset: 3px;
+}

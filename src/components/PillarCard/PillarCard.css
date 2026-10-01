@@ -79,3 +79,13 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Tarjeta enlazada a la página del eje */
+.pillar-card--link {
+  text-decoration: none;
+  color: inherit;
+}
+.pillar-card--link:focus-visible {
+  outline: 3px solid rgba(4, 169, 122, 0.4);
+  outline-offset: 3px;
+}

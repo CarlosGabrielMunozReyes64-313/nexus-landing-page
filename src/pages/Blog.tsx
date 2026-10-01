@@ -2,7 +2,7 @@ import Hero from '../components/Hero/Hero'
 import BlogCard from '../components/BlogCard/BlogCard'
 import EnviroCalendar from '../components/EnviroCalendar/EnviroCalendar'
 import Reveal from '../components/Reveal/Reveal'
-import { BLOG_POSTS } from '../data/siteData'
+import { POSTS } from '../lib/blog'
 
 export default function Blog() {
   return (
@@ -30,8 +30,8 @@ export default function Blog() {
             gobernanza ambiental y biotecnología territorial.
           </p>
           <div className="grid-3">
-            {BLOG_POSTS.map((post, i) => (
-              <Reveal key={post.title} variant="up" delay={i * 90}>
+            {POSTS.map((post, i) => (
+              <Reveal key={post.slug} variant="up" delay={Math.min(i, 5) * 90}>
                 <BlogCard post={post} />
               </Reveal>
             ))}

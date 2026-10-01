@@ -23,7 +23,7 @@
   --nx-gray: #f4f7f5;
   --nx-text: #1a2e24;
   --nx-muted: #5a7068;
-  --font: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
@@ -36,44 +36,36 @@ body {
 }
 
 /* ── SELECCIÓN DE TEXTO ────────────────────────────────
-   Por defecto, el texto NO es seleccionable en toda la página
-   (sensación de aplicación, evita el "resaltado" accidental).
-   Solo se permite seleccionar/escribir donde tiene sentido:
-   campos de formulario y contenido editable. Los elementos que
-   ejecutan una acción al hacer clic (botones, enlaces, etc.)
-   conservan el cursor de "mano". */
+   Todo el texto del sitio se puede seleccionar, copiar y pegar
+   (títulos, párrafos, servicios, proyectos, datos de contacto…).
+   Solo se conserva el cursor de "mano" en los elementos que
+   ejecutan una acción al hacer clic (botones, enlaces, etc.). */
 body {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: default;
+  -webkit-user-select: text;
+  user-select: text;
   -webkit-tap-highlight-color: transparent;
 }
-input,
-textarea,
-select,
-[contenteditable='true'],
-[contenteditable=''] {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-  cursor: text;
+::selection {
+  background: rgba(4, 169, 122, 0.28);
+}
+/* Arrastrar sobre un enlace selecciona su texto en lugar de «arrastrar el
+   enlace» (en Firefox lo resuelve draggable={false} en las tarjetas). */
+a {
+  -webkit-user-drag: none;
 }
 button,
 a,
 label,
 summary,
-[role='button'],
-[role='tab'],
-[role='link'],
+[role="button"],
+[role="tab"],
+[role="link"],
 [onclick],
-[tabindex]:not([tabindex='-1']) {
+[tabindex]:not([tabindex="-1"]) {
   cursor: pointer;
 }
 button:disabled,
-[aria-disabled='true'] {
+[aria-disabled="true"] {
   cursor: not-allowed;
 }
 
@@ -108,9 +100,9 @@ button:disabled,
   transform: translateY(-1px);
 }
 .btn-outline {
-  background: transparent;
-  color: var(--nx-white);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: white;
+  color: rgb(4, 46, 4);
+  border: 1px solid rgba(84, 11, 11, 0.4);
   border-radius: 4px;
   padding: 14px 28px;
   font-family: var(--font);
@@ -123,7 +115,7 @@ button:disabled,
 }
 .btn-outline:hover {
   border-color: var(--nx-mid);
-  color: var(--nx-mid);
+  color: green;
 }
 
 /* ── SECTIONS (compartidas) ───────────────────────── */
@@ -210,7 +202,7 @@ section.alt {
 }
 .feature-heading::before,
 .feature-heading::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, #c8e4d4);
@@ -360,4 +352,32 @@ img {
 .propuesta .valor-box {
   width: 100%;
   max-width: 880px;
+}
+
+/* ── Nota que enlaza el eje 3 con RSE para MiPymes ── */
+.eje-mipyme-note {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--nx-mid);
+  background: var(--nx-white);
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--nx-text);
+  max-width: 760px;
+}
+.eje-mipyme-note a {
+  color: var(--nx-dark);
+  font-weight: 700;
+}
+
+/* Carga de una página (solo se ve si la red es lenta). */
+.route-loading {
+  min-height: 70vh;
+}
+
+/* Foco visible en los botones compartidos. */
+.btn-primary:focus-visible,
+.btn-outline:focus-visible {
+  outline: 3px solid rgba(4, 169, 122, 0.5);
+  outline-offset: 3px;
 }

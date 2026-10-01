@@ -5,6 +5,34 @@
 //  de mantener sin tocar el JSX.
 // =====================================================
 
+// Imágenes importadas de forma estática (funciona igual en el navegador y en el
+// prerenderizado del servidor; el patrón `new URL(..., import.meta.url)` no).
+import img_iconos_inicio_mgb_2030 from "../assets/iconos_inicio/mgb-2030.png";
+import img_iconos_inicio_sbn_uicn from "../assets/iconos_inicio/sbn-uicn.png";
+import img_iconos_inicio_activity from "../assets/iconos_inicio/activity.png";
+import img_iconos_inicio_home from "../assets/iconos_inicio/home.png";
+import img_iconos_inicio_globe from "../assets/iconos_inicio/globe.png";
+import img_iconos_inicio_people from "../assets/iconos_inicio/people.png";
+import img_servicios_sost_estrategia from "../assets/servicios/sost-estrategia.svg";
+import img_servicios_sost_carbono from "../assets/servicios/sost-carbono.svg";
+import img_servicios_bio_linea_base from "../assets/servicios/bio-linea-base.svg";
+import img_servicios_bio_restauracion from "../assets/servicios/bio-restauracion.svg";
+import img_servicios_gob_institucional from "../assets/servicios/gob-institucional.svg";
+import img_servicios_gob_conflictos from "../assets/servicios/gob-conflictos.svg";
+import img_servicios_social_comunidades from "../assets/servicios/social-comunidades.svg";
+import img_servicios_social_negocios from "../assets/servicios/social-negocios.svg";
+import img_servicios_alianzas_multiactor from "../assets/servicios/alianzas-multiactor.svg";
+import img_servicios_alianzas_recursos from "../assets/servicios/alianzas-recursos.svg";
+import img_servicios_proyectos_formulacion from "../assets/servicios/proyectos-formulacion.svg";
+import img_servicios_proyectos_conocimiento from "../assets/servicios/proyectos-conocimiento.svg";
+import img_aliados_maser from "../assets/aliados/maser.png";
+import img_aliados_analisis_ambiental from "../assets/aliados/analisis-ambiental.png";
+import img_aliados_camara_comercio_palmira from "../assets/aliados/camara-comercio-palmira.png";
+import img_logos_portafolio_iclei from "../assets/logos_portafolio/iclei.jpeg";
+import img_logos_portafolio_inversiones_lopez from "../assets/logos_portafolio/inversiones-lopez.jpeg";
+
+import { NEW_ARTICLES } from "./blog/articulos.js";
+
 // ── Navegación principal ──────────────────────────────
 // `to` es la ruta de react-router. `cta` marca el botón destacado.
 export const NAV_ITEMS = [
@@ -24,6 +52,7 @@ export const NAV_ITEMS = [
     to: "/servicios",
     children: [
       { label: "Todos los Servicios", to: "/servicios", end: true },
+      { label: "RSE para MiPymes · Piloto 2026", to: "/rse-mipymes" },
       { label: "Ciudades y Territorios Sostenibles", to: "/servicios/eje-1" },
       { label: "Biodiversidad, SbN y Agroecología", to: "/servicios/eje-2" },
       {
@@ -73,15 +102,15 @@ export const VALOR_ITEMS = [
 export const SDG_BADGES = [
   {
     label: "MGB 2030",
-    icon: new URL("../assets/iconos_inicio/mgb-2030.png", import.meta.url).href,
+    icon: img_iconos_inicio_mgb_2030,
   },
   {
     label: "SbN/UICN",
-    icon: new URL("../assets/iconos_inicio/sbn-uicn.png", import.meta.url).href,
+    icon: img_iconos_inicio_sbn_uicn,
   },
   {
     label: "C+T+I",
-    icon: new URL("../assets/iconos_inicio/activity.png", import.meta.url).href,
+    icon: img_iconos_inicio_activity,
   },
 ];
 
@@ -89,26 +118,38 @@ export const SDG_BADGES = [
 // `icon` ahora referencia una imagen en src/assets/iconos_inicio
 export const PILLARS = [
   {
-    icon: new URL("../assets/iconos_inicio/home.png", import.meta.url).href,
+    icon: img_iconos_inicio_home,
     title: "Ciudades y Territorios Sostenibles",
+    to: "/servicios/eje-1",
   },
   {
-    icon: new URL("../assets/iconos_inicio/globe.png", import.meta.url).href,
+    icon: img_iconos_inicio_globe,
     title: "Biodiversidad, SbN y Agroecología",
+    to: "/servicios/eje-2",
   },
   {
-    icon: new URL("../assets/iconos_inicio/people.png", import.meta.url).href,
+    icon: img_iconos_inicio_people,
     title: "Innovación Social y Responsabilidad Territorial",
+    to: "/servicios/eje-3",
   },
   {
-    icon: new URL("../assets/iconos_inicio/activity.png", import.meta.url).href,
+    icon: img_iconos_inicio_activity,
     title: "Proyectos CTI · Ciencia, Tecnología e Innovación",
+    to: "/servicios/eje-4",
   },
 ];
 
+// CÓMO COMPLETAR LOS PERFILES DEL EQUIPO (genera confianza):
+//  · photo    → deja la foto en `src/assets/equipo/` e impórtala arriba, o usa
+//               una ruta pública ('/equipo/viviana.jpg' dentro de public/).
+//               Si queda vacío, se muestran las iniciales.
+//  · linkedin → URL completa del perfil (https://www.linkedin.com/in/...).
+//               Si queda vacío, no se muestra el botón.
 export const TEAM = [
   {
     initials: "GV",
+    photo: "",
+    linkedin: "",
     name: "Guillermo Alberto Vélez Tobar",
     position: "Co-fundador · Director Científico y Técnico",
     role: "Ecólogo M.Sc. · Consultor e Investigador",
@@ -171,6 +212,8 @@ export const TEAM = [
   },
   {
     initials: "JM",
+    photo: "",
+    linkedin: "",
     name: "Jaime Andrés Marín Molina",
     position: "Director Comercial",
     role: "Especialista Senior SbN · Ecología",
@@ -178,6 +221,8 @@ export const TEAM = [
   },
   {
     initials: "VS",
+    photo: "",
+    linkedin: "",
     name: "Viviana María Sánchez Escobar",
     position: "Socia · Gerente General",
     role: "Liderazgo Institucional · Gestión Empresarial · Innovación Social · RSE · Sostenibilidad",
@@ -185,30 +230,40 @@ export const TEAM = [
   },
   {
     initials: "JS",
+    photo: "",
+    linkedin: "",
     name: "Juan David Sabogal Gaviria",
     role: "Profesional SIG / Especialista en Educación en Derechos Humanos",
     bio: "Geógrafo bilingüe con experiencia en análisis geoespacial, ordenamiento territorial y gestión de información socioambiental. Especialista en Educación en Derechos Humanos, amplia experiencia en Sistemas de Información Geográfica (SIG), modelación territorial, cartografía temática y análisis socioambiental para la planificación, priorización y monitoreo de intervenciones basadas en la naturaleza.",
   },
   {
     initials: "PS",
+    photo: "",
+    linkedin: "",
     name: "Paola Andrea Sánchez Escobar",
     role: "Profesional Logística",
     bio: "Economista y Especialista en Gerencia en Logística Integral, con amplia experiencia en planeación operativa, administración de recursos, seguimiento financiero y gestión logística. Su experiencia contribuye a garantizar la eficiencia operativa, el control de recursos y la adecuada coordinación administrativa de los proyectos.",
   },
   {
     initials: "RV",
+    photo: "",
+    linkedin: "",
     name: "Robert Armando Vivas Tovar",
     role: "Profesional Diseño",
     bio: "Diseñador Industrial con más de 10 años de experiencia en sostenibilidad, innovación social y participación comunitaria. Especialista en el diseño y facilitación de metodologías de cocreación para la formulación e implementación de Soluciones Basadas en la Naturaleza (SbN), integrando comunidades, actores institucionales y sectores productivos. Cuenta con experiencia en economía circular, cambio climático, restauración ecológica y gobernanza ambiental, incluyendo la estrategia Ecobarrios Cali.",
   },
   {
     initials: "DC",
+    photo: "",
+    linkedin: "",
     name: "Derly Andrea Cabrera Gómez",
     role: "Ingeniera de Implementación SbN",
     bio: "Gerente de Proyectos PMP® con experiencia en los sectores gubernamental, industrial y de salud. Especialista en planificación estratégica, gestión de riesgos, seguimiento de proyectos, aseguramiento de la calidad y control de cumplimiento. Aporta capacidades para la coordinación operativa, el monitoreo de indicadores, la gestión de información y la articulación técnica para la implementación efectiva de Soluciones Basadas en la Naturaleza.",
   },
   {
     initials: "CM",
+    photo: "",
+    linkedin: "",
     name: "Carlos Gabriel Muñoz",
     role: "Asistente Técnico y de Campo",
     bio: "Técnico en Desarrollo de Software en formación, con conocimientos en gestión de información, bases de datos, herramientas digitales y soporte operativo. Apoya las actividades de levantamiento, procesamiento y organización de información técnica, así como el seguimiento y la sistematización de resultados del proyecto.",
@@ -569,104 +624,84 @@ export const PROJECTS = [
   {
     cat: "cat-sost",
     catLabel: "Sostenibilidad y Ambiente",
-    image: new URL("../assets/servicios/sost-estrategia.svg", import.meta.url)
-      .href,
+    image: img_servicios_sost_estrategia,
     title: "Estrategias de Sostenibilidad Corporativa",
     desc: "Hojas de ruta de sostenibilidad alineadas con estándares ESG y los ODS, integradas en la estrategia empresarial.",
   },
   {
     cat: "cat-sost",
     catLabel: "Sostenibilidad y Ambiente",
-    image: new URL("../assets/servicios/sost-carbono.svg", import.meta.url)
-      .href,
+    image: img_servicios_sost_carbono,
     title: "Medición de Huella de Carbono",
     desc: "Cuantificación de emisiones GEI y planes de reducción y compensación para empresas y territorios, con metodologías reconocidas.",
   },
   {
     cat: "cat-bio",
     catLabel: "Biodiversidad",
-    image: new URL("../assets/servicios/bio-linea-base.svg", import.meta.url)
-      .href,
+    image: img_servicios_bio_linea_base,
     title: "Estudios de Línea Base y Conservación",
     desc: "Línea base de biodiversidad y planes de manejo y conservación para proyectos productivos y territoriales.",
   },
   {
     cat: "cat-bio",
     catLabel: "Biodiversidad",
-    image: new URL("../assets/servicios/bio-restauracion.svg", import.meta.url)
-      .href,
+    image: img_servicios_bio_restauracion,
     title: "Restauración Ecológica",
     desc: "Restauración de ecosistemas degradados con especies nativas, enmiendas biológicas y monitoreo a largo plazo.",
   },
   {
     cat: "cat-gob",
     catLabel: "Gobernanza",
-    image: new URL("../assets/servicios/gob-institucional.svg", import.meta.url)
-      .href,
+    image: img_servicios_gob_institucional,
     title: "Fortalecimiento Institucional",
     desc: "Acompañamiento a entidades públicas en políticas, participación y toma de decisiones para una gestión territorial más eficaz.",
   },
   {
     cat: "cat-gob",
     catLabel: "Gobernanza",
-    image: new URL("../assets/servicios/gob-conflictos.svg", import.meta.url)
-      .href,
+    image: img_servicios_gob_conflictos,
     title: "Gestión de Conflictos Socioambientales",
     desc: "Espacios de diálogo y concertación para prevenir y transformar conflictos por el uso de recursos naturales.",
   },
   {
     cat: "cat-social",
     catLabel: "Innovación Social",
-    image: new URL(
-      "../assets/servicios/social-comunidades.svg",
-      import.meta.url,
-    ).href,
+    image: img_servicios_social_comunidades,
     title: "Proyectos con Comunidades",
     desc: "Iniciativas de impacto con metodologías participativas que fortalecen capacidades locales y soluciones desde el territorio.",
   },
   {
     cat: "cat-social",
     catLabel: "Innovación Social",
-    image: new URL("../assets/servicios/social-negocios.svg", import.meta.url)
-      .href,
+    image: img_servicios_social_negocios,
     title: "Modelos de Negocio con Impacto",
     desc: "Emprendimientos y modelos de negocio social que unen rentabilidad con beneficio ambiental y comunitario.",
   },
   {
     cat: "cat-alianzas",
     catLabel: "Alianzas y Articulación",
-    image: new URL(
-      "../assets/servicios/alianzas-multiactor.svg",
-      import.meta.url,
-    ).href,
+    image: img_servicios_alianzas_multiactor,
     title: "Articulación Multi-Actor",
     desc: "Coordinación entre sector privado, Estado, academia y comunidades para proyectos colaborativos de desarrollo sostenible.",
   },
   {
     cat: "cat-alianzas",
     catLabel: "Alianzas y Articulación",
-    image: new URL("../assets/servicios/alianzas-recursos.svg", import.meta.url)
-      .href,
+    image: img_servicios_alianzas_recursos,
     title: "Cooperación y Movilización de Recursos",
     desc: "Identificación de fuentes de financiación (cooperación, regalías, fondos públicos y privados) y formulación de propuestas para acceder a ellas.",
   },
   {
     cat: "cat-proyectos",
     catLabel: "Estructuración de Proyectos",
-    image: new URL(
-      "../assets/servicios/proyectos-formulacion.svg",
-      import.meta.url,
-    ).href,
+    image: img_servicios_proyectos_formulacion,
     title: "Formulación y Gestión de Proyectos",
     desc: "Formulación y gestión integral de proyectos territoriales, de la idea a los recursos y la implementación.",
   },
   {
     cat: "cat-proyectos",
     catLabel: "Estructuración de Proyectos",
-    image: new URL(
-      "../assets/servicios/proyectos-conocimiento.svg",
-      import.meta.url,
-    ).href,
+    image: img_servicios_proyectos_conocimiento,
     title: "Gestión del Conocimiento",
     desc: "Sistematización de experiencias y transferencia de aprendizajes para escalar soluciones en distintos territorios.",
   },
@@ -710,25 +745,21 @@ export const AGENDAS = [
 //  · url  → sitio web (se abre en pestaña nueva desde el botón con ícono de enlace).
 export const ALLIES = [
   {
-    logo: new URL("../assets/aliados/maser.png", import.meta.url).href,
+    logo: img_aliados_maser,
     name: "Maser",
     type: "Equipos e instrumentación ambiental",
     desc: "Compañía colombiana dedicada a la distribución, representación y asesoría de equipos e instrumentos que contribuyen a mejorar la calidad del medio ambiente.",
     url: "https://www.maser.com.co/nosotros",
   },
   {
-    logo: new URL("../assets/aliados/analisis-ambiental.png", import.meta.url)
-      .href,
+    logo: img_aliados_analisis_ambiental,
     name: "Análisis Ambiental",
     type: "Ingeniería y laboratorio",
     desc: "Asesoría en todos los procesos de ingeniería y laboratorio que requieran las empresas.",
     url: "https://aambiental.co/home/",
   },
   {
-    logo: new URL(
-      "../assets/aliados/camara-comercio-palmira.png",
-      import.meta.url,
-    ).href,
+    logo: img_aliados_camara_comercio_palmira,
     name: "Programa Tu Ciudad Innova y se Reinventa a la Acción",
     type: "Cámara de Comercio de Palmira",
     desc: "Iniciativa de la Cámara de Comercio de Palmira que impulsa la innovación y la reinvención del territorio, articulando actores locales para llevar las ideas a la acción.",
@@ -746,7 +777,12 @@ export const ALLIES = [
 //  · title    → titular del artículo.
 //  · preview  → resumen de 2-3 líneas.
 //  · date / author / readTime → metadatos (fecha, autor, tiempo de lectura).
+//  · body     → (opcional) texto completo. Si lo tiene, el artículo obtiene su
+//               propia URL (/blog/<slug>) y se incluye en el sitemap. Ver el
+//               formato en src/data/blog/articulos.js.
 export const BLOG_POSTS = [
+  // Artículos completos (con URL propia), sobre las búsquedas en crecimiento.
+  ...NEW_ARTICLES,
   {
     image: "",
     emoji: "🌿",
@@ -855,8 +891,9 @@ export const BLOG_POSTS = [
 
 // ── Formulario de contacto: opciones de los select ────
 export const CONTACT_ORG_TYPES = [
+  "MiPyme (micro, pequeña o mediana empresa)",
   "Gobierno municipal o departamental",
-  "Empresa privada",
+  "Empresa privada (gran empresa)",
   "Cooperación internacional",
   "Academia / Universidad",
   "Organización comunitaria o social",
@@ -868,10 +905,12 @@ export const CONTACT_INTEREST_AREAS = [
   "Biodiversidad y Soluciones basadas en la Naturaleza",
   "Innovación Social y Gobernanza",
   "Ciencia, Tecnología e Innovación (CTI)",
+  "RSE para MiPymes (piloto 2026)",
   "Múltiples ejes / Proyecto integral",
 ];
 
 export const CONTACT_TARGETS = [
+  "MiPymes de Palmira, Candelaria y el Valle del Cauca que quieren empezar en RSE",
   "Gobiernos municipales y departamentales con retos de planificación sostenible",
   "Empresas que buscan certificación ambiental o estrategias de sostenibilidad corporativa",
   "Comunidades y organizaciones sociales en procesos de desarrollo territorial",
@@ -887,13 +926,15 @@ export const FOOTER_NAV = [
   { label: "Proyectos", to: "/portafolio" },
   { label: "Red de Aliados", to: "/alianzas" },
   { label: "Blog", to: "/blog" },
+  { label: "Contacto", to: "/contacto" },
 ];
 
 export const FOOTER_TOPICS = [
-  { label: "Territorios Sostenibles", to: "/servicios" },
-  { label: "Biodiversidad y SbN", to: "/servicios" },
-  { label: "Innovación Social", to: "/servicios" },
-  { label: "CTI", to: "/servicios" },
+  { label: "Territorios Sostenibles", to: "/servicios/eje-1" },
+  { label: "Biodiversidad y SbN", to: "/servicios/eje-2" },
+  { label: "Innovación Social y RSE", to: "/servicios/eje-3" },
+  { label: "CTI", to: "/servicios/eje-4" },
+  { label: "RSE para MiPymes", to: "/rse-mipymes" },
 ];
 
 // =====================================================
@@ -907,17 +948,17 @@ export const COMPANY_INFO = {
   legalName: "NEXUS — Innovación y Alianzas para el Desarrollo Sostenible",
   shortName: "NEXUS",
   tagline: "Innovación y Alianzas para el Desarrollo Sostenible",
-  city: "Popayán, Cauca, Colombia",
+  city: "Candelaria, Valle del Cauca, Colombia",
   coverage: "Suroccidente colombiano y proyectos nacionales",
-  web: "nexussostenible.co",
-  email: "contacto@nexussostenible.co",
+  web: "nexusinnovacion.com",
+  email: "proyectos@nexusinnovacion.com",
   legalRep: "Viviana María Sánchez Escobar",
   scientificDirector: "Guillermo A. Vélez Tobar, Ecólogo M.Sc.",
 };
 
 // ── Quiénes Somos (descripción oficial) ───────────────
 export const ABOUT_INTRO = [
-  "NEXUS — Innovación y Alianzas para el Desarrollo Sostenible es una firma consultora colombiana especializada en la articulación de conocimiento científico, herramientas tecnológicas avanzadas y gestión territorial para impulsar procesos de transformación sostenible en municipios, empresas, comunidades e instituciones. Fundada en Candelaria, Valle, Palmira, NEXUS opera en la intersección entre la academia, el sector público y la empresa privada, ofreciendo soluciones integrales que combinan rigor técnico con sensibilidad social y visión estratégica de largo plazo.",
+  "NEXUS — Innovación y Alianzas para el Desarrollo Sostenible es una firma consultora colombiana especializada en la articulación de conocimiento científico, herramientas tecnológicas avanzadas y gestión territorial para impulsar procesos de transformación sostenible en municipios, empresas, comunidades e instituciones. Fundada en Candelaria, Valle del Cauca, NEXUS opera en la intersección entre la academia, el sector público y la empresa privada, ofreciendo soluciones integrales que combinan rigor técnico con sensibilidad social y visión estratégica de largo plazo.",
   "La naturaleza multidisciplinaria de NEXUS le permite abordar desafíos complejos donde convergen la planificación urbana, la gestión ambiental, la agroecología, la responsabilidad social corporativa y la innovación tecnológica aplicada. Esta capacidad diferencial es resultado de un equipo con formación de posgrado, experiencia institucional en entidades del orden municipal, departamental y nacional, y un historial comprobado en proyectos de alta complejidad técnica y financiera.",
   "NEXUS se posiciona como el aliado estratégico que transforma la información en conocimiento accionable, los diagnósticos en planes ejecutables y las alianzas en resultados medibles. Nuestra propuesta descansa en la integración de metodologías científicas de vanguardia con herramientas digitales, la capacidad de articular actores heterogéneos —Estado, empresa, comunidad y academia— en torno a objetivos comunes, y la producción de entregables de calidad institucional, listos para radicación ante organismos financiadores, autoridades ambientales y entes de control.",
 ];
@@ -1095,8 +1136,7 @@ export const PGAU_PRINCIPLES = [
 export const CASE_STUDIES = [
   {
     client: "ICLEI",
-    logo: new URL("../assets/logos_portafolio/iclei.jpeg", import.meta.url)
-      .href,
+    logo: img_logos_portafolio_iclei,
     year: "2025",
     type: "Soluciones basadas en la Naturaleza",
     title: "Dos SbN para la gestión del riesgo y la resiliencia climática",
@@ -1113,10 +1153,7 @@ export const CASE_STUDIES = [
   },
   {
     client: "Inversiones López",
-    logo: new URL(
-      "../assets/logos_portafolio/inversiones-lopez.jpeg",
-      import.meta.url,
-    ).href,
+    logo: img_logos_portafolio_inversiones_lopez,
     year: "2025",
     type: "Responsabilidad Social Empresarial · ASG",
     title: "Política Institucional de RSE con criterios ASG",

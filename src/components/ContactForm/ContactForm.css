@@ -63,3 +63,67 @@
   justify-content: center;
   min-height: 65px;
 }
+
+/* ── Ajustes: fila de dos campos, error y aviso legal ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: end;
+}
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+.form-error {
+  color: #b3261e;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
+.form-error a {
+  color: var(--nx-dark);
+  font-weight: 700;
+}
+.form-legal {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--nx-muted);
+  margin: 0;
+}
+.form-legal a {
+  color: var(--nx-dark);
+}
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--nx-text);
+}
+.form-check input {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--nx-mid);
+  cursor: pointer;
+}
+.form-submit:disabled {
+  opacity: 0.7;
+}
+.form-submit:focus-visible,
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 3px solid rgba(4, 169, 122, 0.35);
+  outline-offset: 2px;
+}
+
+/* El aviso de reCAPTCHA ya se muestra en el formulario (lo exige Google para
+   poder ocultar el badge), así el badge no tapa el botón de WhatsApp. */
+.grecaptcha-badge {
+  visibility: hidden;
+}

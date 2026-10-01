@@ -62,3 +62,56 @@
     gap: 2rem;
   }
 }
+
+/* ── Canales directos ─────────────────────────────── */
+.contact-channels {
+  margin-bottom: 2rem;
+  user-select: text;
+}
+.contact-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 4px;
+  background: #1f7a4d;
+  color: var(--nx-white);
+  font-size: 20.8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.contact-wa:hover {
+  background: var(--nx-dark);
+}
+.contact-wa:focus-visible {
+  outline: 3px solid rgba(4, 169, 122, 0.45);
+  outline-offset: 2px;
+}
+.contact-channels .contact-data {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+.contact-channels .contact-data-val a {
+  color: var(--nx-dark);
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-word;
+}
+.contact-channels .contact-data-val a:hover {
+  text-decoration: underline;
+}
+.contact-pilot {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--nx-mid);
+  background: var(--nx-light);
+  font-size: 19px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0 !important;
+}
+.contact-pilot a {
+  color: var(--nx-dark);
+  font-weight: 700;
+}

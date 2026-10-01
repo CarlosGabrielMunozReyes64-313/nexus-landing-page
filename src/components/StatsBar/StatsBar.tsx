@@ -3,7 +3,7 @@ import CountUp, { parseStatNum } from '../CountUp/CountUp';
 import './StatsBar.css';
 
 // Barra de cifras de impacto (página de inicio).
-// Cada número arranca en 0 y se anima hasta su valor al hacerse visible.
+// La cifra final viene en el HTML; si está fuera de pantalla, se anima al llegar a ella.
 export default function StatsBar() {
   return (
     <div className="stats-bar">

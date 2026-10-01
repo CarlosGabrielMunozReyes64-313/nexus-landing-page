@@ -1,0 +1,45 @@
+/* ── Referidos (Red de Aliados) ───────────────────── */
+.ally-referral {
+  margin-top: 4.5rem;
+  padding: 2.25rem;
+  border-radius: 14px;
+  background: var(--nx-dark);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+}
+.ally-referral-text h2 {
+  font-size: clamp(26px, 3vw, 34px);
+  color: var(--nx-white);
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+.ally-referral-text p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 640px;
+}
+.ally-referral-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+.ally-referral-link {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--nx-white);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.ally-referral-link:hover {
+  color: var(--nx-mid);
+}
+@media (max-width: 820px) {
+  .ally-referral {
+    grid-template-columns: 1fr;
+    padding: 1.75rem;
+  }
+}

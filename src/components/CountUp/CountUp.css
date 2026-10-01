@@ -1,0 +1,14 @@
+/* ── Cifras con conteo (CountUp) ─────────────────────
+   Mientras carga la página, la cifra (que ya viene escrita en el HTML
+   para Google) se oculta un instante para que el conteo arranque desde 0
+   sin «saltos». Si por algún motivo el JavaScript no carga, la cifra
+   final aparece sola a los 2,5 segundos. */
+.countup[data-state="pending"] {
+  opacity: 0;
+  animation: countup-failsafe 0s linear 2.5s forwards;
+}
+@keyframes countup-failsafe {
+  to {
+    opacity: 1;
+  }
+}

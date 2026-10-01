@@ -1,7 +1,10 @@
 import Hero from '../components/Hero/Hero';
 import AgendaCard from '../components/AgendaCard/AgendaCard';
 import AllyCard from '../components/AllyCard/AllyCard';
+import { Link } from 'react-router-dom';
 import { AGENDAS, ALLIES } from '../data/siteData';
+import { PILOT, whatsappLink, WHATSAPP_MESSAGES } from '../config/site';
+import './Alianzas.css';
 
 export default function Alianzas() {
   return (
@@ -47,6 +50,32 @@ export default function Alianzas() {
               {ALLIES.map((ally) => (
                 <AllyCard key={ally.name} ally={ally} />
               ))}
+            </div>
+          </div>
+
+          {/* La red también es una fuente de referidos. */}
+          <div className="ally-referral">
+            <div className="ally-referral-text">
+              <h2>¿Conoce una empresa que debería estar aquí?</h2>
+              <p>
+                {PILOT.active
+                  ? `Si conoce una MiPyme de ${PILOT.municipalities.join(' o ')} que quiera empezar en RSE, recomiéndela para el piloto de ${PILOT.slots} cupos. Y si su organización quiere sumarse a la red de aliados, escríbanos.`
+                  : 'Si conoce una empresa que quiera empezar en RSE, o una organización que quiera sumarse a la red de aliados, escríbanos.'}
+              </p>
+            </div>
+            <div className="ally-referral-actions">
+              <a
+                className="btn-primary"
+                href={whatsappLink(WHATSAPP_MESSAGES.referral)}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="aliados-referido"
+              >
+                Recomendar una empresa
+              </a>
+              <Link className="ally-referral-link" to="/contacto">
+                Quiero ser aliado
+              </Link>
             </div>
           </div>
         </div>

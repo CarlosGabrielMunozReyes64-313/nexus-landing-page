@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { SERVICES } from '../../data/siteData';
 import ServiceMosaic from '../../components/ServiceMosaic/ServiceMosaic';
 
@@ -22,6 +23,13 @@ export default function ServicioEje({ id }) {
         <div className="section-tag">{service.name}</div>
         <h2 className="section-title">{service.svcTitle}</h2>
         <p className="section-body">{service.desc}</p>
+
+        {id === 'tab3' && (
+          <p className="eje-mipyme-note">
+            ¿Tiene una MiPyme en el Valle del Cauca?{' '}
+            <Link to="/rse-mipymes">Conozca RSE para MiPymes: diagnóstico con IA y un reto concreto</Link>.
+          </p>
+        )}
 
         <ServiceMosaic ejeId={id} />
       </div>

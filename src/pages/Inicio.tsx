@@ -1,15 +1,14 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Hero from '../components/Hero/Hero';
 import StatsBar from '../components/StatsBar/StatsBar';
 import ValorBox from '../components/ValorBox/ValorBox';
 import PillarCard from '../components/PillarCard/PillarCard';
 import SDGCake from '../components/SDGCake/SDGCake';
+import PilotBand from '../components/PilotBand/PilotBand';
 import { SDG_BADGES, PILLARS, PGAU_FRAMEWORK, PGAU_ALIGNMENT } from '../data/siteData';
 import './Inicio.css';
 
 export default function Inicio() {
-  const navigate = useNavigate();
-
   return (
     <>
       <Hero
@@ -27,15 +26,18 @@ export default function Inicio() {
         }
         subtitle="Somos un aliado que articula actores, saberes y estrategias para acelerar la transición hacia territorios resilientes, biodiversos e inclusivos."
       >
-        <button className="btn-primary" onClick={() => navigate('/contacto')}>
+        <Link className="btn-primary" to="/contacto">
           Conversemos sobre tu proyecto
-        </button>
-        <button className="btn-outline" onClick={() => navigate('/portafolio')}>
+        </Link>
+        <Link className="btn-outline" to="/portafolio">
           Ver portafolio de experiencia
-        </button>
+        </Link>
       </Hero>
 
       <StatsBar />
+
+      {/* Puerta de entrada para MiPymes (piloto RSE) */}
+      <PilotBand />
 
       {/* Propuesta de valor */}
       <section>
