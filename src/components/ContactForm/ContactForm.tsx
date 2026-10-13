@@ -68,7 +68,13 @@ export default function ContactForm() {
 
   return (
     <>
-      <form className="contact-form" onSubmit={handleSubmit}>
+      {/* id="formulario": destino de los botones «Llenar el formulario» (/contacto#formulario). */}
+      <form
+        id="formulario"
+        className="contact-form"
+        onSubmit={handleSubmit}
+        style={{ scrollMarginTop: "calc(var(--nav-h, 70px) + 16px)" }}
+      >
         <div className="form-group">
           <label htmlFor="nombre">Nombre completo</label>
           <input

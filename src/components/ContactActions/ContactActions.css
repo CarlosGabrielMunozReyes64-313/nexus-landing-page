@@ -1,0 +1,143 @@
+/* ── Botones de contacto directo ───────────────────── */
+.ca-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.ca-list li {
+  display: flex;
+}
+/* Si queda un botón solo en la última fila, ocupa todo el ancho. */
+.ca-list li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.ca-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 14px 18px;
+  border-radius: 4px;
+  border: 1px solid #c8e4d4;
+  background: var(--nx-white);
+  color: var(--nx-dark);
+  font-family: var(--font);
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.ca-btn svg {
+  flex-shrink: 0;
+  color: var(--nx-mid);
+}
+.ca-btn:hover {
+  border-color: var(--nx-mid);
+  background: var(--nx-light);
+}
+.ca-btn:focus-visible {
+  outline: 3px solid rgba(4, 169, 122, 0.5);
+  outline-offset: 2px;
+}
+
+.ca-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ca-label {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.ca-detail {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--nx-muted);
+}
+.ca-detail--email {
+  /* Corta solo después de la «@» (ver <wbr> en el componente). */
+  overflow-wrap: break-word;
+}
+
+/* WhatsApp: el canal principal, mismo verde que en Contacto. */
+.ca-btn--wa {
+  background: #1f7a4d;
+  border-color: #1f7a4d;
+  color: var(--nx-white);
+}
+.ca-btn--wa svg,
+.ca-btn--wa .ca-detail {
+  color: rgba(255, 255, 255, 0.85);
+}
+.ca-btn--wa:hover {
+  background: var(--nx-dark);
+  border-color: var(--nx-dark);
+}
+
+/* ── Sobre fondo verde oscuro (p. ej. cierre de un artículo) ── */
+.ca--dark {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+.ca--dark .ca-intro {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 1rem;
+}
+.ca--dark .ca-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--nx-white);
+}
+.ca--dark .ca-btn svg {
+  color: #7fd9b3;
+}
+.ca--dark .ca-btn .ca-detail {
+  color: rgba(255, 255, 255, 0.72);
+}
+.ca--dark .ca-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.ca--dark .ca-btn--wa {
+  background: #1f7a4d;
+  border-color: #1f7a4d;
+}
+.ca--dark .ca-btn--wa svg {
+  color: var(--nx-white);
+}
+.ca--dark .ca-btn--wa:hover {
+  background: var(--nx-mid);
+  border-color: var(--nx-mid);
+}
+.ca--dark .ca-btn:focus-visible {
+  outline-color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 520px) {
+  .ca-list {
+    grid-template-columns: 1fr;
+  }
+  .ca-btn {
+    min-height: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ca-btn {
+    transition: none;
+  }
+}
+@media print {
+  .ca {
+    display: none;
+  }
+}

@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import { whatsappLink, WHATSAPP_MESSAGES } from '../../config/site';
+import { SITE, whatsappLink, WHATSAPP_MESSAGES } from '../../config/site';
+import { PhoneIcon, MailIcon } from '../icons/ContactIcons';
 import './WhatsAppButton.css';
 
 // Ícono de WhatsApp (trazo simplificado, hereda el color).
@@ -15,26 +16,42 @@ export function WhatsAppIcon({ size = 28 }: { size?: number }) {
 }
 
 /*
-  Botón flotante de WhatsApp. El mensaje prellenado cambia según la página
-  (en la de MiPymes menciona el piloto). El clic se mide automáticamente
-  como evento `whatsapp_click` (ver src/lib/analytics.ts).
+  Botones flotantes de contacto: WhatsApp (principal), llamada y correo.
+  Siempre a mano, en todas las páginas, para entrar en contacto con un clic.
+  · WhatsApp: el mensaje prellenado cambia según la página (en la de
+    MiPymes y en el blog menciona el piloto).
+  · Llamar / correo: botones redondos; al pasar el cursor muestran el
+    número o el correo (útil en computador, donde `tel:` no siempre abre).
+  Los clics se miden solos como whatsapp_click, phone_click y email_click
+  (ver src/lib/analytics.ts).
 */
 export default function WhatsAppButton() {
   const { pathname } = useLocation();
   const isPilot = pathname.startsWith('/rse-mipymes') || pathname.startsWith('/blog/');
   const href = whatsappLink(isPilot ? WHATSAPP_MESSAGES.pilot : WHATSAPP_MESSAGES.general);
+  const mailto = `mailto:${SITE.email}?subject=${encodeURIComponent('Consulta desde el sitio web')}`;
 
   return (
-    <a
-      className="wa-float"
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Escribir a NEXUS por WhatsApp"
-      data-track="boton-flotante"
-    >
-      <WhatsAppIcon />
-      <span className="wa-float-label">Escríbanos</span>
-    </a>
+    <div className="contact-dock" role="group" aria-label="Contacto directo con NEXUS">
+      <a className="dock-btn" href={mailto} data-track="boton-flotante" aria-label={`Enviar un correo a ${SITE.email}`}>
+        <MailIcon size={22} />
+        <span className="dock-tip" aria-hidden="true">{SITE.email}</span>
+      </a>
+      <a className="dock-btn" href={`tel:${SITE.phoneE164}`} data-track="boton-flotante" aria-label={`Llamar al ${SITE.phoneDisplay}`}>
+        <PhoneIcon size={22} />
+        <span className="dock-tip" aria-hidden="true">Llamar al {SITE.phoneDisplay}</span>
+      </a>
+      <a
+        className="wa-float"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Escribir a NEXUS por WhatsApp"
+        data-track="boton-flotante"
+      >
+        <WhatsAppIcon />
+        <span className="wa-float-label">Escríbanos</span>
+      </a>
+    </div>
   );
 }

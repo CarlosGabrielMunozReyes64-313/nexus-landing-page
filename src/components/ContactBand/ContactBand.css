@@ -1,0 +1,47 @@
+/* ── Franja de contacto antes del pie ──────────────── */
+.contact-band {
+  background: var(--nx-light);
+  border-top: 1px solid #c8e4d4;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.contact-band-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+  gap: 2.5rem 3.5rem;
+  align-items: center;
+}
+.contact-band-title {
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--nx-dark);
+  margin-bottom: 0.75rem;
+}
+.contact-band-body {
+  font-size: 21px;
+  line-height: 1.7;
+  color: var(--nx-muted);
+  max-width: 34ch;
+}
+
+@media (max-width: 900px) {
+  .contact-band-inner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .contact-band-body {
+    max-width: none;
+  }
+}
+@media (max-width: 640px) {
+  .contact-band {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+@media print {
+  .contact-band {
+    display: none;
+  }
+}

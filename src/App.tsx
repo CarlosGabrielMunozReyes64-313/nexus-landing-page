@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import Leaves from './components/Leaves/Leaves'
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
+import ContactBand from './components/ContactBand/ContactBand'
 import SeoHead from './seo/SeoHead'
 import AnalyticsTracker from './components/AnalyticsTracker/AnalyticsTracker'
 import {
@@ -78,6 +79,8 @@ export default function App() {
         </Suspense>
       </main>
 
+      {/* Franja de contacto directo (WhatsApp, llamada, correo, formulario) */}
+      {!isDemo && <ContactBand />}
       {!isDemo && <Footer />}
       {!isDemo && <WhatsAppButton />}
     </>

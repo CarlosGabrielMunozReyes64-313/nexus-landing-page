@@ -4,7 +4,8 @@ import BlogCard from '../components/BlogCard/BlogCard';
 import NotFound from './NotFound';
 import { getArticle, ARTICLES } from '../lib/blog';
 import { renderRichText } from '../lib/richText';
-import { PILOT } from '../config/site';
+import ContactActions from '../components/ContactActions/ContactActions';
+import { PILOT, WHATSAPP_MESSAGES } from '../config/site';
 import './BlogPost.css';
 
 // Página de un artículo del blog (/blog/:slug). Solo existen para los
@@ -55,6 +56,16 @@ export default function BlogPost() {
                 </Link>
               </>
             )}
+
+            {/* Contacto directo: llamar, escribir o abrir el chat sin salir del artículo. */}
+            <ContactActions
+              tone="dark"
+              track="articulo"
+              intro="O comuníquese directamente:"
+              whatsappMessage={toPilot ? WHATSAPP_MESSAGES.pilot : WHATSAPP_MESSAGES.general}
+              emailSubject={`Consulta desde el blog: ${post.title}`}
+              showForm={false}
+            />
           </aside>
 
           <p className="post-back">

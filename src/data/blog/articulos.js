@@ -223,7 +223,77 @@ Antes de lanzar un mensaje ambiental, hágase estas preguntas:
 La mejor protección contra el greenwashing es una gestión real y medida. En NEXUS ayudamos a las empresas a definir indicadores, medir su línea base (por ejemplo, su huella de carbono) y comunicar sus avances con datos.`,
 };
 
+export const HUELLA_CARBONO_PYME = {
+  slug: 'huella-de-carbono-para-pymes-como-medirla',
+  image: '',
+  emoji: '👣',
+  bg: '#E6F4EC',
+  topic: 'Huella de carbono',
+  title: 'Huella de carbono para pymes: qué es y cómo medirla paso a paso',
+  preview:
+    'Medir la huella de carbono ya no es solo cosa de grandes empresas: clientes, compradores y entidades públicas empiezan a pedir el dato. Le explicamos qué incluye, cómo se calcula y por dónde empezar con la información que su empresa ya tiene.',
+  date: '13 oct 2026',
+  isoDate: '2026-10-13',
+  author: 'Equipo NEXUS',
+  related: '/portafolio',
+  body: `La huella de carbono de una empresa es la cantidad total de gases de efecto invernadero (GEI) que emite su actividad durante un periodo, normalmente un año. Se expresa en toneladas de dióxido de carbono equivalente (t CO₂e), una unidad que permite sumar gases distintos, como el metano o el óxido nitroso, según su efecto sobre el clima.
+
+Para una pyme, medirla es el primer paso para controlar costos de energía y combustible, responder a los clientes que la piden y comunicar avances con datos, sin caer en el greenwashing.
+
+## Por qué cada vez más pymes la miden
+
+- **Cadenas de suministro.** Las empresas grandes que reportan sus emisiones necesitan datos de sus proveedores, porque las emisiones de su cadena de valor hacen parte de su propio inventario.
+- **Compras y financiación.** Algunas convocatorias, compradores y entidades financieras valoran que la empresa conozca y reduzca su impacto ambiental.
+- **Ahorro.** Las principales fuentes de emisiones de una pyme suelen ser la electricidad y los combustibles: medirlas muestra dónde se gasta de más.
+- **Compromisos del país.** Con la Ley de Acción Climática (Ley 2169 de 2021), Colombia se fijó la meta de reducir en 51 % sus emisiones a 2030 frente al escenario de referencia y alcanzar la carbono neutralidad a 2050. Las empresas son parte de ese camino.
+
+## Los tres alcances
+
+El estándar más usado en el mundo para medir las emisiones de una organización es el GHG Protocol. La norma ISO 14064-1 organiza el inventario en categorías que siguen una lógica parecida. En el GHG Protocol las emisiones se ordenan en tres alcances:
+
+- **Alcance 1, emisiones directas:** los combustibles que la empresa quema en sus vehículos, plantas eléctricas, calderas o estufas, y las fugas de gases refrigerantes de neveras y aires acondicionados.
+- **Alcance 2, energía comprada:** la electricidad que la empresa toma de la red.
+- **Alcance 3, otras emisiones indirectas:** las que ocurren en la cadena de valor, como materias primas, transporte contratado, viajes de trabajo, desplazamiento de los empleados y residuos.
+
+Una pyme puede empezar por los alcances 1 y 2, que son los más fáciles de medir, y sumar el alcance 3 poco a poco, comenzando por las fuentes más importantes para su negocio.
+
+## Cómo se calcula
+
+La fórmula básica es sencilla:
+
+**Emisiones = dato de actividad × factor de emisión**
+
+El dato de actividad es lo que la empresa consumió: kilovatios hora de electricidad, galones de diésel o gasolina, metros cúbicos de gas natural. El factor de emisión indica cuánto CO₂e se emite por cada unidad. En Colombia, la UPME publica el factor de emisión de la electricidad del Sistema Interconectado Nacional y los factores de emisión de los combustibles colombianos (FECOC), que son la referencia para los cálculos locales.
+
+Por ejemplo, si una empresa compró 2.000 galones de diésel en el año, multiplica esa cantidad por el factor de emisión del diésel y obtiene las emisiones de su flota. Repite el cálculo con cada fuente y suma los resultados.
+
+## Cinco pasos para medirla
+
+1. **Defina los límites.** Qué sedes, vehículos y procesos incluye el inventario, y qué año va a medir.
+2. **Reúna los datos.** Facturas de energía y gas, compras de combustible, registros de recarga de refrigerantes y, si los tiene, datos de residuos y transporte.
+3. **Aplique los factores de emisión.** Use factores oficiales y actualizados, y anote la fuente de cada uno.
+4. **Sume y revise.** Identifique las dos o tres fuentes que más pesan: ahí están las oportunidades de reducción.
+5. **Documente todo.** Un inventario que se puede verificar vale más que una cifra sin respaldo, y será su línea base para medir avances.
+
+## Después de medir: reducir, y solo luego compensar
+
+La medición tiene sentido si lleva a decisiones. Las acciones más comunes en una pyme son:
+
+- Cambiar a iluminación y equipos eficientes.
+- Revisar rutas, mantenimiento y forma de conducción de los vehículos.
+- Hacer mantenimiento preventivo a los equipos de refrigeración para evitar fugas.
+- Evaluar paneles solares u otras fuentes de energía renovable.
+- Trabajar con los proveedores para reducir empaques y transporte.
+
+La compensación, es decir, apoyar proyectos que reducen o capturan carbono fuera de la empresa, llega después de reducir lo propio. Decir que una empresa es «carbono neutral» exige una medición sólida, reducciones reales y compensaciones verificables; de lo contrario, se corre el riesgo de hacer greenwashing.
+
+## Cómo lo trabajamos en NEXUS
+
+En NEXUS medimos la huella de carbono de empresas y territorios con metodologías reconocidas, proponemos un plan de reducción a la medida y ayudamos a comunicar los resultados con evidencia. Si su empresa quiere dar el primer paso, empiece por reunir las facturas de energía y combustible del último año: con eso ya tiene un punto de partida.`,
+};
+
 export const NEW_ARTICLES = [
+  HUELLA_CARBONO_PYME, // el más reciente va primero
   RSE_PYMES_POR_DONDE_EMPEZAR,
   INFORME_SOSTENIBILIDAD_PYME,
   SOSTENIBILIDAD_SOCIAL,
