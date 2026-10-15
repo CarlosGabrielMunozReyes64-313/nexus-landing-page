@@ -1,6 +1,6 @@
 import { CORPORATE_VALUES } from '../../data/siteData';
 import IdentityBlock from '../../components/IdentityBlock/IdentityBlock';
-import ImgPrincipios from '../../assets/Quienes/Los-principios-que-guian-cada-decision.jpg';
+import ImgPrincipios from '../../assets/Quienes/Los-principios-que-guian-cada-decision.webp';
 
 // Vista "Nuestros Principios": únicamente los valores corporativos.
 export default function QuienesPrincipios() {

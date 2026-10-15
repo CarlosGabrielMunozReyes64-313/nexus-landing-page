@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { NAV_ITEMS } from '../../data/siteData';
 import Logo from '../icons/Logo';
 import LetrasLogo from '../icons/LetrasLogo';
@@ -11,6 +11,7 @@ export default function Navbar() {
   // Submenú abierto actualmente (por etiqueta). null = ninguno.
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
+  const { pathname } = useLocation();
 
   const close = () => {
     setOpen(false);
@@ -97,7 +98,11 @@ export default function Navbar() {
                 <NavLink
                   to={item.to}
                   onClick={close}
-                  className={({ isActive }) => (isActive ? 'active' : '')}
+                  className={({ isActive }) =>
+                    isActive || ((item as any).match && pathname.startsWith((item as any).match))
+                      ? 'active'
+                      : ''
+                  }
                 >
                   {item.label}
                 </NavLink>

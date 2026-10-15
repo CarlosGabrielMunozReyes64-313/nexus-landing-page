@@ -139,3 +139,22 @@ lo publique).
 Repetir la misma descripción en el sitio, Google Business, LinkedIn y
 directorios ayuda a que Google, ChatGPT y Gemini ubiquen a NEXUS en su mercado
 real (y no como empresa de software).
+
+---
+
+## 6. Segunda ronda de SEO (15/10/2026)
+
+- **Nombre de marca «NEXUS Innovación»** en títulos, `og:site_name` y datos
+  estructurados (Organization y WebSite, con «NEXUS» como nombre alternativo).
+  «NEXUS» a secas compite con cientos de empresas «Nexus» en el mundo; así el
+  nombre coincide con el dominio y la razón social. Se cambia en
+  `src/config/site.ts` → `SITE.seoName`.
+- **Un H1 distinto por página**: las 4 páginas de Quiénes somos y las 5 de
+  Servicios compartían el mismo H1. Ahora cada una describe su contenido
+  (p. ej. «Consultoría en Biodiversidad, SbN y Agroecología»).
+- **Portada**: el rótulo sobre el H1 dice qué es NEXUS y dónde está
+  («Consultora de sostenibilidad y RSE · Valle del Cauca»).
+- **Enlaces internos sin redirección**: el menú y el pie enlazaban a `/quienes`
+  (que redirige); ahora van directo a `/quienes/modelo`.
+- **Imágenes en WebP** (carrusel, ejes, Quiénes somos y fondo de los
+  encabezados): de 3,97 MB a 2,10 MB, con tamaño ajustado al uso real.

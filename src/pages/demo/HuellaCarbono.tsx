@@ -66,7 +66,7 @@ export default function HuellaCarbono() {
 
         <div className={styles.container}>
           <div className={styles.header}>
-            <h1>🌍 EcoCalc</h1>
+            <h1>🌍 Calculadora de huella de carbono</h1>
             <p>Calculadora Inteligente de Huella de Carbono</p>
           </div>
 

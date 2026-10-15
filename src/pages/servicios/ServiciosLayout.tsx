@@ -1,6 +1,7 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Hero from '../../components/Hero/Hero';
 import SubNav from '../../components/SubNav/SubNav';
+import { SERVICES } from '../../data/siteData';
 
 // Subpestañas de Servicios: una vista general + una vista por cada eje.
 // Mismo patrón que "Quiénes Somos": cada subpestaña es una ruta real.
@@ -13,17 +14,36 @@ const SERVICIOS_SUBNAV = [
 ];
 
 export default function ServiciosLayout() {
+  const { pathname } = useLocation();
+  // Cada eje tiene su propio H1 (antes las cinco páginas compartían
+  // «Nuestro portafolio de servicios»), para que Google sepa de qué trata.
+  const m = pathname.match(/\/servicios\/eje-(\d)/);
+  const eje = m ? (SERVICES as any[])[Number(m[1]) - 1] : undefined;
+
   return (
     <>
-      <Hero
-        small
-        tag="Soluciones de Vanguardia"
-        title={
-          <>
-            Nuestro portafolio de <span>servicios</span>
-          </>
-        }
-      />
+      {eje ? (
+        <Hero
+          small
+          longTitle
+          tag={`Eje ${m![1]} · Nuestros servicios`}
+          title={
+            <>
+              Consultoría en <span>{eje.svcTitle}</span>
+            </>
+          }
+        />
+      ) : (
+        <Hero
+          small
+          tag="Nuestro portafolio de servicios"
+          title={
+            <>
+              Servicios de sostenibilidad, RSE y <span>desarrollo territorial</span>
+            </>
+          }
+        />
+      )}
       <SubNav items={SERVICIOS_SUBNAV} ariaLabel="Servicios de NEXUS" />
       <Outlet />
     </>

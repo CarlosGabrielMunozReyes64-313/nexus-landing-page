@@ -14,7 +14,7 @@ export default function Inicio() {
       <Hero
         carousel
         brand
-        tag="Innovación · Alianzas · Desarrollo Sostenible"
+        tag="Consultora de sostenibilidad y RSE · Valle del Cauca"
         title={
           <>
             Conectamos conocimiento,

@@ -1,6 +1,6 @@
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
 // Imagen de fondo para los hero compactos (Quiénes, Ejes, Portafolio, Alianzas, Blog).
-import cienagaBg from '../../assets/hero-pages/WhatsApp Image 2026-06-16 at 3.25.19 PM.jpeg';
+import cienagaBg from '../../assets/hero-pages/cienaga.webp';
 // Versiones en blanco del logo para que se lean nítidas sobre el hero oscuro.
 import simboloBlanco from '../../assets/Logo_Nexus/soloLogoNEXUS_white.png';
 import letrasBlanco from '../../assets/Logo_Nexus/LogoNexusLETRAS_white.png';
@@ -14,6 +14,8 @@ type HeroProps = {
   small?: boolean;
   carousel?: boolean;
   brand?: boolean;
+  /** Título largo: usa un tamaño de letra menor para no ocupar 4 líneas. */
+  longTitle?: boolean;
   children?: ReactNode;
 };
 
@@ -28,6 +30,7 @@ export default function Hero({
   small = false,
   carousel = false,
   brand = false,
+  longTitle = false,
   children,
 }: HeroProps) {
   const bgStyle = small ? { backgroundImage: `url(${cienagaBg})` } : undefined;
@@ -52,12 +55,12 @@ export default function Hero({
             <img
               className="hero-brand-letters"
               src={letrasBlanco}
-              alt="NEXUS — Alianzas e innovación"
+              alt="NEXUS Innovación — Alianzas para el desarrollo sostenible"
             />
           </div>
         )}
         {tag && <div className="hero-tag">{tag}</div>}
-        {title && <h1>{title}</h1>}
+        {title && <h1 className={longTitle ? 'hero-title-long' : undefined}>{title}</h1>}
         {subtitle && <p className="hero-sub">{subtitle}</p>}
         {children && <div className="hero-btns">{children}</div>}
       </div>

@@ -1,6 +1,6 @@
 import { ABOUT_INTRO, MISSION, VISION, VALUE_PROPOSITION, COMPANY_INFO } from '../../data/siteData';
 import IdentityBlock from '../../components/IdentityBlock/IdentityBlock';
-import ImgCapacidades from '../../assets/Quienes/Capacidades-integradas-en-una-sola-plataforma.jpg';
+import ImgCapacidades from '../../assets/Quienes/Capacidades-integradas-en-una-sola-plataforma.webp';
 import "../QuienesModelo.css";
 // Vista "Nuestro Modelo": quiénes somos + el modelo de trabajo + misión/visión
 // + propuesta de valor. Todo el contenido sobre la organización y su forma de

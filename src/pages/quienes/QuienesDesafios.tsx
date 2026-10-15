@@ -1,6 +1,6 @@
 import { STRATEGIC_CHALLENGES } from '../../data/siteData';
 import IdentityBlock from '../../components/IdentityBlock/IdentityBlock';
-import ImgRetos from '../../assets/Quienes/Los-retos-que-nos-definen.jpg';
+import ImgRetos from '../../assets/Quienes/Los-retos-que-nos-definen.webp';
 
 // Vista "Desafíos Estratégicos": únicamente los retos que definen a NEXUS.
 export default function QuienesDesafios() {

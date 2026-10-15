@@ -106,6 +106,12 @@
 .hero h1 span {
   color: var(--nx-mid);
 }
+/* Títulos largos (p. ej. «Consultoría en Innovación Social y Responsabilidad
+   Territorial»): letra un poco menor y más ancho para quedar en 2–3 líneas. */
+.hero h1.hero-title-long {
+  font-size: clamp(32px, 4.6vw, 58px);
+  max-width: 980px;
+}
 .hero-sub {
   font-size: 25.6px;
   font-weight: 300;
@@ -141,6 +147,9 @@
 @media (max-width: 480px) {
   .hero h1 {
     font-size: clamp(31px, 9vw, 41.6px);
+  }
+  .hero h1.hero-title-long {
+    font-size: clamp(26px, 7.4vw, 34px);
   }
   .hero-sub {
     font-size: 19.2px;

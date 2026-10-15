@@ -14,6 +14,10 @@ export const OFFICIAL_DESCRIPTION =
 
 export const SITE = {
   name: "NEXUS",
+  // Nombre que se muestra en Google (títulos, nombre del sitio y ficha de la
+  // empresa). «NEXUS» a secas compite con cientos de empresas «Nexus» en el
+  // mundo; «NEXUS Innovación» coincide con el dominio y con la razón social.
+  seoName: "NEXUS Innovación",
   brandName: "NEXUS – Innovación y Alianzas para el Desarrollo Sostenible",
   legalName: "NEXUS Innovación y Alianzas para un Futuro Sostenible S.A.S.",
   // Dominio canónico (con www, que es el que responde el sitio).

@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { SERVICES, ARS_METHODOLOGY } from '../../data/siteData';
 import './ServiceTabs.css';
 
-import Eje1 from '../../assets/ejes/Eje1.jpg';
-import Eje2 from '../../assets/ejes/Eje2.jpg';
-import Eje3 from '../../assets/ejes/Eje3.jpg';
-import Eje4 from '../../assets/ejes/Eje4.jpg';
+import Eje1 from '../../assets/ejes/Eje1.webp';
+import Eje2 from '../../assets/ejes/Eje2.webp';
+import Eje3 from '../../assets/ejes/Eje3.webp';
+import Eje4 from '../../assets/ejes/Eje4.webp';
 
 const EJE_IMAGES = {
   tab1: Eje1,

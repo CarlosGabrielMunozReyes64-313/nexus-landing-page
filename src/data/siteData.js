@@ -39,7 +39,9 @@ export const NAV_ITEMS = [
   { label: "Inicio", to: "/" },
   {
     label: "Quiénes Somos",
-    to: "/quienes",
+    to: "/quienes/modelo",
+    // Marca el menú como activo en cualquier subpágina de /quienes.
+    match: "/quienes",
     children: [
       { label: "Nuestro Modelo", to: "/quienes/modelo" },
       { label: "Nuestros Principios", to: "/quienes/principios" },
@@ -921,7 +923,7 @@ export const CONTACT_TARGETS = [
 // ── Footer ────────────────────────────────────────────
 export const FOOTER_NAV = [
   { label: "Inicio", to: "/" },
-  { label: "Quiénes Somos", to: "/quienes" },
+  { label: "Quiénes Somos", to: "/quienes/modelo" },
   { label: "Servicios", to: "/servicios" },
   { label: "Proyectos", to: "/portafolio" },
   { label: "Red de Aliados", to: "/alianzas" },

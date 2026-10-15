@@ -36,6 +36,7 @@ type RouteSeo = {
 
 const abs = (path: string) =>
   path.startsWith('http') ? path : path === '/' ? `${SITE.url}/` : `${SITE.url}${path}`;
+const BRAND = SITE.seoName;
 const ORG_ID = `${SITE.url}/#organization`;
 const WEBSITE_ID = `${SITE.url}/#website`;
 
@@ -63,7 +64,7 @@ function ejeSeo(index: number): RouteSeo {
   const path = `/servicios/eje-${index + 1}`;
   const offers = (s.list || []).map((it: any) => it.label).slice(0, 20);
   return {
-    title: `${s.svcTitle} | NEXUS`,
+    title: `${s.svcTitle} | ${BRAND}`,
     description: s.desc,
     breadcrumb: [home, servicios, { name: s.svcTitle, path }],
     extraJsonLd: () => [
@@ -86,42 +87,42 @@ function ejeSeo(index: number): RouteSeo {
 // ── Rutas estáticas ──────────────────────────────────
 export const ROUTES: Record<string, RouteSeo> = {
   '/': {
-    title: 'NEXUS | Consultora de sostenibilidad y RSE en el Valle del Cauca',
+    title: `${BRAND} · Consultora de sostenibilidad y RSE en Valle del Cauca`,
     description:
       'Consultora de sostenibilidad, RSE y desarrollo territorial con sede en Candelaria, Valle del Cauca. Proyectos con gobiernos, empresas, MiPymes y cooperación.',
     priority: 1,
     changefreq: 'weekly',
   },
   '/quienes/modelo': {
-    title: 'Quiénes somos | NEXUS · Candelaria, Valle del Cauca',
+    title: `Quiénes somos | ${BRAND} · Candelaria, Valle del Cauca`,
     description:
       'NEXUS une ciencia, territorio, innovación y gobernanza para el desarrollo sostenible. Conozca nuestra misión, visión y modelo de trabajo.',
     breadcrumb: [home, quienes],
     priority: 0.7,
   },
   '/quienes/principios': {
-    title: 'Nuestros principios | NEXUS',
+    title: `Nuestros principios | ${BRAND}`,
     description:
       'Los valores que guían cada decisión de NEXUS en sostenibilidad, RSE y desarrollo territorial en el suroccidente colombiano.',
     breadcrumb: [home, quienes, { name: 'Principios', path: '/quienes/principios' }],
     priority: 0.5,
   },
   '/quienes/desafios': {
-    title: 'Desafíos estratégicos | NEXUS',
+    title: `Desafíos estratégicos | ${BRAND}`,
     description:
       'Los retos territoriales, ambientales y sociales que NEXUS aborda en Colombia y la forma en que los enfrentamos.',
     breadcrumb: [home, quienes, { name: 'Desafíos estratégicos', path: '/quienes/desafios' }],
     priority: 0.5,
   },
   '/quienes/equipo': {
-    title: 'Nuestro equipo | NEXUS',
+    title: `Nuestro equipo | ${BRAND}`,
     description:
       'Equipo multidisciplinario de NEXUS: ecología, gestión pública, innovación social, RSE, SIG, diseño y gestión de proyectos.',
     breadcrumb: [home, quienes, { name: 'Equipo', path: '/quienes/equipo' }],
     priority: 0.6,
   },
   '/servicios': {
-    title: 'Servicios de sostenibilidad, RSE y territorio | NEXUS',
+    title: `Servicios de sostenibilidad, RSE y territorio | ${BRAND}`,
     description:
       'Servicios en cuatro ejes: ciudades y territorios sostenibles, biodiversidad y SbN, innovación social y RSE, y proyectos de ciencia, tecnología e innovación.',
     breadcrumb: [home, servicios],
@@ -132,7 +133,7 @@ export const ROUTES: Record<string, RouteSeo> = {
   '/servicios/eje-3': ejeSeo(2),
   '/servicios/eje-4': ejeSeo(3),
   '/rse-mipymes': {
-    title: 'RSE para MiPymes en el Valle del Cauca | NEXUS',
+    title: `RSE para MiPymes en el Valle del Cauca | ${BRAND}`,
     description: PILOT.active
       ? `RSE práctica para MiPymes de Palmira y Candelaria: diagnóstico con IA, un reto concreto y acompañamiento experto. Piloto ${PILOT.year} con ${PILOT.slots} cupos.`
       : 'RSE práctica para MiPymes del Valle del Cauca: diagnóstico con IA, un reto concreto y acompañamiento experto desde Candelaria.',
@@ -158,21 +159,21 @@ export const ROUTES: Record<string, RouteSeo> = {
     changefreq: 'weekly',
   },
   '/portafolio': {
-    title: 'Proyectos y experiencia | NEXUS',
+    title: `Proyectos y experiencia | ${BRAND}`,
     description:
       'Portafolio de NEXUS con clientes, territorios y cifras: Basura Cero Popayán, Soluciones basadas en la Naturaleza con ICLEI, Política de RSE y más.',
     breadcrumb: [home, { name: 'Proyectos', path: '/portafolio' }],
     priority: 0.8,
   },
   '/alianzas': {
-    title: 'Red de aliados y cooperación | NEXUS',
+    title: `Red de aliados y cooperación | ${BRAND}`,
     description:
       'Aliados y agendas internacionales con los que NEXUS articula proyectos de sostenibilidad, incluido el programa de innovación de la Cámara de Comercio de Palmira.',
     breadcrumb: [home, { name: 'Red de aliados', path: '/alianzas' }],
     priority: 0.6,
   },
   '/blog': {
-    title: 'Blog de sostenibilidad y RSE | NEXUS',
+    title: `Blog de sostenibilidad y RSE | ${BRAND}`,
     description:
       'Artículos sobre RSE para pymes, informes de sostenibilidad, greenwashing, soluciones basadas en la naturaleza, bioeconomía y gestión territorial en Colombia.',
     breadcrumb: [home, blog],
@@ -180,42 +181,42 @@ export const ROUTES: Record<string, RouteSeo> = {
     changefreq: 'weekly',
   },
   '/contacto': {
-    title: 'Contacto | NEXUS · Candelaria, Valle del Cauca',
+    title: `Contacto | ${BRAND} · Candelaria, Valle del Cauca`,
     description:
       'Escríbanos por WhatsApp, correo o formulario. NEXUS es una consultora de sostenibilidad, RSE y desarrollo territorial con sede en Candelaria, Valle del Cauca.',
     breadcrumb: [home, { name: 'Contacto', path: '/contacto' }],
     priority: 0.8,
   },
   '/proyecto-demo': {
-    title: 'Calculadora de huella ecológica (demo) | NEXUS',
+    title: `Calculadora de huella ecológica (demo) | ${BRAND}`,
     description:
       'Calcule su huella de carbono e hídrica con la herramienta demo de NEXUS: factores configurables, datos regionales de Colombia y reporte en PDF.',
     breadcrumb: [home, demo],
     priority: 0.6,
   },
   '/proyecto-demo/carbono': {
-    title: 'Calculadora de huella de carbono | NEXUS',
+    title: `Calculadora de huella de carbono | ${BRAND}`,
     description:
       'Estime la huella de carbono de su hogar o empresa y compárela con los promedios nacional y mundial. Herramienta demo de NEXUS.',
     breadcrumb: [home, demo, { name: 'Huella de carbono', path: '/proyecto-demo/carbono' }],
     priority: 0.5,
   },
   '/proyecto-demo/hidrica': {
-    title: 'Calculadora de huella hídrica | NEXUS',
+    title: `Calculadora de huella hídrica | ${BRAND}`,
     description:
       'Estime el consumo de agua asociado a actividades agrícolas y pecuarias con datos regionales. Herramienta demo de NEXUS.',
     breadcrumb: [home, demo, { name: 'Huella hídrica', path: '/proyecto-demo/hidrica' }],
     priority: 0.5,
   },
   '/proyecto-demo/dashboard': {
-    title: 'Dashboard de huella ecológica | NEXUS',
+    title: `Dashboard de huella ecológica | ${BRAND}`,
     description: 'Panel de resultados de la calculadora de huella ecológica de NEXUS.',
     noindex: true, // depende de datos del usuario: no aporta a buscadores
   },
 };
 
 export const NOT_FOUND_SEO: RouteSeo = {
-  title: 'Página no encontrada | NEXUS',
+  title: `Página no encontrada | ${BRAND}`,
   description: 'La página que busca no existe o cambió de dirección.',
   noindex: true,
 };
@@ -229,8 +230,8 @@ export function organizationJsonLd() {
   return {
     '@type': ['Organization', 'ProfessionalService'],
     '@id': ORG_ID,
-    name: SITE.name,
-    alternateName: SITE.brandName,
+    name: BRAND,
+    alternateName: [SITE.name, SITE.brandName, 'NEXUS Innovación y Alianzas'],
     legalName: SITE.legalName,
     url: `${SITE.url}/`,
     logo: abs(LOGO_IMAGE),
@@ -280,7 +281,8 @@ function websiteJsonLd() {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
     url: `${SITE.url}/`,
-    name: SITE.name,
+    name: BRAND,
+    alternateName: [SITE.name, 'nexusinnovacion.com'],
     description: SITE.description,
     inLanguage: SITE.language,
     publisher: { '@id': ORG_ID },
@@ -310,7 +312,7 @@ function articleJsonLd(post: BlogPost) {
     dateModified: post.isoDate || undefined,
     inLanguage: SITE.language,
     articleSection: post.topic,
-    author: { '@type': 'Organization', name: post.author || 'Equipo NEXUS', url: `${SITE.url}/` },
+    author: { '@type': 'Organization', name: post.author || `Equipo ${BRAND}`, url: `${SITE.url}/` },
     publisher: { '@id': ORG_ID },
     image: abs(post.image || OG_IMAGE),
     mainEntityOfPage: url,
@@ -367,7 +369,7 @@ export function getSeo(pathname: string): SeoData {
   const post = m ? getArticle(m[1]) : undefined;
   if (post) {
     const r: RouteSeo = {
-      title: `${post.title} | NEXUS`,
+      title: `${post.title} | ${BRAND}`,
       description: post.preview,
       breadcrumb: [home, blog, { name: post.title, path }],
     };
@@ -388,7 +390,7 @@ export function headTags(seo: SeoData): Tag[] {
     { tag: 'title', text: seo.title },
     { tag: 'meta', attrs: { name: 'description', content: seo.description } },
     { tag: 'meta', attrs: { name: 'robots', content: seo.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large' } },
-    { tag: 'meta', attrs: { property: 'og:site_name', content: SITE.name } },
+    { tag: 'meta', attrs: { property: 'og:site_name', content: BRAND } },
     { tag: 'meta', attrs: { property: 'og:locale', content: SITE.locale } },
     { tag: 'meta', attrs: { property: 'og:type', content: seo.type } },
     { tag: 'meta', attrs: { property: 'og:title', content: seo.title } },
