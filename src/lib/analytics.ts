@@ -12,6 +12,7 @@
 //    whatsapp_click   clic en cualquier enlace de WhatsApp → Meta: Contact
 //    phone_click      clic en un enlace tel:        → Meta: Contact
 //    email_click      clic en un enlace mailto:     → Meta: Contact
+//    social_click     clic en Facebook, Instagram, LinkedIn o YouTube
 // =====================================================
 
 declare global {
@@ -124,6 +125,9 @@ function onDocumentClick(e: MouseEvent) {
   } else if (href.startsWith('mailto:')) {
     trackEvent('email_click', { link_location: where });
     trackMeta('Contact', { method: 'email' });
+  } else {
+    const net = href.match(/^https?:\/\/(?:www\.)?(facebook|instagram|linkedin|youtube)\.com\//i);
+    if (net) trackEvent('social_click', { network: net[1].toLowerCase(), link_location: where });
   }
 }
 

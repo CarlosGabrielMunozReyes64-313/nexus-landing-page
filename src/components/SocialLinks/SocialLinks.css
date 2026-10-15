@@ -1,0 +1,64 @@
+.social-links {
+  margin-top: 1.25rem;
+}
+.social-links-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+.social-links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social-links-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Sobre fondo oscuro (pie de página) */
+.social-links--dark .social-links-title {
+  color: rgba(255, 255, 255, 0.6);
+}
+.social-links--dark .social-links-item {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.social-links--dark .social-links-item:hover {
+  color: var(--nx-dark);
+  background: var(--nx-mid);
+  border-color: var(--nx-mid);
+}
+
+/* Sobre fondo claro (Contacto) */
+.social-links--light .social-links-title {
+  color: var(--nx-dark);
+}
+.social-links--light .social-links-item {
+  color: var(--nx-dark);
+  border-color: rgba(2, 64, 41, 0.25);
+  background: var(--nx-white);
+}
+.social-links--light .social-links-item:hover {
+  color: var(--nx-white);
+  background: var(--nx-dark);
+  border-color: var(--nx-dark);
+}
+
+.social-links-item:focus-visible {
+  outline: 2px solid var(--nx-mid);
+  outline-offset: 3px;
+}

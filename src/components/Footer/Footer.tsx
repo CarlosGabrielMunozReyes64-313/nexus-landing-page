@@ -2,14 +2,8 @@ import { Link } from 'react-router-dom'
 import { FOOTER_NAV, FOOTER_TOPICS } from '../../data/siteData'
 import { SITE, whatsappLink, WHATSAPP_MESSAGES } from '../../config/site'
 import { WhatsAppIcon } from '../WhatsAppButton/WhatsAppButton'
+import SocialLinks from '../SocialLinks/SocialLinks'
 import './Footer.css';
-
-const SOCIAL_LABELS: Record<string, string> = {
-  linkedin: 'LinkedIn',
-  instagram: 'Instagram',
-  facebook: 'Facebook',
-  youtube: 'YouTube',
-};
 
 function PhoneIcon() {
   return (
@@ -36,7 +30,6 @@ function PinIcon() {
 }
 
 export default function Footer() {
-  const socials = Object.entries(SITE.social).filter(([, url]) => Boolean(url))
   const year = new Date().getFullYear()
 
   return (
@@ -87,15 +80,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            {socials.length > 0 && (
-              <div className="footer-social" aria-label="Redes sociales">
-                {socials.map(([key, url]) => (
-                  <a key={key} href={url} target="_blank" rel="noopener noreferrer">
-                    {SOCIAL_LABELS[key] || key}
-                  </a>
-                ))}
-              </div>
-            )}
+            <SocialLinks variant="dark" title="Síganos" track="footer" />
 
             <div className="sdg-badges" style={{ marginTop: '1.25rem' }}>
               <span className="sdg-dark">ODS 11</span>

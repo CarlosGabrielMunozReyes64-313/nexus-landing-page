@@ -2,6 +2,7 @@ import "./Contacto.css";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero/Hero";
 import ContactForm from "../components/ContactForm/ContactForm";
+import SocialLinks from "../components/SocialLinks/SocialLinks";
 import { WhatsAppIcon } from "../components/WhatsAppButton/WhatsAppButton";
 import { CONTACT_TARGETS } from "../data/siteData";
 import { SITE, PILOT, whatsappLink, WHATSAPP_MESSAGES } from "../config/site";
@@ -75,6 +76,7 @@ export default function Contacto() {
                     </dd>
                   </div>
                 </dl>
+                <SocialLinks variant="light" title="Síganos" includeMaps track="contacto" />
               </div>
 
               <div className="contact-targets">

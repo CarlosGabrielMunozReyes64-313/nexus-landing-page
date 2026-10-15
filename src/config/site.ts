@@ -52,9 +52,9 @@ export const SITE = {
   // ── Redes y perfiles (déjelos vacíos si aún no existen) ──
   // Solo se muestran los que tengan URL.
   social: {
-    linkedin: "",
-    instagram: "",
-    facebook: "",
+    facebook: "https://www.facebook.com/profile.php?id=61595051935656",
+    instagram: "https://www.instagram.com/nexusinnovacion/",
+    linkedin: "https://www.linkedin.com/in/nexus-alianzas-e-innovaci%C3%B3n-68158a3aa/",
     youtube: "",
   },
   // Enlace al perfil de Google Business (se muestra como «Cómo llegar»).
